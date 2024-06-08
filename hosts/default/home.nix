@@ -28,6 +28,7 @@
     pkgs.gnomeExtensions.weather-or-not
     pkgs.gnomeExtensions.blur-my-shell
     pkgs.gnomeExtensions.nothing-to-say
+    pkgs.gnomeExtensions.gamemode-indicator-in-system-settings
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -256,6 +257,7 @@
         "weatherornot@somepaulo.github.io"
         "blur-my-shell@aunetx"
         "nothing-to-say@extensions.gnome.wouter.bolsterl.ee"
+        "gamemode@christian.kellner.me"
       ];
     };
     "org/gnome/desktop/interface" = {

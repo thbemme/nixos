@@ -93,9 +93,12 @@
     packages = with pkgs; [
       flatpak
       gnome.gnome-software
-      pkgs.wowup-cf
-      pkgs.mangohud
-      pkgs.lutris
+      wowup-cf
+      mangohud
+      lutris
+      gamemode
+      pika-backup
+      citrix_workspace
     ];
     shell = pkgs.fish;
   };
