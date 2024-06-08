@@ -217,23 +217,18 @@ programs.steam = {
     geary # email client
     pkgs.gnome-console
   ]; 
-  environment.etc = {
-     polkit-1/rules.d/90-corectrl.rules = {
-      text = ''
-        polkit.addRule(function(action, subject) {
-            if ((action.id == "org.corectrl.helper.init" ||
-                 action.id == "org.corectrl.helperkiller.init") &&
-                subject.local == true &&
-                subject.active == true &&
-                subject.isInGroup("user")) {
-                    return polkit.Result.YES;
-            }
-        });
-      '';
-  
-      # The UNIX file mode bits
-      mode = "0644";
-    };
+   # Allow the user run a program to poweroff the system.
+  security.polkit = {
+    extraConfig = ''
+      polkit.addRule(function(action, subject) {
+          if ((action.id == "org.corectrl.helper.init" ||
+               action.id == "org.corectrl.helperkiller.init") &&
+              subject.local == true &&
+              subject.active == true &&
+              subject.isInGroup("user")) {
+                  return polkit.Result.YES;
+          }
+      });
+    '';
   };
 }
-
