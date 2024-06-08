@@ -100,6 +100,13 @@
     shell = pkgs.fish;
   };
 
+  home-manager = {
+    # also pass inputs to home-manager modules
+    extraSpecialArgs = {inherit inputs;};
+    users = {
+      "user" = import ./home.nix;
+    };
+  };
   # Enable automatic login for the user.
   services.displayManager.autoLogin.user = "user";
   #services.xserver.displayManager.autoLogin.user = "user";
