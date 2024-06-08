@@ -98,7 +98,7 @@
       lutris
       gamemode
       pika-backup
-      citrix_workspace
+      #citrix_workspace
     ];
     shell = pkgs.fish;
   };
