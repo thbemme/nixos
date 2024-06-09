@@ -138,6 +138,7 @@
       vimPlugins.dracula-vim
       libsForQt5.qt5ct
       vimPlugins.vim-lastplace
+      fastfetch
     ];
     shell = pkgs.fish;
   };
