@@ -65,7 +65,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.avahi.enable = true;
-  services.avahi.nssmdns = true;
+  services.avahi.nssmdns4 = true;
 
   zramSwap.enable = true;
 
@@ -123,7 +123,6 @@
       gnome.seahorse
       remmina
       stellarium
-      teams
       telegram-desktop
       thonny
       tor-browser
@@ -133,6 +132,12 @@
       wireshark
       furmark
       path-of-building
+      papirus-icon-theme
+      nextcloud-client
+      discord
+      vimPlugins.dracula-vim
+      libsForQt5.qt5ct
+      vimPlugins.vim-lastplace
     ];
     shell = pkgs.fish;
   };
@@ -168,14 +173,19 @@
     btop
     gnome.gnome-tweaks
     wget
-    (vim_configurable.customize {
+    ((vim_configurable.override {  }).customize{
+      name = "vim";
+      # Install plugins for example for syntax highlighting of nix files
+      vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
+        start = [ vim-lastplace ];
+        opt = [];
+      };
       vimrcConfig.customRC = ''
         syntax on
         set tabstop=2
         set shiftwidth=2
         set expandtab
         set shiftround
-        colorscheme koehler
         set history=100
         set hlsearch
         set ignorecase
@@ -244,6 +254,9 @@ programs.steam = {
   programs.fish.enable = true;
   environment.variables = { EDITOR = "vim"; TERMINAL = "kitty"; BROWSER = "firefox";};
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  qt.enable = true;
+  qt.platformTheme = "qt5ct"; 
 
   boot.initrd.systemd.enable = true;
   boot.plymouth.enable = true;

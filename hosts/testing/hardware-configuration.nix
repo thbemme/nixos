@@ -9,14 +9,14 @@
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ "amdgpu"];
+  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/a46cd5b6-5106-43df-bc63-8fcf8c6861ca";
       fsType = "btrfs";
-      options = [ "subvol=@" ];
+      options = [ "compress=zstd" "subvol=@" ];
     };
 
   boot.initrd.luks.devices."luks-eaf78976-98b6-4f0f-99d2-5987c2d3bcd5".device = "/dev/disk/by-uuid/eaf78976-98b6-4f0f-99d2-5987c2d3bcd5";
