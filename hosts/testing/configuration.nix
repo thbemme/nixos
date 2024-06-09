@@ -47,6 +47,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
@@ -63,8 +64,20 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.avahi.enable = true;
+  services.avahi.nssmdns = true;
 
   zramSwap.enable = true;
+
+  hardware.sane.enable = true; # enables support for SANE scanners
+  hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
+  nixpkgs.config.packageOverrides = pkgs: {
+    xsaneGimp = pkgs.xsane.override { gimpSupport = true; };
+  };
+
+  hardware.opengl.extraPackages = with pkgs; [
+    rocmPackages.clr.icd
+  ];
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -89,7 +102,7 @@
   users.users.user = {
     isNormalUser = true;
     description = "user";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" ];
     packages = with pkgs; [
       flatpak
       gnome.gnome-software
@@ -99,6 +112,25 @@
       gamemode
       pika-backup
       #citrix_workspace
+      adwsteamgtk
+      cryptomator
+      gradience
+      gzdoom
+      krita
+      lyx
+      obs-studio
+      openshot-qt
+      gnome.seahorse
+      remmina
+      stellarium
+      teams
+      telegram-desktop
+      thonny
+      tor-browser
+      vlc
+      vscodium
+      whatsapp-for-linux
+      wireshark
     ];
     shell = pkgs.fish;
   };
@@ -127,12 +159,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    pkgs.git
-    pkgs.fish
-    pkgs.kitty
-    pkgs.lm_sensors
-    pkgs.btop
-    pkgs.gnome.gnome-tweaks
+    git
+    fish
+    kitty
+    lm_sensors
+    btop
+    gnome.gnome-tweaks
     wget
     (vim_configurable.customize {
       vimrcConfig.customRC = ''
@@ -157,12 +189,17 @@
     fishPlugins.grc
     grc
     vim
-    pkgs.corectrl
+    corectrl
     libreoffice
     hunspell
     hunspellDicts.en_US
     hunspellDicts.de_DE
-    pkgs.gnome.gnome-boxes
+    gnome.gnome-boxes
+    blender-hip
+    clinfo
+    btrfs-assistant
+    xsane
+    xsensors
   ];
 
 programs.steam = {
