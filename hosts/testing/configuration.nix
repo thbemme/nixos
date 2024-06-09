@@ -131,6 +131,8 @@
       vscodium
       whatsapp-for-linux
       wireshark
+      furmark
+      path-of-building
     ];
     shell = pkgs.fish;
   };
@@ -200,6 +202,9 @@
     btrfs-assistant
     xsane
     xsensors
+    vulkan-tools
+    gpu-viewer
+    stress-ng
   ];
 
 programs.steam = {
@@ -254,7 +259,7 @@ programs.steam = {
     geary # email client
     pkgs.gnome-console
   ]; 
-   # Allow the user run a program to poweroff the system.
+  
   security.polkit = {
     extraConfig = ''
       polkit.addRule(function(action, subject) {
@@ -262,7 +267,7 @@ programs.steam = {
                action.id == "org.corectrl.helperkiller.init") &&
               subject.local == true &&
               subject.active == true &&
-              subject.isInGroup("user")) {
+              subject.isInGroup("wheel")) {
                   return polkit.Result.YES;
           }
       });
