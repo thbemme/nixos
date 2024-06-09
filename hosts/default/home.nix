@@ -51,7 +51,7 @@
       bold_font        auto
       italic_font      auto
       bold_italic_font auto
-      font_size 10.0
+      font_size 11.0
       background_blur 1
       background_opacity .8
       disable_ligatures never

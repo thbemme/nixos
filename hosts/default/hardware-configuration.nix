@@ -33,11 +33,6 @@
       options = [ "subvol=nix" "compress=zstd" "noatime" ];
     };
 
-  fileSystems."/media" =
-    { device = "/dev/disk/by-uuid/ec6d0b8a-bc2a-4a2d-a06d-7b1f71a4d8b9";
-      fsType = "ext4";
-    };
-
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/59DD-90A8";
       fsType = "vfat";
