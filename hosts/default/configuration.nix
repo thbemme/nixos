@@ -102,18 +102,16 @@
   users.users.user = {
     isNormalUser = true;
     description = "user";
-    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" ];
+    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" "gamemode" ];
     packages = with pkgs; [
-      flatpak
       gnome.gnome-software
       wowup-cf
       mangohud
       lutris
       gamemode
       pika-backup
-      #citrix_workspace
+      citrix_workspace
       adwsteamgtk
-      cryptomator
       gradience
       gzdoom
       krita
@@ -139,6 +137,7 @@
       libsForQt5.qt5ct
       vimPlugins.vim-lastplace
       fastfetch
+      gnome-extension-manager
     ];
     shell = pkgs.fish;
   };
@@ -234,6 +233,9 @@ programs.steam = {
 
   # List services that you want to enable:
 
+  services.btrfs.autoScrub.enable = true;
+  services.btrfs.autoScrub.interval = "weekly";
+
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
@@ -251,10 +253,12 @@ programs.steam = {
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
 
-  services.flatpak.enable = true;
   programs.fish.enable = true;
   environment.variables = { EDITOR = "vim"; TERMINAL = "kitty"; BROWSER = "firefox";};
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  programs.appimage.enable = true;
+  programs.appimage.binfmt = true;
 
   qt.enable = true;
   qt.platformTheme = "qt5ct"; 
@@ -269,7 +273,6 @@ programs.steam = {
 
   environment.gnome.excludePackages = with pkgs.gnome; [
     epiphany # web browser
-    evince # document viewer
     geary # email client
     pkgs.gnome-console
   ]; 

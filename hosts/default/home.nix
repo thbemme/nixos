@@ -245,6 +245,10 @@
         "firefox.desktop"
         "kitty.desktop"
         "org.gnome.Nautilus.desktop"
+        "discord.desktop"
+        "steam.desktop"
+        "Battle.net.desktop"
+        "Path of Exile.desktop"
       ];
       enabled-extensions = [
         "user-theme@gnome-shell-extensions.gcampax.github.com"
