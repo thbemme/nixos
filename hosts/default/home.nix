@@ -44,6 +44,7 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".config/btop/btop.conf".source = ./dotfiles.btop.conf;
     ".config/kitty/kitty.conf".text = ''
       linux_display_server x11
       wayland_titlebar_color system
