@@ -104,7 +104,6 @@
     description = "user";
     extraGroups = [ "networkmanager" "wheel" "scanner" "lp" "gamemode" ];
     packages = with pkgs; [
-      gnome.gnome-software
       wowup-cf
       mangohud
       lutris
@@ -254,7 +253,7 @@ programs.steam = {
   system.stateVersion = "24.05"; # Did you read the comment?
 
   programs.fish.enable = true;
-  environment.variables = { EDITOR = "vim"; TERMINAL = "kitty"; BROWSER = "firefox";};
+  environment.variables = { EDITOR = "vim"; TERMINAL = "kitty"; BROWSER = "firefox"; };
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   programs.appimage.enable = true;

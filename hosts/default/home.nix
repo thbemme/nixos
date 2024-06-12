@@ -182,7 +182,7 @@
         set -U fish_pager_color_secondary_description 
         set -U fish_color_host_remote 
         set -U fish_pager_color_secondary_completion 
-        
+        set -gx TERM kitty
         
         function fish_prompt
           if [ $status = 0 ]
@@ -245,9 +245,10 @@
         "firefox.desktop"
         "kitty.desktop"
         "org.gnome.Nautilus.desktop"
+        "codium.desktop"
         "discord.desktop"
         "steam.desktop"
-        "Battle.net.desktop"
+        "net.lutris.battlenet-9.desktop"
         "Path of Exile.desktop"
       ];
       enabled-extensions = [
