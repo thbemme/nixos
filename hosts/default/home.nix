@@ -238,6 +238,12 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  programs.git = {
+    enable = true;
+    userName = "firstname lastname";
+    userEmail = "firstname.lastname@maildomain.com";
+  };
+
   # Use `dconf watch /` to track stateful changes you are doing, then set them here.
   dconf.settings = {
     "org/gnome/shell" = {
@@ -267,6 +273,15 @@
     };
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
+      enable-hot-corners = false;
     };
+      "org/gnome/desktop/calendar" = {
+        show-weekdate = true;
+        clock-show-weekday = true;
+    };
+      "org/gnome/desktop/wm/preferences" = {
+        button-layout = "appmenu:minimize,maximize,close";
+        dynamic-workspaces = true;
+      };
   };
 }
