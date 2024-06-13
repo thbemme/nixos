@@ -137,6 +137,7 @@
       vimPlugins.vim-lastplace
       fastfetch
       gnome-extension-manager
+      amberol
     ];
     shell = pkgs.fish;
   };
