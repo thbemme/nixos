@@ -1,5 +1,5 @@
-#!/bin/bash
-DISK=/dev/sdb
+#!/run/current-system/sw/bin/sh
+	DISK=/dev/sda
 # Create partitions
 printf "label: gpt\n,550M,U\n,,L\n" | sfdisk "$DISK"
 # Format the EFI partition
@@ -34,4 +34,6 @@ mount -o subvol=nix,compress=zstd,noatime /dev/mapper/rootfs /mnt/nix
 mkdir /mnt/boot
 mount "$DISK"1 /mnt/boot
 
-git clone https://git.kbnetcloud.de/user/nixos.git
+echo git clone https://git.kbnetcloud.de/user/nixos.git
+echo sudo nixos-install --flake /home/nixos/nixos#default --no-root-password
+echo sudo nixos-enter --root /mnt -c 'passwd user'
