@@ -32,18 +32,18 @@
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
+  # plain files is through "home.file".
   home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
+    # # Building this configuration will create a copy of "dotfiles/screenrc" in
+    # # the Nix store. Activating the configuration will then make "~/.screenrc" a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
 
     # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
+    # ".gradle/gradle.properties".text = ""
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
-    # '';
+    # "";
     ".config/btop/btop.conf".source = ./dotfiles/btop.conf;
     ".config/kitty/kitty.conf".source = ./dotfiles/kitty.conf;
     ".config/kitty/dracula.conf".source = ./dotfiles/dracula.conf;
@@ -118,6 +118,12 @@
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       enable-hot-corners = false;
+      cursor-theme="McMojave-cursors";
+      enable-animations=true;
+      font-antialiasing="grayscale";
+      font-hinting="full";
+      gtk-theme="Dracula-standard-buttons";
+      icon-theme="Dracula";
     };
       "org/gnome/desktop/calendar" = {
         show-weekdate = true;
