@@ -99,39 +99,40 @@
     description = "user";
     extraGroups = [ "networkmanager" "wheel" "scanner" "lp" "gamemode" "dialout" ];
     packages = with pkgs; [
-      wowup-cf
-      mangohud
-      lutris
-      pika-backup
-      citrix_workspace
       adwsteamgtk
+      amberol
+      citrix_workspace
+      discord
+      fastfetch
+      furmark
+      gnome-extension-manager
+      gnome.seahorse
       gradience
       gzdoom
+      halloy 
       krita
+      libsForQt5.qt5ct
+      lutris
       lyx
+      mangohud
+      nextcloud-client
       obs-studio
       openshot-qt
-      gnome.seahorse
+      papirus-icon-theme
+      path-of-building
+      pika-backup
       remmina
       stellarium
       telegram-desktop
       thonny
       tor-browser
+      vimPlugins.dracula-vim
+      vimPlugins.vim-lastplace
       vlc
       vscodium
       whatsapp-for-linux
       wireshark
-      furmark
-      path-of-building
-      papirus-icon-theme
-      nextcloud-client
-      discord
-      vimPlugins.dracula-vim
-      libsForQt5.qt5ct
-      vimPlugins.vim-lastplace
-      fastfetch
-      gnome-extension-manager
-      amberol
+      wowup-cf
     ];
     shell = pkgs.fish;
   };
@@ -160,13 +161,35 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    git
-    fish
-    kitty
-    lm_sensors
+    blender-hip
     btop
+    btrfs-assistant
+    clinfo
+    corectrl
+    fish
+    fishPlugins.done
+    fishPlugins.forgit
+    fishPlugins.fzf-fish
+    fishPlugins.grc
+    fishPlugins.hydro
+    fzf
+    git
+    gnome.gnome-boxes
     gnome.gnome-tweaks
+    gpu-viewer
+    grc
+    hunspell
+    hunspellDicts.de_DE
+    hunspellDicts.en_US
+    kitty
+    libreoffice
+    lm_sensors
+    stress-ng
+    vim
+    vulkan-tools
     wget
+    xsane
+    xsensors
     ((vim_configurable.override {  }).customize{
       name = "vim";
       # Install plugins for example for syntax highlighting of nix files
@@ -187,28 +210,6 @@
         set number
       '';
     })    
-    fishPlugins.done
-    fishPlugins.fzf-fish
-    fishPlugins.forgit
-    fishPlugins.hydro
-    fzf
-    fishPlugins.grc
-    grc
-    vim
-    corectrl
-    libreoffice
-    hunspell
-    hunspellDicts.en_US
-    hunspellDicts.de_DE
-    gnome.gnome-boxes
-    blender-hip
-    clinfo
-    btrfs-assistant
-    xsane
-    xsensors
-    vulkan-tools
-    gpu-viewer
-    stress-ng
   ];
 
 programs.steam = {

@@ -18,17 +18,17 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    pkgs.gnomeExtensions.user-themes
+    pkgs.gnomeExtensions.appindicator
+    pkgs.gnomeExtensions.blur-my-shell
     pkgs.gnomeExtensions.dash-to-dock
     pkgs.gnomeExtensions.freon
+    #pkgs.gnomeExtensions.gamemode-indicator-in-system-settings
     pkgs.gnomeExtensions.just-perfection
+    pkgs.gnomeExtensions.nothing-to-say
     pkgs.gnomeExtensions.rounded-corners
     pkgs.gnomeExtensions.user-avatar-in-quick-settings
-    pkgs.gnomeExtensions.appindicator
+    pkgs.gnomeExtensions.user-themes
     pkgs.gnomeExtensions.weather-or-not
-    pkgs.gnomeExtensions.blur-my-shell
-    pkgs.gnomeExtensions.nothing-to-say
-    #pkgs.gnomeExtensions.gamemode-indicator-in-system-settings
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -112,17 +112,17 @@
         "Path of Exile.desktop"
       ];
       enabled-extensions = [
-        "user-theme@gnome-shell-extensions.gcampax.github.com"
-        "freon@UshakovVasilii_Github.yahoo.com"
-        "dash-to-dock@micxgx.maildomain.com"
-        "just-perfection-desktop@just-perfection"
-        "Rounded_Corners@lennart-k"
-        "quick-settings-avatar@d-go"
         "appindicatorsupport@rgcjonas.maildomain.com"
-        "weatherornot@somepaulo.github.io"
         "blur-my-shell@aunetx"
-        "nothing-to-say@extensions.gnome.wouter.bolsterl.ee"
+        "dash-to-dock@micxgx.maildomain.com"
+        "freon@UshakovVasilii_Github.yahoo.com"
         #"gamemode@christian.kellner.me"
+        "just-perfection-desktop@just-perfection"
+        "nothing-to-say@extensions.gnome.wouter.bolsterl.ee"
+        "quick-settings-avatar@d-go"
+        "Rounded_Corners@lennart-k"
+        "user-theme@gnome-shell-extensions.gcampax.github.com"
+        "weatherornot@somepaulo.github.io"
       ];
     };
     "org/gnome/shell/extensions/user-theme" = {
@@ -130,9 +130,9 @@
     };
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
-      enable-hot-corners = false;
       cursor-theme="McMojave-cursors";
       enable-animations=true;
+      enable-hot-corners = false;
       font-antialiasing="grayscale";
       font-hinting="full";
       gtk-theme="Dracula-standard-buttons";
