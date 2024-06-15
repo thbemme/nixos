@@ -17,7 +17,7 @@
     in
     {
     nixosConfigurations = {
-      default = nixpkgs.lib.nixosSystem {
+      puffy = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/default/configuration.nix

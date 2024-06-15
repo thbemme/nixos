@@ -102,7 +102,7 @@
   users.users.user = {
     isNormalUser = true;
     description = "user";
-    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" "gamemode" ];
+    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" "gamemode" "dialout" ];
     packages = with pkgs; [
       wowup-cf
       mangohud
@@ -255,11 +255,13 @@ programs.gamemode.enable = true;
   system.stateVersion = "24.05"; # Did you read the comment?
 
   programs.fish.enable = true;
-  environment.variables = { EDITOR = "vim"; TERMINAL = "kitty"; BROWSER = "firefox"; };
+  environment.variables = { EDITOR = "vim"; TERMINAL = "kitty"; BROWSER = "firefox"; FLAKE = "/home/user/git/nixos"; };
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   programs.appimage.enable = true;
   programs.appimage.binfmt = true;
+
+  programs.nh.enable = true;
 
   qt.enable = true;
   qt.platformTheme = "qt5ct"; 
