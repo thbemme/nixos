@@ -20,7 +20,14 @@
       puffy = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          ./hosts/default/configuration.nix
+          ./hosts/puffy/configuration.nix
+          inputs.home-manager.nixosModules.default
+        ];
+      };
+      puff = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/puff/configuration.nix
           inputs.home-manager.nixosModules.default
         ];
       };

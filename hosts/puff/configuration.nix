@@ -145,7 +145,7 @@
     # also pass inputs to home-manager modules
     extraSpecialArgs = {inherit inputs;};
     users = {
-      "user" = import ./home.nix;
+      "user" = import ../../home/home.nix;
     };
   };
   # Enable automatic login for the user.
@@ -268,8 +268,6 @@ programs.gamemode.enable = true;
 
   boot.initrd.systemd.enable = true;
   boot.plymouth.enable = true;
-  boot.kernelParams = ["rhgb" "quiet" "amdgpu.ppfeaturemask=0xffffffff"];
-  boot.kernelModules = [ "nct6775" ];
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;

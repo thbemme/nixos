@@ -60,7 +60,7 @@
       source = ./dotfiles/gtk-3.0;
       recursive = true;
     }; 
-    ".config/gkt-4.0" = {
+    ".config/gtk-4.0" = {
       source = ./dotfiles/gtk-4.0;
       recursive = true;
     }; 

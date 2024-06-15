@@ -145,7 +145,7 @@
     # also pass inputs to home-manager modules
     extraSpecialArgs = {inherit inputs;};
     users = {
-      "user" = import ./home.nix;
+      "user" = import ../../home/home.nix;
     };
   };
   # Enable automatic login for the user.
