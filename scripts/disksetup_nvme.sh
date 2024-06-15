@@ -34,3 +34,7 @@ mount /dev/sda1 /mnt/media
 # don't forget this!
 mkdir /mnt/boot
 mount "$DISK"p1 /mnt/boot
+
+echo git clone https://git.kbnetcloud.de/user/nixos.git
+echo sudo nixos-install --flake /home/nixos/nixos#default --no-root-password
+echo sudo nixos-enter --root /mnt -c 'passwd user'
