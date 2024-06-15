@@ -49,10 +49,29 @@
     ".config/kitty/dracula.conf".source = ./dotfiles/dracula.conf;
     ".config/fish/config.fish".source = ./dotfiles/config.fish;
     ".themes/" = {
-      source = .dotfiles/themes;
+      source = ./dotfiles/themes;
       recursive = true;
     }; 
-
+    ".icons/" = {
+      source = ./dotfiles/icons;
+      recursive = true;
+    }; 
+    ".config/gtk-3.0" = {
+      source = ./dotfiles/gtk-3.0;
+      recursive = true;
+    }; 
+    ".config/gkt-4.0" = {
+      source = ./dotfiles/gtk-4.0;
+      recursive = true;
+    }; 
+    ".config/qt5ct" = {
+      source = ./dotfiles/qt5ct;
+      recursive = true;
+    }; 
+    ".config/qt6ct" = {
+      source = ./dotfiles/qt6ct;
+      recursive = true;
+    }; 
   };
 
   home.sessionVariables = {
