@@ -48,6 +48,11 @@
     ".config/kitty/kitty.conf".source = ./dotfiles/kitty.conf;
     ".config/kitty/dracula.conf".source = ./dotfiles/dracula.conf;
     ".config/fish/config.fish".source = ./dotfiles/config.fish;
+    ".themes/" = {
+      source = .dotfiles/themes;
+      recursive = true;
+    }; 
+
   };
 
   home.sessionVariables = {
