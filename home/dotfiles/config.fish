@@ -38,7 +38,7 @@ set -U fish_pager_color_secondary_prefix
 set -U fish_pager_color_secondary_description 
 set -U fish_color_host_remote 
 set -U fish_pager_color_secondary_completion 
-set -gx TERM kitty
+set -gx TERM xterm-kitty
 
 function fish_prompt
   if [ $status = 0 ]
