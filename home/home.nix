@@ -82,6 +82,8 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  programs.direnv.enable = true;
+
   programs.btop = {
     enable = true;
     settings = {
@@ -122,6 +124,9 @@
         "nothing-to-say@extensions.gnome.wouter.bolsterl.ee"
         #"gamemode@christian.kellner.me"
       ];
+    };
+    "org/gnome/shell/extensions/user-theme" = {
+      name = "Dracula-standard-buttons";
     };
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
