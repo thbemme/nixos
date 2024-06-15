@@ -44,7 +44,7 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # "";
-    ".config/btop/btop.conf".source = ./dotfiles/btop.conf;
+    #".config/btop/btop.conf".source = ./dotfiles/btop.conf;
     ".config/kitty/kitty.conf".source = ./dotfiles/kitty.conf;
     ".config/kitty/dracula.conf".source = ./dotfiles/dracula.conf;
     ".config/fish/config.fish".source = ./dotfiles/config.fish;
@@ -81,6 +81,14 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs.btop = {
+    enable = true;
+    settings = {
+      color_theme = "Dracula";
+      theme_background = false;
+    };
+  };
 
   programs.git = {
     enable = true;
