@@ -102,11 +102,14 @@
       adwsteamgtk
       amberol
       citrix_workspace
+      cryptomator
       discord
       fastfetch
       furmark
+      gimp-with-plugins
       gnome-extension-manager
       gnome.seahorse
+      gpt4all
       gradience
       gzdoom
       halloy 
@@ -126,8 +129,6 @@
       telegram-desktop
       thonny
       tor-browser
-      vimPlugins.dracula-vim
-      vimPlugins.vim-lastplace
       vlc
       vscodium
       whatsapp-for-linux
@@ -161,6 +162,27 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    ((vim_configurable.override {  }).customize{
+      name = "vim";
+      # Install plugins for example for syntax highlighting of nix files
+      vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
+        start = [ vim-nix vim-lastplace dracula-vim];
+        opt = [];
+      };
+      vimrcConfig.customRC = ''
+        set backspace=indent,eol,start
+        set expandtab
+        set history=100
+        set hlsearch
+        set ignorecase
+        set number
+        set shiftround
+        set shiftwidth=2
+        set tabstop=2
+        set wildmenu
+        syntax on
+      '';
+    })  
     blender-hip
     btop
     btrfs-assistant
@@ -185,31 +207,10 @@
     libreoffice
     lm_sensors
     stress-ng
-    vim
     vulkan-tools
     wget
     xsane
     xsensors
-    ((vim_configurable.override {  }).customize{
-      name = "vim";
-      # Install plugins for example for syntax highlighting of nix files
-      vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
-        start = [ vim-lastplace ];
-        opt = [];
-      };
-      vimrcConfig.customRC = ''
-        syntax on
-        set tabstop=2
-        set shiftwidth=2
-        set expandtab
-        set shiftround
-        set history=100
-        set hlsearch
-        set ignorecase
-        set wildmenu
-        set number
-      '';
-    })    
   ];
 
 programs.steam = {
