@@ -16,7 +16,7 @@
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/0983aec3-4199-4f89-acdd-38ac22ec346a";
       fsType = "btrfs";
-      options = [ "subvol=root" ];
+      options = [ "subvol=root" "compress=zstd" ];
     };
 
   boot.initrd.luks.devices."rootfs".device = "/dev/disk/by-uuid/875d4041-2f71-4dc7-ae7d-1832efc99352";
@@ -24,7 +24,7 @@
   fileSystems."/home" =
     { device = "/dev/disk/by-uuid/0983aec3-4199-4f89-acdd-38ac22ec346a";
       fsType = "btrfs";
-      options = [ "subvol=home" ];
+      options = [ "subvol=home" "compress=zstd" ];
     };
 
   fileSystems."/boot" =
