@@ -275,6 +275,7 @@ programs.gamemode.enable = true;
     pkgs.gnome-console
   ]; 
   
+  # Corectrl without password
   security.polkit = {
     extraConfig = ''
       polkit.addRule(function(action, subject) {
