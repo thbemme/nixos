@@ -5,10 +5,11 @@
 { config, pkgs, inputs, ... }:
 
 {
- nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       inputs.home-manager.nixosModules.default
     ];
 
@@ -104,6 +105,7 @@
       citrix_workspace
       cryptomator
       discord
+      ecwolf
       fastfetch
       furmark
       gimp-with-plugins
@@ -112,7 +114,7 @@
       gpt4all
       gradience
       gzdoom
-      halloy 
+      halloy
       krita
       libsForQt5.qt5ct
       lutris
@@ -140,7 +142,7 @@
 
   home-manager = {
     # also pass inputs to home-manager modules
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = { inherit inputs; };
     users = {
       "user" = import ../home/home.nix;
     };
@@ -162,12 +164,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    ((vim_configurable.override {  }).customize{
+    ((vim_configurable.override { }).customize {
       name = "vim";
       # Install plugins for example for syntax highlighting of nix files
       vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
-        start = [ vim-nix vim-lastplace dracula-vim];
-        opt = [];
+        start = [ vim-nix vim-lastplace dracula-vim ];
+        opt = [ ];
       };
       vimrcConfig.customRC = ''
         set backspace=indent,eol,start
@@ -182,7 +184,7 @@
         set wildmenu
         syntax on
       '';
-    })  
+    })
     blender-hip
     btop
     btrfs-assistant
@@ -206,6 +208,7 @@
     kitty
     libreoffice
     lm_sensors
+    nixpkgs-fmt
     python3
     stress-ng
     vulkan-tools
@@ -214,13 +217,13 @@
     xsensors
   ];
 
-programs.steam = {
-  enable = true;
-  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-};
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  };
 
-programs.gamemode.enable = true;
+  programs.gamemode.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -262,7 +265,7 @@ programs.gamemode.enable = true;
   programs.nh.enable = true;
 
   qt.enable = true;
-  qt.platformTheme = "qt5ct"; 
+  qt.platformTheme = "qt5ct";
 
   boot.initrd.systemd.enable = true;
   boot.plymouth.enable = true;
@@ -274,8 +277,8 @@ programs.gamemode.enable = true;
     epiphany # web browser
     geary # email client
     pkgs.gnome-console
-  ]; 
-  
+  ];
+
   # Corectrl without password
   security.polkit = {
     extraConfig = ''

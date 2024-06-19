@@ -10,34 +10,34 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: 
+  outputs = { self, nixpkgs, ... }@inputs:
     let
       system = "x86_64_linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-    nixosConfigurations = {
-      puffy = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/puffy/configuration.nix
-          inputs.home-manager.nixosModules.default
-        ];
+      nixosConfigurations = {
+        puffy = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/puffy/configuration.nix
+            inputs.home-manager.nixosModules.default
+          ];
+        };
+        puff = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/puff/configuration.nix
+            inputs.home-manager.nixosModules.default
+          ];
+        };
+        testing = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/testing/configuration.nix
+            inputs.home-manager.nixosModules.default
+          ];
+        };
       };
-      puff = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/puff/configuration.nix
-          inputs.home-manager.nixosModules.default
-        ];
-      };
-      testing = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/testing/configuration.nix
-          inputs.home-manager.nixosModules.default
-        ];
-      };
-    };  
-  };
+    };
 }

@@ -51,27 +51,27 @@
     ".themes/" = {
       source = ./dotfiles/themes;
       recursive = true;
-    }; 
+    };
     ".icons/" = {
       source = ./dotfiles/icons;
       recursive = true;
-    }; 
+    };
     ".config/gtk-3.0" = {
       source = ./dotfiles/gtk-3.0;
       recursive = true;
-    }; 
+    };
     ".config/gtk-4.0" = {
       source = ./dotfiles/gtk-4.0;
       recursive = true;
-    }; 
+    };
     ".config/qt5ct" = {
       source = ./dotfiles/qt5ct;
       recursive = true;
-    }; 
+    };
     ".config/qt6ct" = {
       source = ./dotfiles/qt6ct;
       recursive = true;
-    }; 
+    };
   };
 
   home.sessionVariables = {
@@ -88,9 +88,9 @@
     enable = true;
     package = pkgs.vscodium;
     extensions = with pkgs.vscode-extensions; [
-    dracula-theme.theme-dracula
-    vscodevim.vim
-    yzhang.markdown-all-in-one
+      dracula-theme.theme-dracula
+      vscodevim.vim
+      yzhang.markdown-all-in-one
     ];
   };
 
@@ -139,21 +139,21 @@
     };
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
-      cursor-theme="McMojave-cursors";
-      enable-animations=true;
+      cursor-theme = "McMojave-cursors";
+      enable-animations = true;
       enable-hot-corners = false;
-      font-antialiasing="grayscale";
-      font-hinting="full";
-      gtk-theme="Dracula-standard-buttons";
-      icon-theme="Dracula";
+      font-antialiasing = "grayscale";
+      font-hinting = "full";
+      gtk-theme = "Dracula-standard-buttons";
+      icon-theme = "Dracula";
     };
-      "org/gnome/desktop/calendar" = {
-        show-weekdate = true;
-        clock-show-weekday = true;
+    "org/gnome/desktop/calendar" = {
+      show-weekdate = true;
+      clock-show-weekday = true;
     };
-      "org/gnome/desktop/wm/preferences" = {
-        button-layout = "appmenu:minimize,maximize,close";
-        dynamic-workspaces = true;
-      };
+    "org/gnome/desktop/wm/preferences" = {
+      button-layout = "appmenu:minimize,maximize,close";
+      dynamic-workspaces = true;
+    };
   };
 }
