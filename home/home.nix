@@ -118,7 +118,6 @@
         "codium.desktop"
         "discord.desktop"
         "steam.desktop"
-        "net.lutris.battlenet-9.desktop"
         "Path of Exile.desktop"
       ];
       enabled-extensions = [

@@ -206,6 +206,7 @@
     kitty
     libreoffice
     lm_sensors
+    python3
     stress-ng
     vulkan-tools
     wget
