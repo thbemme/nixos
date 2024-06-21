@@ -127,6 +127,7 @@
       path-of-building
       pika-backup
       remmina
+      scummvm
       stellarium
       telegram-desktop
       thonny
