@@ -213,6 +213,9 @@
     python3
     stress-ng
     vulkan-tools
+    wineWowPackages.staging
+    winetricks
+    wineWowPackages.waylandFull
     wget
     xsane
     xsensors
