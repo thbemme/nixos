@@ -198,6 +198,7 @@
     fishPlugins.grc
     fishPlugins.hydro
     fzf
+    g810-led
     git
     gnome.gnome-boxes
     gnome.gnome-tweaks

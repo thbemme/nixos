@@ -16,6 +16,15 @@
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
+  services.udev = {
+    packages = [
+      pkgs.g810-led
+    ];
+    extraRules = ''
+      ACTION=="add", SUBSYSTEM=="usb", RUN+="${pkgs.g810-led}/bin/g810-led -a 8a2be2"
+    '';
+  };
+
   boot.kernelParams = [ "rhgb" "quiet" "amdgpu.ppfeaturemask=0xffffffff" ];
   boot.kernelModules = [ "nct6775" ];
 }
