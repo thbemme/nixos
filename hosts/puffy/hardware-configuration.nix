@@ -46,8 +46,9 @@
 
   fileSystems."/media" =
     {
-      device = "/dev/disk/by-uuid/ec6d0b8a-bc2a-4a2d-a06d-7b1f71a4d8b9";
-      fsType = "ext4";
+      device = "/dev/disk/by-uuid/66e5b8b9-787b-42d7-b327-30f1d68ba02d";
+      fsType = "btrfs";
+      options = [ "compress=zstd" "noatime" ];
     };
 
   swapDevices = [ ];

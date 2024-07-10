@@ -66,7 +66,7 @@
   zramSwap.enable = true;
 
   hardware.sane.enable = true; # enables support for SANE scanners
-  #hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
+  hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
   nixpkgs.config.packageOverrides = pkgs: {
     xsaneGimp = pkgs.xsane.override { gimpSupport = true; };
   };
@@ -156,8 +156,12 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
-  # Install firefox.
-  programs.firefox.enable = true;
+  # Install firefox and PWA.
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox;
+    nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -191,6 +195,7 @@
     btrfs-assistant
     clinfo
     corectrl
+    firefoxpwa
     fish
     fishPlugins.done
     fishPlugins.forgit
