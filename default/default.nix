@@ -63,7 +63,11 @@
   services.avahi.enable = true;
   services.avahi.nssmdns4 = true;
 
-  zramSwap.enable = true;
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 25;
+  };
 
   hardware.sane.enable = true; # enables support for SANE scanners
   hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
@@ -224,6 +228,11 @@
     wget
     xsane
     xsensors
+  ];
+
+  fonts.packages = with pkgs; [
+    commit-mono
+    inter
   ];
 
   programs.steam = {
