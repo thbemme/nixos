@@ -119,6 +119,7 @@
         "discord.desktop"
         "steam.desktop"
         "Path of Exile.desktop"
+        "Once Human.desktop"
       ];
       enabled-extensions = [
         "appindicatorsupport@rgcjonas.maildomain.com"

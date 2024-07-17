@@ -228,6 +228,7 @@
     wget
     xsane
     xsensors
+    #zed-editor
   ];
 
   fonts.packages = with pkgs; [
