@@ -110,6 +110,9 @@
 
   # Use `dconf watch /` to track stateful changes you are doing, then set them here.
   dconf.settings = {
+    "org/gnome/mutter" = {
+      experimental-features = [ "variable-refresh-rate" ];
+    };
     "org/gnome/shell" = {
       favorite-apps = [
         "firefox.desktop"

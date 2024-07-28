@@ -130,6 +130,7 @@
       papirus-icon-theme
       path-of-building
       pika-backup
+      protonup-qt
       remmina
       scummvm
       stellarium
