@@ -128,7 +128,7 @@
       obs-studio
       openshot-qt
       papirus-icon-theme
-      path-of-building
+      phoronix-test-suite
       pika-backup
       protonup-qt
       remmina
