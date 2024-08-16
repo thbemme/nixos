@@ -151,6 +151,9 @@
       gtk-theme = "Dracula-standard-buttons";
       icon-theme = "Dracula";
     };
+    "org/gnome/desktop/lockdown" = {
+      disable-lock-screen = false;
+    };
     "org/gnome/desktop/calendar" = {
       show-weekdate = true;
       clock-show-weekday = true;

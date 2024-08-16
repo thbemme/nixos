@@ -221,6 +221,7 @@
     libreoffice
     lm_sensors
     nixpkgs-fmt
+    nmap
     python3
     qemu
     stress-ng
