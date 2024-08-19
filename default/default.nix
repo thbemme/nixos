@@ -70,7 +70,7 @@
   };
 
   hardware.sane.enable = true; # enables support for SANE scanners
-  hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
+  #hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
   nixpkgs.config.packageOverrides = pkgs: {
     xsaneGimp = pkgs.xsane.override { gimpSupport = true; };
   };
@@ -104,6 +104,13 @@
     description = "user";
     extraGroups = [ "networkmanager" "wheel" "scanner" "lp" "gamemode" "dialout" ];
     packages = with pkgs; [
+      (pkgs.wrapOBS {
+        plugins = with pkgs.obs-studio-plugins; [
+          wlrobs
+          obs-backgroundremoval
+          obs-pipewire-audio-capture
+        ];
+      })
       adwsteamgtk
       amberol
       citrix_workspace
@@ -125,7 +132,6 @@
       lyx
       mangohud
       nextcloud-client
-      obs-studio
       openshot-qt
       papirus-icon-theme
       phoronix-test-suite
@@ -220,10 +226,12 @@
     kitty
     libreoffice
     lm_sensors
+    motion
     nixpkgs-fmt
     nmap
     python3
     qemu
+    spectre-meltdown-checker
     stress-ng
     vulkan-tools
     wineWowPackages.staging
@@ -275,7 +283,7 @@
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 22 ];
+  networking.firewall.allowedTCPPorts = [ 22 8081 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
