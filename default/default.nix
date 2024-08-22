@@ -143,6 +143,7 @@
       telegram-desktop
       thonny
       tor-browser
+      transmission_4-gtk
       vlc
       vscodium
       whatsapp-for-linux
