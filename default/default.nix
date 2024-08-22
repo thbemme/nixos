@@ -319,6 +319,7 @@
     epiphany # web browser
     geary # email client
     pkgs.gnome-console
+    pkgs.gnome-connections
   ];
 
   # Corectrl without password
