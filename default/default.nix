@@ -116,6 +116,7 @@
       citrix_workspace
       cryptomator
       discord
+      easyeffects
       ecwolf
       fastfetch
       furmark
