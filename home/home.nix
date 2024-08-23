@@ -48,6 +48,7 @@
     ".config/kitty/kitty.conf".source = ./dotfiles/kitty.conf;
     ".config/kitty/dracula.conf".source = ./dotfiles/dracula.conf;
     ".config/fish/config.fish".source = ./dotfiles/config.fish;
+    ".config/MangoHud/MangoHud.conf".source = ./dotfiles/MangoHud.conf;
     ".themes/" = {
       source = ./dotfiles/themes;
       recursive = true;
