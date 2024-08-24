@@ -27,4 +27,5 @@
 
   boot.kernelParams = [ "rhgb" "quiet" "amdgpu.ppfeaturemask=0xffffffff" ];
   boot.kernelModules = [ "nct6775" ];
+
 }
