@@ -66,7 +66,6 @@
   zramSwap = {
     enable = true;
     algorithm = "zstd";
-    memoryPercent = 25;
   };
 
   hardware.sane.enable = true; # enables support for SANE scanners
