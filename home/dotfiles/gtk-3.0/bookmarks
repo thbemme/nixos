@@ -1,4 +1,4 @@
-dav://localhost:42427/Mnr8gBJqdAub GDrive
+file:///home/user/.local/share/Cryptomator/mnt/GDrive
 file:///media
 file:///home/user/Appimages
 file:///home/user/Documents
@@ -6,17 +6,7 @@ file:///home/user/Music
 file:///home/user/Pictures
 file:///home/user/Videos
 file:///home/user/Downloads
-file:///home/user/Documents
-file:///home/user/Pictures
 file:///home/user/kbnetcloud
 file:///home/user/Phone
-file:///home/user/Videos
-file:///home/user/Music
 smb://blowfish/incoming/ incoming on blowfish
 smb://blowfish/media/ media on blowfish
-file:///home/user/kbnetcloud
-file:///home/user/Documents
-file:///home/user/Music
-file:///home/user/Videos
-file:///home/user/Pictures
-file:///home/user/Phone
