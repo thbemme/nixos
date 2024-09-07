@@ -112,6 +112,7 @@
       })
       adwsteamgtk
       amberol
+      apostrophe
       citrix_workspace
       cryptomator
       discord
