@@ -111,6 +111,7 @@
         ];
       })
       adwsteamgtk
+      alsa-utils
       amberol
       apostrophe
       citrix_workspace
@@ -137,6 +138,7 @@
       papirus-icon-theme
       phoronix-test-suite
       pika-backup
+      piper-tts
       protonup-qt
       remmina
       scummvm
