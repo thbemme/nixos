@@ -258,8 +258,8 @@
     [ "L+ /var/lib/qemu/firmware - - - - ${firmware}" ];
 
   fonts.packages = with pkgs; [
-    commit-mono
     inter
+    fira-code
   ];
 
   programs.steam = {
