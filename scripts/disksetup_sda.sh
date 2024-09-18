@@ -34,6 +34,6 @@ mount -o subvol=nix,compress=zstd,noatime /dev/mapper/rootfs /mnt/nix
 mkdir /mnt/boot
 mount "$DISK"1 /mnt/boot
 
-echo git clone https://git.kbnetcloud.de/user/nixos.git
+echo git clone https://git.kbnetcloud.de/user/nixos.gitecho sudo nixos-generate-config --root /mnt --show-hardware-config > hosts/<host>/hardware-configuration.nix
 echo sudo nixos-install --flake /home/nixos/nixos#default --no-root-password
 echo sudo nixos-enter --root /mnt -c 'passwd user'

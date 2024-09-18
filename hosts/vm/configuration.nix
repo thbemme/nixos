@@ -13,5 +13,5 @@
     ];
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "vm"; # Define your hostname.
 }
