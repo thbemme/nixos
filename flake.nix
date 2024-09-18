@@ -31,6 +31,13 @@
             inputs.home-manager.nixosModules.default
           ];
         };
+        vm = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/vm/configuration.nix
+            inputs.home-manager.nixosModules.default
+          ];
+        };
         testing = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [

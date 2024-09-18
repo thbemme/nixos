@@ -114,7 +114,7 @@
       alsa-utils
       amberol
       apostrophe
-      citrix_workspace
+      #citrix_workspace
       cryptomator
       discord
       easyeffects
