@@ -84,3 +84,18 @@ function fish_title
       echo -ne "\\ek"$maybehost(status current-command)"\\e\\" > /dev/tty
     end
 end
+
+function p
+  nixpkgs-fmt ~/git/nixos/;git -C ~/git/nixos/ diff;read -lP 'Continue?' && git -C ~/git/nixos/ add .&&git -C ~/git/nixos/ commit&&git -C ~/git/nixos/ push
+end
+
+function pu
+  git -C ~/git/nixos/ pull
+end
+
+function r
+  nh os switch $argv
+end
+function u
+  nh os switch --update $argv
+end
