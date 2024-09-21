@@ -237,6 +237,7 @@
     motion
     nixpkgs-fmt
     nmap
+    pv
     python3
     qemu
     spectre-meltdown-checker
@@ -291,7 +292,7 @@
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 22 8081 ];
+  networking.firewall.allowedTCPPorts = [ 22 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
