@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running 'nixos-help').
 
-{ config, pkgs, inputs, ... }:
+{ config, lib, pkgs, pkgs-unstable, inputs, ... }:
 
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -102,7 +102,7 @@
     isNormalUser = true;
     description = "user";
     extraGroups = [ "networkmanager" "wheel" "scanner" "lp" "gamemode" "dialout" ];
-    packages = with pkgs; [
+    packages = (with pkgs; [
       (pkgs.wrapOBS {
         plugins = with pkgs.obs-studio-plugins; [
           wlrobs
@@ -136,6 +136,7 @@
       nextcloud-client
       openshot-qt
       papirus-icon-theme
+      papers
       phoronix-test-suite
       pika-backup
       piper-tts
@@ -152,7 +153,10 @@
       whatsapp-for-linux
       wireshark
       wowup-cf
-    ];
+    ]) ++
+    (with pkgs-unstable; [
+      path-of-building
+    ]);
     shell = pkgs.fish;
   };
 
