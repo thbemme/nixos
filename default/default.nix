@@ -241,7 +241,6 @@
     wget
     xsane
     xsensors
-    #zed-editor
   ];
 
   systemd.tmpfiles.rules =
