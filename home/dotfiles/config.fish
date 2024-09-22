@@ -86,7 +86,7 @@ function fish_title
 end
 
 function p
-  nixpkgs-fmt ~/git/nixos/;git -C ~/git/nixos/ diff;read -lP 'Continue?' && git -C ~/git/nixos/ add .&&git -C ~/git/nixos/ commit&&git -C ~/git/nixos/ push
+  nixpkgs-fmt ~/git/nixos/;git -C ~/git/nixos/ diff;read -lP 'Continue?' && git -C ~/git/nixos/ add .&&git -C ~/git/nixos/ commit -m 'Update Flake'&&git -C ~/git/nixos/ commit --amend&&git -C ~/git/nixos/ push
 end
 
 function pu
