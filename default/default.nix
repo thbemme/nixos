@@ -114,6 +114,7 @@
       alsa-utils
       amberol
       apostrophe
+      blender-hip
       citrix_workspace
       cryptomator
       discord
@@ -123,12 +124,19 @@
       furmark
       gimp-with-plugins
       gnome-extension-manager
+      gnome.gnome-boxes
+      gnome.gnome-tweaks
+      gpu-viewer
       gnome.seahorse
       gpt4all
       gradience
       gzdoom
       halloy
+      hunspell
+      hunspellDicts.de_DE
+      hunspellDicts.en_US
       krita
+      libreoffice
       libsForQt5.qt5ct
       lutris
       lyx
@@ -167,14 +175,6 @@
       "user" = import ../home/home.nix;
     };
   };
-  # Enable automatic login for the user.
-  # services.displayManager.autoLogin.user = "user";
-  # services.xserver.displayManager.autoLogin.user = "user";
-
-  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
-
   # Install firefox and PWA.
   programs.firefox = {
     enable = true;
@@ -209,11 +209,11 @@
         syntax on
       '';
     })
-    blender-hip
     btop
     btrfs-assistant
     clinfo
     corectrl
+    dig
     firefoxpwa
     fish
     fishPlugins.done
@@ -224,15 +224,8 @@
     fzf
     g810-led
     git
-    gnome.gnome-boxes
-    gnome.gnome-tweaks
-    gpu-viewer
     grc
-    hunspell
-    hunspellDicts.de_DE
-    hunspellDicts.en_US
     kitty
-    libreoffice
     lm_sensors
     motion
     nixpkgs-fmt
