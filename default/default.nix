@@ -212,7 +212,6 @@
     nmap
     pv
     python3
-    qemu
     spectre-meltdown-checker
     stress-ng
     wget
