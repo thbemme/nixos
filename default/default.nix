@@ -102,7 +102,7 @@
     isNormalUser = true;
     description = "user";
     extraGroups = [ "networkmanager" "wheel" "scanner" "lp" "gamemode" "dialout" ];
-    packages = (with pkgs; [
+    packages = with pkgs; [
       (pkgs.wrapOBS {
         plugins = with pkgs.obs-studio-plugins; [
           wlrobs
@@ -110,7 +110,6 @@
           obs-pipewire-audio-capture
         ];
       })
-      adwsteamgtk
       alsa-utils
       amberol
       apostrophe
@@ -119,18 +118,14 @@
       cryptomator
       discord
       easyeffects
-      ecwolf
       fastfetch
-      furmark
       gimp-with-plugins
       gnome-extension-manager
       gnome.gnome-boxes
       gnome.gnome-tweaks
       gpu-viewer
       gnome.seahorse
-      gpt4all
       gradience
-      gzdoom
       halloy
       hunspell
       hunspellDicts.de_DE
@@ -138,19 +133,14 @@
       krita
       libreoffice
       libsForQt5.qt5ct
-      lutris
       lyx
-      mangohud
       nextcloud-client
       openshot-qt
       papirus-icon-theme
       papers
       phoronix-test-suite
       pika-backup
-      piper-tts
-      protonup-qt
       remmina
-      scummvm
       stellarium
       telegram-desktop
       thonny
@@ -160,11 +150,7 @@
       vscodium
       whatsapp-for-linux
       wireshark
-      wowup-cf
-    ]) ++
-    (with pkgs-unstable; [
-      path-of-building
-    ]);
+    ];
     shell = pkgs.fish;
   };
 
@@ -236,8 +222,6 @@
     spectre-meltdown-checker
     stress-ng
     vulkan-tools
-    wineWowPackages.staging
-    winetricks
     wget
     xsane
     xsensors
@@ -258,14 +242,6 @@
     inter
     fira-code
   ];
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  };
-
-  programs.gamemode.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

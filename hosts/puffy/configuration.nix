@@ -7,15 +7,17 @@
 {
   imports =
     [
-      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../default/default.nix
+      ../../modules/gaming.nix
+      ../../modules/ai.nix
     ];
 
   networking.hostName = "puffy"; # Define your hostname.
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
+  # Set G-512 keyboard backlight to blueviolet
   services.udev = {
     packages = [
       pkgs.g810-led
@@ -25,7 +27,10 @@
     '';
   };
 
+  # Enable AMD GPU overclocking
   boot.kernelParams = [ "rhgb" "quiet" "amdgpu.ppfeaturemask=0xffffffff" ];
+
+  # Enable nct6775 module for sensor readings
   boot.kernelModules = [ "nct6775" ];
 
 }
