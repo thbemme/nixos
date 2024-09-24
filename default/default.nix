@@ -74,10 +74,6 @@
     xsaneGimp = pkgs.xsane.override { gimpSupport = true; };
   };
 
-  hardware.opengl.extraPackages = with pkgs; [
-    rocmPackages.clr.icd
-  ];
-
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -121,7 +117,6 @@
       fastfetch
       gimp-with-plugins
       gnome-extension-manager
-      gnome.gnome-boxes
       gnome.gnome-tweaks
       gpu-viewer
       gnome.seahorse
@@ -198,7 +193,6 @@
     btop
     btrfs-assistant
     clinfo
-    corectrl
     dig
     firefoxpwa
     fish
@@ -221,7 +215,6 @@
     qemu
     spectre-meltdown-checker
     stress-ng
-    vulkan-tools
     wget
     xsane
     xsensors
@@ -288,28 +281,10 @@
   boot.initrd.systemd.enable = true;
   boot.plymouth.enable = true;
 
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
-
   environment.gnome.excludePackages = with pkgs.gnome; [
     epiphany # web browser
     geary # email client
     pkgs.gnome-console
     pkgs.gnome-connections
   ];
-
-  # Corectrl without password
-  security.polkit = {
-    extraConfig = ''
-      polkit.addRule(function(action, subject) {
-          if ((action.id == "org.corectrl.helper.init" ||
-               action.id == "org.corectrl.helperkiller.init") &&
-              subject.local == true &&
-              subject.active == true &&
-              subject.isInGroup("wheel")) {
-                  return polkit.Result.YES;
-          }
-      });
-    '';
-  };
 }
