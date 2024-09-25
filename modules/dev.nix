@@ -29,6 +29,8 @@
       flex
       lzop
       python3
+    ]) ++
+    (with pkgs-unstable; [
       android-studio
     ]);
   };

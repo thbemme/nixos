@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-unstable, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   hardware.opengl.extraPackages = with pkgs; [

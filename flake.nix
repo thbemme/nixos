@@ -28,7 +28,10 @@
           ];
           specialArgs = {
             inherit inputs;
-            inherit pkgs-unstable;
+            pkgs-unstable = import nixpkgs-unstable {
+              inherit system;
+              config.allowUnfree = true;
+            };
           };
         };
         puff = lib.nixosSystem {
@@ -39,7 +42,6 @@
           ];
           specialArgs = {
             inherit inputs;
-            inherit pkgs-unstable;
           };
         };
         testing = lib.nixosSystem {
@@ -50,18 +52,16 @@
           ];
           specialArgs = {
             inherit inputs;
-            inherit pkgs-unstable;
           };
-        };
-        vm = lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./hosts/vm/configuration.nix
-            inputs.home-manager.nixosModules.default
-          ];
-          specialArgs = {
-            inherit inputs;
-            inherit pkgs-unstable;
+          vm = lib.nixosSystem {
+            inherit system;
+            modules = [
+              ./hosts/vm/configuration.nix
+              inputs.home-manager.nixosModules.default
+            ];
+            specialArgs = {
+              inherit inputs;
+            };
           };
         };
       };

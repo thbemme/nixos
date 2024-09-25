@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running 'nixos-help').
 
-{ config, lib, pkgs, pkgs-unstable, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -110,7 +110,6 @@
       amberol
       apostrophe
       blender-hip
-      citrix_workspace
       cryptomator
       discord
       easyeffects

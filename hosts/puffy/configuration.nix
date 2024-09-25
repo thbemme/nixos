@@ -14,6 +14,7 @@
       ../../modules/gpu.nix
       ../../modules/virt.nix
       ../../modules/dev.nix
+      ../../modules/work.nix
     ];
 
   networking.hostName = "puffy"; # Define your hostname.
