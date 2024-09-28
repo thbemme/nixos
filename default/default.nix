@@ -264,10 +264,11 @@
   qt.enable = true;
   qt.platformTheme = "qt5ct";
 
-  services.fwupd.enabled = true;
+  services.fwupd.enable = true;
 
   boot.initrd.systemd.enable = true;
-  boot.plymouth.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 10
+    boot.plymouth.enable = true;
 
   environment.gnome.excludePackages = with pkgs.gnome; [
     epiphany # web browser
