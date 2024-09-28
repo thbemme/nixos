@@ -264,6 +264,8 @@
   qt.enable = true;
   qt.platformTheme = "qt5ct";
 
+  services.fwupd.enabled = true;
+
   boot.initrd.systemd.enable = true;
   boot.plymouth.enable = true;
 
