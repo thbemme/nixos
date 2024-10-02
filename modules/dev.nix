@@ -3,32 +3,33 @@
 {
   users.users.user = {
     packages = (with pkgs; [
-      thonny
-      zlib
-      ncurses5
+      androidenv.androidPkgs_9_0.platform-tools
+      bison
+      curl
+      flex
       git
       gitRepo
-      gnupg
-      #python2
-      curl
-      procps
-      openssl
       gnumake
-      nettools
-      androidenv.androidPkgs_9_0.platform-tools
-      jdk
-      schedtool
-      util-linux
-      m4
+      gnupg
       gperf
-      perl
+      jdk
       libxml2
-      zip
-      unzip
-      bison
-      flex
       lzop
+      m4
+      ncurses5
+      nettools
+      openssl
+      perl
+      procps
+      #python2
       python3
+      schedtool
+      scrcpy
+      thonny
+      unzip
+      util-linux
+      zip
+      zlib
     ]) ++
     (with pkgs-unstable; [
       android-studio
