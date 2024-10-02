@@ -2,16 +2,22 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-24.05";
-    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # nix for android
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nix-on-droid, ... }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -53,17 +59,22 @@
           specialArgs = {
             inherit inputs;
           };
-          vm = lib.nixosSystem {
-            inherit system;
-            modules = [
-              ./hosts/vm/configuration.nix
-              inputs.home-manager.nixosModules.default
-            ];
-            specialArgs = {
-              inherit inputs;
-            };
+        };
+        vm = lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/vm/configuration.nix
+            inputs.home-manager.nixosModules.default
+          ];
+          specialArgs = {
+            inherit inputs;
           };
         };
+      };
+      nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
+        pkgs = import nixpkgs { system = "aarch64-linux"; };
+        modules = [ ./hosts/mikrobi/configuration.nix ];
+
       };
     };
 }
