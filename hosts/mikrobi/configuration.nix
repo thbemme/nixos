@@ -3,7 +3,27 @@
 {
   # Simply install just the packages
   environment.packages = with pkgs; [
-    vim
+    ((vim_configurable.override { }).customize {
+      name = "vim";
+      # Install plugins for example for syntax highlighting of nix files
+      vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
+        start = [ vim-nix vim-lastplace dracula-vim ];
+        opt = [ ];
+      };
+      vimrcConfig.customRC = ''
+        set backspace=indent,eol,start
+        set expandtab
+        set history=100
+        set hlsearch
+        set ignorecase
+        set number
+        set shiftround
+        set shiftwidth=2
+        set tabstop=2
+        set wildmenu
+        syntax on
+      '';
+    })
     git
     openssh
     dig
@@ -18,6 +38,9 @@
     tzdata
     htop
     gnupg
+    ncurses
+    neofetch
+
   ];
 
   environment.extraOutputsToInstall = [
@@ -43,6 +66,15 @@
   # Set your time zone
   #time.timeZone = "Europe/Berlin";
 
+  terminal.font =
+    let
+      firacode = pkgs.nerdfonts.override {
+        fonts = [ "FiraCode" ];
+      };
+      fontPath = "share/fonts/truetype/NerdFonts/FiraCodeNerdFontMono-Regular.ttf";
+    in
+    "${firacode}/${fontPath}";
+
   # Configure home-manager
   home-manager = {
     backupFileExtension = "hm-bak";
@@ -55,6 +87,28 @@
         home.stateVersion = "24.05";
         home.file = {
           ".config/fish/config.fish".source = ../../home/dotfiles/mikrobi.fish;
+        };
+        programs.git = {
+          enable = true;
+          userName = "firstname lastname";
+          userEmail = "firstname.lastname@maildomain.com";
+        };
+        programs.ssh = {
+          enable = true;
+          forwardAgent = true;
+          extraConfig = ''
+            SetEnv TERM=xterm-256color
+          '';
+          matchBlocks = {
+            "git-amd64-vm" = {
+              hostname = "192.168.178.16";
+              user = "user";
+            };
+            "ssh-amd64-vm" = {
+              hostname = "192.168.178.19";
+              user = "user";
+            };
+          };
         };
         services.ssh-agent.enable = true;
       };
