@@ -97,7 +97,7 @@
   users.users.user = {
     isNormalUser = true;
     description = "user";
-    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" "gamemode" "dialout" ];
+    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" "dialout" ];
     packages = with pkgs; [
       (pkgs.wrapOBS {
         plugins = with pkgs.obs-studio-plugins; [
