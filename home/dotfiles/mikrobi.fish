@@ -46,7 +46,7 @@ function fish_title
     end
 end
 
-function p
+function pu
   git -C ~/nixos/ pull
 end
 

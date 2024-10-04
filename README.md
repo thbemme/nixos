@@ -8,7 +8,7 @@ git clone https://git.kbnetcloud.de/user/nixos.git ~/git/nixos
 cd ~/git/nixos
 ```
 2. Setup disk
-- **Waring: The disksetup scripts will delete all partitions on `nvme0n1`, `sda` or `vda`**
+- **Warning: The disksetup scripts will delete all partitions on `nvme0n1`, `sda` or `vda`**
 - One btrfs volume with subvolumes for `home` and `nix`
 - nvme and sda type create a encrypted volume 
 - vda type creates a unencrypted volume
@@ -21,13 +21,13 @@ scripts/disksetup_<type>.sh
 nixos-generate-config --root /mnt --show-hardware-config > hosts/<host>/hardware-configuration.nix
 ```
 - Check if btrfs mountpoints  have `"compress=zstd"` parameter or add it manually
-4. Start installation for `<hostname>` and set user password
+4. Start installation for `<hostname>` and set `<username>` password
 ```
 nixos-install --flake /home/nixos/nixos#<hostname> --no-root-password
-nixos-enter --root /mnt -c "passwd user"
+nixos-enter --root /mnt -c "passwd <username>"
 ```
 ### Maintenance
-- Several aliases exist to keep systems updated using `nh`
+- Several aliases exist to keep OS updated using `nh`
 - Update with `u [--dry]`
 - Reconfiguration with `r [--dry]`
 - Push to git with `p`
@@ -46,6 +46,6 @@ git clone https://git.kbnetcloud.de/user/nixos.git
 nix-on-droid -F ~/nixos/
 ```
 ### Maintenance
-- Several aliases exist to keep systems updated using `nix-on-droid`
+- Several aliases exist to keep OS updated using `nix-on-droid`
 - Reconfiguration with `r [--dry]`
-- Pull from git with `p`
+- Pull from git with `pu`
