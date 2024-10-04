@@ -40,7 +40,10 @@
     gnupg
     ncurses
     neofetch
-
+    curl
+    nmap
+    fastfetch
+    nix-index
   ];
 
   environment.extraOutputsToInstall = [
@@ -87,6 +90,10 @@
         home.stateVersion = "24.05";
         home.file = {
           ".config/fish/config.fish".source = ../../home/dotfiles/mikrobi.fish;
+        };
+        programs.nix-index = {
+          enable = true;
+          enableFishIntegration = true;
         };
         programs.git = {
           enable = true;
