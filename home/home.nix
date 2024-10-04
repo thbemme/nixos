@@ -120,10 +120,9 @@
         "kitty.desktop"
         "org.gnome.Nautilus.desktop"
         "codium.desktop"
-        "discord.desktop"
+        "vesktop.desktop"
         "steam.desktop"
         "Path of Exile.desktop"
-        "Once Human.desktop"
       ];
       enabled-extensions = [
         "appindicatorsupport@rgcjonas.maildomain.com"

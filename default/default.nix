@@ -111,7 +111,6 @@
       apostrophe
       blender-hip
       cryptomator
-      discord
       easyeffects
       fastfetch
       gimp-with-plugins
@@ -139,6 +138,7 @@
       telegram-desktop
       tor-browser
       transmission_4-gtk
+      vesktop
       vlc
       vscodium
       whatsapp-for-linux
