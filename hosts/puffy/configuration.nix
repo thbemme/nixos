@@ -9,6 +9,7 @@
     [
       ./hardware-configuration.nix
       ../../default/default.nix
+      ../../modules/vim.nix
       ../../modules/gaming.nix
       ../../modules/ai.nix
       ../../modules/gpu.nix

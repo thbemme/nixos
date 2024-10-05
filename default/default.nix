@@ -9,7 +9,6 @@
 
   imports =
     [
-      # Include the results of the hardware scan.
       inputs.home-manager.nixosModules.default
     ];
 
@@ -167,27 +166,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    ((vim_configurable.override { }).customize {
-      name = "vim";
-      # Install plugins for example for syntax highlighting of nix files
-      vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
-        start = [ vim-nix vim-lastplace dracula-vim ];
-        opt = [ ];
-      };
-      vimrcConfig.customRC = ''
-        set backspace=indent,eol,start
-        set expandtab
-        set history=100
-        set hlsearch
-        set ignorecase
-        set number
-        set shiftround
-        set shiftwidth=2
-        set tabstop=2
-        set wildmenu
-        syntax on
-      '';
-    })
     btop
     btrfs-assistant
     clinfo
@@ -253,7 +231,7 @@
   system.stateVersion = "24.05"; # Did you read the comment?
 
   programs.fish.enable = true;
-  environment.variables = { EDITOR = "vim"; TERMINAL = "kitty"; BROWSER = "firefox"; FLAKE = "/home/user/git/nixos"; };
+  environment.variables = { TERMINAL = "kitty"; BROWSER = "firefox"; FLAKE = "/home/user/git/nixos"; };
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   programs.appimage.enable = true;
