@@ -33,6 +33,7 @@
     ]) ++
     (with pkgs-unstable; [
       android-studio
+      ladybird
     ]);
   };
 
