@@ -8,6 +8,7 @@
   environment.systemPackages = with pkgs; [
     corectrl
     vulkan-tools
+    amdgpu_top
   ];
 
   # Corectrl without password

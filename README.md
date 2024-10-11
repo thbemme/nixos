@@ -3,9 +3,7 @@
 ### Installation
 1. Clone repo
 ```
-mkdir ~/git/nixos
 git clone https://git.kbnetcloud.de/user/nixos.git ~/git/nixos
-cd ~/git/nixos
 ```
 2. Setup disk
 - **Warning: The disksetup scripts will delete all partitions on `nvme0n1`, `sda` or `vda`**

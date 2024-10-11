@@ -12,7 +12,7 @@
       ../../modules/vim.nix
       ../../modules/gaming.nix
       ../../modules/ai.nix
-      ../../modules/gpu.nix
+      ../../modules/amdgpu.nix
       ../../modules/virt.nix
       ../../modules/dev.nix
       ../../modules/work.nix
