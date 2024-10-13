@@ -1,4 +1,31 @@
 # My NixOS configuration and setup
+## Modules
+### [AI](modules/ai.nix)
+- Comfyui
+- Mimic (TTS)
+- Ollama
+- Open-webui
+### [AMD GPU](modules/amdgpu.nix)
+- CoreCTRL (Undervolting GPU)
+- Vulkan Tools
+### [Development](modules/dev.nix)
+- Thony (Micropython for Raspberry Pico development)
+- Android Studio (Unstable)
+### [Gaming](modules/gaming.nix)
+- Lutris
+- Stream
+- Wine
+### [Prometheus](modules/prometheus.nix)
+- Prometheus exporter for Grafana monitoring
+### [VIM](modules/vim.nix)
+- Customized Vim config
+### [Virtualization](modules/virt.nix)
+- Gnome Boxes
+- UEFI fix
+- Qemu
+### [Work related](modules/work.nix)
+- MS Teams
+- Citrix Client
 ## Desktop
 ### Installation
 1. Clone repo
@@ -7,9 +34,9 @@ git clone https://git.kbnetcloud.de/user/nixos.git ~/git/nixos
 ```
 2. Setup disk
 - **Warning: The disksetup scripts will delete all partitions on `nvme0n1`, `sda` or `vda`**
-- One btrfs volume with subvolumes for `home` and `nix`
-- nvme and sda type create a encrypted volume 
-- vda type creates a unencrypted volume
+- One btrfs volume with subvolumes for `rootfs`, `home` and `nix`
+- Physical volumes (nvme, sda) encrypted via cryptsetup
+- Virtual volumes (vda) unencrypted
 - Swap via `zram`
 ```
 scripts/disksetup_<type>.sh
@@ -25,7 +52,7 @@ nixos-install --flake /home/nixos/nixos#<hostname> --no-root-password
 nixos-enter --root /mnt -c "passwd <username>"
 ```
 ### Maintenance
-- Several aliases exist to keep OS updated using `nh`
+- `nh` is being used to maintain NixOS
 - Update with `u [--dry]`
 - Reconfiguration with `r [--dry]`
 - Push to git with `p`
@@ -44,6 +71,6 @@ git clone https://git.kbnetcloud.de/user/nixos.git
 nix-on-droid -F ~/nixos/
 ```
 ### Maintenance
-- Several aliases exist to keep OS updated using `nix-on-droid`
+- `nix-on-droid` to maintain nix-on-droid
 - Reconfiguration with `r [--dry]`
 - Pull from git with `pu`
