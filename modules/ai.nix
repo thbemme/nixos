@@ -1,6 +1,10 @@
-{ config, lib, pkgs, pkgs-unstable, inputs, ... }:
+{ config, lib, pkgs, pkgs-unstable, nix-comfyui, inputs, ... }:
 
 {
+
+  nixpkgs.overlays = [
+    inputs.nix-comfyui.overlays.default
+  ];
 
   disabledModules = [ "services/misc/ollama.nix" "services/misc/open-webui.nix" ];
 
@@ -38,6 +42,8 @@
   environment.systemPackages = (with pkgs; [
     piper-tts
     mimic
+    comfyuiPackages.rocm.comfyui-with-extensions
+    #comfyuiPackages.krita-with-extensions
   ]) ++
   (with pkgs-unstable; [
     oterm

@@ -5,6 +5,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    nix-comfyui.url = "github:dyscorv/nix-comfyui";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,7 +19,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nix-on-droid, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nix-comfyui, nix-on-droid, ... }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";

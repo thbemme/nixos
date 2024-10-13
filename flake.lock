@@ -1,5 +1,22 @@
 {
   "nodes": {
+    "flake-utils": {
+      "inputs": {
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1710146030,
+        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
+        "type": "github"
+      },
+      "original": {
+        "id": "flake-utils",
+        "type": "indirect"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -18,6 +35,26 @@
         "owner": "nix-community",
         "ref": "release-24.05",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "nix-comfyui": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs",
+        "poetry2nix": "poetry2nix"
+      },
+      "locked": {
+        "lastModified": 1724630400,
+        "narHash": "sha256-40BMcGmRNbdBs+vc+bGIsuJJOyZjFiuRZpIW8yfyOqA=",
+        "owner": "dyscorv",
+        "repo": "nix-comfyui",
+        "rev": "b80947a30a0ec9c683cbfb840f689e18c562fc3f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dyscorv",
+        "repo": "nix-comfyui",
         "type": "github"
       }
     },
@@ -41,6 +78,28 @@
       "original": {
         "owner": "Gerschtli",
         "repo": "nix-formatter-pack",
+        "type": "github"
+      }
+    },
+    "nix-github-actions": {
+      "inputs": {
+        "nixpkgs": [
+          "nix-comfyui",
+          "poetry2nix",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1703863825,
+        "narHash": "sha256-rXwqjtwiGKJheXB43ybM8NwWB8rO2dSRrEqes0S7F5Y=",
+        "owner": "nix-community",
+        "repo": "nix-github-actions",
+        "rev": "5163432afc817cf8bd1f031418d1869e4c9d5547",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-github-actions",
         "type": "github"
       }
     },
@@ -74,18 +133,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1728627514,
-        "narHash": "sha256-r+SF9AnHrTg+bk6YszoKfV9lgyw+yaFUQe0dOjI0Z2o=",
-        "owner": "nixos",
+        "lastModified": 1724395761,
+        "narHash": "sha256-zRkDV/nbrnp3Y8oCADf5ETl1sDrdmAW6/bBVJ8EbIdQ=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c505ebf777526041d792a49d5f6dd4095ea391a7",
+        "rev": "ae815cee91b417be55d43781eb4b73ae1ecc396c",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixos-24.05",
-        "repo": "nixpkgs",
-        "type": "github"
+        "id": "nixpkgs",
+        "type": "indirect"
       }
     },
     "nixpkgs-docs": {
@@ -132,6 +189,22 @@
       "original": {
         "owner": "nixos",
         "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1728740863,
+        "narHash": "sha256-u+rxA79a0lyhG+u+oPBRtTDtzz8kvkc9a6SWSt9ekVc=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "a3f9ad65a0bf298ed5847629a57808b97e6e8077",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-24.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -190,11 +263,43 @@
         "type": "gitlab"
       }
     },
+    "poetry2nix": {
+      "inputs": {
+        "flake-utils": [
+          "nix-comfyui",
+          "flake-utils"
+        ],
+        "nix-github-actions": "nix-github-actions",
+        "nixpkgs": [
+          "nix-comfyui",
+          "nixpkgs"
+        ],
+        "systems": [
+          "nix-comfyui",
+          "flake-utils",
+          "systems"
+        ],
+        "treefmt-nix": "treefmt-nix"
+      },
+      "locked": {
+        "lastModified": 1724417163,
+        "narHash": "sha256-gD0N0pnKxWJcKtbetlkKOIumS0Zovgxx/nMfOIJIzoI=",
+        "owner": "nix-community",
+        "repo": "poetry2nix",
+        "rev": "7619e43c2b48c29e24b88a415256f09df96ec276",
+        "type": "github"
+      },
+      "original": {
+        "id": "poetry2nix",
+        "type": "indirect"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "nix-comfyui": "nix-comfyui",
         "nix-on-droid": "nix-on-droid",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }
     },
@@ -211,6 +316,43 @@
       "original": {
         "owner": "andreymatin",
         "repo": "scss-reset",
+        "type": "github"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "treefmt-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nix-comfyui",
+          "poetry2nix",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1719749022,
+        "narHash": "sha256-ddPKHcqaKCIFSFc/cvxS14goUhCOAwsM1PbMr0ZtHMg=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "8df5ff62195d4e67e2264df0b7f5e8c9995fd0bd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
         "type": "github"
       }
     }
