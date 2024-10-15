@@ -72,6 +72,16 @@
             inherit inputs;
           };
         };
+        work = lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/work/configuration.nix
+            inputs.home-manager.nixosModules.default
+          ];
+          specialArgs = {
+            inherit inputs;
+          };
+        };
       };
       nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
         pkgs = import nixpkgs { system = "aarch64-linux"; };
