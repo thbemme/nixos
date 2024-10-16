@@ -11,6 +11,7 @@
       ./hardware-configuration.nix
       ../../default/default.nix
       ../../modules/vim.nix
+      ../../modules/work.nix
     ];
   services.xserver = { modules = [ pkgs.xorg.xf86videofbdev ]; videoDrivers = [ "hyperv_fb" ]; };
   users.users.gdm = { extraGroups = [ "video" ]; };
@@ -20,4 +21,7 @@
     videoMode = "1920x1080";
   };
   boot.blacklistedKernelModules = [ "hyperv_fb" ];
+
+  networking.firewall.allowedTCPPorts = [ 22 3389 ];
+
 }

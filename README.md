@@ -26,6 +26,7 @@
 ### [Work related](modules/work.nix)
 - MS Teams
 - Citrix Client
+- Alpaca Proxy
 ## Desktop
 ### Installation
 1. Clone repo
