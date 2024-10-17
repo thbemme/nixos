@@ -109,6 +109,9 @@
     enable = true;
     userName = "firstname lastname";
     userEmail = "firstname.lastname@maildomain.com";
+    extraConfig = {
+      credential.helper = "oauth";
+    };
   };
 
   # Use `dconf watch /` to track stateful changes you are doing, then set them here.

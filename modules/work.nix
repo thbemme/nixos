@@ -3,13 +3,13 @@
 {
   users.users.user = {
     packages = (with pkgs; [
-      #teams
+      teams-for-linux
       citrix_workspace
 
     ]) ++
     (with pkgs-unstable; [
       #citrix_workspace
-      teams
+      #teams-for-linux
       alpaca-proxy
     ]);
   };
