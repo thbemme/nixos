@@ -110,7 +110,7 @@
     userName = "firstname lastname";
     userEmail = "firstname.lastname@maildomain.com";
     extraConfig = {
-      credential.helper = "oauth";
+      credential.helper = "store";
     };
   };
 
