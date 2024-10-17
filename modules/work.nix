@@ -9,6 +9,7 @@
     ]) ++
     (with pkgs-unstable; [
       #citrix_workspace
+      teams
       alpaca-proxy
     ]);
   };

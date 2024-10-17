@@ -83,6 +83,8 @@
             pkgs-unstable = import nixpkgs-unstable {
               inherit system;
               config.allowUnfree = true;
+              config.allowUnsupportedSystem = true;
+
             };
           };
         };
