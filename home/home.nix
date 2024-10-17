@@ -95,6 +95,29 @@
       timonwong.shellcheck
       streetsidesoftware.code-spell-checker
     ];
+    userSettings = {
+      "files.autoSave" = "onFocusChange";
+      "editor.fontSize" = 14;
+      "terminal.integrated.fontSize" = 12;
+      "editor.fontLigatures" = true;
+      "editor.fontFamily" = "Fira Code";
+      "editor.tabSize" = 2;
+      "editor.mouseWheelZoom" = true;
+      "editor.renderWhitespace" = "selection";
+      "editor.cursorStyle" = "line";
+      "editor.multiCursorModifier" = "alt";
+      "editor.insertSpaces" = true;
+      "editor.wordWrap" = "off";
+      "workbench.colorTheme" = "Dracula Theme";
+      "files.exclude" = {
+        "**/.git" = true;
+        "**/.svn" = true;
+        "**/.hg" = true;
+        "**/CVS" = true;
+        "**/.DS_Store" = true;
+        "**/Thumbs.db" = true;
+      };
+    };
   };
 
   programs.btop = {
@@ -148,11 +171,15 @@
     };
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
+      font-name = "Inter Display 10";
+      document-font-name = "Inter 10";
+      monospace-font-name = "Fira Code 10 @wght=400";
+      font-hinting = "full";
+      font-antialiasing = "rgba";
+      text-scaling-factor = "0.95";
       cursor-theme = "McMojave-cursors";
       enable-animations = true;
       enable-hot-corners = false;
-      font-antialiasing = "grayscale";
-      font-hinting = "full";
       gtk-theme = "Dracula-standard-buttons";
       icon-theme = "Dracula";
     };
@@ -165,6 +192,9 @@
     };
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:minimize,maximize,close";
+      dynamic-workspaces = true;
+    };
+    "org/gnome/mutter" = {
       dynamic-workspaces = true;
     };
   };
