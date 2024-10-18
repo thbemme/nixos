@@ -94,10 +94,11 @@
       jnoortheen.nix-ide
       timonwong.shellcheck
       streetsidesoftware.code-spell-checker
+      eamodio.gitlens
     ];
     userSettings = {
       "files.autoSave" = "onFocusChange";
-      "editor.fontSize" = 14;
+      "editor.fontSize" = 12;
       "terminal.integrated.fontSize" = 12;
       "editor.fontLigatures" = true;
       "editor.fontFamily" = "Fira Code";
