@@ -11,6 +11,7 @@
       ./hardware-configuration.nix
       ../../default/default.nix
       ../../modules/vim.nix
+      ../../modules/work.nix
     ];
 
   networking.hostName = "puff"; # Define your hostname.
