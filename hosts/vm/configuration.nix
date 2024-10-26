@@ -9,7 +9,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../default/default.nix
+      ../../default/light.nix
       ../../modules/vim.nix
     ];
   services.qemuGuest.enable = true;

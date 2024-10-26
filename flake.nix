@@ -74,6 +74,10 @@
           ];
           specialArgs = {
             inherit inputs;
+            pkgs = import nixpkgs-unstable {
+              inherit system;
+              config.allowUnfree = true;
+            };
           };
         };
         work = lib.nixosSystem {
