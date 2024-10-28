@@ -141,7 +141,6 @@
       vlc
       vscodium
       whatsapp-for-linux
-      wireshark
     ];
     shell = pkgs.fish;
   };
@@ -186,7 +185,6 @@
     lm_sensors
     motion
     nixpkgs-fmt
-    nmap
     pv
     python3
     spectre-meltdown-checker

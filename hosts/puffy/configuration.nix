@@ -9,14 +9,15 @@
     [
       ./hardware-configuration.nix
       ../../default/default.nix
-      ../../modules/vim.nix
-      ../../modules/gaming.nix
       ../../modules/ai.nix
       ../../modules/amdgpu.nix
-      ../../modules/virt.nix
       ../../modules/dev.nix
-      ../../modules/work.nix
+      ../../modules/gaming.nix
       ../../modules/prometheus.nix
+      ../../modules/security.nix
+      ../../modules/vim.nix
+      ../../modules/virt.nix
+      ../../modules/work.nix
     ];
 
   networking.hostName = "puffy"; # Define your hostname.
