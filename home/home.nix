@@ -85,6 +85,43 @@
 
   programs.direnv.enable = true;
 
+  # Fix vscodium settings.json readonly issue
+  home.activation.removeVSCodeSettingsBackup =
+    let
+      configDirName =
+        {
+          "vscode" = "Code";
+          "vscode-insiders" = "Code - Insiders";
+          "vscodium" = "VSCodium";
+        }.${config.programs.vscode.package.pname};
+    in
+    {
+      after = [ ];
+      before = [ "checkLinkTargets" ];
+      data = ''
+        userDir=${config.xdg.configHome}/${configDirName}/User
+        rm -rf $userDir/settings.json.hm-back
+      '';
+    };
+
+  home.activation.makeVSCodeConfigWritable =
+    let
+      configDirName =
+        {
+          "vscode" = "Code";
+          "vscode-insiders" = "Code - Insiders";
+          "vscodium" = "VSCodium";
+        }.${config.programs.vscode.package.pname};
+      configPath = "${config.xdg.configHome}/${configDirName}/User/settings.json";
+    in
+    {
+      after = [ "writeBoundary" ];
+      before = [ ];
+      data = ''
+        install -m 0640 "$(readlink ${configPath})" ${configPath}
+      '';
+    };
+
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
