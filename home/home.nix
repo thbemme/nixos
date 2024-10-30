@@ -125,13 +125,15 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
+    enableUpdateCheck = false;
+    enableExtensionUpdateCheck = false;
     extensions = with pkgs.vscode-extensions; [
       dracula-theme.theme-dracula
       yzhang.markdown-all-in-one
       jnoortheen.nix-ide
       timonwong.shellcheck
       streetsidesoftware.code-spell-checker
-      eamodio.gitlens
+
     ];
     userSettings = {
       "files.autoSave" = "onFocusChange";

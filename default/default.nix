@@ -115,21 +115,22 @@
       gimp-with-plugins
       gnome-extension-manager
       gnome.gnome-tweaks
-      gpu-viewer
       gnome.seahorse
+      gpu-viewer
       gradience
       halloy
       hunspell
       hunspellDicts.de_DE
       hunspellDicts.en_US
+      jq
       krita
       libreoffice
       libsForQt5.qt5ct
       lyx
       nextcloud-client
       openshot-qt
-      papirus-icon-theme
       papers
+      papirus-icon-theme
       phoronix-test-suite
       pika-backup
       remmina
