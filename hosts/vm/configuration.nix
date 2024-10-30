@@ -10,7 +10,6 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../default/light.nix
-      ../../modules/vim.nix
     ];
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;

@@ -10,6 +10,7 @@
   imports =
     [
       inputs.home-manager.nixosModules.default
+      ../modules/vim.nix
     ];
 
   # Bootloader.

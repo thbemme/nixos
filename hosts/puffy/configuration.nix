@@ -15,7 +15,6 @@
       ../../modules/gaming.nix
       ../../modules/prometheus.nix
       ../../modules/security.nix
-      ../../modules/vim.nix
       ../../modules/virt.nix
       ../../modules/work.nix
     ];

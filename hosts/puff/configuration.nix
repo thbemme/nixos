@@ -11,7 +11,6 @@
       ./hardware-configuration.nix
       ../../default/default.nix
       ../../modules/security.nix
-      ../../modules/vim.nix
       ../../modules/work.nix
     ];
 
