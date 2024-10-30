@@ -17,6 +17,10 @@
 - Wine
 ### [Prometheus](modules/prometheus.nix)
 - Prometheus exporter for Grafana monitoring
+### [Security](modules/security.nix)
+- Nmap
+- Wireshark
+- Misc security and auditing tools
 ### [VIM](modules/vim.nix)
 - Customized Vim config
 ### [Virtualization](modules/virt.nix)
