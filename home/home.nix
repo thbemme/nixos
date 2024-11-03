@@ -136,7 +136,7 @@
 
     ];
     userSettings = {
-      "files.autoSave" = "onFocusChange";
+      "files.autoSave" = "afterDelay";
       "editor.fontSize" = 12;
       "terminal.integrated.fontSize" = 12;
       "editor.fontLigatures" = true;
@@ -148,7 +148,7 @@
       "editor.multiCursorModifier" = "alt";
       "editor.insertSpaces" = true;
       "editor.wordWrap" = "off";
-      "workbench.colorTheme" = "Dracula Theme";
+      "workbench.colorTheme" = "Dracula";
       "files.exclude" = {
         "**/.git" = true;
         "**/.svn" = true;

@@ -6,13 +6,12 @@
     inputs.nix-comfyui.overlays.default
   ];
 
-  #disabledModules = [ "services/misc/ollama.nix" "services/misc/open-webui.nix" ];
-  disabledModules = [ "services/misc/ollama.nix" ];
+  disabledModules = [ "services/misc/ollama.nix" "services/misc/open-webui.nix" ];
 
   imports =
     [
       "${inputs.nixpkgs-unstable}/nixos/modules/services/misc/ollama.nix"
-      #"${inputs.nixpkgs-unstable}/nixos/modules/services/misc/open-webui.nix"
+      "${inputs.nixpkgs-unstable}/nixos/modules/services/misc/open-webui.nix"
     ];
 
   nix.settings.trusted-substituters = [ "https://ai.cachix.org" ];
@@ -32,7 +31,7 @@
   services.open-webui = {
     enable = true;
     openFirewall = true;
-    #package = pkgs-unstable.open-webui;
+    package = pkgs-unstable.open-webui;
     host = "0.0.0.0"; #Point reverse proxy to http://<ip>:8080
     environment = {
       OLLAMA_API_BASE_URL = "http://127.0.0.1:11434";
@@ -47,6 +46,6 @@
     #comfyuiPackages.krita-with-extensions
   ]) ++
   (with pkgs-unstable; [
-    oterm
+    #oterm
   ]);
 }
