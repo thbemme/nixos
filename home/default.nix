@@ -1,10 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, vars, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "workuser";
-  home.homeDirectory = "/home/workuser";
+  home.username = "${vars.user}";
+  home.homeDirectory = "/home/${vars.user}";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -18,7 +18,7 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through "home.file".
   home.file = {
-    ".config/fish/config.fish".source = ./dotfiles/wsl.fish;
+    ".config/fish/config.fish".source = ./dotfiles/default.fish;
   };
 
   home.sessionVariables = {
@@ -40,8 +40,8 @@
 
   programs.git = {
     enable = true;
-    userName = "firstname lastname";
-    userEmail = "firstname.lastname@maildomain.com";
+    userName = "${vars.gitName}";
+    userEmail = "${vars.gitEmail}";
     extraConfig = {
       credential.helper = "store";
     };

@@ -1,64 +1,31 @@
 # Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running 'nixos-help').
 
-# NixOS-WSL specific options are documented on the NixOS-WSL repository:
-# https://github.com/nix-community/NixOS-WSL
-
-{ config, lib, pkgs, inputs, ... }:
+{ config, pkgs, inputs, vars, ... }:
 
 {
-  imports = [
-    # include NixOS-WSL modules
-    <nixos-wsl/modules>
-    #../../default/light.nix
-    ../../modules/vim.nix
-  ];
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  wsl.enable = true;
-  wsl.defaultUser = "workuser";
+  imports =
+    [
+      # include NixOS-WSL modules
+      <nixos-wsl/modules>
+      ../../default/default.nix
+    ];
 
-  environment.systemPackages = with pkgs; [
-    btop
-    grc
-    fish
-    fishPlugins.done
-    fishPlugins.forgit
-    fishPlugins.fzf-fish
-    fishPlugins.grc
-    fishPlugins.hydro
-    fzf
-    nixpkgs-fmt
-    git
-    home-manager
-  ];
-
-  programs.nh.enable = true;
-
-
-  home-manager = {
-    # also pass inputs to home-manager modules
-    extraSpecialArgs = { inherit inputs; };
-    backupFileExtension = "hm-back";
-    users = {
-      "workuser" = import ../../home/wsl.nix;
-    };
+  wsl = {
+    defaultUser = "${vars.user}";
+    enable = true;
+    startMenuLaunchers = true;
+    wslConf.automount.root = "/mnt";
+    wslConf.interop.appendWindowsPath = false;
+    wslConf.network.generateHosts = false;
   };
 
-  users.users.workuser = {
-    isNormalUser = true;
-    home = "/home/workuser";
-    shell = pkgs.fish;
-    extraGroups = [ "wheel" ];
-  };
+  environment.enableAllTerminfo = true;
 
-  programs.fish.enable = true;
+  networking.hostName = "${vars.hostname}";
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It's perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
+  hardware.graphics.enable = true;
+  hardware.opengl.setLdLibraryPath = true;
+
 }

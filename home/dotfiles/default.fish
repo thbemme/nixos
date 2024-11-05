@@ -93,10 +93,10 @@ function pu
 end
 
 function r
-  nh os switch /home/workuser/git/nixos/  $argv -- --impure
+  nh os switch $argv -- --impure
 end
 function u
-  nh os switch /home/workuser/git/nixos/ --update $argv -- --impure
+  nh os switch --update $argv -- --impure
 end
 function c
   nh clean all --keep 5

@@ -1,7 +1,7 @@
-{ config, lib, pkgs, pkgs-unstable, inputs, ... }:
+{ config, lib, pkgs, pkgs-unstable, inputs, vars, ... }:
 
 {
-  users.users.user = {
+  users.users.${vars.user} = {
     packages = (with pkgs; [
       adwsteamgtk
       ecwolf
@@ -16,16 +16,13 @@
     (with pkgs-unstable; [
       path-of-building
     ]);
+    extraGroups = [ "gamemode" ];
   };
 
   environment.systemPackages = with pkgs; [
     wineWowPackages.staging
     winetricks
   ];
-
-  users.users.user = {
-    extraGroups = [ "gamemode" ];
-  };
 
   programs.steam = {
     enable = true;
