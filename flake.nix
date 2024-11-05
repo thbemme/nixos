@@ -5,6 +5,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    nixos-wsl.url = "github:nix-community/NixOS-WSL";
+
     nix-comfyui.url = "github:dyscorv/nix-comfyui";
 
     home-manager = {
@@ -19,7 +21,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nix-comfyui, nix-on-droid, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nix-comfyui, nix-on-droid, nixos-wsl, ... }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -92,6 +94,17 @@
               inherit system;
               config.allowUnfree = true;
             };
+          };
+        };
+        nixos = lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/wsl/configuration.nix
+            inputs.home-manager.nixosModules.default
+            #nixos-wsl.nixosModules.wsl
+          ];
+          specialArgs = {
+            inherit inputs;
           };
         };
       };
