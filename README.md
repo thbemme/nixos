@@ -8,6 +8,10 @@
 ### [AMD GPU](modules/amdgpu.nix)
 - CoreCTRL (Undervolting GPU)
 - Vulkan Tools
+### [Desktop](modules/desktop.nix)
+- Gnome desktop enviroment
+- Enabled printing, scanning
+- Default software: Firefox, Kitty
 ### [Development](modules/dev.nix)
 - Thony (Micropython for Raspberry Pico development)
 - Android Studio (Unstable)
@@ -55,6 +59,37 @@ nixos-generate-config --root /mnt --show-hardware-config > hosts/<host>/hardware
 ```
 nixos-install --flake /home/nixos/nixos#<hostname> --no-root-password
 nixos-enter --root /mnt -c "passwd <username>"
+```
+### Maintenance
+- `nh` is being used to maintain NixOS
+- Update with `u [--dry]`
+- Reconfiguration with `r [--dry]`
+- Push to git with `p`
+- Pull from git with `pu`
+
+## WSL
+### Installation
+1. Follow NixOS installation on WSL from https://github.com/nix-community/NixOS-WSL
+2. Clone repo
+```
+git clone https://git.kbnetcloud.de/user/nixos.git ~/git/nixos
+```
+3. Update Nix channels
+```
+sudo nix-channel update
+```
+4. Switch to new configuration
+```
+sudo nixos-rebuild switch --flake /home/nixos/git/nixos#<hostname>
+```
+5. Restart Nixos
+```
+wsl -t nixos
+```
+6. Set password for your user
+```
+wsl -d NixOS --user root
+passwd <user>
 ```
 ### Maintenance
 - `nh` is being used to maintain NixOS
