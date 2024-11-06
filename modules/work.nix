@@ -1,7 +1,7 @@
-{ config, lib, pkgs, pkgs-unstable, inputs, ... }:
+{ config, lib, pkgs, pkgs-unstable, inputs, vars, ... }:
 
 {
-  users.users.user = {
+  users.users.${vars.user} = {
     packages = (with pkgs; [
       teams-for-linux
       citrix_workspace

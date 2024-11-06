@@ -1,7 +1,7 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, vars, ... }:
 
 {
-  users.users.user = {
+  users.users.${vars.user} = {
     packages = with pkgs; [
       gnome.gnome-boxes
     ];

@@ -2,20 +2,15 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running 'nixos-help').
 
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, vars, ... }:
 
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  imports =
-    [
-      inputs.home-manager.nixosModules.default
-      ../modules/vim.nix
-    ];
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.initrd.systemd.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
+  boot.plymouth.enable = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -23,24 +18,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "Europe/Berlin";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "de_DE.UTF-8";
-    LC_IDENTIFICATION = "de_DE.UTF-8";
-    LC_MEASUREMENT = "de_DE.UTF-8";
-    LC_MONETARY = "de_DE.UTF-8";
-    LC_NAME = "de_DE.UTF-8";
-    LC_NUMERIC = "de_DE.UTF-8";
-    LC_PAPER = "de_DE.UTF-8";
-    LC_TELEPHONE = "de_DE.UTF-8";
-    LC_TIME = "de_DE.UTF-8";
-  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -58,9 +35,19 @@
   # Configure console keymap
   console.keyMap = "de-latin1-nodeadkeys";
 
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+  services.avahi.enable = true;
+  services.avahi.nssmdns4 = true;
+
   zramSwap = {
     enable = true;
     algorithm = "zstd";
+  };
+
+  hardware.sane.enable = true; # enables support for SANE scanners
+  nixpkgs.config.packageOverrides = pkgs: {
+    xsaneGimp = pkgs.xsane.override { gimpSupport = true; };
   };
 
   # Enable sound with pipewire.
@@ -82,31 +69,68 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with 'passwd'.
-  users.users.user = {
-    isNormalUser = true;
-    description = "user";
-    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" "dialout" ];
+  users.users.${vars.user} = {
+    extraGroups = [ "networkmanager" "scanner" "lp" "dialout" ];
     packages = with pkgs; [
+      (pkgs.wrapOBS {
+        plugins = with pkgs.obs-studio-plugins; [
+          wlrobs
+          obs-backgroundremoval
+          obs-pipewire-audio-capture
+        ];
+      })
+      alsa-utils
+      amberol
+      apostrophe
+      blender-hip
+      cryptomator
+      easyeffects
+      fastfetch
+      gimp-with-plugins
       gnome-extension-manager
       gnome.gnome-tweaks
       gnome.seahorse
+      gpu-viewer
+      gradience
+      halloy
+      hunspell
+      hunspellDicts.de_DE
+      hunspellDicts.en_US
+      jq
+      krita
+      libreoffice
+      libsForQt5.qt5ct
+      lyx
+      nextcloud-client
+      openshot-qt
+      papers
+      papirus-icon-theme
+      phoronix-test-suite
+      pika-backup
+      remmina
+      stellarium
+      telegram-desktop
+      tor-browser
+      transmission_4-gtk
+      vesktop
+      vlc
+      vscodium
+      whatsapp-for-linux
     ];
-    shell = pkgs.fish;
   };
 
+  # Additional home manager settings
   home-manager = {
-    # also pass inputs to home-manager modules
-    extraSpecialArgs = { inherit inputs; };
-    backupFileExtension = "hm-back";
     users = {
-      "user" = import ../home/home.nix;
+      "${vars.user}" = import ../home/desktop.nix;
     };
   };
+
   # Install firefox and PWA.
   programs.firefox = {
     enable = true;
     package = pkgs.firefox;
+    nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
   };
 
   # Allow unfree packages
@@ -115,29 +139,14 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    btop
     btrfs-assistant
-    clinfo
-    dig
-    fish
-    fishPlugins.done
-    fishPlugins.forgit
-    fishPlugins.fzf-fish
-    fishPlugins.grc
-    fishPlugins.hydro
-    fzf
-    git
-    grc
+    firefoxpwa
+    g810-led
     kitty
-    nixpkgs-fmt
-    nmap
-    pv
-    wget
-  ];
-
-  fonts.packages = with pkgs; [
-    inter
-    fira-code
+    lm_sensors
+    motion
+    xsane
+    xsensors
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -162,26 +171,25 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It's perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
-
-  programs.fish.enable = true;
-  environment.variables = { TERMINAL = "kitty"; BROWSER = "firefox"; FLAKE = "/home/user/git/nixos"; };
+  environment.variables = { TERMINAL = "kitty"; BROWSER = "firefox"; };
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  programs.nh.enable = true;
+  # Appimage support
+  programs.appimage.enable = true;
+  programs.appimage.binfmt = true;
 
+  # QT theming
   qt.enable = true;
   qt.platformTheme = "qt5ct";
 
+  # Enable firmware service
   services.fwupd.enable = true;
 
-  boot.initrd.systemd.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 10;
-  boot.plymouth.enable = true;
+  environment.gnome.excludePackages = with pkgs.gnome; [
+    epiphany # web browser
+    geary # email client
+    pkgs.gnome-console
+    pkgs.gnome-connections
+  ];
+
 }

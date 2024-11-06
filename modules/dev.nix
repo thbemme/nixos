@@ -1,7 +1,7 @@
-{ config, lib, pkgs, pkgs-unstable, inputs, ... }:
+{ config, lib, pkgs, pkgs-unstable, inputs, vars, ... }:
 
 {
-  users.users.user = {
+  users.users.${vars.user} = {
     packages = (with pkgs; [
       androidenv.androidPkgs_9_0.platform-tools
       bison
@@ -35,8 +35,9 @@
       android-studio
       #ladybird
     ]);
+    extraGroups = [ "kvm" "adbusers" ];
   };
 
   programs.adb.enable = true;
-  users.users.user.extraGroups = [ "kvm" "adbusers" ];
+
 }

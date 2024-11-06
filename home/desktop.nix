@@ -1,22 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, vars, ... }:
 
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
-  home.username = "user";
-  home.homeDirectory = "/home/user";
-
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  #
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
-  home.stateVersion = "24.05"; # Please read the comment before changing.
-
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
   home.packages = [
     pkgs.gnomeExtensions.appindicator
     pkgs.gnomeExtensions.blur-my-shell
@@ -47,7 +31,7 @@
     #".config/btop/btop.conf".source = ./dotfiles/btop.conf;
     ".config/kitty/kitty.conf".source = ./dotfiles/kitty.conf;
     ".config/kitty/dracula.conf".source = ./dotfiles/dracula.conf;
-    ".config/fish/config.fish".source = ./dotfiles/config.fish;
+    ".config/fish/conf.d/desktop.fish".source = ./dotfiles/desktop.fish;
     ".config/MangoHud/MangoHud.conf".source = ./dotfiles/MangoHud.conf;
     ".themes/" = {
       source = ./dotfiles/themes;
@@ -148,7 +132,7 @@
       "editor.multiCursorModifier" = "alt";
       "editor.insertSpaces" = true;
       "editor.wordWrap" = "off";
-      "workbench.colorTheme" = "Dracula";
+      "workbench.colorTheme" = "Dracula Theme";
       "files.exclude" = {
         "**/.git" = true;
         "**/.svn" = true;
@@ -170,8 +154,8 @@
 
   programs.git = {
     enable = true;
-    userName = "firstname lastname";
-    userEmail = "firstname.lastname@maildomain.com";
+    userName = "${vars.gitName}";
+    userEmail = "${vars.gitEmail}";
     extraConfig = {
       credential.helper = "store";
     };

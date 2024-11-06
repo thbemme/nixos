@@ -9,6 +9,7 @@
     [
       ./hardware-configuration.nix
       ../../default/default.nix
+      ../../modules/desktop.nix
       ../../modules/ai.nix
       ../../modules/amdgpu.nix
       ../../modules/dev.nix

@@ -10,6 +10,7 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../default/default.nix
+      ../../modules/desktop.nix
     ];
 
   networking.hostName = "puffy"; # Define your hostname.

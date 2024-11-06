@@ -1,7 +1,7 @@
-{ config, lib, pkgs, pkgs-unstable, inputs, ... }:
+{ config, lib, pkgs, pkgs-unstable, inputs, vars, ... }:
 
 {
-  users.users.user = {
+  users.users.${vars.user} = {
     packages = with pkgs; [
       lynis
       nikto
@@ -9,10 +9,10 @@
       wapiti
       wireshark
     ];
+    extraGroups = [ "wireshark" ];
   };
 
   programs.wireshark.enable = true;
-  users.users.user.extraGroups = [ "wireshark" ];
 
   services.udev = {
     extraRules = ''
