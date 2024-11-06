@@ -24,7 +24,12 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, nix-comfyui, nix-on-droid, nixos-wsl, ... }@inputs:
     let
       lib = nixpkgs.lib;
-      vars = { user = "user"; gitName = "firstname lastname"; gitEmail = "firstname.lastname@maildomain.com"; hostname = "nixos"; };
+      vars = {
+        user = "user";
+        gitName = "firstname lastname";
+        gitEmail = "firstname.lastname@maildomain.com";
+        hostname = "nixos";
+      };
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
@@ -88,12 +93,25 @@
             ./hosts/wsl/configuration.nix
             inputs.home-manager.nixosModules.default
             {
-              home-manager.extraSpecialArgs = { inherit inputs; vars = { user = "workuser"; gitName = "firstname lastname"; gitEmail = "firstname.lastname@maildomain.com"; hostname = "hostname"; }; };
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+                vars = {
+                  user = "workuser";
+                  gitName = "firstname lastname";
+                  gitEmail = "firstname.lastname@maildomain.com";
+                  hostname = "hostname";
+                };
+              };
             }
           ];
           specialArgs = {
             inherit inputs;
-            vars = { user = "workuser"; gitName = "firstname lastname"; gitEmail = "firstname.lastname@maildomain.com"; hostname = "hostname"; };
+            vars = {
+              user = "workuser";
+              gitName = "firstname lastname";
+              gitEmail = "firstname.lastname@maildomain.com";
+              hostname = "hostname";
+            };
           };
         };
         nixos = lib.nixosSystem {
@@ -111,7 +129,9 @@
         };
       };
       nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
-        pkgs = import nixpkgs { system = "aarch64-linux"; };
+        pkgs = import nixpkgs {
+          system = "aarch64-linux";
+        };
         modules = [ ./hosts/mikrobi/configuration.nix ];
 
       };
