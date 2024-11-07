@@ -122,4 +122,7 @@
   environment.variables = { FLAKE = "/home/${vars.user}/git/nixos"; };
 
   programs.nh.enable = true;
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 }

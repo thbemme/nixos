@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running 'nixos-help').
 
-{ config, pkgs, inputs, vars, ... }:
+{ config, pkgs, pkgs-unstable, inputs, vars, ... }:
 
 {
   imports =
@@ -10,6 +10,7 @@
       # include NixOS-WSL modules
       <nixos-wsl/modules>
       ../../default/default.nix
+      ../../modules/aicpu.nix
     ];
 
   wsl = {
@@ -20,6 +21,10 @@
     wslConf.interop.appendWindowsPath = false;
     wslConf.network.generateHosts = false;
   };
+
+  environment.systemPackages = with pkgs-unstable; [
+    alpaca-proxy
+  ];
 
   environment.enableAllTerminfo = true;
 

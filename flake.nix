@@ -112,6 +112,10 @@
               gitEmail = "firstname.lastname@maildomain.com";
               hostname = "hostname";
             };
+            pkgs-unstable = import nixpkgs-unstable {
+              inherit system;
+              config.allowUnfree = true;
+            };
           };
         };
         nixos = lib.nixosSystem {
