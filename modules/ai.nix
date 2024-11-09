@@ -47,6 +47,6 @@
     #comfyuiPackages.krita-with-extensions
   ]) ++
   (with pkgs-unstable; [
-    #oterm
+    oterm
   ]);
 }
