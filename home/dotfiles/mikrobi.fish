@@ -53,3 +53,7 @@ end
 function r
   nix-on-droid switch -F ~/nixos/ $argv
 end
+
+function c
+  nix-store --gc
+end
