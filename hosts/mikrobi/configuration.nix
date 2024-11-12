@@ -29,26 +29,31 @@
         syntax on
       '';
     })
-    git
-    openssh
-    dig
-    man
-    gnupg
-    fish
-    sudo
-    hostname
+    alejandra
+    curl
     diffutils
+    dig
+    fastfetch
     findutils
-    utillinux
-    tzdata
-    htop
+    fish
+    git
     gnupg
+    hostname
+    htop
+    jq
+    lynis
+    man
     ncurses
     neofetch
-    curl
-    nmap
-    fastfetch
+    nikto
     nix-index
+    nmap
+    openssh
+    shellcheck
+    sudo
+    tzdata
+    utillinux
+    wapiti
   ];
 
   environment.extraOutputsToInstall = [
