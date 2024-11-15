@@ -94,7 +94,6 @@
     tree
     unzip
     wget
-    wget
     zip
     # formatters and linters
     alejandra # nix

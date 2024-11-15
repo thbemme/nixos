@@ -31,7 +31,6 @@
     #".config/btop/btop.conf".source = ./dotfiles/btop.conf;
     ".config/kitty/kitty.conf".source = ./dotfiles/kitty.conf;
     ".config/kitty/dracula.conf".source = ./dotfiles/dracula.conf;
-    ".config/fish/conf.d/desktop.fish".source = ./dotfiles/desktop.fish;
     ".config/MangoHud/MangoHud.conf".source = ./dotfiles/MangoHud.conf;
     ".themes/" = {
       source = ./dotfiles/themes;
