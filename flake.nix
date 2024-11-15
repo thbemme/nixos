@@ -5,7 +5,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixos-wsl.url = "github:nix-community/NixOS-WSL";
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nix-comfyui.url = "github:dyscorv/nix-comfyui";
 

@@ -19,7 +19,7 @@
 
   # Ollama
   services.ollama = {
-    package = pkgs-unstable.ollama-rocm;
+    package = pkgs-unstable.ollama;
     enable = true;
   };
 
