@@ -83,13 +83,13 @@
       amberol
       apostrophe
       blender-hip
-      cryptomator
+      #cryptomator
       easyeffects
       fastfetch
       gimp-with-plugins
       gnome-extension-manager
-      gnome.gnome-tweaks
-      gnome.seahorse
+      gnome-tweaks
+      seahorse
       gpu-viewer
       gradience
       halloy
@@ -182,11 +182,11 @@
   # Enable firmware service
   services.fwupd.enable = true;
 
-  environment.gnome.excludePackages = with pkgs.gnome; [
+  environment.gnome.excludePackages = with pkgs; [
     epiphany # web browser
     geary # email client
-    pkgs.gnome-console
-    pkgs.gnome-connections
+    gnome-console
+    gnome-connections
   ];
 
 }
