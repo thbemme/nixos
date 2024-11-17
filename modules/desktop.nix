@@ -39,6 +39,7 @@
   services.printing.enable = true;
   services.avahi.enable = true;
   services.avahi.nssmdns4 = true;
+  services.avahi.openFirewall = true;
 
   zramSwap = {
     enable = true;
@@ -46,6 +47,7 @@
   };
 
   hardware.sane.enable = true; # enables support for SANE scanners
+  hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
   nixpkgs.config.packageOverrides = pkgs: {
     xsaneGimp = pkgs.xsane.override { gimpSupport = true; };
   };
