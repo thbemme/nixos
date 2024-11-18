@@ -17,6 +17,8 @@
     defaultUser = "${vars.user}";
     enable = true;
     startMenuLaunchers = true;
+    nativeSystemd = true;
+    useWindowsDriver = true;
     wslConf.automount.root = "/mnt";
     wslConf.interop.appendWindowsPath = false;
     wslConf.network.generateHosts = false;
@@ -25,6 +27,13 @@
   environment.systemPackages = with pkgs-unstable; [
     alpaca-proxy
   ];
+
+  programs = {
+    ssh.startAgent = true;
+    dconf.enable = true;
+  };
+
+  fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; }) ];
 
   environment.enableAllTerminfo = true;
 
