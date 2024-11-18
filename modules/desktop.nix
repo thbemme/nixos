@@ -84,7 +84,6 @@
       alsa-utils
       amberol
       apostrophe
-      blender-hip
       cryptomator
       easyeffects
       fastfetch

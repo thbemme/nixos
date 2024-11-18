@@ -1,14 +1,20 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, vars, ... }:
 
 {
   hardware.opengl.extraPackages = with pkgs; [
     rocmPackages.clr.icd
   ];
 
+  users.users.${vars.user} = {
+    packages = with pkgs; [
+      amdgpu_top
+      blender-hip
+      corectrl
+    ];
+  };
+
   environment.systemPackages = with pkgs; [
-    corectrl
     vulkan-tools
-    amdgpu_top
   ];
 
   # Corectrl without password
