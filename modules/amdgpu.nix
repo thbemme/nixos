@@ -9,11 +9,11 @@
     packages = with pkgs; [
       amdgpu_top
       blender-hip
-      corectrl
     ];
   };
 
   environment.systemPackages = with pkgs; [
+    corectrl
     vulkan-tools
   ];
 
