@@ -8,7 +8,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ../../default/default.nix
+      ../../modules/default.nix
       ../../modules/desktop.nix
       ../../modules/ai.nix
       ../../modules/amdgpu.nix

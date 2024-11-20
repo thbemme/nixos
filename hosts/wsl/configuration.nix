@@ -9,7 +9,7 @@
     [
       # include NixOS-WSL modules
       <nixos-wsl/modules>
-      ../../default/default.nix
+      ../../modules/default.nix
       ../../modules/aicpu.nix
     ];
 
