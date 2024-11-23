@@ -3,7 +3,7 @@
 {
   users.users.${vars.user} = {
     packages = with pkgs; [
-      gnome.gnome-boxes
+      gnome-boxes
     ];
   };
 

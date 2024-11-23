@@ -2,13 +2,15 @@
 
 {
   users.users.${vars.user} = {
-    packages = with pkgs; [
+    packages = (with pkgs; [
+      nmap
+      wireshark
+    ]) ++
+    (with pkgs-unstable; [
       lynis
       nikto
-      nmap
       wapiti
-      wireshark
-    ];
+    ]);
     extraGroups = [ "wireshark" ];
   };
 

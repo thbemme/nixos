@@ -3,7 +3,7 @@
 {
   users.users.${vars.user} = {
     packages = (with pkgs; [
-      androidenv.androidPkgs_9_0.platform-tools
+      #androidenv.androidPkgs_9_0.platform-tools
       bison
       curl
       flex

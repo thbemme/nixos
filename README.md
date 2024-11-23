@@ -76,11 +76,11 @@ git clone https://git.kbnetcloud.de/user/nixos.git ~/git/nixos
 ```
 3. Update Nix channels
 ```
-sudo nix-channel update
+sudo nix-channel --update
 ```
 4. Switch to new configuration
 ```
-sudo nixos-rebuild switch --flake /home/nixos/git/nixos#<hostname>
+sudo nixos-rebuild switch --flake /home/nixos/git/nixos#<hostname> --impure
 ```
 5. Restart Nixos
 ```

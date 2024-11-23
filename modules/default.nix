@@ -9,7 +9,7 @@
 
   imports =
     [
-      ../modules/vim.nix
+      ./vim.nix
     ];
 
   # Set your time zone.

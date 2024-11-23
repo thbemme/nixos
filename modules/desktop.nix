@@ -37,8 +37,12 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  services.avahi.enable = true;
-  services.avahi.nssmdns4 = true;
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+    wideArea = false;
+  };
 
   zramSwap = {
     enable = true;
@@ -46,6 +50,7 @@
   };
 
   hardware.sane.enable = true; # enables support for SANE scanners
+  hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
   nixpkgs.config.packageOverrides = pkgs: {
     xsaneGimp = pkgs.xsane.override { gimpSupport = true; };
   };
@@ -82,8 +87,7 @@
       alsa-utils
       amberol
       apostrophe
-      blender-hip
-      #cryptomator
+      cryptomator
       easyeffects
       fastfetch
       gimp-with-plugins
