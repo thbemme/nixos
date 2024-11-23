@@ -87,7 +87,7 @@
       alsa-utils
       amberol
       apostrophe
-      cryptomator
+      #cryptomator
       easyeffects
       fastfetch
       gimp-with-plugins
