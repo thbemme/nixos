@@ -14,7 +14,7 @@
       wowup-cf
     ]) ++
     (with pkgs-unstable; [
-      path-of-building
+      #path-of-building
     ]);
     extraGroups = [ "gamemode" ];
   };

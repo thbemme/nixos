@@ -59,14 +59,8 @@
   };
 
   home.sessionVariables = {
-    EDITOR = "vim";
     TERMINAL = "kitty";
   };
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-
-  programs.direnv.enable = true;
 
   # Fix vscodium settings.json readonly issue
   home.activation.removeVSCodeSettingsBackup =
@@ -140,23 +134,6 @@
         "**/.DS_Store" = true;
         "**/Thumbs.db" = true;
       };
-    };
-  };
-
-  programs.btop = {
-    enable = true;
-    settings = {
-      color_theme = "Dracula";
-      theme_background = false;
-    };
-  };
-
-  programs.git = {
-    enable = true;
-    userName = "${vars.gitName}";
-    userEmail = "${vars.gitEmail}";
-    extraConfig = {
-      credential.helper = "store";
     };
   };
 
