@@ -86,7 +86,6 @@
       })
       alsa-utils
       amberol
-      apostrophe
       #cryptomator
       easyeffects
       fastfetch
