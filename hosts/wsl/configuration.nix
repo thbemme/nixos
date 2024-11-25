@@ -40,6 +40,6 @@
   networking.hostName = "${vars.hostname}";
 
   hardware.graphics.enable = true;
-  hardware.opengl.setLdLibraryPath = true;
+  #hardware.graphics.setLdLibraryPath = true;
 
 }
