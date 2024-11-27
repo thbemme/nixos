@@ -140,13 +140,7 @@
           system = "aarch64-linux";
         };
         modules = [ ./hosts/mikrobi/configuration.nix ];
-        specialArgs = {
-          inherit inputs vars;
-          pkgs = import nixpkgs-unstable {
-            inherit system;
-            config.allowUnfree = true;
-          };
-        };
+
       };
     };
 }
