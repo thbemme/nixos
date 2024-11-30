@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running 'nixos-help').
 
-{ config, lib, pkgs, inputs, vars, ... }:
+{ config, lib, pkgs, pkgs-unstable, inputs, vars, ... }:
 
 {
   # Bootloader.
@@ -76,7 +76,7 @@
 
   users.users.${vars.user} = {
     extraGroups = [ "networkmanager" "scanner" "lp" "dialout" ];
-    packages = with pkgs; [
+    packages = (with pkgs; [
       (pkgs.wrapOBS {
         plugins = with pkgs.obs-studio-plugins; [
           wlrobs
@@ -86,13 +86,11 @@
       })
       alsa-utils
       amberol
-      #cryptomator
       easyeffects
       fastfetch
       gimp-with-plugins
-      gnome-extension-manager
+      #gnome-extension-manager
       gnome-tweaks
-      seahorse
       gpu-viewer
       gradience
       halloy
@@ -111,6 +109,8 @@
       phoronix-test-suite
       pika-backup
       remmina
+      seahorse
+      soundconverter
       stellarium
       telegram-desktop
       tor-browser
@@ -119,7 +119,10 @@
       vlc
       vscodium
       whatsapp-for-linux
-    ];
+    ]) ++
+    (with pkgs-unstable; [
+      cryptomator
+    ]);
   };
 
   # Additional home manager settings
