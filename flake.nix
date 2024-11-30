@@ -84,7 +84,7 @@
           ];
           specialArgs = {
             inherit inputs vars;
-            pkgs = import nixpkgs-unstable {
+            pkgs-unstable = import nixpkgs-unstable {
               inherit system;
               config.allowUnfree = true;
             };
