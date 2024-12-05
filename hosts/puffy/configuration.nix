@@ -35,7 +35,7 @@
   };
 
   # Enable AMD GPU overclocking
-  boot.kernelParams = [ "rhgb" "quiet" "amdgpu.ppfeaturemask=0xffffffff" ];
+  boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
 
   # Enable nct6775 module for sensor readings
   boot.kernelModules = [ "nct6775" ];

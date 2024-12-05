@@ -25,6 +25,7 @@
       python3
       schedtool
       scrcpy
+      thonny
       unzip
       util-linux
       zip
@@ -33,7 +34,6 @@
     (with pkgs-unstable; [
       android-studio
       #ladybird
-      thonny
     ]);
     extraGroups = [ "kvm" "adbusers" ];
   };
