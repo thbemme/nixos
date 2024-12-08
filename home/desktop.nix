@@ -151,6 +151,7 @@
         "vesktop.desktop"
         "steam.desktop"
         "Path of Exile.desktop"
+        "Path of Exile 2.desktop"
       ];
       enabled-extensions = [
         "appindicatorsupport@rgcjonas.maildomain.com"
