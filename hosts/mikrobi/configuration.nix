@@ -79,15 +79,6 @@
   # Set your time zone
   #time.timeZone = "Europe/Berlin";
 
-  terminal.font =
-    let
-      firacode = pkgs.nerdfonts.override {
-        fonts = [ "FiraCode" ];
-      };
-      fontPath = "share/fonts/truetype/NerdFonts/FiraCodeNerdFontMono-Regular.ttf";
-    in
-    "${firacode}/${fontPath}";
-
   # Configure home-manager
   home-manager = {
     backupFileExtension = "hm-bak";
@@ -117,8 +108,8 @@
             SetEnv TERM=xterm-256color
           '';
           matchBlocks = {
-            "git-amd64-vm" = {
-              hostname = "192.168.178.16";
+            "docker-amd64-vm" = {
+              hostname = "192.168.178.18";
               user = "user";
             };
             "ssh-amd64-vm" = {
