@@ -77,7 +77,7 @@
       before = [ "checkLinkTargets" ];
       data = ''
         userDir=${config.xdg.configHome}/${configDirName}/User
-        rm -rf $userDir/settings.json.hm-back
+        rm -rf $userDir/settings.json*
       '';
     };
 
@@ -178,7 +178,7 @@
       font-hinting = "full";
       font-antialiasing = "rgba";
       text-scaling-factor = "0.95";
-      cursor-theme = "McMojave-cursors";
+      cursor-theme = "oreo_spark_purple_bordered_cursors";
       enable-animations = true;
       enable-hot-corners = false;
       gtk-theme = "Dracula-standard-buttons";

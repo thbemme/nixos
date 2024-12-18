@@ -70,6 +70,7 @@
       })
       easyeffects
       fastfetch
+      firefoxpwa
       gimp-with-plugins
       gpu-viewer
       hunspell
@@ -81,6 +82,7 @@
       lyx
       nextcloud-client
       openshot-qt
+      oreo-cursors-plus
       papirus-icon-theme
       phoronix-test-suite
       pika-backup
@@ -116,11 +118,9 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     btrfs-assistant
-    firefoxpwa
     g810-led
     kitty
     lm_sensors
-    motion
     xsane
     xsensors
   ];
