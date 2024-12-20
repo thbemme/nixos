@@ -5,11 +5,12 @@
 - Mimic (TTS)
 - Ollama
 - Open-webui
+- oterm
 ### [AMD GPU](modules/amdgpu.nix)
 - CoreCTRL (Undervolting GPU)
 - Vulkan Tools
 ### [Desktop](modules/desktop.nix)
-- Gnome desktop enviroment
+- Gnome desktop environment
 - Enabled printing, scanning
 - Default software: Firefox, Kitty
 ### [Development](modules/dev.nix)

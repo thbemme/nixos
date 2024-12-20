@@ -41,7 +41,6 @@
   };
 
   environment.systemPackages = (with pkgs; [
-    piper-tts
     mimic
     #comfyuiPackages.rocm.comfyui-with-extensions
     #comfyuiPackages.krita-with-extensions
