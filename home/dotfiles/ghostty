@@ -1,0 +1,7 @@
+shell-integration = "fish"
+theme = Dracula
+font-family = Fira Code
+font-size = 10
+quit-after-last-window-closed = true
+mouse-hide-while-typing = true
+background-opacity = 0.95

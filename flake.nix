@@ -16,6 +16,11 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
+
     # nix for android
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
@@ -24,7 +29,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nix-comfyui, nix-on-droid, nixos-wsl, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, ghostty, nix-comfyui, nix-on-droid, nixos-wsl, ... }@inputs:
     let
       lib = nixpkgs.lib;
       vars = {

@@ -28,10 +28,8 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # "";
-    #".config/btop/btop.conf".source = ./dotfiles/btop.conf;
-    ".config/kitty/kitty.conf".source = ./dotfiles/kitty.conf;
-    ".config/kitty/dracula.conf".source = ./dotfiles/dracula.conf;
     ".config/MangoHud/MangoHud.conf".source = ./dotfiles/MangoHud.conf;
+    ".config/ghostty/config".source = ./dotfiles/ghostty;
     ".themes/" = {
       source = ./dotfiles/themes;
       recursive = true;
@@ -59,7 +57,7 @@
   };
 
   home.sessionVariables = {
-    TERMINAL = "kitty";
+    TERMINAL = "ghostty";
   };
 
   # Fix vscodium settings.json readonly issue
@@ -145,7 +143,7 @@
     "org/gnome/shell" = {
       favorite-apps = [
         "firefox.desktop"
-        "kitty.desktop"
+        "com.mitchellh.ghostty.desktop"
         "org.gnome.Nautilus.desktop"
         "codium.desktop"
         "vesktop.desktop"

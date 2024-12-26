@@ -97,6 +97,9 @@
     ]) ++
     (with pkgs-unstable; [
       cryptomator
+    ]) ++
+    (with inputs; [
+      ghostty.packages.x86_64-linux.default
     ]);
   };
 
@@ -119,7 +122,6 @@
   environment.systemPackages = with pkgs; [
     btrfs-assistant
     g810-led
-    kitty
     lm_sensors
     xsane
     xsensors
@@ -147,7 +149,7 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  environment.variables = { TERMINAL = "kitty"; BROWSER = "firefox"; };
+  environment.variables = { TERMINAL = "ghotty"; BROWSER = "firefox"; };
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Appimage support

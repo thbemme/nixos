@@ -12,7 +12,7 @@
 ### [Desktop](modules/desktop.nix)
 - Gnome desktop environment
 - Enabled printing, scanning
-- Default software: Firefox, Kitty
+- Default software: Firefox, ghostty
 ### [Development](modules/dev.nix)
 - Thony (Micropython for Raspberry Pico development)
 - Android Studio (Unstable)
