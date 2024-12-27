@@ -1,7 +1,15 @@
-shell-integration = "fish"
-theme = Dracula
+auto-update = off
+background-opacity = 0.85
+confirm-close-surface = false
 font-family = Fira Code
 font-size = 10
-quit-after-last-window-closed = true
 mouse-hide-while-typing = true
-background-opacity = 0.95
+quit-after-last-window-closed = true
+shell-integration = "fish"
+theme = Dracula
+window-height = 82
+window-padding-x = 0
+window-padding-y = 0
+window-save-state = always
+window-width = 160
+
