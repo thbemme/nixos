@@ -147,6 +147,7 @@
         "org.gnome.Nautilus.desktop"
         "codium.desktop"
         "vesktop.desktop"
+        "io.github.Hexchat.desktop"
         "steam.desktop"
         "Path of Exile.desktop"
         "Path of Exile 2.desktop"

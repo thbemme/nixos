@@ -73,6 +73,7 @@
       firefoxpwa
       gimp-with-plugins
       gpu-viewer
+      hexchat
       hunspell
       hunspellDicts.de_DE
       hunspellDicts.en_US
