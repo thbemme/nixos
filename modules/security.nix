@@ -3,7 +3,9 @@
 {
   users.users.${vars.user} = {
     packages = (with pkgs; [
+      gobuster
       nmap
+      subfinder
       wireshark
     ]) ++
     (with pkgs-unstable; [
