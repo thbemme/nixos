@@ -30,6 +30,7 @@
     # "";
     ".config/MangoHud/MangoHud.conf".source = ./dotfiles/MangoHud.conf;
     ".config/ghostty/config".source = ./dotfiles/ghostty;
+    ".config/hexchat/colors.conf".source = ./dotfiles/hexchat;
     ".themes/" = {
       source = ./dotfiles/themes;
       recursive = true;
