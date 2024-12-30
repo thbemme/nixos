@@ -19,7 +19,6 @@
 
     ghostty = {
       url = "github:ghostty-org/ghostty";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # nix for android
