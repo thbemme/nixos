@@ -99,6 +99,7 @@
     (with pkgs-unstable; [
       cryptomator
       ghostty
+      handbrake
     ]);
   };
 
