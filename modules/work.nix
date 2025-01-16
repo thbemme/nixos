@@ -3,7 +3,6 @@
 {
   users.users.${vars.user} = {
     packages = (with pkgs; [
-      teams-for-linux
       citrix_workspace
 
     ]) ++

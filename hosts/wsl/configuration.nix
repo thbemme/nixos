@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running 'nixos-help').
-
 { config, pkgs, pkgs-unstable, inputs, vars, ... }:
 
 {
@@ -9,8 +5,9 @@
     [
       # include NixOS-WSL modules
       <nixos-wsl/modules>
-      ../../modules/default.nix
       ../../modules/aicpu.nix
+      ../../modules/default.nix
+      ../../modules/home_wsl.nix
     ];
 
   wsl = {
@@ -26,6 +23,8 @@
 
   environment.systemPackages = with pkgs-unstable; [
     alpaca-proxy
+    chawan
+    ghostty
   ];
 
   programs = {

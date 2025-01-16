@@ -4,6 +4,6 @@
   imports =
     [
       ./base.nix
-      ./fish.nix
+      ./fish_wsl.nix
     ];
 }

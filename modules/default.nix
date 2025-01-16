@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running 'nixos-help').
-
 { config, lib, pkgs, inputs, vars, ... }:
 
 {
@@ -41,14 +37,6 @@
     shell = pkgs.fish;
   };
 
-  home-manager = {
-    # also pass inputs to home-manager modules
-    extraSpecialArgs = { inherit inputs; };
-    backupFileExtension = "hm-back";
-    users = {
-      "${vars.user}" = import ../home/default.nix;
-    };
-  };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [

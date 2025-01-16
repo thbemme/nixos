@@ -108,13 +108,20 @@
             SetEnv TERM=xterm-256color
           '';
           matchBlocks = {
+            "*" = {
+              user = "user";
+            };
+            "blowfish" = {
+              hostname = "192.168.178.7";
+            };
+            "ansible-amd64-vm" = {
+              hostname = "192.168.178.23";
+            };
             "docker-amd64-vm" = {
               hostname = "192.168.178.18";
-              user = "user";
             };
             "ssh-amd64-vm" = {
               hostname = "192.168.178.19";
-              user = "user";
             };
           };
         };

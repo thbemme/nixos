@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running 'nixos-help').
-
 { config, pkgs, inputs, ... }:
 
 {
@@ -11,6 +7,7 @@
       ./hardware-configuration.nix
       ../../modules/default.nix
       ../../modules/desktop.nix
+      ../../modules/home.nix
     ];
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;
