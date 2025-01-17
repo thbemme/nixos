@@ -1,7 +1,16 @@
 { config, lib, pkgs, inputs, vars, ... }:
 
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      auto-optimise-store = true;
+    };
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 7d";
+    };
+  };
 
   imports =
     [
