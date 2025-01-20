@@ -73,7 +73,7 @@
       hunspell
       hunspellDicts.de_DE
       hunspellDicts.en_US
-      krita
+      #krita
       libreoffice
       libsForQt5.qt5ct
       lyx
