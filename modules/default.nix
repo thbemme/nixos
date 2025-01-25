@@ -62,14 +62,9 @@
     findutils
     fish
     fishPlugins.done
-    fishPlugins.done
-    fishPlugins.forgit
     fishPlugins.forgit
     fishPlugins.fzf-fish
-    fishPlugins.fzf-fish
     fishPlugins.grc
-    fishPlugins.grc
-    fishPlugins.hydro
     fishPlugins.hydro
     fx
     fzf
