@@ -37,4 +37,4 @@ mount "$DISK"p1 /mnt/boot
 echo 'git clone https://git.kbnetcloud.de/user/nixos.git'
 echo 'sudo nixos-generate-config --root /mnt --show-hardware-config > hosts/<host>/hardware-configuration.nix'
 echo 'sudo nixos-install --flake /home/nixos/nixos#default --no-root-password'
-echo 'sudo nixos-enter --root /mnt -c "passwd user"'
+echo 'sudo nixos-enter --root /mnt -c "passwd <user>"'
