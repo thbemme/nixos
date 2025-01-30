@@ -66,6 +66,7 @@
       })
       easyeffects
       fastfetch
+      ffmpeg-full
       firefoxpwa
       gimp-with-plugins
       gpu-viewer
@@ -73,7 +74,7 @@
       hunspell
       hunspellDicts.de_DE
       hunspellDicts.en_US
-      #krita
+      krita
       libreoffice
       libsForQt5.qt5ct
       lyx
