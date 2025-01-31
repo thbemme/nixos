@@ -5,11 +5,12 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../modules/aicpu.nix
       ../../modules/default.nix
       ../../modules/desktop.nix
+      ../../modules/games.nix
       ../../modules/home.nix
       ../../modules/security.nix
-      ../../modules/work.nix
     ];
 
   networking.hostName = "puff"; # Define your hostname.
