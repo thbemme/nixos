@@ -114,7 +114,7 @@ function enable_proxy
   Environment="http_proxy=localhost:3128"
   Environment="https_proxy=localhost:3128"
   Environment="all_proxy=localhost:3128"
-  EOF'
+EOF'
   sudo systemctl daemon-reload
   sudo systemctl restart nix-daemon
 end
