@@ -141,7 +141,9 @@
           system = "aarch64-linux";
         };
         modules = [ ./hosts/mikrobi/configuration.nix ];
-
+        extraSpecialArgs = {
+          inherit vars;
+        };
       };
     };
 }

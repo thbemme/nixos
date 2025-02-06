@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   # https://nixos.org/manual/nixos/stable/#module-services-prometheus-exporters
   services.prometheus.exporters.node = {

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, vars, ... }:
+{ pkgs, inputs, vars, ... }:
 
 {
   hardware.graphics.extraPackages = with pkgs; [

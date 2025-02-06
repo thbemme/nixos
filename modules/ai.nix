@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-unstable, nix-comfyui, inputs, ... }:
+{ pkgs, pkgs-unstable, nix-comfyui, inputs, ... }:
 
 {
 
