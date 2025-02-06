@@ -28,11 +28,17 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, nix-comfyui, nix-on-droid, nixos-wsl, ... }@inputs:
     let
       lib = nixpkgs.lib;
-      vars = {
+      home = {
         user = "user";
         gitName = "firstname lastname";
         gitEmail = "firstname.lastname@maildomain.com";
         hostname = "nixos";
+      };
+      work = {
+        user = "workuser";
+        gitName = "firstname lastname";
+        gitEmail = "firstname.lastname@maildomain.com";
+        hostname = "hostname";
       };
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -46,11 +52,11 @@
             ./hosts/puffy/configuration.nix
             inputs.home-manager.nixosModules.default
             {
-              home-manager.extraSpecialArgs = { inherit inputs vars; };
+              home-manager.extraSpecialArgs = { inherit inputs; vars = home; };
             }
           ];
           specialArgs = {
-            inherit inputs vars;
+            inherit inputs; vars = home;
             pkgs-unstable = import nixpkgs-unstable {
               inherit system;
               config.allowUnfree = true;
@@ -63,11 +69,11 @@
             ./hosts/puff/configuration.nix
             inputs.home-manager.nixosModules.default
             {
-              home-manager.extraSpecialArgs = { inherit inputs vars; };
+              home-manager.extraSpecialArgs = { inherit inputs; vars = home; };
             }
           ];
           specialArgs = {
-            inherit inputs vars;
+            inherit inputs; vars = home;
             pkgs-unstable = import nixpkgs-unstable {
               inherit system;
               config.allowUnfree = true;
@@ -80,11 +86,11 @@
             ./hosts/vm/configuration.nix
             inputs.home-manager.nixosModules.default
             {
-              home-manager.extraSpecialArgs = { inherit inputs vars; };
+              home-manager.extraSpecialArgs = { inherit inputs; vars = home; };
             }
           ];
           specialArgs = {
-            inherit inputs vars;
+            inherit inputs; vars = home;
             pkgs-unstable = import nixpkgs-unstable {
               inherit system;
               config.allowUnfree = true;
@@ -99,23 +105,13 @@
             {
               home-manager.extraSpecialArgs = {
                 inherit inputs;
-                vars = {
-                  user = "workuser";
-                  gitName = "firstname lastname";
-                  gitEmail = "firstname.lastname@maildomain.com";
-                  hostname = "hostname";
-                };
+                vars = work;
               };
             }
           ];
           specialArgs = {
             inherit inputs;
-            vars = {
-              user = "workuser";
-              gitName = "firstname lastname";
-              gitEmail = "firstname.lastname@maildomain.com";
-              hostname = "hostname";
-            };
+            vars = work;
             pkgs-unstable = import nixpkgs-unstable {
               inherit system;
               config.allowUnfree = true;
@@ -128,11 +124,11 @@
             ./hosts/wsl/configuration.nix
             inputs.home-manager.nixosModules.default
             {
-              home-manager.extraSpecialArgs = { inherit inputs vars; };
+              home-manager.extraSpecialArgs = { inherit inputs; vars = home; };
             }
           ];
           specialArgs = {
-            inherit inputs vars;
+            inherit inputs; vars = home;
           };
         };
       };
@@ -142,7 +138,7 @@
         };
         modules = [ ./hosts/mikrobi/configuration.nix ];
         extraSpecialArgs = {
-          inherit vars;
+          vars = home;
         };
       };
     };
