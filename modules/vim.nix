@@ -20,9 +20,7 @@
         set shiftwidth=2
         set tabstop=2
         set wildmenu
-        color dracula
         syntax on
-        hi Normal guibg=NONE ctermbg=NONE
       '';
     })
   ];
