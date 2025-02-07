@@ -46,7 +46,6 @@
     lynis
     man
     ncurses
-    neofetch
     nikto
     nix-index
     nmap

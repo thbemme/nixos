@@ -8,12 +8,14 @@
       ./gnome.nix
     ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.systemd.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 5;
-
+  # Bootloader
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.systemd-boot.consoleMode = "max";
+    loader.efi.canTouchEfiVariables = true;
+    initrd.systemd.enable = true;
+    kernelPackages = pkgs.linuxPackages_latest;
+  };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -147,7 +149,6 @@
   # networking.firewall.enable = false;
 
   environment.variables = { TERMINAL = "ghotty"; BROWSER = "firefox"; };
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Appimage support
   programs.appimage.enable = true;
