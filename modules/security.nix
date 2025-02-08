@@ -4,14 +4,15 @@
   users.users.${vars.user} = {
     packages = (with pkgs; [
       gobuster
+      lynis
+      nikto
       nmap
       subfinder
+      wapiti
       wireshark
     ]) ++
     (with pkgs-unstable; [
-      lynis
-      nikto
-      wapiti
+      #unstable
     ]);
     extraGroups = [ "wireshark" ];
   };
