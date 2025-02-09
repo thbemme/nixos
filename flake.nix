@@ -48,15 +48,10 @@
       nixosConfigurations = {
         puffy = lib.nixosSystem {
           inherit system;
-          modules = [
-            ./hosts/puffy/configuration.nix
-            inputs.home-manager.nixosModules.default
-            {
-              home-manager.extraSpecialArgs = { inherit inputs; vars = home; };
-            }
-          ];
+          modules = [ ./hosts/puffy/configuration.nix ];
           specialArgs = {
-            inherit inputs; vars = home;
+            inherit inputs;
+            vars = home;
             pkgs-unstable = import nixpkgs-unstable {
               inherit system;
               config.allowUnfree = true;
@@ -65,15 +60,10 @@
         };
         puff = lib.nixosSystem {
           inherit system;
-          modules = [
-            ./hosts/puff/configuration.nix
-            inputs.home-manager.nixosModules.default
-            {
-              home-manager.extraSpecialArgs = { inherit inputs; vars = home; };
-            }
-          ];
+          modules = [ ./hosts/puff/configuration.nix ];
           specialArgs = {
-            inherit inputs; vars = home;
+            inherit inputs;
+            vars = home;
             pkgs-unstable = import nixpkgs-unstable {
               inherit system;
               config.allowUnfree = true;
@@ -82,15 +72,10 @@
         };
         vm = lib.nixosSystem {
           inherit system;
-          modules = [
-            ./hosts/vm/configuration.nix
-            inputs.home-manager.nixosModules.default
-            {
-              home-manager.extraSpecialArgs = { inherit inputs; vars = home; };
-            }
-          ];
+          modules = [ ./hosts/vm/configuration.nix ];
           specialArgs = {
-            inherit inputs; vars = home;
+            inherit inputs;
+            vars = home;
             pkgs-unstable = import nixpkgs-unstable {
               inherit system;
               config.allowUnfree = true;
@@ -99,16 +84,7 @@
         };
         hostname = lib.nixosSystem {
           inherit system;
-          modules = [
-            ./hosts/wsl/configuration.nix
-            inputs.home-manager.nixosModules.default
-            {
-              home-manager.extraSpecialArgs = {
-                inherit inputs;
-                vars = work;
-              };
-            }
-          ];
+          modules = [ ./hosts/wsl/configuration.nix ];
           specialArgs = {
             inherit inputs;
             vars = work;
@@ -120,15 +96,14 @@
         };
         nixos = lib.nixosSystem {
           inherit system;
-          modules = [
-            ./hosts/wsl/configuration.nix
-            inputs.home-manager.nixosModules.default
-            {
-              home-manager.extraSpecialArgs = { inherit inputs; vars = home; };
-            }
-          ];
+          modules = [ ./hosts/wsl/configuration.nix ];
           specialArgs = {
-            inherit inputs; vars = home;
+            inherit inputs;
+            vars = work;
+            pkgs-unstable = import nixpkgs-unstable {
+              inherit system;
+              config.allowUnfree = true;
+            };
           };
         };
       };
