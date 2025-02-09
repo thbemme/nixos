@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, vars, ... }:
+{ pkgs, vars, ... }:
 
 {
 
@@ -26,7 +26,7 @@
   # services.xserver.libinput.enable = true;
 
   users.users.${vars.user} = {
-    packages = (with pkgs; [
+    packages = with pkgs; [
       alsa-utils
       amberol
       gnome-tweaks
@@ -34,9 +34,7 @@
       remmina
       seahorse
       soundconverter
-    ]) ++
-    (with pkgs-unstable; [
-    ]);
+    ];
   };
 
   environment.gnome.excludePackages = with pkgs; [

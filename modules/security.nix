@@ -1,8 +1,8 @@
-{ pkgs, pkgs-unstable, vars, ... }:
+{ pkgs, vars, ... }:
 
 {
   users.users.${vars.user} = {
-    packages = (with pkgs; [
+    packages = with pkgs; [
       gobuster
       lynis
       nikto
@@ -10,10 +10,7 @@
       subfinder
       wapiti
       wireshark
-    ]) ++
-    (with pkgs-unstable; [
-      #unstable
-    ]);
+    ];
     extraGroups = [ "wireshark" ];
   };
 
