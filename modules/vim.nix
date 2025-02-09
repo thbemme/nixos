@@ -6,10 +6,27 @@
       name = "vim";
       # Install plugins for example for syntax highlighting of nix files
       vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
-        start = [ vim-nix vim-misc vim-lastplace supertab vim-signify vim-fugitive vim-airline dracula-vim ];
+        start = [
+          dracula-vim
+          fzf-vim
+          fzfWrapper
+          minimap-vim
+          nerdtree
+          supertab
+          vim-airline
+          vim-codefmt
+          vim-fugitive
+          vim-lastplace
+          vim-misc
+          vim-nix
+          vim-signify
+        ];
         opt = [ ];
       };
       vimrcConfig.customRC = ''
+        nmap <silent> <F2> :NERDTreeFind<CR>
+        nmap <space>e :NERDTreeToggle %:p:h<CR>
+        nmap <space>m :MinimapToggle<CR>
         set backspace=indent,eol,start
         set expandtab
         set history=100
