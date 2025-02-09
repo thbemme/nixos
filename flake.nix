@@ -104,7 +104,7 @@
           modules = [ ./hosts/wsl/configuration.nix ];
           specialArgs = {
             inherit inputs;
-            vars = work;
+            vars = home;
             pkgs-unstable = import nixpkgs-unstable {
               inherit system;
               config.allowUnfree = true;
