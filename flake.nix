@@ -5,6 +5,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +30,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nix-comfyui, nix-on-droid, nixos-wsl, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, lanzaboote, nix-comfyui, nix-on-droid, nixos-wsl, ... }@inputs:
     let
       lib = nixpkgs.lib;
       home = {

@@ -8,6 +8,7 @@
       ../../modules/default.nix
       ../../modules/desktop.nix
       ../../modules/home.nix
+      ../../modules/secureboot.nix
       ../../modules/security.nix
       ../../modules/work.nix
     ];

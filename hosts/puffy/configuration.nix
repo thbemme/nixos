@@ -12,6 +12,7 @@
       ../../modules/gaming.nix
       ../../modules/home.nix
       ../../modules/prometheus.nix
+      ../../modules/secureboot.nix
       ../../modules/security.nix
       ../../modules/virt.nix
       ../../modules/work.nix
