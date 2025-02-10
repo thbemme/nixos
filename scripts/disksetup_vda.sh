@@ -12,9 +12,7 @@ mkfs.btrfs "$DISK"2
 mount -t btrfs "$DISK"2 /mnt
 
 # We first create the subvolumes outlined above:
-btrfs subvolume create /mnt/root
-btrfs subvolume create /mnt/home
-btrfs subvolume create /mnt/nix
+btrfs subvolume create /mnt/{root,home,nix}
 
 umount /mnt
 
