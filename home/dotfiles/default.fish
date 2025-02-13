@@ -1,4 +1,6 @@
-set fish_greeting
+function fish_greeting
+  uname -a
+end
 set -gx EDITOR vim
 # Colorscheme: Dracula
 set -U fish_color_normal f8f8f2
