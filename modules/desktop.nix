@@ -115,23 +115,12 @@
     nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     btrfs-assistant
-    g810-led
     lm_sensors
     xsane
     xsensors
   ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   # List services that you want to enable:
 
@@ -147,7 +136,7 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  environment.variables = { TERMINAL = "ghotty"; BROWSER = "firefox"; };
+  environment.variables = { TERMINAL = "ghostty"; BROWSER = "firefox"; };
 
   # Appimage support
   programs.appimage.enable = true;
