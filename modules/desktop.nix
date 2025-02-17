@@ -82,11 +82,11 @@
       nextcloud-client
       openshot-qt
       oreo-cursors-plus
+      paper-plane
       papirus-icon-theme
       phoronix-test-suite
       pika-backup
       stellarium
-      telegram-desktop
       tor-browser
       transmission_4-gtk
       vesktop
