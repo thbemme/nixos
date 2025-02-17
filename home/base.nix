@@ -44,4 +44,19 @@
       credential.helper = "store";
     };
   };
+
+  programs.ssh = {
+    enable = true;
+    forwardAgent = true;
+    extraConfig = ''
+      SetEnv TERM=xterm-256color
+      User ${vars.user}
+    '';
+    matchBlocks = {
+      "gitlab.com github.com" = {
+        user = "git";
+      };
+    };
+  };
+
 }
