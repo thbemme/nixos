@@ -50,7 +50,7 @@
     forwardAgent = true;
     extraConfig = ''
       SetEnv TERM=xterm-256color
-      User ${vars.user}
+      User ${vars.sshuser}
     '';
     matchBlocks = {
       "gitlab.com github.com" = {

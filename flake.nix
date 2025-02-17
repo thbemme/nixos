@@ -33,14 +33,17 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, lanzaboote, nix-comfyui, nix-on-droid, nixos-wsl, ... }@inputs:
     let
       lib = nixpkgs.lib;
+      sshuser = "user";
       home = {
         user = "user";
+        sshuser = "${sshuser}";
         gitName = "firstname lastname";
         gitEmail = "firstname.lastname@maildomain.com";
         hostname = "nixos";
       };
       work = {
         user = "workuser";
+        sshuser = "${sshuser}";
         gitName = "firstname lastname";
         gitEmail = "firstname.lastname@maildomain.com";
         hostname = "hostname";

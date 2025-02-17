@@ -39,6 +39,8 @@ set -U fish_pager_color_secondary_description
 set -U fish_color_host_remote 
 set -U fish_pager_color_secondary_completion 
 
+ssh-add -L > /dev/null || ssh-add
+
 function fish_prompt
   if [ $status = 0 ]
     set_color green
