@@ -116,7 +116,7 @@
         };
       };
       nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
-        pkgs = import nixpkgs-unstable {
+        pkgs = import nixpkgs {
           system = "aarch64-linux";
         };
         modules = [ ./hosts/mikrobi/configuration.nix ];
