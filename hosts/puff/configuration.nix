@@ -7,6 +7,7 @@
       ./hardware-configuration.nix
       ../../modules/default.nix
       ../../modules/desktop.nix
+      ../../modules/gaming.nix
       ../../modules/home.nix
       ../../modules/secureboot.nix
       ../../modules/security.nix
