@@ -33,21 +33,7 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, lanzaboote, nix-comfyui, nix-on-droid, nixos-wsl, ... }@inputs:
     let
       lib = nixpkgs.lib;
-      sshuser = "user";
-      home = {
-        user = "user";
-        sshuser = "${sshuser}";
-        gitName = "firstname lastname";
-        gitEmail = "firstname.lastname@maildomain.com";
-        hostname = "nixos";
-      };
-      work = {
-        user = "workuser";
-        sshuser = "${sshuser}";
-        gitName = "firstname lastname";
-        gitEmail = "firstname.lastname@maildomain.com";
-        hostname = "hostname";
-      };
+      variables = pkgs.lib.importJSON ./variables.json;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
@@ -59,7 +45,7 @@
           modules = [ ./hosts/puffy/configuration.nix ];
           specialArgs = {
             inherit inputs;
-            vars = home;
+            vars = variables.home;
             pkgs-unstable = import nixpkgs-unstable {
               inherit system;
               config.allowUnfree = true;
@@ -71,7 +57,7 @@
           modules = [ ./hosts/puff/configuration.nix ];
           specialArgs = {
             inherit inputs;
-            vars = home;
+            vars = variables.home;
             pkgs-unstable = import nixpkgs-unstable {
               inherit system;
               config.allowUnfree = true;
@@ -83,7 +69,7 @@
           modules = [ ./hosts/vm/configuration.nix ];
           specialArgs = {
             inherit inputs;
-            vars = home;
+            vars = variables.home;
             pkgs-unstable = import nixpkgs-unstable {
               inherit system;
               config.allowUnfree = true;
@@ -95,7 +81,7 @@
           modules = [ ./hosts/wsl/configuration.nix ];
           specialArgs = {
             inherit inputs;
-            vars = work;
+            vars = variables.work;
             pkgs-unstable = import nixpkgs-unstable {
               inherit system;
               config.allowUnfree = true;
@@ -107,7 +93,7 @@
           modules = [ ./hosts/wsl/configuration.nix ];
           specialArgs = {
             inherit inputs;
-            vars = home;
+            vars = variables.home;
             pkgs-unstable = import nixpkgs-unstable {
               inherit system;
               config.allowUnfree = true;
@@ -121,7 +107,7 @@
         };
         modules = [ ./hosts/mikrobi/configuration.nix ];
         extraSpecialArgs = {
-          vars = home;
+          vars = variables.home;
         };
       };
     };

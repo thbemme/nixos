@@ -1,0 +1,16 @@
+{
+  "home": {
+    "user": "user",
+    "sshuser": "user",
+    "gitName": "firstname lastname",
+    "gitEmail": "firstname.lastname@maildomain.com",
+    "hostname": "nixos"
+  },
+  "work": {
+    "user": "workuser",
+    "sshuser": "user",
+    "gitName": "firstname lastname",
+    "gitEmail": "firstname.lastname@maildomain.com",
+    "hostname": "hostname"
+  }
+}
