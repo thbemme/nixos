@@ -33,7 +33,7 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, lanzaboote, nix-comfyui, nix-on-droid, nixos-wsl, ... }@inputs:
     let
       lib = nixpkgs.lib;
-      variables = pkgs.lib.importJSON ./variables.json;
+      variables = pkgs.lib.importJSON ./secrets/variables.json;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
