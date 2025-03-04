@@ -11,8 +11,8 @@
 - Vulkan Tools
 ### [Desktop](modules/desktop.nix)
 - Gnome desktop environment
-- Enabled printing, scanning
-- Default software: Firefox, ghostty
+- Default theme: Dracula
+- Default software: Firefox, Ghostty
 ### [Development](modules/dev.nix)
 - Thony (Micropython for Raspberry Pico development)
 - Android Studio (Unstable)
@@ -33,7 +33,6 @@
 - UEFI fix
 - Qemu
 ### [Work related](modules/work.nix)
-- MS Teams
 - Citrix Client
 - Alpaca Proxy
 ## Gitcrypt
@@ -56,7 +55,8 @@ stty -echo;head -n1|base64 -d|git crypt unlock -;stty echo
 ```
 git clone https://git.kbnetcloud.de/user/nixos.git ~/git/nixos
 ```
-2. Setup disk
+2. Decrypt git-crypt
+3. Setup disk
 - **Warning: The disksetup scripts will delete all partitions on `nvme0n1`, `sda` or `vda`**
 - One btrfs volume with subvolumes for `rootfs`, `home` and `nix`
 - Physical volumes (nvme, sda) encrypted via cryptsetup
@@ -65,12 +65,12 @@ git clone https://git.kbnetcloud.de/user/nixos.git ~/git/nixos
 ```
 scripts/disksetup_<type>.sh
 ```
-3. Generate Hardware configuration
+4. Generate Hardware configuration
 ```
 nixos-generate-config --root /mnt --show-hardware-config > hosts/<host>/hardware-configuration.nix
 ```
 - Check if btrfs mountpoints  have `"compress=zstd"` parameter or add it manually
-4. Start installation for `<hostname>` and set `<username>` password
+5. Start installation for `<hostname>` and set `<username>` password
 ```
 nixos-install --flake /home/nixos/nixos#<hostname> --no-root-password
 nixos-enter --root /mnt -c "passwd <username>"
@@ -89,19 +89,21 @@ nixos-enter --root /mnt -c "passwd <username>"
 ```
 git clone https://git.kbnetcloud.de/user/nixos.git ~/git/nixos
 ```
-3. Update Nix channels
+3. Decrypt git-crypt
+
+4. Update Nix channels
 ```
 sudo nix-channel --update
 ```
-4. Switch to new configuration
+5. Switch to new configuration
 ```
 sudo nixos-rebuild switch --flake /home/nixos/git/nixos#<hostname> --impure
 ```
-5. Restart Nixos
+6. Restart Nixos
 ```
 wsl -t nixos
 ```
-6. Set password for your user
+7. Set password for your user
 ```
 wsl -d NixOS --user root
 passwd <user>
@@ -121,7 +123,9 @@ passwd <user>
 ```
 git clone https://git.kbnetcloud.de/user/nixos.git
 ```
-5. Switch to new config
+5. Decrypt git-crypt
+
+6. Switch to new config
 ```
 nix-on-droid -F ~/nixos/
 ```

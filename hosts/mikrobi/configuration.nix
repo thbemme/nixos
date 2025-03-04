@@ -39,6 +39,7 @@
     findutils
     fish
     git
+    git-crypt
     gnupg
     hostname
     htop
