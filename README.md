@@ -48,6 +48,8 @@ git-crypt export-key -|base64 -w0
 stty -echo;head -n1|base64 -d|git crypt unlock -;stty echo
 ```
 
+- Sample config file  [variables.json](./variables.json.sample)
+
 ## Desktop
 ### Installation
 1. Clone repo
