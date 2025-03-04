@@ -36,6 +36,18 @@
 - MS Teams
 - Citrix Client
 - Alpaca Proxy
+## Gitcrypt
+- Get key
+```bash
+git-crypt export-key -|base64 -w0
+```
+
+- Save key
+- Decrypt with base64 key
+```bash
+stty -echo;head -n1|base64 -d|git crypt unlock -;stty echo
+```
+
 ## Desktop
 ### Installation
 1. Clone repo
