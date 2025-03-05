@@ -143,7 +143,7 @@
     };
     "org/gnome/shell" = {
       favorite-apps = [
-        "firefox.desktop"
+        "librewolf.desktop"
         "com.mitchellh.ghostty.desktop"
         "org.gnome.Nautilus.desktop"
         "codium.desktop"

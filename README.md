@@ -12,7 +12,7 @@
 ### [Desktop](modules/desktop.nix)
 - Gnome desktop environment
 - Default theme: Dracula
-- Default software: Firefox, Ghostty
+- Default software: Librewolf, Ghostty
 ### [Development](modules/dev.nix)
 - Thony (Micropython for Raspberry Pico development)
 - Android Studio (Unstable)
