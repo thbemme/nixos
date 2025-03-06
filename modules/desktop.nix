@@ -97,7 +97,6 @@
       cryptomator
       ghostty
       handbrake
-      librewolf
     ]);
   };
 
