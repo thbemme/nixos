@@ -85,6 +85,7 @@
       papirus-icon-theme
       phoronix-test-suite
       pika-backup
+      revolt-desktop
       stellarium
       tor-browser
       transmission_4-gtk
@@ -109,7 +110,7 @@
 
   programs.firefox = {
     enable = true;
-    package = pkgs.librewolf;
+    package = pkgs-unstable.librewolf;
     policies = {
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
