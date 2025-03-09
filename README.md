@@ -1,6 +1,30 @@
 # My NixOS configuration and setup
+- [My NixOS configuration and setup](#my-nixos-configuration-and-setup)
+  - [Modules](#modules)
+    - [Generative AI/LLM](#generative-aillm)
+    - [AMD GPU](#amd-gpu)
+    - [Desktop/Gnome](#desktopgnome)
+    - [Development](#development)
+    - [Gaming](#gaming)
+    - [Prometheus](#prometheus)
+    - [Secure Boot](#secure-boot)
+    - [Security](#security)
+    - [VIM](#vim)
+    - [Virtualization](#virtualization)
+    - [Work related](#work-related)
+  - [Gitcrypt](#gitcrypt)
+  - [Desktop](#desktop)
+    - [Installation](#installation)
+    - [Maintenance](#maintenance)
+  - [WSL](#wsl)
+    - [Installation](#installation-1)
+    - [Maintenance](#maintenance-1)
+  - [Nix-on-droid](#nix-on-droid)
+    - [Installation](#installation-2)
+    - [Maintenance](#maintenance-2)
+
 ## Modules
-### [AI](modules/ai.nix)
+### [Generative AI/LLM](modules/ai.nix)
 - Comfyui
 - Mimic (TTS)
 - Ollama
@@ -9,10 +33,10 @@
 ### [AMD GPU](modules/amdgpu.nix)
 - CoreCTRL (Undervolting GPU)
 - Vulkan Tools
-### [Desktop](modules/desktop.nix)
+### [Desktop](modules/desktop.nix)/[Gnome](modules/gnome.nix)
 - Gnome desktop environment
 - Default theme: Dracula
-- Default software: Librewolf, Ghostty
+- Default software: Librewolf, Ghostty, VSCodium, Libreoffice, GIMP
 ### [Development](modules/dev.nix)
 - Thony (Micropython for Raspberry Pico development)
 - Android Studio (Unstable)
@@ -22,6 +46,8 @@
 - Wine
 ### [Prometheus](modules/prometheus.nix)
 - Prometheus exporter for Grafana monitoring
+### [Secure Boot](modules/secureboot.nix)
+- Enabling Secure Boot
 ### [Security](modules/security.nix)
 - Nmap
 - Wireshark
@@ -39,13 +65,13 @@
 - [Setup steps](https://lgug2z.com/articles/handling-secrets-in-nixos-an-overview/#managing-your-own-physical-machines)
 
 - Get key as base64
-```bash
+```shell
 git-crypt export-key -|base64 -w0
 ```
 
 - Save key
 - Decrypt with base64 key
-```bash
+```shell
 stty -echo;head -n1|base64 -d|git crypt unlock -;stty echo
 ```
 
