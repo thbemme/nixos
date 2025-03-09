@@ -36,7 +36,9 @@
 - Citrix Client
 - Alpaca Proxy
 ## Gitcrypt
-- Get key
+- [Setup steps](https://lgug2z.com/articles/handling-secrets-in-nixos-an-overview/#managing-your-own-physical-machines)
+
+- Get key as base64
 ```bash
 git-crypt export-key -|base64 -w0
 ```
