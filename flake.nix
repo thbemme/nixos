@@ -64,7 +64,7 @@
             };
           };
         };
-        vm = lib.nixosSystem {
+        vm = nixpkgs-unstable.lib.nixosSystem {
           inherit system;
           modules = [ ./hosts/vm/configuration.nix ];
           specialArgs = {

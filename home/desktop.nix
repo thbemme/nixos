@@ -124,7 +124,7 @@
       "editor.multiCursorModifier" = "alt";
       "editor.insertSpaces" = true;
       "editor.wordWrap" = "off";
-      "workbench.colorTheme" = "Dracula Theme";
+      "workbench.colorTheme" = "Dracula";
       "files.exclude" = {
         "**/.git" = true;
         "**/.svn" = true;
