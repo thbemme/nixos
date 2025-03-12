@@ -4,15 +4,28 @@
   users.users.${vars.user} = {
     packages = with pkgs; [
       gnome-boxes
+      virt-manager
     ];
+    extraGroups = [ "libvirtd" ];
   };
 
-  environment.systemPackages = with pkgs; [
-    qemu
-  ];
-
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = true;
+      swtpm.enable = true;
+      ovmf = {
+        enable = true;
+        packages = [
+          (pkgs.OVMF.override {
+            secureBoot = true;
+            tpmSupport = true;
+          }).fd
+        ];
+      };
+    };
+  };
 
   systemd.tmpfiles.rules =
     let
