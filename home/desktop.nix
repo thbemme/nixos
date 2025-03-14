@@ -124,7 +124,8 @@
       "editor.multiCursorModifier" = "alt";
       "editor.insertSpaces" = true;
       "editor.wordWrap" = "off";
-      "workbench.colorTheme" = "Dracula";
+      "workbench.colorTheme" = "Dracula Theme";
+      "ollama-autocoder.model" = "deepseek-coder-v2:latest";
       "files.exclude" = {
         "**/.git" = true;
         "**/.svn" = true;
