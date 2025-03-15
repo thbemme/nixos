@@ -202,5 +202,38 @@
       command = "ghostty";
       binding = "<Super>Return";
     };
+    "org/gnome/shell/extensions/nothing-to-say" = {
+      icon-visibility = "always";
+      keybinding-toggle-mute = [ "F9" ];
+      play-feedback-sounds = false;
+      show-osd = false;
+    };
+    "org/gnome/shell/extensions/just-perfection" = {
+      clock-menu-position = 1;
+      clock-menu-position-offset = 20;
+      panel-button-padding-size = 6;
+      startup-status = 0;
+      theme = true;
+      window-demands-attention-focus = true;
+      workspace-wrap-around = true;
+    };
+    "org/gnome/shell/extensions/weatherornot" = {
+      position = "right";
+    };
+    "org/gnome/shell/extensions/dash-to-dock" = {
+      apply-custom-theme = true;
+      custom-theme-shrink = true;
+      dash-max-icon-size = 32;
+      dock-position = "LEFT";
+      show-icons-emblems = false;
+      show-mounts = false;
+      show-trash = false;
+    };
+    "org/gnome/shell/extensions/freon" = {
+      hot-sensors = "[ '__max__' ]";
+    };
+    "org/gnome/shell/extensions/gamemodeshellextension" = {
+      show-icon-only-when-active = true;
+    };
   };
 }
