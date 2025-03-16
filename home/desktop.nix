@@ -159,7 +159,7 @@
         "blur-my-shell@aunetx"
         "dash-to-dock@micxgx.maildomain.com"
         "freon@UshakovVasilii_Github.yahoo.com"
-        #"gamemode@christian.kellner.me"
+        "gamemode@christian.kellner.me"
         "just-perfection-desktop@just-perfection"
         "nothing-to-say@extensions.gnome.wouter.bolsterl.ee"
         "quick-settings-avatar@d-go"
@@ -230,7 +230,7 @@
       show-trash = false;
     };
     "org/gnome/shell/extensions/freon" = {
-      hot-sensors = "[ '__max__' ]";
+      hot-sensors = [ "__max__" ];
     };
     "org/gnome/shell/extensions/gamemodeshellextension" = {
       show-icon-only-when-active = true;

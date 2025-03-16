@@ -64,6 +64,10 @@
 ## Gitcrypt
 - [Setup steps](https://lgug2z.com/articles/handling-secrets-in-nixos-an-overview/#managing-your-own-physical-machines)
 
+- Make sure `git` and `git-crypt` is installed:
+```shell
+nix-shell -p git git-crypt
+```
 - Get key as base64
 ```shell
 git-crypt export-key -|base64 -w0
@@ -80,27 +84,28 @@ stty -echo;head -n1|base64 -d|git crypt unlock -;stty echo
 ## Desktop
 ### Installation
 1. Clone repo
-```
+```shell
 git clone https://git.kbnetcloud.de/user/nixos.git ~/git/nixos
+cd ~/git/nixos
 ```
-2. Decrypt git-crypt
+2. Decrypt [git-crypt](#gitcrypt)
 3. Setup disk
 - **Warning: The disksetup scripts will delete all partitions on `nvme0n1`, `sda` or `vda`**
 - One btrfs volume with subvolumes for `rootfs`, `home` and `nix`
 - Physical volumes (nvme, sda) encrypted via cryptsetup
 - Virtual volumes (vda) unencrypted
 - Swap via `zram`
-```
+```shell
 scripts/disksetup_<type>.sh
 ```
 4. Generate Hardware configuration
-```
+```shell
 nixos-generate-config --root /mnt --show-hardware-config > hosts/<host>/hardware-configuration.nix
 ```
 - Check if btrfs mountpoints  have `"compress=zstd"` parameter or add it manually
 5. Start installation for `<hostname>` and set `<username>` password
-```
-nixos-install --flake /home/nixos/nixos#<hostname> --no-root-password
+```shell
+nixos-install --flake .#<hostname> --no-root-password
 nixos-enter --root /mnt -c "passwd <username>"
 ```
 ### Maintenance
@@ -114,25 +119,26 @@ nixos-enter --root /mnt -c "passwd <username>"
 ### Installation
 1. Follow NixOS installation on WSL from https://github.com/nix-community/NixOS-WSL
 2. Clone repo
-```
+```shell
 git clone https://git.kbnetcloud.de/user/nixos.git ~/git/nixos
+cd ~/git/nixos
 ```
-3. Decrypt git-crypt
+3. Decrypt [git-crypt](#gitcrypt)
 
 4. Update Nix channels
-```
+```shell
 sudo nix-channel --update
 ```
 5. Switch to new configuration
-```
-sudo nixos-rebuild switch --flake /home/nixos/git/nixos#<hostname> --impure
+```shell
+sudo nixos-rebuild switch --flake .#<hostname> --impure
 ```
 6. Restart Nixos
-```
+```shell
 wsl -t nixos
 ```
 7. Set password for your user
-```
+```shell
 wsl -d NixOS --user root
 passwd <user>
 ```
@@ -148,13 +154,13 @@ passwd <user>
 2. Enable Flake install and let installation configure base system
 3. Add `openssh` and `git` packages under `.config/nix-on-droid/nix-on-droid.nix`
 4. Clone repo
-```
+```shell
 git clone https://git.kbnetcloud.de/user/nixos.git
 ```
-5. Decrypt git-crypt
+1. Decrypt [git-crypt](#gitcrypt)
 
-6. Switch to new config
-```
+2. Switch to new config
+```shell
 nix-on-droid -F ~/nixos/
 ```
 ### Maintenance

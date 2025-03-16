@@ -27,6 +27,10 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    swtpm
+  ];
+
   systemd.tmpfiles.rules =
     let
       firmware =
