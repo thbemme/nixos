@@ -36,12 +36,10 @@
       variables = pkgs.lib.importJSON ./secrets/variables.json;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
     in
     {
       nixosConfigurations = {
         puffy = lib.nixosSystem {
-          inherit system;
           modules = [ ./hosts/puffy/configuration.nix ];
           specialArgs = {
             inherit inputs;
@@ -53,7 +51,6 @@
           };
         };
         puff = lib.nixosSystem {
-          inherit system;
           modules = [ ./hosts/puff/configuration.nix ];
           specialArgs = {
             inherit inputs;
@@ -65,7 +62,6 @@
           };
         };
         vm = nixpkgs-unstable.lib.nixosSystem {
-          inherit system;
           modules = [ ./hosts/vm/configuration.nix ];
           specialArgs = {
             inherit inputs;
@@ -77,7 +73,6 @@
           };
         };
         hostname = lib.nixosSystem {
-          inherit system;
           modules = [ ./hosts/wsl/configuration.nix ];
           specialArgs = {
             inherit inputs;
@@ -89,7 +84,6 @@
           };
         };
         nixos = lib.nixosSystem {
-          inherit system;
           modules = [ ./hosts/wsl/configuration.nix ];
           specialArgs = {
             inherit inputs;

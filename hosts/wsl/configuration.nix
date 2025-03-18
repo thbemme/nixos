@@ -38,6 +38,8 @@
 
   networking.hostName = "${vars.hostname}";
 
+  nixpkgs.hostPlatform = "x86_64-linux";
+
   hardware.graphics.enable = true;
   #hardware.graphics.setLdLibraryPath = true;
 
