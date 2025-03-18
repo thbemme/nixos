@@ -22,7 +22,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nix for android
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,79 +29,50 @@
     };
   };
 
+
   outputs = { self, nixpkgs, nixpkgs-unstable, lanzaboote, nix-comfyui, nix-on-droid, nixos-wsl, ... }@inputs:
     let
       lib = nixpkgs.lib;
-      variables = pkgs.lib.importJSON ./secrets/variables.json;
       system = "x86_64-linux";
+      variables = nixpkgs.lib.importJSON ./secrets/variables.json;
       pkgs = nixpkgs.legacyPackages.${system};
+
+      pkgsUnstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
+      specialArgs = useWorkVars: {
+        inherit inputs;
+        vars = if useWorkVars then variables.work else variables.home;
+        pkgs-unstable = pkgsUnstable;
+      };
+
+      nixosConfig = { configPath, useUnstable ? false, useWorkVars ? false }:
+        let
+          nixpkgsSrc = if useUnstable then nixpkgs-unstable else nixpkgs;
+        in
+        nixpkgsSrc.lib.nixosSystem {
+          modules = [ configPath ];
+          specialArgs = specialArgs useWorkVars;
+        };
+
     in
     {
       nixosConfigurations = {
-        puffy = lib.nixosSystem {
-          modules = [ ./hosts/puffy/configuration.nix ];
-          specialArgs = {
-            inherit inputs;
-            vars = variables.home;
-            pkgs-unstable = import nixpkgs-unstable {
-              inherit system;
-              config.allowUnfree = true;
-            };
-          };
-        };
-        puff = lib.nixosSystem {
-          modules = [ ./hosts/puff/configuration.nix ];
-          specialArgs = {
-            inherit inputs;
-            vars = variables.home;
-            pkgs-unstable = import nixpkgs-unstable {
-              inherit system;
-              config.allowUnfree = true;
-            };
-          };
-        };
-        vm = nixpkgs-unstable.lib.nixosSystem {
-          modules = [ ./hosts/vm/configuration.nix ];
-          specialArgs = {
-            inherit inputs;
-            vars = variables.home;
-            pkgs-unstable = import nixpkgs-unstable {
-              inherit system;
-              config.allowUnfree = true;
-            };
-          };
-        };
-        hostname = lib.nixosSystem {
-          modules = [ ./hosts/wsl/configuration.nix ];
-          specialArgs = {
-            inherit inputs;
-            vars = variables.work;
-            pkgs-unstable = import nixpkgs-unstable {
-              inherit system;
-              config.allowUnfree = true;
-            };
-          };
-        };
-        nixos = lib.nixosSystem {
-          modules = [ ./hosts/wsl/configuration.nix ];
-          specialArgs = {
-            inherit inputs;
-            vars = variables.home;
-            pkgs-unstable = import nixpkgs-unstable {
-              inherit system;
-              config.allowUnfree = true;
-            };
-          };
-        };
+        puffy = nixosConfig { configPath = ./hosts/puffy/configuration.nix; };
+        puff = nixosConfig { configPath = ./hosts/puff/configuration.nix; };
+        vm = nixosConfig { configPath = ./hosts/vm/configuration.nix; useUnstable = true; };
+        hostname = nixosConfig { configPath = ./hosts/wsl/configuration.nix; useWorkVars = true; };
+        nixos = nixosConfig { configPath = ./hosts/wsl/configuration.nix; };
       };
+
       nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
         pkgs = import nixpkgs {
           system = "aarch64-linux";
         };
         modules = [ ./hosts/mikrobi/configuration.nix ];
-        extraSpecialArgs = {
-          vars = variables.home;
-        };
+        extraSpecialArgs = { vars = variables.home; };
       };
     };
 }
