@@ -11,7 +11,7 @@
       mangohud
       protonup-qt
       scummvm
-      wowup-cf
+      sdlpop
     ]) ++
     (with pkgs-unstable; [
       #path-of-building
