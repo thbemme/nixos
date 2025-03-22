@@ -25,6 +25,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # Enable networking
+  networking.networkmanager.enable = true;
+
   users.users.${vars.user} = {
     extraGroups = [ "networkmanager" ];
     packages = with pkgs; [

@@ -3,9 +3,11 @@
   - [Modules](#modules)
     - [Generative AI/LLM](#generative-aillm)
     - [AMD GPU](#amd-gpu)
-    - [Desktop/Gnome](#desktopgnome)
+    - [Desktop/Desktop-software](#desktopdesktop-software)
     - [Development](#development)
     - [Gaming](#gaming)
+    - [Gnome](#gnome)
+    - [Printing](#printing)
     - [Prometheus](#prometheus)
     - [Secure Boot](#secure-boot)
     - [Security](#security)
@@ -33,10 +35,8 @@
 ### [AMD GPU](modules/amdgpu.nix)
 - CoreCTRL (Undervolting GPU)
 - Vulkan Tools
-### [Desktop](modules/desktop.nix)/[Gnome](modules/gnome.nix)
-- Gnome desktop environment
-- Default theme: Dracula
-- Default software: Librewolf, Ghostty, VSCodium, Libreoffice, GIMP
+### [Desktop](modules/desktop.nix)/[Desktop-software](modules/desktop-software.nix)
+- Default packages: Librewolf, Ghostty, VSCodium, Libreoffice, GIMP
 ### [Development](modules/dev.nix)
 - Thony (Micropython for Raspberry Pico development)
 - Android Studio (Unstable)
@@ -44,6 +44,11 @@
 - Lutris
 - Stream
 - Wine
+### [Gnome](modules/gnome.nix)
+- Gnome desktop environment
+- Default theme: Dracula
+### [Printing](modules/printing.nix)
+- Setup printer and scanner
 ### [Prometheus](modules/prometheus.nix)
 - Prometheus exporter for Grafana monitoring
 ### [Secure Boot](modules/secureboot.nix)
