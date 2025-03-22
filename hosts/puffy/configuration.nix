@@ -8,10 +8,12 @@
       ../../modules/amdgpu.nix
       ../../modules/default.nix
       ../../modules/desktop.nix
+      ../../modules/desktop-software.nix
       ../../modules/dev.nix
       ../../modules/g512.nix
       ../../modules/gaming.nix
       ../../modules/home.nix
+      ../../modules/printing.nix
       ../../modules/prometheus.nix
       ../../modules/secureboot.nix
       ../../modules/security.nix
@@ -29,4 +31,6 @@
   # Enable nct6775 module for sensor readings
   boot.kernelModules = [ "nct6775" ];
 
+  # Enable firmware service
+  services.fwupd.enable = true;
 }

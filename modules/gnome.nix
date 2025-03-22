@@ -26,6 +26,7 @@
   # services.xserver.libinput.enable = true;
 
   users.users.${vars.user} = {
+    extraGroups = [ "networkmanager" ];
     packages = with pkgs; [
       alsa-utils
       amberol
@@ -43,5 +44,12 @@
     gnome-connections
     gnome-console
   ];
+
+  # Additional home manager settings
+  home-manager = {
+    users = {
+      "${vars.user}" = import ../home/gnome.nix;
+    };
+  };
 
 }

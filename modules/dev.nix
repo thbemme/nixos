@@ -35,7 +35,7 @@
       android-studio
       #ladybird
     ]);
-    extraGroups = [ "kvm" "adbusers" ];
+    extraGroups = [ "kvm" "adbusers" "dialout" ];
   };
 
   programs.adb.enable = true;
