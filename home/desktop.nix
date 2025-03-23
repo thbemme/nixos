@@ -88,6 +88,7 @@
       "editor.insertSpaces" = true;
       "editor.wordWrap" = "off";
       "workbench.colorTheme" = "Dracula Theme";
+      "nix.formatterPath" = "nixpkgs-fmt";
       "ollama-autocoder.model" = "deepseek-coder-v2:latest";
       "files.exclude" = {
         "**/.git" = true;
