@@ -48,19 +48,19 @@
         pkgs-unstable = pkgsUnstable;
       };
 
-      nixosConfig = { configPath, useUnstable ? false, useWorkVars ? false }:
+      nixosConfig = { configPath, useUnstable ? false, useWorkVars ? false, gpuAcceleration ? "none" }:
         let
           nixpkgsSrc = if useUnstable then nixpkgs-unstable else nixpkgs;
         in
         nixpkgsSrc.lib.nixosSystem {
           modules = [ configPath ];
-          specialArgs = specialArgs useWorkVars;
+          specialArgs = specialArgs useWorkVars // { inherit gpuAcceleration; };
         };
 
     in
     {
       nixosConfigurations = {
-        puffy = nixosConfig { configPath = ./hosts/puffy/configuration.nix; };
+        puffy = nixosConfig { configPath = ./hosts/puffy/configuration.nix; gpuAcceleration = "rocm"; };
         puff = nixosConfig { configPath = ./hosts/puff/configuration.nix; };
         vm = nixosConfig { configPath = ./hosts/vm/configuration.nix; useUnstable = true; };
         hostname = nixosConfig { configPath = ./hosts/wsl/configuration.nix; useWorkVars = true; };

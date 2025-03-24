@@ -1,5 +1,20 @@
-{ pkgs, pkgs-unstable, nix-comfyui, inputs, ... }:
+{ pkgs, pkgs-unstable, nix-comfyui, gpuAcceleration, inputs, ... }:
 
+let
+  # Determine the Ollama package based on GPU acceleration type
+  ollamaPackage =
+    if gpuAcceleration == "rocm" then
+      pkgs.ollama-rocm
+    else
+      pkgs.ollama;
+
+  # Configure environment variables dynamically
+  ollamaEnvVars =
+    if gpuAcceleration == "rocm" then {
+      HCC_AMDGPU_TARGET = "gfx1031";
+    } else
+      { };
+in
 {
 
   nixpkgs.overlays = [
@@ -19,13 +34,10 @@
 
   # Ollama
   services.ollama = {
-    #package = pkgs-unstable.ollama-rocm;
     enable = true;
-    acceleration = "rocm";
-    environmentVariables = {
-      HCC_AMDGPU_TARGET = "gfx1031";
-    };
-    rocmOverrideGfx = "10.3.1";
+    acceleration = if gpuAcceleration != "none" then gpuAcceleration else false;
+    environmentVariables = ollamaEnvVars;
+    rocmOverrideGfx = if gpuAcceleration == "rocm" then "10.3.1" else null;
   };
 
   services.open-webui = {
@@ -35,7 +47,7 @@
     host = "0.0.0.0"; #Point reverse proxy to http://<ip>:8080
     environment = {
       OLLAMA_API_BASE_URL = "http://127.0.0.1:11434";
-      #WEBUI_AUTH = "False";
+      WEBUI_AUTH = if gpuAcceleration != "none" then "True" else "False";
       GLOBAL_LOG_LEVEL = "40";
     };
   };

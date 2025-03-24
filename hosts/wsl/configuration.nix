@@ -5,7 +5,7 @@
     [
       # include NixOS-WSL modules
       <nixos-wsl/modules>
-      ../../modules/aicpu.nix
+      ../../modules/ai.nix
       ../../modules/default.nix
       ../../modules/home_wsl.nix
     ];
@@ -14,7 +14,6 @@
     defaultUser = "${vars.user}";
     enable = true;
     startMenuLaunchers = true;
-    nativeSystemd = true;
     useWindowsDriver = true;
     wslConf.automount.root = "/mnt";
     wslConf.interop.appendWindowsPath = false;
