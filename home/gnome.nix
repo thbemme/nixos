@@ -28,9 +28,11 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # "";
-    ".themes/" = {
-      source = ./dotfiles/themes;
-      recursive = true;
+    ".themes/Dracula-standard-buttons" = {
+      source = pkgs.fetchzip {
+        url = "https://github.com/dracula/gtk/archive/refs/heads/standard-buttons.zip";
+        hash = "sha256-V0l9rUpuHT1aptUc4TBf97zEzGrDHGgUDE1EEOhOaUM=";
+      };
     };
     ".icons/Dracula" = {
       source = pkgs.fetchzip {
