@@ -32,8 +32,11 @@
       source = ./dotfiles/themes;
       recursive = true;
     };
-    ".icons/" = {
-      source = ./dotfiles/icons;
+    ".icons/Dracula" = {
+      source = pkgs.fetchzip {
+        url = "https://github.com/dracula/gtk/files/5214870/Dracula.zip";
+        hash = "sha256-rcSKlgI3bxdh4INdebijKElqbmAfTwO+oEt6M2D1ls0=";
+      };
       recursive = true;
     };
     ".config/gtk-3.0" = {
