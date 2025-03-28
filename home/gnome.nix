@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, vars, ... }:
 
 {
   home.packages = [
@@ -39,23 +39,16 @@
         url = "https://github.com/dracula/gtk/files/5214870/Dracula.zip";
         hash = "sha256-rcSKlgI3bxdh4INdebijKElqbmAfTwO+oEt6M2D1ls0=";
       };
-      recursive = true;
     };
-    ".config/gtk-3.0" = {
-      source = ./dotfiles/gtk-3.0;
-      recursive = true;
-    };
-    ".config/gtk-4.0" = {
-      source = ./dotfiles/gtk-4.0;
-      recursive = true;
-    };
+    ".config/gtk-3.0/bookmarks".source = ./dotfiles/bookmarks;
+    ".config/assets".source = config.lib.file.mkOutOfStoreSymlink "/home/${vars.user}/.themes/Dracula-standard-buttons/assets";
+    ".config/gtk-4.0/gtk.css".source = config.lib.file.mkOutOfStoreSymlink "/home/${vars.user}/.themes/Dracula-standard-buttons/gtk-4.0/gtk.css";
+    ".config/gtk-4.0/gtk-dark.css".source = config.lib.file.mkOutOfStoreSymlink "/home/${vars.user}/.themes/Dracula-standard-buttons/gtk-4.0/gtk-dark.css";
     ".config/qt5ct" = {
       source = ./dotfiles/qt5ct;
-      recursive = true;
     };
     ".config/qt6ct" = {
       source = ./dotfiles/qt6ct;
-      recursive = true;
     };
   };
 
