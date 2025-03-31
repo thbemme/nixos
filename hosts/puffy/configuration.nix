@@ -7,12 +7,13 @@
       ../../modules/ai.nix
       ../../modules/amdgpu.nix
       ../../modules/default.nix
-      ../../modules/desktop.nix
       ../../modules/desktop-software.nix
+      ../../modules/desktop.nix
       ../../modules/dev.nix
       ../../modules/g512.nix
       ../../modules/gaming.nix
       ../../modules/home.nix
+      ../../modules/msib450mpro.nix
       ../../modules/printing.nix
       ../../modules/prometheus.nix
       ../../modules/secureboot.nix
