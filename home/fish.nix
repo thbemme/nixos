@@ -2,6 +2,6 @@
 
 {
   home.file = {
-    ".config/fish/config.fish".source = ./dotfiles/default.fish;
+    ".config/fish/conf.d/extra.fish".source = ./dotfiles/fish/desktop.fish;
   };
 }

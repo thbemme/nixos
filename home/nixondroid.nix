@@ -3,7 +3,7 @@
   # Read the changelog before changing this value
   home.stateVersion = "24.05";
   home.file = {
-    ".config/fish/config.fish".source = ./dotfiles/mikrobi.fish;
+    ".config/fish/config.fish".source = ./dotfiles/fish/mikrobi.fish;
   };
   programs.nix-index = {
     enable = true;

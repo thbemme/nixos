@@ -2,6 +2,6 @@
 
 {
   home.file = {
-    ".config/fish/config.fish".source = ./dotfiles/wsl.fish;
+    ".config/fish/conf.d/extra.fish".source = ./dotfiles/fish/wsl.fish;
   };
 }

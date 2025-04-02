@@ -19,6 +19,11 @@
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
+  home.file = {
+    ".config/fish/config.fish".source = ./dotfiles/fish/default.fish;
+    ".config/fish/conf.d/dracula.fish".source = ./dotfiles/fish/dracula.fish;
+  };
+
   home.sessionVariables = {
     EDITOR = "vim";
   };
