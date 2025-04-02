@@ -12,7 +12,6 @@
         ];
       })
       easyeffects
-      fastfetch
       ffmpeg-full
       gimp-with-plugins
       gpu-viewer
