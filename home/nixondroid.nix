@@ -4,6 +4,7 @@
   home.stateVersion = "24.05";
   home.file = {
     ".config/fish/config.fish".source = ./dotfiles/fish/mikrobi.fish;
+    ".config/fish/conf.d/dracula.fish".source = ./dotfiles/fish/dracula.fish;
   };
   programs.nix-index = {
     enable = true;
@@ -36,7 +37,9 @@
       "ssh-amd64-vm" = {
         hostname = "192.168.178.19";
       };
+      "puffy" = {
+        hostname = "192.168.178.20";
+      };
     };
   };
-  services.ssh-agent.enable = true;
 }

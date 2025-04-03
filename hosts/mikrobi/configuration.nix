@@ -32,6 +32,7 @@
       '';
     })
     alejandra
+    bat
     curl
     diffutils
     dig
