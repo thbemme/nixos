@@ -52,7 +52,7 @@ function fish_title
 end
 
 function nix-shell
-  /run/current-system/sw/bin/nix-shell --command /run/current-system/sw/bin/fish -p $argv
+  command nix-shell --command fish $argv
 end
 
 function p
