@@ -43,6 +43,13 @@
     ];
   };
 
+  # Additional home manager settings
+  home-manager = {
+    users = {
+      "${vars.user}" = import ../home/desktop.nix;
+    };
+  };
+
   programs.firefox = {
     enable = true;
     package = pkgs-unstable.librewolf;
