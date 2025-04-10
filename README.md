@@ -90,7 +90,7 @@ stty -echo;head -n1|base64 -d|git crypt unlock -;stty echo
 ### Installation
 1. Clone repo
 ```shell
-git clone https://git.kbnetcloud.de/user/nixos.git ~/git/nixos
+git clone https://git.kbnetcloud.de/riza/nixos.git ~/git/nixos
 cd ~/git/nixos
 ```
 2. Decrypt [git-crypt](#gitcrypt)
@@ -125,7 +125,7 @@ nixos-enter --root /mnt -c "passwd <username>"
 1. Follow NixOS installation on WSL from https://github.com/nix-community/NixOS-WSL
 2. Clone repo
 ```shell
-git clone https://git.kbnetcloud.de/user/nixos.git ~/git/nixos
+git clone https://git.kbnetcloud.de/riza/nixos.git ~/git/nixos
 cd ~/git/nixos
 ```
 3. Decrypt [git-crypt](#gitcrypt)
@@ -160,7 +160,7 @@ passwd <user>
 3. Add `openssh` and `git` packages under `.config/nix-on-droid/nix-on-droid.nix`
 4. Clone repo
 ```shell
-git clone https://git.kbnetcloud.de/user/nixos.git
+git clone https://git.kbnetcloud.de/riza/nixos.git
 ```
 1. Decrypt [git-crypt](#gitcrypt)
 
@@ -172,3 +172,4 @@ nix-on-droid -F ~/nixos/
 - `nix-on-droid` to maintain nix-on-droid
 - Reconfiguration with `r [--dry]`
 - Pull from git with `pu`
+

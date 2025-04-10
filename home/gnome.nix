@@ -70,9 +70,9 @@
         "Path of Exile 2.desktop"
       ];
       enabled-extensions = [
-        "appindicatorsupport@rgcjonas.maildomain.com"
+        "appindicatorsupport@rgcjonas.gmail.com"
         "blur-my-shell@aunetx"
-        "dash-to-dock@micxgx.maildomain.com"
+        "dash-to-dock@micxgx.gmail.com"
         "freon@UshakovVasilii_Github.yahoo.com"
         "gamemode@christian.kellner.me"
         "just-perfection-desktop@just-perfection"

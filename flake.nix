@@ -63,7 +63,7 @@
         puffy = nixosConfig { configPath = ./hosts/puffy/configuration.nix; gpuAcceleration = "rocm"; };
         puff = nixosConfig { configPath = ./hosts/puff/configuration.nix; };
         vm = nixosConfig { configPath = ./hosts/vm/configuration.nix; useUnstable = true; };
-        hostname = nixosConfig { configPath = ./hosts/wsl/configuration.nix; useWorkVars = true; };
+        DEN02263 = nixosConfig { configPath = ./hosts/wsl/configuration.nix; useWorkVars = true; };
         nixos = nixosConfig { configPath = ./hosts/wsl/configuration.nix; };
       };
 
