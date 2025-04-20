@@ -32,6 +32,7 @@
       stellarium
       tor-browser
       transmission_4-gtk
+      vesktop
       vlc
       vscodium
       whatsapp-for-linux
