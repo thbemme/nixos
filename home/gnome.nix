@@ -31,7 +31,7 @@
     ".themes/Dracula-standard-buttons" = {
       source = pkgs.fetchzip {
         url = "https://github.com/dracula/gtk/archive/refs/heads/standard-buttons.zip";
-        hash = "sha256-J9w34G4uRw/fiSdfb36SRiZAS3nZvsSvg4ncdDQz2V4=";
+        hash = "sha256-RJ3aaKcmF5MTs0zBf2futUf/7Zo4I60gqU7Bmkq5l74=";
       };
     };
     ".icons/Dracula" = {
