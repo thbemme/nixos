@@ -1,4 +1,4 @@
-{ pkgs, inputs, vars, ... }:
+{ lib, pkgs, inputs, vars, ... }:
 
 {
   nix = {
@@ -51,7 +51,6 @@
   environment.systemPackages = with pkgs; [
     bat
     bottom
-    btop
     clinfo
     coreutils
     curl

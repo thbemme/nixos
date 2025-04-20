@@ -48,7 +48,7 @@
         pkgs-unstable = pkgsUnstable;
       };
 
-      nixosConfig = { configPath, useUnstable ? false, useWorkVars ? false, gpuAcceleration ? "none" }:
+      nixosConfig = { configPath, useUnstable ? false, useWorkVars ? false, gpuAcceleration ? false }:
         let
           nixpkgsSrc = if useUnstable then nixpkgs-unstable else nixpkgs;
         in
@@ -60,7 +60,7 @@
     in
     {
       nixosConfigurations = {
-        puffy = nixosConfig { configPath = ./hosts/puffy/configuration.nix; gpuAcceleration = "rocm"; };
+        puffy = nixosConfig { configPath = ./hosts/puffy/configuration.nix; gpuAcceleration = true; };
         puff = nixosConfig { configPath = ./hosts/puff/configuration.nix; };
         vm = nixosConfig { configPath = ./hosts/vm/configuration.nix; useUnstable = true; };
         DEN02263 = nixosConfig { configPath = ./hosts/wsl/configuration.nix; useWorkVars = true; };
