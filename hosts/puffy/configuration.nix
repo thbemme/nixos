@@ -18,6 +18,7 @@
       ../../modules/prometheus.nix
       ../../modules/secureboot.nix
       ../../modules/security.nix
+      ../../modules/ssh.nix
       ../../modules/virt.nix
       ../../modules/work.nix
     ];

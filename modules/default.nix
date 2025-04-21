@@ -38,11 +38,12 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with 'passwd'.
+  # Define a user account.
   users.users.${vars.user} = {
-    isNormalUser = true;
     description = "${vars.user}";
     extraGroups = [ "wheel" ];
+    hashedPassword = "${vars.password}";
+    isNormalUser = true;
     shell = pkgs.fish;
   };
 

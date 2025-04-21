@@ -4,13 +4,15 @@
     "sshuser": "username",
     "gitName": "Real Name",
     "gitEmail": "yourmail@mail.com",
-    "hostname": "hostname"
+    "hostname": "hostname",
+    "password": "password_hash"
   },
   "work": {
     "user": "work username",
     "sshuser": "username",
     "gitName": "Real Name",
     "gitEmail": "work@mail.com",
-    "hostname": "work hostname"
+    "hostname": "work hostname",
+    "password": "password_hash"
   }
 }

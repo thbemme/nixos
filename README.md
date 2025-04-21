@@ -11,6 +11,7 @@
     - [Prometheus](#prometheus)
     - [Secure Boot](#secure-boot)
     - [Security](#security)
+    - [SSH](#ssh)
     - [VIM](#vim)
     - [Virtualization](#virtualization)
     - [Work related](#work-related)
@@ -57,6 +58,8 @@
 - Nmap
 - Wireshark
 - Misc security and auditing tools
+### [SSH](modules/ssh.nix)
+- SSH Remote log in
 ### [VIM](modules/vim.nix)
 - Customized Vim config
 ### [Virtualization](modules/virt.nix)
@@ -111,7 +114,6 @@ nixos-generate-config --root /mnt --show-hardware-config > hosts/<host>/hardware
 5. Start installation for `<hostname>` and set `<username>` password
 ```shell
 nixos-install --flake .#<hostname> --no-root-password
-nixos-enter --root /mnt -c "passwd <username>"
 ```
 ### Maintenance
 - `nh` is being used to maintain NixOS
@@ -141,11 +143,6 @@ sudo nixos-rebuild switch --flake .#<hostname> --impure
 6. Restart Nixos
 ```shell
 wsl -t nixos
-```
-7. Set password for your user
-```shell
-wsl -d NixOS --user root
-passwd <user>
 ```
 ### Maintenance
 - `nh` is being used to maintain NixOS

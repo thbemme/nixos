@@ -12,6 +12,7 @@
       ../../modules/home.nix
       ../../modules/secureboot.nix
       ../../modules/security.nix
+      ../../modules/ssh.nix
       ../../modules/work.nix
     ];
 
