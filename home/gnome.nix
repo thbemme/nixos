@@ -1,5 +1,6 @@
-{ config, pkgs, vars, ... }:
+{ config, pkgs, vars, lib, ... }:
 
+with lib.hm.gvariant;
 {
   home.packages = [
     pkgs.gnomeExtensions.appindicator
@@ -28,6 +29,12 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # "";
+    ".local/share/gtksourceview-5/styles/dracula.xml" = {
+      source = pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/dracula/gedit/master/dracula.xml";
+        hash = "sha256-ZkY523+xgP6NRpRaOKUPuim28kpgw3IbMWZGS6bBIPY=";
+      };
+    };
     ".themes/Dracula-standard-buttons" = {
       source = pkgs.fetchzip {
         url = "https://github.com/dracula/gtk/archive/refs/heads/standard-buttons.zip";
@@ -95,6 +102,13 @@
     };
     "org/gnome/desktop/lockdown" = {
       disable-lock-screen = false;
+    };
+    "org/gnome/TextEditor" = {
+      style-scheme = "dracula";
+      highlight-current-line = true;
+      show-map = true;
+      show-line-numbers = true;
+      tab-width = mkUint32 2;
     };
     "org/gnome/desktop/calendar" = {
       show-weekdate = true;
