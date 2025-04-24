@@ -6,6 +6,7 @@
     "gitEmail": "yourmail@mail.com",
     "hostname": "hostname",
     "password": "password_hash"
+    "publickey": "your_publickey"
   },
   "work": {
     "user": "work username",
@@ -14,5 +15,6 @@
     "gitEmail": "work@mail.com",
     "hostname": "work hostname",
     "password": "password_hash"
+    "publickey": "your_publickey"
   }
 }

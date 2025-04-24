@@ -37,7 +37,7 @@
 - CoreCTRL (Undervolting GPU)
 - Vulkan Tools
 ### [Desktop](modules/desktop.nix)/[Desktop-software](modules/desktop-software.nix)
-- Default packages: Librewolf, Ghostty, VSCodium, Libreoffice, GIMP
+- Default packages: Librewolf, Ghostty, VSCodium, Onlyoffice, GIMP
 ### [Development](modules/dev.nix)
 - Thony (Micropython for Raspberry Pico development)
 - Android Studio (Unstable)
