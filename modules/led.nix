@@ -13,5 +13,6 @@
 
   environment.systemPackages = with pkgs; [
     g810-led
+    rivalcfg
   ];
 }
