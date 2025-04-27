@@ -65,6 +65,7 @@ with lib.hm.gvariant;
       experimental-features = [ "variable-refresh-rate" ];
     };
     "org/gnome/shell" = {
+      disable-user-extensions = false;
       favorite-apps = [
         "librewolf.desktop"
         "com.mitchellh.ghostty.desktop"
