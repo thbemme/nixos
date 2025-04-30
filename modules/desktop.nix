@@ -30,7 +30,10 @@
   };
 
   # Configure console keymap
-  console.keyMap = "de-latin1-nodeadkeys";
+  console = {
+    keyMap = "de-latin1-nodeadkeys";
+    font = "${pkgs.kbd}/share/consolefonts/Lat2-Terminus16.psfu.gz";
+  };
 
   zramSwap = {
     enable = true;

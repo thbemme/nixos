@@ -23,6 +23,7 @@
       procps
       #python2
       python3
+      rustfmt
       schedtool
       scrcpy
       thonny

@@ -67,7 +67,6 @@
       jnoortheen.nix-ide
       timonwong.shellcheck
       streetsidesoftware.code-spell-checker
-
     ];
     userSettings = {
       "files.autoSave" = "afterDelay";

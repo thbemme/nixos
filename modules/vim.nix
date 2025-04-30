@@ -12,6 +12,7 @@
           fzfWrapper
           minimap-vim
           nerdtree
+          rust-vim
           supertab
           vim-airline
           vim-codefmt
