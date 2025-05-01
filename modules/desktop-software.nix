@@ -29,7 +29,9 @@
       phoronix-test-suite
       pika-backup
       revolt-desktop
+      scribus
       stellarium
+      tenacity
       tor-browser
       transmission_4-gtk
       vesktop
