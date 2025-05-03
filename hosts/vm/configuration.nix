@@ -8,6 +8,7 @@
       ../../modules/default.nix
       ../../modules/desktop.nix
       ../../modules/home.nix
+      ../../modules/ssh.nix
     ];
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;
