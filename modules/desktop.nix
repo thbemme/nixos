@@ -55,7 +55,7 @@
 
   programs.firefox = {
     enable = true;
-    package = pkgs-unstable.librewolf;
+    package = pkgs.librewolf;
     policies = {
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
