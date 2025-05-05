@@ -114,7 +114,7 @@
   programs.nano.enable = false;
 
   programs.fish.enable = true;
-  environment.variables = { FLAKE = "/home/${vars.user}/git/nixos"; };
+  environment.variables = { NH_FLAKE = "/home/${vars.user}/git/nixos"; };
 
   programs.nh.enable = true;
 
