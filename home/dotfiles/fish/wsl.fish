@@ -1,10 +1,10 @@
 ssh-add -L > /dev/null || ssh-add
 
 function r
-  nh os switch $argv -- --impure
+  nh os switch --ask $argv -- --impure
 end
 function u
-  nh os switch --update $argv -- --impure
+  nh os switch --update --ask $argv -- --impure
 end
 function c
   nh clean all --keep 5
