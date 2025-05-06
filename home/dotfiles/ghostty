@@ -1,7 +1,6 @@
 adjust-cell-width = -10%
 background-opacity = 0.85
 confirm-close-surface = false
-copy-on-select = clipboard
 font-family = Fira Code
 font-size = 10
 font-style-bold = Medium
