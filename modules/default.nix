@@ -57,6 +57,7 @@
     curl
     dig
     du-dust
+    eza
     fastfetch
     fd
     findutils
@@ -115,7 +116,14 @@
 
   programs.fish.enable = true;
   environment.variables = { FLAKE = "/home/${vars.user}/git/nixos"; };
-
+  environment.shellAliases = {
+    eza = "eza --group-directories-first";
+    l = "eza -laF";
+    ls = "eza -F";
+    grrrr = "git reset --hard";
+    gs = "git status";
+    mkdir = "mkdir -p";
+  };
   programs.nh.enable = true;
 
   # Allow unfree packages
