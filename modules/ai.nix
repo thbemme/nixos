@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, nix-comfyui, gpuAcceleration, inputs, ... }:
+{ pkgs, pkgs-unstable, gpuAcceleration, inputs, ... }:
 
 {
 
