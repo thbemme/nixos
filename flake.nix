@@ -30,12 +30,10 @@
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, lanzaboote, nix-comfyui, nix-on-droid, nixos-wsl, ... }@inputs:
+  outputs = { nixpkgs, nixpkgs-unstable, nix-on-droid, ... }@inputs:
     let
-      lib = nixpkgs.lib;
       system = "x86_64-linux";
       variables = nixpkgs.lib.importJSON ./secrets/variables.json;
-      pkgs = nixpkgs.legacyPackages.${system};
 
       pkgsUnstable = import nixpkgs-unstable {
         inherit system;

@@ -1,4 +1,4 @@
-{ pkgs, inputs, vars, ... }:
+{ pkgs, vars, ... }:
 
 {
   hardware.graphics.extraPackages = with pkgs; [
