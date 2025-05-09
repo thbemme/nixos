@@ -35,9 +35,9 @@
       tor-browser
       transmission_4-gtk
       vesktop
+      vistafonts
       vlc
       vscodium
-      whatsapp-for-linux
     ]) ++
     (with pkgs-unstable; [
       cryptomator
