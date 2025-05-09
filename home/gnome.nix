@@ -38,7 +38,7 @@ with lib.hm.gvariant;
     ".themes/Dracula-standard-buttons" = {
       source = pkgs.fetchzip {
         url = "https://github.com/dracula/gtk/archive/refs/heads/standard-buttons.zip";
-        hash = "sha256-RJ3aaKcmF5MTs0zBf2futUf/7Zo4I60gqU7Bmkq5l74=";
+        hash = "sha256-5qT71LOzVDK+b8HnDevO811bkEFrZCl3xL010+02KGg=";
       };
     };
     ".icons/Dracula" = {
