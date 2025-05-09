@@ -1,12 +1,12 @@
-{ pkgs, pkgs-unstable, vars, ... }:
-
-{
-
-  imports =
-    [
-      ./plymouth.nix
-      ./gnome.nix
-    ];
+{ pkgs
+, pkgs-unstable
+, vars
+, ...
+}: {
+  imports = [
+    ./plymouth.nix
+    ./gnome.nix
+  ];
 
   # Bootloader
   boot = {
@@ -82,5 +82,4 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
 }

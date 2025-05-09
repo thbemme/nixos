@@ -1,6 +1,8 @@
-{ inputs, vars, gpuAcceleration, ... }:
-
-{
+{ inputs
+, vars
+, gpuAcceleration
+, ...
+}: {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
   home-manager = {
     # also pass inputs to home-manager modules

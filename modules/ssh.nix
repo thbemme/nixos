@@ -1,6 +1,4 @@
-{ vars, ... }:
-
-{
+{ vars, ... }: {
   networking.firewall.allowedTCPPorts = [ 22 ];
 
   # Enable the OpenSSH daemon.

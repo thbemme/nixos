@@ -1,7 +1,10 @@
-{ config, pkgs, vars, lib, ... }:
-
-with lib.hm.gvariant;
-{
+{ config
+, pkgs
+, vars
+, lib
+, ...
+}:
+with lib.hm.gvariant; {
   home.packages = [
     pkgs.gnomeExtensions.appindicator
     pkgs.gnomeExtensions.blur-my-shell
@@ -47,11 +50,10 @@ with lib.hm.gvariant;
         hash = "sha256-rcSKlgI3bxdh4INdebijKElqbmAfTwO+oEt6M2D1ls0=";
       };
     };
-    ".config/gtk-3.0/bookmarks" =
-      {
-        source = ./dotfiles/bookmarks;
-        force = true;
-      };
+    ".config/gtk-3.0/bookmarks" = {
+      source = ./dotfiles/bookmarks;
+      force = true;
+    };
     ".config/assets".source = config.lib.file.mkOutOfStoreSymlink "/home/${vars.user}/.themes/Dracula-standard-buttons/assets";
     ".config/gtk-4.0/gtk.css".source = config.lib.file.mkOutOfStoreSymlink "/home/${vars.user}/.themes/Dracula-standard-buttons/gtk-4.0/gtk.css";
     ".config/gtk-4.0/gtk-dark.css".source = config.lib.file.mkOutOfStoreSymlink "/home/${vars.user}/.themes/Dracula-standard-buttons/gtk-4.0/gtk-dark.css";

@@ -1,6 +1,7 @@
-{ pkgs, vars, ... }:
-
-{
+{ pkgs
+, vars
+, ...
+}: {
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
@@ -12,10 +13,9 @@
     };
   };
 
-  imports =
-    [
-      ./vim.nix
-    ];
+  imports = [
+    ./vim.nix
+  ];
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -100,6 +100,7 @@
   fonts.packages = with pkgs; [
     inter
     fira-code
+    vistafonts
   ];
 
   security.sudo.wheelNeedsPassword = true;

@@ -1,48 +1,49 @@
-{ pkgs, pkgs-unstable, vars, ... }:
-
-{
-
+{ pkgs
+, pkgs-unstable
+, vars
+, ...
+}: {
   users.users.${vars.user} = {
-    packages = (with pkgs; [
-      (pkgs.wrapOBS {
-        plugins = with pkgs.obs-studio-plugins; [
-          wlrobs
-          obs-backgroundremoval
-          obs-pipewire-audio-capture
-        ];
-      })
-      easyeffects
-      ffmpeg-full
-      gimp-with-plugins
-      gpu-viewer
-      hexchat
-      hunspell
-      hunspellDicts.de_DE
-      hunspellDicts.en_US
-      krita
-      libreoffice-fresh
-      libsForQt5.qt5ct
-      lyx
-      nextcloud-client
-      openshot-qt
-      paper-plane
-      phoronix-test-suite
-      pika-backup
-      revolt-desktop
-      scribus
-      stellarium
-      tenacity
-      tor-browser
-      transmission_4-gtk
-      vesktop
-      vistafonts
-      vlc
-      vscodium
-    ]) ++
-    (with pkgs-unstable; [
-      cryptomator
-      handbrake
-    ]);
+    packages =
+      (with pkgs; [
+        (pkgs.wrapOBS {
+          plugins = with pkgs.obs-studio-plugins; [
+            wlrobs
+            obs-backgroundremoval
+            obs-pipewire-audio-capture
+          ];
+        })
+        easyeffects
+        ffmpeg-full
+        gimp-with-plugins
+        gpu-viewer
+        hexchat
+        hunspell
+        hunspellDicts.de_DE
+        hunspellDicts.en_US
+        krita
+        libreoffice-fresh
+        libsForQt5.qt5ct
+        lyx
+        nextcloud-client
+        openshot-qt
+        paper-plane
+        phoronix-test-suite
+        pika-backup
+        revolt-desktop
+        scribus
+        stellarium
+        tenacity
+        tor-browser
+        transmission_4-gtk
+        vesktop
+        vlc
+        vscodium
+      ])
+      ++ (with pkgs-unstable; [
+        cryptomator
+        handbrake
+      ]);
   };
 
   environment.systemPackages = with pkgs; [
@@ -52,7 +53,10 @@
     xsensors
   ];
 
-  environment.variables = { TERMINAL = "ghostty"; BROWSER = "librewolf"; };
+  environment.variables = {
+    TERMINAL = "ghostty";
+    BROWSER = "librewolf";
+  };
 
   # Appimage support
   programs.appimage.enable = true;
@@ -68,6 +72,4 @@
       "${vars.user}" = import ../home/desktop-software.nix;
     };
   };
-
-
 }

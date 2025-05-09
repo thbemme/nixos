@@ -1,10 +1,11 @@
-{ vars, pkgs, gpuAcceleration, ... }:
-
-{
-  imports =
-    [
-      ./dconf.nix
-    ];
+{ vars
+, pkgs
+, gpuAcceleration
+, ...
+}: {
+  imports = [
+    ./dconf.nix
+  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "${vars.user}";
@@ -35,7 +36,10 @@
 
   programs.btop = {
     enable = true;
-    package = if gpuAcceleration then pkgs.btop-rocm else pkgs.btop;
+    package =
+      if gpuAcceleration
+      then pkgs.btop-rocm
+      else pkgs.btop;
     settings = {
       color_theme = "dracula";
       theme_background = false;
@@ -64,5 +68,4 @@
       };
     };
   };
-
 }

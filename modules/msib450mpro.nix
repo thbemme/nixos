@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+_: {
   config = {
     environment.etc = {
       "sensors3.conf".text = ''

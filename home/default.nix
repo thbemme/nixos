@@ -1,9 +1,6 @@
-{ ... }:
-
-{
-  imports =
-    [
-      ./base.nix
-      ./fish.nix
-    ];
+{ ... }: {
+  imports = [
+    ./base.nix
+    ./fish.nix
+  ];
 }

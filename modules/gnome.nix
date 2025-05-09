@@ -1,7 +1,7 @@
-{ pkgs, vars, ... }:
-
-{
-
+{ pkgs
+, vars
+, ...
+}: {
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
@@ -56,5 +56,4 @@
       "${vars.user}" = import ../home/gnome.nix;
     };
   };
-
 }
