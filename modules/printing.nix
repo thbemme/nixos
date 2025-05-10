@@ -1,6 +1,7 @@
-{ pkgs, vars, ... }:
-
-{
+{ pkgs
+, vars
+, ...
+}: {
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.avahi = {

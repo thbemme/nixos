@@ -55,5 +55,6 @@ function r
 end
 
 function c
+  nix-collect-garbage -d
   nix-store --gc
 end

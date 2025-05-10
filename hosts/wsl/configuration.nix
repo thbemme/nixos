@@ -1,14 +1,15 @@
-{ pkgs, pkgs-unstable, vars, ... }:
-
-{
-  imports =
-    [
-      # include NixOS-WSL modules
-      <nixos-wsl/modules>
-      ../../modules/ai.nix
-      ../../modules/default.nix
-      ../../modules/home_wsl.nix
-    ];
+{ pkgs
+, pkgs-unstable
+, vars
+, ...
+}: {
+  imports = [
+    # include NixOS-WSL modules
+    <nixos-wsl/modules>
+    ../../modules/ai.nix
+    ../../modules/default.nix
+    ../../modules/home_wsl.nix
+  ];
 
   wsl = {
     defaultUser = "${vars.user}";
@@ -41,5 +42,4 @@
 
   hardware.graphics.enable = true;
   #hardware.graphics.setLdLibraryPath = true;
-
 }

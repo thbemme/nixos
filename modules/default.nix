@@ -1,6 +1,7 @@
-{ pkgs, vars, ... }:
-
-{
+{ pkgs
+, vars
+, ...
+}: {
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
@@ -12,10 +13,9 @@
     };
   };
 
-  imports =
-    [
-      ./vim.nix
-    ];
+  imports = [
+    ./vim.nix
+  ];
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -57,6 +57,7 @@
     curl
     dig
     du-dust
+    eza
     fastfetch
     fd
     findutils
@@ -99,6 +100,7 @@
   fonts.packages = with pkgs; [
     inter
     fira-code
+    vistafonts
   ];
 
   security.sudo.wheelNeedsPassword = true;
@@ -114,8 +116,16 @@
   programs.nano.enable = false;
 
   programs.fish.enable = true;
-  environment.variables = { NH_FLAKE = "/home/${vars.user}/git/nixos"; };
 
+  environment.variables = { NH_FLAKE = "/home/${vars.user}/git/nixos"; };
+  environment.shellAliases = {
+    eza = "eza --group-directories-first";
+    l = "eza -laF";
+    ls = "eza -F";
+    grrrr = "git reset --hard";
+    gs = "git status";
+    mkdir = "mkdir -p";
+  };
   programs.nh.enable = true;
 
   # Allow unfree packages

@@ -1,6 +1,7 @@
-{ pkgs, vars, ... }:
-
-{
+{ pkgs
+, vars
+, ...
+}: {
   users.users.${vars.user} = {
     packages = with pkgs; [
       gobuster
@@ -21,5 +22,4 @@
       SUBSYSTEM=="usbmon", GROUP="wireshark", MODE="0640"
     '';
   };
-
 }

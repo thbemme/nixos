@@ -1,43 +1,39 @@
-{ lib, modulesPath, ... }:
-
-{
-  imports =
-    [
-      (modulesPath + "/profiles/qemu-guest.nix")
-    ];
+{ lib
+, modulesPath
+, ...
+}: {
+  imports = [
+    (modulesPath + "/profiles/qemu-guest.nix")
+  ];
 
   boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    {
-      device = "/dev/disk/by-uuid/a9515199-e03a-4682-b7a0-95d3322e0619";
-      fsType = "btrfs";
-      options = [ "subvol=root" "compress=zstd" ];
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/a9515199-e03a-4682-b7a0-95d3322e0619";
+    fsType = "btrfs";
+    options = [ "subvol=root" "compress=zstd" ];
+  };
 
-  fileSystems."/home" =
-    {
-      device = "/dev/disk/by-uuid/a9515199-e03a-4682-b7a0-95d3322e0619";
-      fsType = "btrfs";
-      options = [ "subvol=home" "compress=zstd" ];
-    };
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/a9515199-e03a-4682-b7a0-95d3322e0619";
+    fsType = "btrfs";
+    options = [ "subvol=home" "compress=zstd" ];
+  };
 
-  fileSystems."/nix" =
-    {
-      device = "/dev/disk/by-uuid/a9515199-e03a-4682-b7a0-95d3322e0619";
-      fsType = "btrfs";
-      options = [ "subvol=nix" "compress=zstd" ];
-    };
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-uuid/a9515199-e03a-4682-b7a0-95d3322e0619";
+    fsType = "btrfs";
+    options = [ "subvol=nix" "compress=zstd" ];
+  };
 
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/9B79-E03D";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/9B79-E03D";
+    fsType = "vfat";
+    options = [ "fmask=0022" "dmask=0022" ];
+  };
 
   swapDevices = [ ];
 

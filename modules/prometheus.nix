@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   # https://nixos.org/manual/nixos/stable/#module-services-prometheus-exporters
   services.prometheus.exporters.node = {
     enable = true;

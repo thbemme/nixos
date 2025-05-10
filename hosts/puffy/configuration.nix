@@ -1,27 +1,24 @@
-{ ... }:
-
-{
-  imports =
-    [
-      ./hardware-configuration.nix
-      ../../modules/ai.nix
-      ../../modules/amdgpu.nix
-      ../../modules/default.nix
-      ../../modules/desktop-software.nix
-      ../../modules/desktop.nix
-      ../../modules/dev.nix
-      ../../modules/gaming.nix
-      ../../modules/home.nix
-      ../../modules/led.nix
-      ../../modules/msib450mpro.nix
-      ../../modules/printing.nix
-      ../../modules/prometheus.nix
-      ../../modules/secureboot.nix
-      ../../modules/security.nix
-      ../../modules/ssh.nix
-      ../../modules/virt.nix
-      ../../modules/work.nix
-    ];
+{ ... }: {
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/ai.nix
+    ../../modules/amdgpu.nix
+    ../../modules/default.nix
+    ../../modules/desktop-software.nix
+    ../../modules/desktop.nix
+    ../../modules/dev.nix
+    ../../modules/gaming.nix
+    ../../modules/home.nix
+    ../../modules/led.nix
+    ../../modules/msib450mpro.nix
+    ../../modules/printing.nix
+    ../../modules/prometheus.nix
+    ../../modules/secureboot.nix
+    ../../modules/security.nix
+    ../../modules/ssh.nix
+    ../../modules/virt.nix
+    ../../modules/work.nix
+  ];
 
   networking.hostName = "puffy"; # Define your hostname.
 

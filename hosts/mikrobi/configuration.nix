@@ -1,6 +1,8 @@
-{ lib, pkgs, vars, ... }:
-
-{
+{ lib
+, pkgs
+, vars
+, ...
+}: {
   # imports =
   #   [
   #     ../../modules/vim.nix
@@ -90,6 +92,5 @@
       inherit vars;
     };
     config = ../../home/nixondroid.nix;
-
   };
 }

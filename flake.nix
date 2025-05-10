@@ -29,8 +29,12 @@
     };
   };
 
-
-  outputs = { nixpkgs, nixpkgs-unstable, nix-on-droid, ... }@inputs:
+  outputs =
+    { nixpkgs
+    , nixpkgs-unstable
+    , nix-on-droid
+    , ...
+    } @ inputs:
     let
       system = "x86_64-linux";
       variables = nixpkgs.lib.importJSON ./secrets/variables.json;
@@ -42,26 +46,46 @@
 
       specialArgs = useWorkVars: {
         inherit inputs;
-        vars = if useWorkVars then variables.work else variables.home;
+        vars =
+          if useWorkVars
+          then variables.work
+          else variables.home;
         pkgs-unstable = pkgsUnstable;
       };
 
-      nixosConfig = { configPath, useUnstable ? false, useWorkVars ? false, gpuAcceleration ? false }:
+      nixosConfig =
+        { configPath
+        , useUnstable ? false
+        , useWorkVars ? false
+        , gpuAcceleration ? false
+        ,
+        }:
         let
-          nixpkgsSrc = if useUnstable then nixpkgs-unstable else nixpkgs;
+          nixpkgsSrc =
+            if useUnstable
+            then nixpkgs-unstable
+            else nixpkgs;
         in
         nixpkgsSrc.lib.nixosSystem {
           modules = [ configPath ];
           specialArgs = specialArgs useWorkVars // { inherit gpuAcceleration; };
         };
-
     in
     {
       nixosConfigurations = {
-        puffy = nixosConfig { configPath = ./hosts/puffy/configuration.nix; gpuAcceleration = true; };
+        puffy = nixosConfig {
+          configPath = ./hosts/puffy/configuration.nix;
+          gpuAcceleration = true;
+        };
         puff = nixosConfig { configPath = ./hosts/puff/configuration.nix; };
-        vm = nixosConfig { configPath = ./hosts/vm/configuration.nix; useUnstable = true; };
-        DEN02263 = nixosConfig { configPath = ./hosts/wsl/configuration.nix; useWorkVars = true; };
+        vm = nixosConfig {
+          configPath = ./hosts/vm/configuration.nix;
+          useUnstable = true;
+        };
+        DEN02263 = nixosConfig {
+          configPath = ./hosts/wsl/configuration.nix;
+          useWorkVars = true;
+        };
         nixos = nixosConfig { configPath = ./hosts/wsl/configuration.nix; };
       };
 

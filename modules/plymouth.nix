@@ -1,8 +1,5 @@
-{ ... }:
-
-{
+_: {
   boot = {
-
     plymouth = {
       enable = true;
       theme = "breeze";
@@ -23,4 +20,3 @@
     loader.timeout = 1;
   };
 }
-
