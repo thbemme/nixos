@@ -57,6 +57,7 @@
     curl
     dig
     du-dust
+    dysk
     eza
     fastfetch
     fd
