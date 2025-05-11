@@ -99,7 +99,7 @@
   ];
 
   fonts.packages = with pkgs; [
-    inter
+    adwaita-fonts
     fira-code
     vistafonts
   ];

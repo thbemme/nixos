@@ -32,7 +32,7 @@
     dconf.enable = true;
   };
 
-  fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; }) ];
+  fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "AdwaitaMono" "JetBrainsMono" ]; }) ];
 
   environment.enableAllTerminfo = true;
 

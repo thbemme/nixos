@@ -27,7 +27,9 @@
           "vscode" = "Code";
           "vscode-insiders" = "Code - Insiders";
           "vscodium" = "VSCodium";
-        }.${config.programs.vscode.package.pname};
+        }.${
+        config.programs.vscode.package.pname
+        };
     in
     {
       after = [ ];
@@ -45,7 +47,9 @@
           "vscode" = "Code";
           "vscode-insiders" = "Code - Insiders";
           "vscodium" = "VSCodium";
-        }.${config.programs.vscode.package.pname};
+        }.${
+        config.programs.vscode.package.pname
+        };
       configPath = "${config.xdg.configHome}/${configDirName}/User/settings.json";
     in
     {
@@ -59,16 +63,16 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    enableUpdateCheck = false;
-    enableExtensionUpdateCheck = false;
-    extensions = with pkgs.vscode-extensions; [
+    profiles.default.enableUpdateCheck = false;
+    profiles.default.enableExtensionUpdateCheck = false;
+    profiles.default.extensions = with pkgs.vscode-extensions; [
       dracula-theme.theme-dracula
       yzhang.markdown-all-in-one
       jnoortheen.nix-ide
       timonwong.shellcheck
       streetsidesoftware.code-spell-checker
     ];
-    userSettings = {
+    profiles.default.userSettings = {
       "files.autoSave" = "afterDelay";
       "editor.fontSize" = 12;
       "terminal.integrated.fontSize" = 12;
