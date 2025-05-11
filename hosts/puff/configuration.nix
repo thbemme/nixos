@@ -6,6 +6,7 @@
     ../../modules/desktop.nix
     ../../modules/desktop-software.nix
     ../../modules/gaming.nix
+    ../../modules/hibernate.nix
     ../../modules/home.nix
     ../../modules/secureboot.nix
     ../../modules/security.nix
