@@ -1,6 +1,7 @@
-{ pkgs
-, vars
-, ...
+{
+  pkgs,
+  vars,
+  ...
 }: {
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
@@ -29,7 +30,7 @@
   networking.networkmanager.enable = true;
 
   users.users.${vars.user} = {
-    extraGroups = [ "networkmanager" ];
+    extraGroups = ["networkmanager"];
     packages = with pkgs; [
       alsa-utils
       amberol

@@ -1,15 +1,16 @@
-{ pkgs
-, pkgs-unstable
-, gpuAcceleration
-, inputs
-, ...
+{
+  pkgs,
+  pkgs-unstable,
+  gpuAcceleration,
+  inputs,
+  ...
 }: {
   nixpkgs.overlays = [
     inputs.nix-comfyui.overlays.default
   ];
 
-  nix.settings.trusted-substituters = [ "https://ai.cachix.org" ];
-  nix.settings.trusted-public-keys = [ "ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc=" ];
+  nix.settings.trusted-substituters = ["https://ai.cachix.org"];
+  nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="];
 
   # Ollama
   services.ollama = {
@@ -27,7 +28,7 @@
       then {
         HCC_AMDGPU_TARGET = "gfx1031";
       }
-      else { };
+      else {};
     rocmOverrideGfx =
       if gpuAcceleration
       then "10.3.1"

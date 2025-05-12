@@ -1,6 +1,7 @@
-{ pkgs
-, vars
-, ...
+{
+  pkgs,
+  vars,
+  ...
 }: {
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -12,12 +13,12 @@
   };
 
   hardware.sane.enable = true; # enables support for SANE scanners
-  hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
+  hardware.sane.extraBackends = [pkgs.hplipWithPlugin];
   nixpkgs.config.packageOverrides = pkgs: {
-    xsaneGimp = pkgs.xsane.override { gimpSupport = true; };
+    xsaneGimp = pkgs.xsane.override {gimpSupport = true;};
   };
 
   users.users.${vars.user} = {
-    extraGroups = [ "scanner" "lp" ];
+    extraGroups = ["scanner" "lp"];
   };
 }

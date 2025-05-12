@@ -4,7 +4,7 @@ _: {
     enable = true;
     port = 9000;
     openFirewall = true;
-    enabledCollectors = [ "systemd" ];
-    extraFlags = [ "--collector.ethtool" "--collector.softirqs" "--collector.tcpstat" ];
+    enabledCollectors = ["systemd"];
+    extraFlags = ["--collector.ethtool" "--collector.softirqs" "--collector.tcpstat"];
   };
 }

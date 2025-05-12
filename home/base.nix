@@ -1,7 +1,8 @@
-{ vars
-, pkgs
-, gpuAcceleration
-, ...
+{
+  vars,
+  pkgs,
+  gpuAcceleration,
+  ...
 }: {
   imports = [
     ./dconf.nix

@@ -1,8 +1,9 @@
-{ config
-, pkgs
-, vars
-, lib
-, ...
+{
+  config,
+  pkgs,
+  vars,
+  lib,
+  ...
 }:
 with lib.hm.gvariant; {
   home.packages = [
@@ -64,7 +65,7 @@ with lib.hm.gvariant; {
   # Use `dconf watch /` to track stateful changes you are doing, then set them here.
   dconf.settings = {
     "org/gnome/mutter" = {
-      experimental-features = [ "variable-refresh-rate" ];
+      experimental-features = ["variable-refresh-rate"];
     };
     "org/gnome/shell" = {
       disable-user-extensions = false;
@@ -136,7 +137,7 @@ with lib.hm.gvariant; {
     };
     "org/gnome/shell/extensions/nothing-to-say" = {
       icon-visibility = "always";
-      keybinding-toggle-mute = [ "F9" ];
+      keybinding-toggle-mute = ["F9"];
       play-feedback-sounds = false;
       show-osd = false;
     };
@@ -162,7 +163,7 @@ with lib.hm.gvariant; {
       show-trash = false;
     };
     "org/gnome/shell/extensions/freon" = {
-      hot-sensors = [ "__max__" ];
+      hot-sensors = ["__max__"];
     };
     "org/gnome/shell/extensions/gamemodeshellextension" = {
       show-icon-only-when-active = true;

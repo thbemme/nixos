@@ -1,7 +1,8 @@
-{ pkgs
-, pkgs-unstable
-, vars
-, ...
+{
+  pkgs,
+  pkgs-unstable,
+  vars,
+  ...
 }: {
   users.users.${vars.user} = {
     packages =
@@ -19,7 +20,7 @@
       ++ (with pkgs-unstable; [
         #path-of-building
       ]);
-    extraGroups = [ "gamemode" ];
+    extraGroups = ["gamemode"];
   };
 
   environment.systemPackages = with pkgs; [

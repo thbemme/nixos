@@ -1,6 +1,7 @@
-{ config
-, pkgs
-, ...
+{
+  config,
+  pkgs,
+  ...
 }: {
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through "home.file".
@@ -20,45 +21,39 @@
   };
 
   # Fix vscodium settings.json readonly issue
-  home.activation.removeVSCodeSettingsBackup =
-    let
-      configDirName =
-        {
-          "vscode" = "Code";
-          "vscode-insiders" = "Code - Insiders";
-          "vscodium" = "VSCodium";
-        }.${
-        config.programs.vscode.package.pname
-        };
-    in
-    {
-      after = [ ];
-      before = [ "checkLinkTargets" ];
-      data = ''
-        userDir=${config.xdg.configHome}/${configDirName}/User
-        rm -rf $userDir/settings.json*
-      '';
-    };
+  home.activation.removeVSCodeSettingsBackup = let
+    configDirName =
+      {
+        "vscode" = "Code";
+        "vscode-insiders" = "Code - Insiders";
+        "vscodium" = "VSCodium";
+      }
+      .${config.programs.vscode.package.pname};
+  in {
+    after = [];
+    before = ["checkLinkTargets"];
+    data = ''
+      userDir=${config.xdg.configHome}/${configDirName}/User
+      rm -rf $userDir/settings.json*
+    '';
+  };
 
-  home.activation.makeVSCodeConfigWritable =
-    let
-      configDirName =
-        {
-          "vscode" = "Code";
-          "vscode-insiders" = "Code - Insiders";
-          "vscodium" = "VSCodium";
-        }.${
-        config.programs.vscode.package.pname
-        };
-      configPath = "${config.xdg.configHome}/${configDirName}/User/settings.json";
-    in
-    {
-      after = [ "writeBoundary" ];
-      before = [ ];
-      data = ''
-        install -m 0640 "$(readlink ${configPath})" ${configPath}
-      '';
-    };
+  home.activation.makeVSCodeConfigWritable = let
+    configDirName =
+      {
+        "vscode" = "Code";
+        "vscode-insiders" = "Code - Insiders";
+        "vscodium" = "VSCodium";
+      }
+      .${config.programs.vscode.package.pname};
+    configPath = "${config.xdg.configHome}/${configDirName}/User/settings.json";
+  in {
+    after = ["writeBoundary"];
+    before = [];
+    data = ''
+      install -m 0640 "$(readlink ${configPath})" ${configPath}
+    '';
+  };
 
   programs.vscode = {
     enable = true;
@@ -86,7 +81,7 @@
       "editor.insertSpaces" = true;
       "editor.wordWrap" = "off";
       "workbench.colorTheme" = "Dracula Theme";
-      "nix.formatterPath" = "nixpkgs-fmt";
+      "nix.formatterPath" = "alejandra";
       "ollama-autocoder.model" = "deepseek-coder-v2:latest";
       "files.exclude" = {
         "**/.git" = true;

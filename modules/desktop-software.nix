@@ -1,7 +1,8 @@
-{ pkgs
-, pkgs-unstable
-, vars
-, ...
+{
+  pkgs,
+  pkgs-unstable,
+  vars,
+  ...
 }: {
   users.users.${vars.user} = {
     packages =

@@ -1,7 +1,8 @@
-{ lib
-, pkgs
-, vars
-, ...
+{
+  lib,
+  pkgs,
+  vars,
+  ...
 }: {
   # imports =
   #   [
@@ -10,12 +11,12 @@
 
   # Simply install just the packages
   environment.packages = with pkgs; [
-    ((vim_configurable.override { }).customize {
+    ((vim_configurable.override {}).customize {
       name = "vim";
       # Install plugins for example for syntax highlighting of nix files
       vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
-        start = [ vim-nix vim-misc vim-lastplace supertab vim-signify vim-fugitive vim-airline dracula-vim ];
-        opt = [ ];
+        start = [vim-nix vim-misc vim-lastplace supertab vim-signify vim-fugitive vim-airline dracula-vim];
+        opt = [];
       };
       vimrcConfig.customRC = ''
         set backspace=indent,eol,start

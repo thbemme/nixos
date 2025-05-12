@@ -1,7 +1,8 @@
-{ pkgs
-, pkgs-unstable
-, vars
-, ...
+{
+  pkgs,
+  pkgs-unstable,
+  vars,
+  ...
 }: {
   imports = [
     # include NixOS-WSL modules
@@ -32,7 +33,7 @@
     dconf.enable = true;
   };
 
-  fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "AdwaitaMono" "JetBrainsMono" ]; }) ];
+  fonts.packages = with pkgs; [(nerdfonts.override {fonts = ["AdwaitaMono" "JetBrainsMono"];})];
 
   environment.enableAllTerminfo = true;
 

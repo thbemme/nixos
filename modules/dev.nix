@@ -1,7 +1,8 @@
-{ pkgs
-, pkgs-unstable
-, vars
-, ...
+{
+  pkgs,
+  pkgs-unstable,
+  vars,
+  ...
 }: {
   users.users.${vars.user} = {
     packages =
@@ -39,7 +40,7 @@
         android-studio
         #ladybird
       ]);
-    extraGroups = [ "kvm" "adbusers" "dialout" ];
+    extraGroups = ["kvm" "adbusers" "dialout"];
   };
 
   programs.adb.enable = true;

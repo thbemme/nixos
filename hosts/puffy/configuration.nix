@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/ai.nix
@@ -22,13 +22,13 @@
 
   networking.hostName = "puffy"; # Define your hostname.
 
-  services.xserver.videoDrivers = [ "amdgpu" ];
+  services.xserver.videoDrivers = ["amdgpu"];
 
   # Enable AMD GPU overclocking
-  boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
+  boot.kernelParams = ["amdgpu.ppfeaturemask=0xffffffff"];
 
   # Enable nct6775 module for sensor readings
-  boot.kernelModules = [ "nct6775" ];
+  boot.kernelModules = ["nct6775"];
 
   # Enable firmware service
   services.fwupd.enable = true;
