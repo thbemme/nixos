@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   # Set G-512 keyboard backlight to BlueViolet
   services.udev = {
     packages = [

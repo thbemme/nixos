@@ -1,6 +1,7 @@
-{ pkgs
-, vars
-, ...
+{
+  pkgs,
+  vars,
+  ...
 }: {
   users.users.${vars.user} = {
     packages = with pkgs; [
@@ -12,7 +13,7 @@
       wapiti
       wireshark
     ];
-    extraGroups = [ "wireshark" ];
+    extraGroups = ["wireshark"];
   };
 
   programs.wireshark.enable = true;

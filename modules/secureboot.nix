@@ -1,7 +1,8 @@
-{ pkgs
-, lib
-, inputs
-, ...
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
 }: {
   # How to enter setup mode - msi motherboard
   ## 1. enter BIOS via [Del] Key

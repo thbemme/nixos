@@ -1,10 +1,11 @@
-{ pkgs
-, vars
-, ...
+{
+  pkgs,
+  vars,
+  ...
 }: {
   nix = {
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = ["nix-command" "flakes"];
       auto-optimise-store = true;
     };
     gc = {
@@ -41,7 +42,7 @@
   # Define a user account.
   users.users.${vars.user} = {
     description = "${vars.user}";
-    extraGroups = [ "wheel" ];
+    extraGroups = ["wheel"];
     hashedPassword = "${vars.password}";
     isNormalUser = true;
     shell = pkgs.fish;
@@ -77,7 +78,6 @@
     jq
     killall
     mosh
-    nixpkgs-fmt
     openssh
     procs
     pv
@@ -117,7 +117,7 @@
   programs.nano.enable = false;
 
   programs.fish.enable = true;
-  environment.variables = { FLAKE = "/home/${vars.user}/git/nixos"; };
+  environment.variables = {FLAKE = "/home/${vars.user}/git/nixos";};
   environment.shellAliases = {
     eza = "eza --group-directories-first";
     l = "eza -laF";

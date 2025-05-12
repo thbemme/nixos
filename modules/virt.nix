@@ -1,13 +1,14 @@
-{ pkgs
-, vars
-, ...
+{
+  pkgs,
+  vars,
+  ...
 }: {
   users.users.${vars.user} = {
     packages = with pkgs; [
       gnome-boxes
       virt-manager
     ];
-    extraGroups = [ "libvirtd" ];
+    extraGroups = ["libvirtd"];
   };
 
   virtualisation.libvirtd = {
@@ -22,7 +23,8 @@
           (pkgs.OVMF.override {
             secureBoot = true;
             tpmSupport = true;
-          }).fd
+          })
+          .fd
         ];
       };
     };
@@ -33,13 +35,11 @@
     swtpm
   ];
 
-  systemd.tmpfiles.rules =
-    let
-      firmware = pkgs.runCommandLocal "qemu-firmware" { } ''
-        mkdir $out
-        cp ${pkgs.qemu}/share/qemu/firmware/*.json $out
-        substituteInPlace $out/*.json --replace ${pkgs.qemu} /run/current-system/sw
-      '';
-    in
-    [ "L+ /var/lib/qemu/firmware - - - - ${firmware}" ];
+  systemd.tmpfiles.rules = let
+    firmware = pkgs.runCommandLocal "qemu-firmware" {} ''
+      mkdir $out
+      cp ${pkgs.qemu}/share/qemu/firmware/*.json $out
+      substituteInPlace $out/*.json --replace ${pkgs.qemu} /run/current-system/sw
+    '';
+  in ["L+ /var/lib/qemu/firmware - - - - ${firmware}"];
 }
