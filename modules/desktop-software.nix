@@ -31,13 +31,13 @@
         paper-plane
         phoronix-test-suite
         pika-backup
-        revolt-desktop
+        #revolt-desktop
         scribus
         stellarium
         tenacity
         tor-browser
         transmission_4-gtk
-        vesktop
+        #vesktop
         vlc
         vscodium
       ])

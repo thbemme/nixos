@@ -28,7 +28,9 @@
         "vscode-insiders" = "Code - Insiders";
         "vscodium" = "VSCodium";
       }
-      .${config.programs.vscode.package.pname};
+      .${
+        config.programs.vscode.package.pname
+      };
   in {
     after = [];
     before = ["checkLinkTargets"];
@@ -45,7 +47,9 @@
         "vscode-insiders" = "Code - Insiders";
         "vscodium" = "VSCodium";
       }
-      .${config.programs.vscode.package.pname};
+      .${
+        config.programs.vscode.package.pname
+      };
     configPath = "${config.xdg.configHome}/${configDirName}/User/settings.json";
   in {
     after = ["writeBoundary"];

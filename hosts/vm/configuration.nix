@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ../../modules/default.nix
     ../../modules/desktop.nix
+    ../../modules/desktop-software.nix
     ../../modules/home.nix
     ../../modules/ssh.nix
   ];
