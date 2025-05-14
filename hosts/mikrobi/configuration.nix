@@ -39,7 +39,9 @@
     curl
     diffutils
     dig
+    eza
     fastfetch
+    fd
     findutils
     fish
     git
@@ -73,6 +75,15 @@
 
   # Backup etc files instead of failing to activate generation if a file already exists in /etc
   environment.etcBackupExtension = ".bak";
+
+  environment.shellAliases = {
+    eza = "eza --group-directories-first";
+    l = "eza -laF";
+    ls = "eza -F";
+    grrrr = "git reset --hard";
+    gs = "git status";
+    mkdir = "mkdir -p";
+  };
 
   # Read the changelog before changing this value
   system.stateVersion = "24.05";
