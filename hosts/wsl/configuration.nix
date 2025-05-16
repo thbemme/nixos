@@ -33,8 +33,6 @@
     dconf.enable = true;
   };
 
-  fonts.packages = with pkgs; [(nerdfonts.override {fonts = ["AdwaitaMono" "JetBrainsMono"];})];
-
   environment.enableAllTerminfo = true;
 
   networking.hostName = "${vars.hostname}";
