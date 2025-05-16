@@ -10,7 +10,7 @@
   users.users.${vars.user} = {
     packages = with pkgs; [
       amdgpu_top
-      blender-hip
+      #blender-hip
     ];
   };
 
