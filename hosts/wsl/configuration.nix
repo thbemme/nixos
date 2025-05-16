@@ -33,13 +33,6 @@
     dconf.enable = true;
   };
 
-  programs.nix-ld = {
-    enable = true;
-    package = pkgs.nix-ld-rs; # only for NixOS 24.05
-  };
-
-  fonts.packages = with pkgs; [(nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})];
-
   environment.enableAllTerminfo = true;
 
   networking.hostName = "${vars.hostname}";

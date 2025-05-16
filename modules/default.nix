@@ -99,7 +99,7 @@
   ];
 
   fonts.packages = with pkgs; [
-    inter
+    adwaita-fonts
     fira-code
     vistafonts
   ];
@@ -117,7 +117,8 @@
   programs.nano.enable = false;
 
   programs.fish.enable = true;
-  environment.variables = {FLAKE = "/home/${vars.user}/git/nixos";};
+
+  environment.variables = {NH_FLAKE = "/home/${vars.user}/git/nixos";};
   environment.shellAliases = {
     eza = "eza --group-directories-first";
     l = "eza -laF";

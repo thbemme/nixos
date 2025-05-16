@@ -5,7 +5,11 @@ _: {
       size = 7850;
     }
   ];
-  powerManagement.enable = true;
+
+  services.power-profiles-daemon.enable = true;
+  services.logind.lidSwitch = "suspend-then-hibernate";
+  services.logind.powerKey = "hibernate";
+  services.logind.powerKeyLongPress = "poweroff";
 
   boot.kernelParams = ["mem_sleep_default=deep"];
 

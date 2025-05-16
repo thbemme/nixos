@@ -7,7 +7,7 @@
   users.users.${vars.user} = {
     packages =
       (with pkgs; [
-        citrix_workspace
+        #citrix_workspace
       ])
       ++ (with pkgs-unstable; [
         #citrix_workspace
