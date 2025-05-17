@@ -60,7 +60,6 @@
     du-dust
     dysk
     eza
-    fastfetch
     fd
     findutils
     fish

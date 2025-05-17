@@ -47,6 +47,69 @@
     };
   };
 
+  programs.fastfetch = {
+    enable = true;
+    settings = {
+      logo = "none";
+      display.separator = " | ";
+      modules = [
+        {
+          type = "os";
+          key = " OS      ";
+          format = "{pretty-name}";
+        }
+        {
+          type = "host";
+          key = "󰟀 Host    ";
+        }
+        {
+          type = "uptime";
+          key = "󱎫 Uptime  ";
+        }
+        {
+          type = "display";
+          key = "󰍹 Display ";
+          compactType = "original-with-refresh-rate";
+        }
+        {
+          type = "cpu";
+          key = " CPU     ";
+          format = "{name}";
+        }
+        {
+          type = "gpu";
+          key = "󰢮 GPU     ";
+        }
+        {
+          type = "memory";
+          key = " Memory  ";
+          format = "{used} / {total}";
+        }
+        {
+          type = "packages";
+          key = " Packages";
+        }
+        {
+          type = "wm";
+          key = " WM      ";
+        }
+        {
+          type = "shell";
+          key = " Shell   ";
+        }
+        {
+          type = "localip";
+          key = "󰩟 Local IP";
+        }
+        {
+          type = "colors";
+          symbol = "circle";
+          key = " Colors  ";
+        }
+      ];
+    };
+  };
+
   programs.git = {
     enable = true;
     userName = "${vars.gitName}";
