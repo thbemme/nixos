@@ -35,6 +35,7 @@
         "privacy.trackingprotection.socialtracking.enabled" = true;
       };
       ExtensionSettings = {
+        installation_mode = "force_installed";
         "addon@darkreader.org" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
           installation_mode = "force_installed";

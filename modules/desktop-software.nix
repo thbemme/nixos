@@ -23,10 +23,10 @@
         hunspellDicts.de_DE
         hunspellDicts.en_US
         krita
+        libreoffice-fresh
         libsForQt5.qt5ct
         lyx
         nextcloud-client
-        onlyoffice-bin
         openshot-qt
         paper-plane
         phoronix-test-suite

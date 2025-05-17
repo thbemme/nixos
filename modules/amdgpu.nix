@@ -7,10 +7,14 @@
     rocmPackages.clr.icd
   ];
 
+  systemd.tmpfiles.rules = [
+    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+  ];
+
   users.users.${vars.user} = {
     packages = with pkgs; [
       amdgpu_top
-      #blender-hip
+      blender-hip
     ];
   };
 
