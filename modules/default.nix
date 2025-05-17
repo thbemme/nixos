@@ -125,6 +125,8 @@
     grrrr = "git reset --hard";
     gs = "git status";
     mkdir = "mkdir -p";
+    pw = "openssl rand -base64 30";
+    ngit = "git -C ~/git/nixos";
   };
   programs.nh.enable = true;
 
