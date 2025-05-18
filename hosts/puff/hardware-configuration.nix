@@ -12,7 +12,9 @@
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
+  # Resume for hibernation
   boot.resumeDevice = "/dev/disk/by-uuid/79b39c5a-f3ed-44e7-80bb-e1707d417b5c";
+  # btrfs_map_physical /var/lib/swapfile | cut -f9 | head -n2 | tail -n1
   boot.kernelParams = ["resume_offset=27534592"];
 
   fileSystems."/" = {
@@ -41,7 +43,13 @@
     options = ["fmask=0022" "dmask=0022"];
   };
 
-  swapDevices = [];
+  # Extra swap file for hibernation
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 8 * 1024;
+    }
+  ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

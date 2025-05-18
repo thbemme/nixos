@@ -1,11 +1,4 @@
 _: {
-  swapDevices = [
-    {
-      device = "/var/lib/swapfile";
-      size = 7850;
-    }
-  ];
-
   services.logind.lidSwitch = "suspend-then-hibernate";
   services.logind.powerKey = "hibernate";
   services.logind.powerKeyLongPress = "poweroff";
