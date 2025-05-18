@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ./hardware-configuration.nix
-    #../../modules/ai.nix
+    ../../modules/ai.nix
     ../../modules/amdgpu.nix
     ../../modules/default.nix
     ../../modules/desktop-software.nix
@@ -26,7 +26,7 @@
   services.xserver.videoDrivers = ["amdgpu"];
 
   # Enable AMD GPU overclocking
-  boot.kernelParams = ["amdgpu.ppfeaturemask=0xffffffff"];
+  boot.kernelParams = ["amdgpu.ppfeaturemask=0xfff7ffff"];
 
   # Enable nct6775 module for sensor readings
   boot.kernelModules = ["nct6775"];
