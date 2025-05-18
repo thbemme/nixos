@@ -5,6 +5,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/release-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,18 +20,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-comfyui.url = "github:dyscorv/nix-comfyui";
-
-    home-manager = {
-      url = "github:nix-community/home-manager/";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    nix-comfyui.url = "github:dyscorv/nix-comfyui";
   };
 
   outputs = {
