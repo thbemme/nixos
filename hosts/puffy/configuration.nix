@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/ai.nix
+    #../../modules/ai.nix
     ../../modules/amdgpu.nix
     ../../modules/default.nix
     ../../modules/desktop-software.nix
@@ -13,6 +13,7 @@
     ../../modules/msib450mpro.nix
     ../../modules/printing.nix
     ../../modules/prometheus.nix
+    ../../modules/scheduler.nix
     ../../modules/secureboot.nix
     ../../modules/security.nix
     ../../modules/ssh.nix
