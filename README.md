@@ -7,6 +7,7 @@
     - [Development](#development-modules-dev-nix)
     - [Gaming](#gaming-modules-gaming-nix)
     - [Gnome](#gnome-modules-gnome-nix)
+    - [Hibernation](#hibernation-modules-hibernate-nix)
     - [Printing](#printing-modules-printing-nix)
     - [Prometheus](#prometheus-modules-prometheus-nix)
     - [Secure Boot](#secure-boot-modules-secureboot-nix)
@@ -48,6 +49,9 @@
 ### [Gnome](modules/gnome.nix)
 - Gnome desktop environment
 - Default theme: Dracula
+### [Hibernation](modules/hibernate.nix)
+- Hibernate power button
+- Sleep then hibernate on lid close
 ### [Printing](modules/printing.nix)
 - Setup printer and scanner
 ### [Prometheus](modules/prometheus.nix)
