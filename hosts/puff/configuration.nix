@@ -8,7 +8,6 @@
     ../../modules/gaming.nix
     ../../modules/hibernate.nix
     ../../modules/home.nix
-    ../../modules/scheduler.nix
     ../../modules/secureboot.nix
     ../../modules/security.nix
     ../../modules/ssh.nix
