@@ -78,6 +78,7 @@
     killall
     mosh
     openssh
+    openssl
     procs
     pv
     ripgrep

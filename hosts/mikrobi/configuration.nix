@@ -4,11 +4,6 @@
   vars,
   ...
 }: {
-  # imports =
-  #   [
-  #     ../../modules/vim.nix
-  #   ];
-
   # Simply install just the packages
   environment.packages = with pkgs; [
     ((vim_configurable.override {}).customize {
@@ -57,6 +52,7 @@
     nix-index
     nmap
     openssh
+    openssl
     shellcheck
     sudo
     tzdata

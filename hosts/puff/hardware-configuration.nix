@@ -14,8 +14,8 @@
   boot.extraModulePackages = [];
   # Resume for hibernation
   boot.resumeDevice = "/dev/disk/by-uuid/79b39c5a-f3ed-44e7-80bb-e1707d417b5c";
-  # btrfs_map_physical /var/lib/swapfile | cut -f9 | head -n2 | tail -n1
-  boot.kernelParams = ["resume_offset=27534592"];
+  # sudo btrfs inspect-internal map-swapfile -r /var/lib/swapfile
+  boot.kernelParams = ["resume_offset=23978470"];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/79b39c5a-f3ed-44e7-80bb-e1707d417b5c";

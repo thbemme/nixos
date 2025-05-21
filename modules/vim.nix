@@ -1,28 +1,33 @@
 {pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
-    ((vim_configurable.override {}).customize {
-      name = "vim";
-      # Install plugins for example for syntax highlighting of nix files
-      vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
-        start = [
-          dracula-vim
-          fzf-vim
-          fzfWrapper
-          minimap-vim
-          nerdtree
-          rust-vim
-          supertab
-          vim-airline
-          vim-codefmt
-          vim-fugitive
-          vim-lastplace
-          vim-misc
-          vim-nix
-          vim-signify
-        ];
-        opt = [];
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+    defaultEditor = true;
+
+    configure = {
+      # Add transparent.nvim plugin
+      extraPlugins = with pkgs.vimPlugins; {
+        transparent = {
+          package = transparent-nvim;
+          # The setup must be a string containing Lua code
+          setup = ''
+            require('transparent').setup({
+              enable = true,  -- Automatically enable transparency
+
+              groups = {
+                "Normal", "NormalNC", "Comment", "Constant", "Special", "Identifier",
+                "Statement", "PreProc", "Type", "Underlined", "Todo", "String", "Function",
+                "Conditional", "Repeat", "Operator", "Structure", "LineNr", "NonText",
+                "SignColumn", "CursorLine", "CursorLineNr", "EndOfBuffer"
+              },
+              extra_groups = {},
+              exclude_groups = {},
+            })
+          '';
+        };
       };
-      vimrcConfig.customRC = ''
+      customRC = ''
         nmap <silent> <F2> :NERDTreeFind<CR>
         nmap <space>e :NERDTreeToggle %:p:h<CR>
         nmap <space>m :MinimapToggle<CR>
@@ -36,11 +41,30 @@
         set shiftwidth=2
         set tabstop=2
         set wildmenu
+        colorscheme dracula
         syntax on
       '';
-    })
-  ];
+      packages.myVimPackage = with pkgs.vimPlugins; {
+        start = [
+          dracula-nvim
+          minimap-vim
+          nerdtree
+          nvim-fzf
+          rust-vim
+          supertab
+          transparent-nvim
+          vim-airline
+          vim-codefmt
+          vim-fugitive
+          vim-lastplace
+          vim-misc
+          vim-nix
+          vim-signify
+        ];
+      };
+    };
+  };
   environment.variables = {
-    EDITOR = "vim";
+    EDITOR = "nvim";
   };
 }
