@@ -58,6 +58,9 @@
   services.btrfs.autoScrub.enable = true;
   services.btrfs.autoScrub.interval = "weekly";
 
+  # Disable bluetooth on boot
+  hardware.bluetooth.powerOnBoot = true;
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ 22 ];
   # networking.firewall.allowedUDPPorts = [ ... ];

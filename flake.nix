@@ -26,7 +26,7 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    nix-comfyui.url = "github:dyscorv/nix-comfyui";
+    #nix-comfyui.url = "github:dyscorv/nix-comfyui";
   };
 
   outputs = {

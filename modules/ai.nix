@@ -5,12 +5,12 @@
   inputs,
   ...
 }: {
-  nixpkgs.overlays = [
-    inputs.nix-comfyui.overlays.default
-  ];
+  # nixpkgs.overlays = [
+  #   inputs.nix-comfyui.overlays.default
+  # ];
 
-  nix.settings.trusted-substituters = ["https://ai.cachix.org"];
-  nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="];
+  # nix.settings.trusted-substituters = ["https://ai.cachix.org"];
+  # nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="];
 
   # Ollama
   services.ollama = {
@@ -31,7 +31,7 @@
       else {};
     rocmOverrideGfx =
       if gpuAcceleration
-      then "10.3.1"
+      then "10.3.1" # Workaround for RX 6700 XT
       else null;
   };
 
