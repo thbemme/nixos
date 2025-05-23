@@ -50,7 +50,7 @@
 - Gnome desktop environment
 - Default theme: Dracula
 ### [Hibernation](modules/hibernate.nix)
-- Hibernate power button
+- Hibernate on power button pressed
 - Sleep then hibernate on lid close
 ### [Printing](modules/printing.nix)
 - Setup printer and scanner
