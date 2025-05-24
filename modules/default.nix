@@ -63,8 +63,6 @@
     fd
     findutils
     fish
-    fishPlugins.done
-    fishPlugins.forgit
     fishPlugins.fzf-fish
     fishPlugins.grc
     fishPlugins.hydro
@@ -101,7 +99,6 @@
   fonts.packages = with pkgs; [
     adwaita-fonts
     fira-code
-    noto-fonts-emoji
     vistafonts
   ];
 
