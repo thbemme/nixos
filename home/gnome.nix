@@ -53,7 +53,7 @@ with lib.hm.gvariant; {
   # Use `dconf watch /` to track stateful changes you are doing, then set them here.
   dconf.settings = {
     "org/gnome/mutter" = {
-      #experimental-features = ["variable-refresh-rate"];
+      experimental-features = ["variable-refresh-rate"];
     };
     "org/gnome/shell" = {
       disable-user-extensions = false;
