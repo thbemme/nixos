@@ -4,7 +4,6 @@
   vars,
   ...
 }: {
-  # Simply install just the packages
   environment.packages = with pkgs; [
     ((vim_configurable.override {}).customize {
       name = "vim";
@@ -39,6 +38,9 @@
     fd
     findutils
     fish
+    fishPlugins.fzf-fish
+    fishPlugins.grc
+    fishPlugins.hydro
     git
     git-crypt
     gnupg
@@ -53,6 +55,7 @@
     nmap
     openssh
     openssl
+    ripgrep
     shellcheck
     sudo
     tzdata
