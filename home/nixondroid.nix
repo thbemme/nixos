@@ -6,15 +6,6 @@
     ".config/fish/conf.d/dracula.fish".source = ./dotfiles/fish/dracula.fish;
   };
 
-  programs.fish.shellAliases = {
-    eza = "eza --group-directories-first";
-    l = "eza -laF";
-    ls = "eza -F";
-    grrrr = "git reset --hard";
-    gs = "git status";
-    mkdir = "mkdir -p";
-  };
-
   programs.nix-index = {
     enable = true;
     enableFishIntegration = true;

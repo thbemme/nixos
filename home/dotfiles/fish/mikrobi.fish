@@ -1,5 +1,6 @@
 set fish_greeting
 set -gx EDITOR vim
+set -Ua fish_features no-keyboard-protocols
 
 function fish_prompt
   if [ $status = 0 ]
@@ -7,14 +8,14 @@ function fish_prompt
     if git rev-parse 2> /dev/null
       echo -n (git rev-parse --abbrev-ref HEAD 2> /dev/null)
     else
-      echo -n (hostname)
+      echo -n "nix-on-droid"
     end
   else
     set_color red
     if git rev-parse 2> /dev/null
       echo -n (git rev-parse --abbrev-ref HEAD)
     else
-      echo -n (hostname) 
+      echo -n "nix-on-droid" 
     end
   end
   set_color normal
@@ -56,5 +57,20 @@ end
 
 function c
   nix-collect-garbage -d
-  nix-store --gc
+end
+
+function ls
+  eza --group-directories-first $argv
+end
+
+function l
+  ls -laF
+end
+
+function grrrr
+  git reset --hard
+end
+
+function gs
+  git status
 end

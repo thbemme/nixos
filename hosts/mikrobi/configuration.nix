@@ -41,9 +41,11 @@
     fishPlugins.fzf-fish
     fishPlugins.grc
     fishPlugins.hydro
+    fzf
     git
     git-crypt
     gnupg
+    grc
     hostname
     htop
     jq

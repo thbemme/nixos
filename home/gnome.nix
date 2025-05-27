@@ -106,6 +106,11 @@ with lib.hm.gvariant; {
       show-weekdate = true;
       clock-show-weekday = true;
     };
+    "org/gnome/desktop/interface" = {
+      clock-format = "24h";
+      clock-show-weekday = true;
+      clock-show-date = true;
+    };
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:minimize,maximize,close";
       dynamic-workspaces = true;
@@ -152,6 +157,9 @@ with lib.hm.gvariant; {
     };
     "org/gnome/shell/extensions/freon" = {
       hot-sensors = ["__max__"];
+    };
+    "org/gnome/GWeather4" = {
+      temperature-unit = "centigrade";
     };
     "org/gnome/shell/extensions/gamemodeshellextension" = {
       show-icon-only-when-active = true;
