@@ -51,6 +51,8 @@ function fish_title
     end
 end
 
+set -xg MANPAGER "nvim -c 'Man!'"
+
 function nix-shell
   command nix-shell --command fish $argv
 end
