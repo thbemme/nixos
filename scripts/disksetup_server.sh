@@ -4,7 +4,7 @@
 printf "label: dos\n,,L\n" | sfdisk "$DISK"
 
 # Create rootfs
-mkfs.btrfs -l rootfs "$DISK"1
+mkfs.btrfs -L rootfs "$DISK"1
 
 # Then create subvolumes
 mount -t btrfs -L rootfs /mnt
