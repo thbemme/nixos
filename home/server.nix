@@ -20,6 +20,7 @@
 
   home.file = {
     ".config/fish/config.fish".source = ./dotfiles/fish/default.fish;
+    ".config/fish/conf.d/extra.fish".source = ./dotfiles/fish/desktop.fish;
   };
 
   home.sessionVariables = {
