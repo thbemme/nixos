@@ -74,6 +74,7 @@
         gpuAcceleration = true;
       };
       puff = nixosConfig {configPath = ./hosts/puff/configuration.nix;};
+      nixos-template = nixosConfig {configPath = ./hosts/nixos-template/configuration.nix;};
       vm = nixosConfig {
         configPath = ./hosts/vm/configuration.nix;
         useUnstable = true;
