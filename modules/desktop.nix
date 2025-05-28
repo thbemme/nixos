@@ -47,6 +47,12 @@
     ];
   };
 
+  fonts.packages = with pkgs; [
+    adwaita-fonts
+    fira-code
+    vistafonts
+  ];
+
   # Additional home manager settings
   home-manager = {
     users = {
