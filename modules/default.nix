@@ -83,6 +83,7 @@
     sd
     spectre-meltdown-checker
     stress-ng
+    tealdeer
     tree
     unzip
     wget
