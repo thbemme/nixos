@@ -88,6 +88,8 @@
 
     homeConfigurations.hm = inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = import nixpkgs {
+        backupFileExtension = "hm-back";
+
         system = "x86_64-linux";
         config.allowUnfree = true;
       };

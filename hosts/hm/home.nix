@@ -1,4 +1,5 @@
 {...}: {
+  targets.genericLinux.enable = true;
   imports = [
     ../../home/base.nix
     ../../home/fish.nix
