@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/ai.nix
+    ../../modules/amdgpu-patch/default.nix
     ../../modules/amdgpu.nix
     ../../modules/default.nix
     ../../modules/desktop-software.nix
