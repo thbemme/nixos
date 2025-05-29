@@ -97,12 +97,6 @@
     statix # nix
   ];
 
-  fonts.packages = with pkgs; [
-    adwaita-fonts
-    fira-code
-    vistafonts
-  ];
-
   security.sudo.wheelNeedsPassword = true;
 
   # This value determines the NixOS release from which the default
