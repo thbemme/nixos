@@ -14,10 +14,6 @@
     };
   };
 
-  imports = [
-    ./vim.nix
-  ];
-
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
@@ -125,16 +121,6 @@
     '';
 
   environment.variables = {NH_FLAKE = "/home/${vars.user}/git/nixos";};
-  environment.shellAliases = {
-    eza = "eza --group-directories-first";
-    l = "eza -laF";
-    ls = "eza -F";
-    grrrr = "git reset --hard";
-    gs = "git status";
-    mkdir = "mkdir -p";
-    pw = "openssl rand -base64 30";
-    ngit = "git -C ~/git/nixos";
-  };
   programs.nh.enable = true;
 
   # Allow unfree packages

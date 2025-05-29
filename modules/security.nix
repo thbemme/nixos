@@ -11,7 +11,6 @@
       nmap
       subfinder
       wapiti
-      wireshark
     ];
     extraGroups = ["wireshark"];
   };

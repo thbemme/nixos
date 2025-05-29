@@ -86,6 +86,19 @@
       nixos = nixosConfig {configPath = ./hosts/wsl/configuration.nix;};
     };
 
+    homeConfigurations.hm = inputs.home-manager.lib.homeManagerConfiguration {
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
+      };
+      modules = [./hosts/hm/home.nix];
+      extraSpecialArgs = {
+        inherit inputs;
+        gpuAcceleration = false;
+        vars = variables.home;
+        pkgs-unstable = pkgsUnstable;
+      };
+    };
     nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
       pkgs = import nixpkgs {
         system = "aarch64-linux";
