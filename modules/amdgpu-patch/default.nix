@@ -1,8 +1,6 @@
 {
   config,
   pkgs,
-  pkgs-unstable,
-  vars,
   ...
 }: let
   amdgpu-kernel-module = pkgs.callPackage ./amdgpu-kernel-module.nix {

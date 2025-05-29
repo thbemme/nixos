@@ -2,7 +2,6 @@
   pkgs,
   pkgs-unstable,
   gpuAcceleration,
-  inputs,
   ...
 }: {
   # nixpkgs.overlays = [
