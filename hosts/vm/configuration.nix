@@ -6,6 +6,7 @@
     ../../modules/desktop.nix
     ../../modules/desktop-software.nix
     ../../modules/home.nix
+    ../../modules/neovim.nix
     ../../modules/ssh.nix
   ];
   services.qemuGuest.enable = true;

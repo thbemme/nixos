@@ -9,6 +9,7 @@
     ../../modules/ai.nix
     ../../modules/default.nix
     ../../modules/home_wsl.nix
+    ../../modules/neovim.nix
   ];
 
   wsl = {

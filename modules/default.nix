@@ -14,10 +14,6 @@
     };
   };
 
-  imports = [
-    ./vim.nix
-  ];
-
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
