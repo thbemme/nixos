@@ -118,6 +118,9 @@ with lib.hm.gvariant; {
     "org/gnome/mutter" = {
       dynamic-workspaces = true;
     };
+    "org/gtk/gtk4/settings/file-chooser" = {
+      sort-directories-first = true;
+    };
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"

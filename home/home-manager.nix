@@ -5,10 +5,6 @@
     dysk
     eza
     fd
-    fish
-    fishPlugins.fzf-fish
-    fishPlugins.grc
-    fishPlugins.hydro
     fx
     fzf
     grc
@@ -28,7 +24,7 @@
     statix # nix
   ];
   programs.fish = {
-    shellAbbrs = {
+    shellAliases = {
       r = "home-manager switch --flake ~/git/nixos/#hm";
       c = "nix-collect-garbage -d";
     };

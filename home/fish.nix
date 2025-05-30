@@ -75,11 +75,9 @@
       '';
       nix-shell = "command nix-shell --command fish $argv";
     };
-    shellAbbrs = {
+    shellAliases = {
       p = "alejandra -q ~/git/nixos/;git -C ~/git/nixos/ diff;read -lP 'Continue?' && git -C ~/git/nixos/ add .&&git -C ~/git/nixos/ commit -m 'Update Flake'&&git -C ~/git/nixos/ commit --amend&&git -C ~/git/nixos/ push";
       pu = "git -C ~/git/nixos/ pull";
-    };
-    shellAliases = {
       ez = "eza --group-directories-first";
       l = "ez -laF";
       ls = "ez -F";

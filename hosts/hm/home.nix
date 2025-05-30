@@ -7,5 +7,6 @@
     ../../home/desktop-software.nix
     ../../home/gnome.nix
     ../../home/home-manager.nix
+    ../../home/neovim.nix
   ];
 }

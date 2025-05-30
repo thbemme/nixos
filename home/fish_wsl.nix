@@ -1,6 +1,6 @@
 _: {
   programs.fish = {
-    shellAbbrs = {
+    shellAliases = {
       r = "nh os switch --ask $argv -- --impure";
       u = "nh os switch --update --ask $argv -- --impure";
       c = "nh clean all --keep 5";
