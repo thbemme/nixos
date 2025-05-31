@@ -26,6 +26,8 @@
   - [Nix-on-droid](#nix-on-droid)
     - [Installation](#installation-2)
     - [Maintenance](#maintenance-2)
+  - [Home-manager (experimental)](#home-manager-experimental)
+    - [Maintenance](#maintenance-3)
 
 ## Modules
 ### [Generative AI/LLM](modules/ai.nix)
@@ -123,6 +125,7 @@ nixos-install --flake .#<hostname> --no-root-password
 - `nh` is being used to maintain NixOS
 - Update with `u [--dry]`
 - Reconfiguration with `r [--dry]`
+- Cleanup with `c`
 - Push to git with `p`
 - Pull from git with `pu`
 
@@ -134,17 +137,17 @@ nixos-install --flake .#<hostname> --no-root-password
 git clone https://git.kbnetcloud.de/riza/nixos.git ~/git/nixos
 cd ~/git/nixos
 ```
-3. Decrypt [git-crypt](#gitcrypt)
+1. Decrypt [git-crypt](#gitcrypt)
 
-4. Update Nix channels
+2. Update Nix channels
 ```shell
-sudo nix-channel --update
+nix-channel --update
 ```
-5. Switch to new configuration
+1. Switch to new configuration
 ```shell
-sudo nixos-rebuild switch --flake .#<hostname> --impure
+nixos-rebuild switch --flake .#<hostname> --impure
 ```
-6. Restart Nixos
+1. Restart Nixos
 ```shell
 wsl -t nixos
 ```
@@ -152,6 +155,7 @@ wsl -t nixos
 - `nh` is being used to maintain NixOS
 - Update with `u [--dry]`
 - Reconfiguration with `r [--dry]`
+- Cleanup with `c`
 - Push to git with `p`
 - Pull from git with `pu`
 ## Nix-on-droid
@@ -174,3 +178,32 @@ nix-on-droid -F ~/nixos/
 - Reconfiguration with `r [--dry]`
 - Pull from git with `pu`
 
+## Home-manager (experimental)
+1. Install nix packet manager
+```shell
+sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
+```
+2. Clone repo
+```shell
+git clone https://git.kbnetcloud.de/riza/nixos.git ~/git/nixos
+cd ~/git/nixos
+```
+3. Decrypt [git-crypt](#gitcrypt)
+4. Install home-manager
+```shell
+nix-shell -p home-manager
+```
+5. Enable flake feature
+```shell
+mkdir -p ~/.config/nix
+echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
+```
+6. Activate initial configuration
+```shell
+home-manager switch --flake ~/git/nixos/#hm
+```
+### Maintenance
+- `home-manager` to maintain nix environment
+- Reconfiguration with `r [--dry-run]`
+- Cleanup with `c`
+- Pull from git with `pu`

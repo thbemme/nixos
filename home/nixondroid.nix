@@ -1,9 +1,16 @@
 {vars, ...}: {
+  imports = [
+    ./fish.nix
+  ];
   # Read the changelog before changing this value
   home.stateVersion = "24.05";
-  home.file = {
-    ".config/fish/config.fish".source = ./dotfiles/fish/mikrobi.fish;
-    ".config/fish/conf.d/dracula.fish".source = ./dotfiles/fish/dracula.fish;
+
+  programs.fish = {
+    shellAliases = {
+      pu = "git -C ~/nixos/ pull";
+      r = "nix-on-droid switch -F ~/nixos/ $argv";
+      c = "nix-collect-garbage -d";
+    };
   };
 
   programs.nix-index = {
