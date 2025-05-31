@@ -56,8 +56,6 @@
 
   programs.nano.enable = false;
 
-  programs.fish.enable = true;
-
   # Remove extra man pages https://discourse.nixos.org/t/solve-slow-man-cache-the-content-addressed-way-but-not-ca-derivation/58463#p-194464-edit-1-7
   environment.extraSetup =
     /*
