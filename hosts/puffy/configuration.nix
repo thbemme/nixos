@@ -4,11 +4,12 @@
     ../../modules/ai.nix
     ../../modules/amdgpu-patch/default.nix
     ../../modules/amdgpu.nix
+    ../../modules/cli.nix
     ../../modules/default.nix
-    ../../modules/desktop-software.nix
-    ../../modules/desktop.nix
     ../../modules/dev.nix
     ../../modules/gaming.nix
+    ../../modules/gui-extras.nix
+    ../../modules/gui.nix
     ../../modules/home.nix
     ../../modules/led.nix
     ../../modules/msib450mpro.nix
@@ -17,6 +18,8 @@
     ../../modules/secureboot.nix
     ../../modules/security.nix
     ../../modules/ssh.nix
+    ../../modules/plymouth.nix
+    ../../modules/gnome.nix
     ../../modules/virt.nix
     ../../modules/work.nix
   ];
