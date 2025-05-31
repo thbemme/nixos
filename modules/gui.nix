@@ -4,11 +4,6 @@
   vars,
   ...
 }: {
-  imports = [
-    ./plymouth.nix
-    ./gnome.nix
-  ];
-
   # Bootloader
   boot = {
     loader.systemd-boot.enable = true;

@@ -1,12 +1,15 @@
 {
+  gpuAcceleration,
   pkgs-unstable,
   vars,
   ...
 }: {
   imports = [
     # include NixOS-WSL modules
+    [inputs.home-manager.nixosModules.home-manager]
     <nixos-wsl/modules>
     ../../modules/ai.nix
+    ../../modules/cli.nix
     ../../modules/default.nix
     ../../modules/home_wsl.nix
     ../../modules/neovim.nix
@@ -41,4 +44,13 @@
 
   hardware.graphics.enable = true;
   #hardware.graphics.setLdLibraryPath = true;
+
+  home-manager = {
+    # also pass inputs to home-manager modules
+    extraSpecialArgs = {inherit inputs vars gpuAcceleration;};
+    backupFileExtension = "hm-back";
+    users = {
+      "${vars.user}" = import ../home/wsl.nix;
+    };
+  };
 }
