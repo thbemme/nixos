@@ -17,7 +17,7 @@
     - [Virtualization](#virtualization-modules-virt-nix)
     - [Work related](#work-related-modules-work-nix)
   - [Gitcrypt](#gitcrypt)
-  - [Desktop](#desktop)
+  - [Native NixOS](#native-nixos)
     - [Installation](#installation)
     - [Maintenance](#maintenance)
   - [WSL](#wsl)
@@ -26,7 +26,7 @@
   - [Nix-on-droid](#nix-on-droid)
     - [Installation](#installation-2)
     - [Maintenance](#maintenance-2)
-  - [Home-manager (experimental)](#home-manager-experimental)
+  - [Home-manager](#home-manager)
     - [Maintenance](#maintenance-3)
 
 ## Modules
@@ -95,7 +95,7 @@ stty -echo;head -n1|base64 -d|git crypt unlock -;stty echo
 
 - Sample config file  [variables.json](./secrets/variables.json.sample)
 
-## Desktop
+## Native NixOS
 ### Installation
 1. Clone repo
 ```shell
@@ -108,6 +108,7 @@ cd ~/git/nixos
 - One btrfs volume with subvolumes for `rootfs`, `home` and `nix`
 - Physical volumes (nvme, sda) encrypted via cryptsetup
 - Virtual volumes (vda) unencrypted
+- Server variant assuming classic BIOS setting not UEFI
 - Swap via `zram`
 ```shell
 scripts/disksetup_<type>.sh
@@ -178,26 +179,33 @@ nix-on-droid -F ~/nixos/
 - Reconfiguration with `r [--dry]`
 - Pull from git with `pu`
 
-## Home-manager (experimental)
+## Home-manager
+Requirements:
+Any GNU/Linux with native package installed:
+- [Librewolf](https://librewolf.net/installation/)
+- [Ghostty](https://ghostty.org/docs/install/binary)
+- SELinux disabled/permissive
+  
 1. Install nix packet manager
 ```shell
 sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
 ```
-2. Clone repo
-```shell
-git clone https://git.kbnetcloud.de/riza/nixos.git ~/git/nixos
-cd ~/git/nixos
-```
-3. Decrypt [git-crypt](#gitcrypt)
-4. Install home-manager
-```shell
-nix-shell -p home-manager
-```
-5. Enable flake feature
+2. Enable flake feature
 ```shell
 mkdir -p ~/.config/nix
 echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 ```
+3. Clone repo
+```shell
+git clone https://git.kbnetcloud.de/riza/nixos.git ~/git/nixos
+cd ~/git/nixos
+```
+4. Decrypt [git-crypt](#gitcrypt)
+5. Switch to home-manager shell
+```shell
+nix-shell -p home-manager
+```
+
 6. Activate initial configuration
 ```shell
 home-manager switch --flake ~/git/nixos/#hm
