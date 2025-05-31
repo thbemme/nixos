@@ -13,7 +13,6 @@
     ../../modules/home.nix
     ../../modules/led.nix
     ../../modules/msib450mpro.nix
-    ../../modules/neovim.nix
     ../../modules/printing.nix
     ../../modules/prometheus.nix
     ../../modules/secureboot.nix

@@ -10,7 +10,6 @@
     ../../modules/gui.nix
     ../../modules/hibernate.nix
     ../../modules/home.nix
-    ../../modules/neovim.nix
     ../../modules/plymouth.nix
     ../../modules/secureboot.nix
     ../../modules/security.nix

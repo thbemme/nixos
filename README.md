@@ -137,17 +137,17 @@ nixos-install --flake .#<hostname> --no-root-password
 git clone https://git.kbnetcloud.de/riza/nixos.git ~/git/nixos
 cd ~/git/nixos
 ```
-1. Decrypt [git-crypt](#gitcrypt)
+3. Decrypt [git-crypt](#gitcrypt)
 
-2. Update Nix channels
+4. Update Nix channels
 ```shell
 nix-channel --update
 ```
-1. Switch to new configuration
+5. Switch to new configuration
 ```shell
 nixos-rebuild switch --flake .#<hostname> --impure
 ```
-1. Restart Nixos
+6. Restart Nixos
 ```shell
 wsl -t nixos
 ```
@@ -167,9 +167,9 @@ wsl -t nixos
 ```shell
 git clone https://git.kbnetcloud.de/riza/nixos.git
 ```
-1. Decrypt [git-crypt](#gitcrypt)
+5. Decrypt [git-crypt](#gitcrypt)
 
-2. Switch to new config
+6. Switch to new config
 ```shell
 nix-on-droid -F ~/nixos/
 ```
