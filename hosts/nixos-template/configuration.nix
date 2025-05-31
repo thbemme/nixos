@@ -3,7 +3,6 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/default.nix
-    ../../modules/neovim.nix
     ../../modules/server.nix
     ../../modules/ssh.nix
   ];
