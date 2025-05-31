@@ -45,4 +45,5 @@
     shfmt
     statix # nix
   ];
+  programs.fish.enable = true;
 }

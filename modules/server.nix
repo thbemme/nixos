@@ -13,11 +13,11 @@
     algorithm = "zstd";
   };
   environment.systemPackages = with pkgs; [
-  ((vim_configurable.override {}).customize {
+    ((vim_configurable.override {}).customize {
       name = "vim";
       # Install plugins for example for syntax highlighting of nix files
       vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
-        start = [ vim-lastplace ];
+        start = [vim-lastplace];
         opt = [];
       };
       vimrcConfig.customRC = ''
@@ -35,6 +35,15 @@
       '';
     })
   ];
+
+  environment = {
+    variables = {
+      EDITOR = "vim";
+      SYSTEMD_EDITOR = "vim";
+      VISUAL = "vim";
+    };
+  };
+
   # List services that you want to enable:
   services.btrfs.autoScrub.enable = true;
   services.btrfs.autoScrub.interval = "weekly";
