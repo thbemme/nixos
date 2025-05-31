@@ -4,6 +4,10 @@
   gpuAcceleration,
   ...
 }: {
+  imports = [
+    ./fish.nix
+    ./fish_nixos.nix
+  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "${vars.user}";
@@ -17,11 +21,6 @@
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
-
-  home.file = {
-    ".config/fish/config.fish".source = ./dotfiles/fish/default.fish;
-    ".config/fish/conf.d/extra.fish".source = ./dotfiles/fish/desktop.fish;
-  };
 
   home.sessionVariables = {
     EDITOR = "vim";
