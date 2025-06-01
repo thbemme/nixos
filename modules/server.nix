@@ -12,13 +12,15 @@
     enable = true;
     algorithm = "zstd";
   };
-
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-    configure = {
-      customRC = ''
+  environment.systemPackages = with pkgs; [
+    ((vim_configurable.override {}).customize {
+      name = "vim";
+      # Install plugins for example for syntax highlighting of nix files
+      vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
+        start = [vim-lastplace];
+        opt = [];
+      };
+      vimrcConfig.customRC = ''
         set backspace=indent,eol,start
         set expandtab
         set history=100
@@ -31,11 +33,8 @@
         syntax on
         hi Normal guibg=NONE ctermbg=NONE
       '';
-      packages.myVimPackage = with pkgs.vimPlugins; {
-        start = [nvim-lastplace];
-      };
-    };
-  };
+    })
+  ];
 
   environment = {
     variables = {
@@ -48,6 +47,8 @@
   # List services that you want to enable:
   services.btrfs.autoScrub.enable = true;
   services.btrfs.autoScrub.interval = "weekly";
+
+  security.sudo.wheelNeedsPassword = false;
 
   imports = [inputs.home-manager.nixosModules.home-manager];
   home-manager = {
