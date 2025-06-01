@@ -7,8 +7,7 @@
 
   programs.fish = {
     shellAliases = {
-      pu = "git -C ~/nixos/ pull";
-      r = "nix-on-droid switch -F ~/nixos/ $argv";
+      r = "nix-on-droid switch -F ~/git/nixos/ $argv";
       c = "nix-collect-garbage -d";
     };
   };
@@ -18,6 +17,7 @@
     enableFishIntegration = true;
   };
   programs.git = {
+    enable = true;
     userName = "${vars.gitName}";
     userEmail = "${vars.gitEmail}";
   };
