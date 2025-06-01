@@ -59,8 +59,6 @@
     openssl
     ripgrep
     shellcheck
-    sudo
-    toybox
     tzdata
     utillinux
     wapiti
@@ -97,6 +95,7 @@
     "192.168.178.18" = ["docker-amd64-vm"];
     "192.168.178.19" = ["ssh-amd64-vm"];
     "192.168.178.20" = ["puffy"];
+    "192.168.178.23" = ["ansible-amd64-vm"];
   };
 
   # Set your time zone
