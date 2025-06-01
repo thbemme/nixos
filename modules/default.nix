@@ -67,6 +67,8 @@
       rm -r "$out/share/man/man3"
     '';
 
+  security.sudo.wheelNeedsPassword = true;
+
   environment.variables = {NH_FLAKE = "/home/${vars.user}/git/nixos";};
 
   programs.fish.enable = true;

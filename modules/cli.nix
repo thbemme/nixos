@@ -45,6 +45,4 @@
     shfmt
     statix # nix
   ];
-
-  security.sudo.wheelNeedsPassword = true;
 }
