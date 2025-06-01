@@ -44,8 +44,6 @@
     shell = pkgs.fish;
   };
 
-  security.sudo.wheelNeedsPassword = true;
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It's perfectly fine and recommended to leave
@@ -70,6 +68,8 @@
     '';
 
   environment.variables = {NH_FLAKE = "/home/${vars.user}/git/nixos";};
+
+  programs.fish.enable = true;
 
   programs.nh.enable = true;
 

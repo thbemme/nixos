@@ -45,5 +45,6 @@
     shfmt
     statix # nix
   ];
-  programs.fish.enable = true;
+
+  security.sudo.wheelNeedsPassword = true;
 }

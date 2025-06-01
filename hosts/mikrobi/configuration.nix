@@ -46,7 +46,6 @@
     git-crypt
     gnupg
     grc
-    hostname
     htop
     jq
     lynis
