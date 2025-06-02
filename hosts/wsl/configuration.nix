@@ -1,17 +1,18 @@
 {
+  inputs,
   gpuAcceleration,
+  pkgs,
   pkgs-unstable,
   vars,
   ...
 }: {
   imports = [
     # include NixOS-WSL modules
-    [inputs.home-manager.nixosModules.home-manager]
+    inputs.home-manager.nixosModules.home-manager
     <nixos-wsl/modules>
     ../../modules/ai.nix
     ../../modules/cli.nix
     ../../modules/default.nix
-    ../../modules/home_wsl.nix
   ];
 
   wsl = {
@@ -28,6 +29,12 @@
     alpaca-proxy
     chawan
     ghostty
+  ];
+
+  fonts.packages = with pkgs; [
+    adwaita-fonts
+    fira-code
+    vistafonts
   ];
 
   programs = {
@@ -49,7 +56,7 @@
     extraSpecialArgs = {inherit inputs vars gpuAcceleration;};
     backupFileExtension = "hm-back";
     users = {
-      "${vars.user}" = import ../home/wsl.nix;
+      "${vars.user}" = import ../../home/wsl.nix;
     };
   };
 }

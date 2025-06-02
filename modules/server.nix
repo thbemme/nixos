@@ -48,8 +48,6 @@
   services.btrfs.autoScrub.enable = true;
   services.btrfs.autoScrub.interval = "weekly";
 
-  security.sudo.wheelNeedsPassword = false;
-
   imports = [inputs.home-manager.nixosModules.home-manager];
   home-manager = {
     # also pass inputs to home-manager modules
