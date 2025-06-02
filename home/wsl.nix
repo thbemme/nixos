@@ -4,7 +4,7 @@
     ./dconf.nix
     ./fish_wsl.nix
     ./fish.nix
-    ./gui.nix
+    ./ghostty.nix
     ./neovim.nix
   ];
 }

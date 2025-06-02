@@ -3,8 +3,8 @@
   imports = [
     ../../home/base.nix
     ../../home/fish.nix
-    ../../home/desktop.nix
-    ../../home/desktop-software.nix
+    ../../home/gui.nix
+    ../../home/gui-extras.nix
     ../../home/gnome.nix
     ../../home/home-manager.nix
     ../../home/neovim.nix

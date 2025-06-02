@@ -75,6 +75,7 @@
       "workbench.colorTheme" = "Dracula Theme";
       "nix.formatterPath" = "alejandra";
       "ollama-autocoder.model" = "deepseek-coder-v2:latest";
+      "markdown.extension.toc.slugifyMode": "gitea"
       "files.exclude" = {
         "**/.git" = true;
         "**/.svn" = true;

@@ -1,0 +1,25 @@
+{...}: {
+  programs.ghostty = {
+    enable = true;
+    package = null;
+    settings = {
+      adjust-cell-width = "-10%";
+      background-opacity = 0.85;
+      confirm-close-surface = false;
+      font-family = "Fira Code";
+      font-size = 10;
+      font-style-bold = "Medium";
+      font-style-bold-italic = "Medium Oblique";
+      font-style-italic = "Light Oblique";
+      font-synthetic-style = false;
+      keybind = ["f11=toggle_fullscreen"];
+      mouse-hide-while-typing = true;
+      quit-after-last-window-closed = true;
+      theme = "Dracula";
+    };
+  };
+
+  home.sessionVariables = {
+    TERMINAL = "ghostty";
+  };
+}

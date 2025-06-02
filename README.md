@@ -182,7 +182,6 @@ nix-on-droid -F ~/nixos/
 ## Home-manager
 Requirements:
 Any GNU/Linux with native package installed:
-- [Librewolf](https://librewolf.net/installation/)
 - [Ghostty](https://ghostty.org/docs/install/binary)
 - SELinux disabled/permissive
   
