@@ -1,8 +1,4 @@
-{
-  vars,
-  pkgs,
-  ...
-}: {
+{vars, ...}: {
   imports = [
     ./fish.nix
     ./fish_nixos.nix
