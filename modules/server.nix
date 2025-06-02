@@ -34,6 +34,9 @@
         hi Normal guibg=NONE ctermbg=NONE
       '';
     })
+    grc
+    eza
+    openssl
   ];
 
   environment = {
