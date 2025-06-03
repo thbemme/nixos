@@ -2,6 +2,7 @@
   programs.firefox = {
     enable = true;
     package = pkgs.librewolf;
+    languagePacks = ["en-US" "de"];
     policies = {
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
@@ -21,6 +22,7 @@
         "webgl.disabled" = false;
       };
       ExtensionSettings = {
+        installation_mode = "blocked";
         "addon@darkreader.org" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
           installation_mode = "force_installed";
@@ -39,6 +41,10 @@
         };
         "idcac-pub@guus.ninja" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/istilldontcareaboutcookies/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "{d867162c-4c38-4c5f-aca4-db6a6592d7da}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/youtube-tweaks/latest.xpi";
           installation_mode = "force_installed";
         };
       };
