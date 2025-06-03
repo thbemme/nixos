@@ -68,7 +68,12 @@
     '';
   security.sudo.wheelNeedsPassword = true;
 
-  environment.variables = {NH_FLAKE = "/home/${vars.user}/git/nixos";};
+  environment.variables = {
+    NH_FLAKE = "/home/${vars.user}/git/nixos";
+    EDITOR = "vim";
+    SYSTEMD_EDITOR = "vim";
+    VISUAL = "vim";
+  };
 
   programs.fish.enable = true;
 

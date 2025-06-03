@@ -34,18 +34,10 @@
         hi Normal guibg=NONE ctermbg=NONE
       '';
     })
-    grc
     eza
+    grc
     openssl
   ];
-
-  environment = {
-    variables = {
-      EDITOR = "vim";
-      SYSTEMD_EDITOR = "vim";
-      VISUAL = "vim";
-    };
-  };
 
   # List services that you want to enable:
   services.btrfs.autoScrub.enable = true;

@@ -133,6 +133,7 @@
       mkdir = "mkdir -p";
       pw = "openssl rand -base64 30";
       ngit = "git -C ~/git/nixos";
+      sudo = "sudo -E";
     };
   };
 }
