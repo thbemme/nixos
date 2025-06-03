@@ -5,13 +5,20 @@
   ...
 }: {
   # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-
+  boot.loader.grub = {
+    enable = true;
+    device = "/dev/vda";
+    extraConfig = ''
+      serial --unit=0 --speed=115200 --word=8 --parity=no --stop=1
+      terminal_input --append serial
+      terminal_output --append serial
+    '';
+  };
   zramSwap = {
     enable = true;
     algorithm = "zstd";
   };
+
   environment.systemPackages = with pkgs; [
     ((vim_configurable.override {}).customize {
       name = "vim";
