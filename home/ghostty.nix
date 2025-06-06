@@ -18,7 +18,6 @@
       theme = "Dracula";
     };
   };
-
   home.sessionVariables = {
     TERMINAL = "ghostty";
   };

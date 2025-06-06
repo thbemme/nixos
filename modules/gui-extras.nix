@@ -39,7 +39,6 @@
         transmission_4-gtk
         vesktop
         vlc
-        vscodium
       ])
       ++ (with pkgs-unstable; [
         cryptomator
@@ -50,14 +49,7 @@
   environment.systemPackages = with pkgs; [
     btrfs-assistant
     lm_sensors
-    xsane
-    xsensors
   ];
-
-  environment.variables = {
-    TERMINAL = "ghostty";
-    BROWSER = "librewolf";
-  };
 
   # Appimage support
   programs.appimage.enable = true;

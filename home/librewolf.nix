@@ -49,4 +49,7 @@
       };
     };
   };
+  home.sessionVariables = {
+    BROWSER = "librewolf";
+  };
 }
