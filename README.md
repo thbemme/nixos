@@ -5,7 +5,7 @@
     - [AMD GPU](#amd-gpu-modules-amdgpu-nix)
     - [Development](#development-modules-dev-nix)
     - [Gaming](#gaming-modules-gaming-nix)
-    - [Generative AI/LLM](#generative-ai-llm-modules-ai-nix)
+    - [Generative AI/LLM](#generative-ai-llm-modules-llm-nix)
     - [Ghostty](#ghostty-home-ghostty-nix)
     - [Gnome](#gnome-modules-gnome-nix)
     - [GUI/GUI-Extras](#gui-modules-gui-nix-gui-extras-modules-gui-extras-nix)
@@ -50,7 +50,7 @@
 - Stream
 - Wine
 
-### [Generative AI/LLM](modules/ai.nix)
+### [Generative AI/LLM](modules/llm.nix)
 
 - Comfyui
 - Mimic (TTS)

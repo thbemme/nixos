@@ -1,7 +1,9 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    astroterm
     bat
     bottom
+    caligula
     clinfo
     coreutils
     curl

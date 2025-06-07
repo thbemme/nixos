@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   pkgs-unstable,
   gpuAcceleration,
@@ -11,13 +12,19 @@
   # nix.settings.trusted-substituters = ["https://ai.cachix.org"];
   # nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="];
 
+  disabledModules = ["services/misc/ollama.nix"];
+
+  imports = [
+    "${inputs.nixpkgs-unstable}/nixos/modules/services/misc/ollama.nix"
+  ];
+
   # Ollama
   services.ollama = {
     enable = true;
     package =
       if gpuAcceleration
-      then pkgs.ollama-rocm
-      else pkgs.ollama;
+      then pkgs-unstable.ollama-rocm
+      else pkgs-unstable.ollama;
     acceleration =
       if gpuAcceleration
       then "rocm"
@@ -37,7 +44,6 @@
   services.open-webui = {
     enable = true;
     openFirewall = true;
-    #package = pkgs-unstable.open-webui;
     host = "0.0.0.0"; #Point reverse proxy to http://<ip>:8080
     environment = {
       OLLAMA_API_BASE_URL = "http://127.0.0.1:11434";
