@@ -8,9 +8,9 @@
     packages =
       (with pkgs; [
         #androidenv.androidPkgs_9_0.platform-tools
-        bison
+        #bison
         curl
-        flex
+        #flex
         git
         gitRepo
         gnumake
