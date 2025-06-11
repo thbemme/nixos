@@ -81,7 +81,7 @@
           else if git rev-parse 2> /dev/null
             echo -n (git rev-parse --abbrev-ref HEAD 2> /dev/null)
           else
-            echo -n (hostname)
+            echo -n (if test (hostname) = localhost; echo nix; else; echo (hostname); end)
           end
         else
           set_color red
@@ -90,7 +90,7 @@
           else if git rev-parse 2> /dev/null
             echo -n (git rev-parse --abbrev-ref HEAD)
           else
-            echo -n (hostname)
+            echo -n (if test (hostname) = localhost; echo nix; else; echo (hostname); end)
           end
         end
         set_color normal

@@ -24,7 +24,7 @@ with lib.hm.gvariant; {
     ".local/share/gtksourceview-5/styles/dracula.xml" = {
       source = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/dracula/gedit/master/dracula.xml";
-        hash = "sha256-ZkY523+xgP6NRpRaOKUPuim28kpgw3IbMWZGS6bBIPY=";
+        hash = "sha256-ZkY523+xgP6NRpRaOKUPuim28kpw3IbMWZGS6bBIPY=";
       };
     };
     ".themes/Dracula-standard-buttons" = {

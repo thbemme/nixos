@@ -263,6 +263,7 @@ nix-on-droid -F ~/nixos/
 Requirements:
 Any GNU/Linux with native package installed:
 
+- [Gnome Desktop Environment](https://www.gnome.org/)
 - [Ghostty](https://ghostty.org/docs/install/binary)
 - SELinux disabled/permissive
 
