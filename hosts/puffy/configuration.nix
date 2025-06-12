@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/amdgpu-patch/default.nix
+    #../../modules/amdgpu-patch/default.nix
     ../../modules/amdgpu.nix
     ../../modules/cli.nix
     ../../modules/default.nix
