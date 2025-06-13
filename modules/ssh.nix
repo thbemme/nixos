@@ -4,6 +4,17 @@
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
+    banner = "
+ _____________
+< NixOS, btw! >
+ -------------
+        \\   ^__^
+         \\  (oo)\\_______
+            (__)\\       )\\/\\
+                ||----w |
+                ||     ||
+
+";
     settings = {
       AllowUsers = ["${vars.user}"];
       KbdInteractiveAuthentication = false;
