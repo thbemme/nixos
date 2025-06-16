@@ -1,36 +1,32 @@
-# My NixOS configuration and setup
+# 🌈 My NixOS configuration and setup <!-- omit from toc -->
 
-- [My NixOS configuration and setup](#my-nixos-configuration-and-setup)
-  - [Modules](#modules)
-    - [AMD GPU](#amd-gpu-modules-amdgpu-nix)
-    - [Development](#development-modules-dev-nix)
-    - [Gaming](#gaming-modules-gaming-nix)
-    - [Generative AI/LLM](#generative-ai-llm-modules-llm-nix)
-    - [Ghostty](#ghostty-home-ghostty-nix)
-    - [Gnome](#gnome-modules-gnome-nix)
-    - [GUI/GUI-Extras](#gui-modules-gui-nix-gui-extras-modules-gui-extras-nix)
-    - [Hibernation](#hibernation-modules-hibernate-nix)
-    - [Librewolf](#librewolf-home-librewolf-nix)
-    - [NeoVim](#neovim-home-neovim-nix)
-    - [Printing](#printing-modules-printing-nix)
-    - [Prometheus](#prometheus-modules-prometheus-nix)
-    - [Secure Boot](#secure-boot-modules-secureboot-nix)
-    - [Security](#security-modules-security-nix)
-    - [SSH](#ssh-modules-ssh-nix)
-    - [Virtualization](#virtualization-modules-virt-nix)
-    - [Work related](#work-related-modules-work-nix)
-  - [Gitcrypt](#gitcrypt)
-  - [Native NixOS](#native-nixos)
-    - [Installation](#installation)
-    - [Maintenance](#maintenance)
-  - [WSL](#wsl)
-    - [Installation](#installation-1)
-    - [Maintenance](#maintenance-1)
-  - [Nix-on-droid](#nix-on-droid)
-    - [Installation](#installation-2)
-    - [Maintenance](#maintenance-2)
-  - [Home-manager](#home-manager)
-    - [Maintenance](#maintenance-3)
+- [Modules](#modules)
+  - [AMD GPU](#amd-gpu-modules-amdgpu-nix)
+  - [Development](#development-modules-dev-nix)
+  - [Gaming](#gaming-modules-gaming-nix)
+  - [Generative AI/LLM](#generative-ai-llm-modules-llm-nix)
+  - [Ghostty](#ghostty-home-ghostty-nix)
+  - [Gnome](#gnome-modules-gnome-nix)
+  - [GUI/GUI-Extras](#gui-modules-gui-nix-gui-extras-modules-gui-extras-nix)
+  - [Hibernation](#hibernation-modules-hibernate-nix)
+  - [Librewolf](#librewolf-home-librewolf-nix)
+  - [NeoVim](#neovim-home-neovim-nix)
+  - [Printing](#printing-modules-printing-nix)
+  - [Prometheus](#prometheus-modules-prometheus-nix)
+  - [Secure Boot](#secure-boot-modules-secureboot-nix)
+  - [Security](#security-modules-security-nix)
+  - [SSH](#ssh-modules-ssh-nix)
+  - [Virtualization](#virtualization-modules-virt-nix)
+  - [Work related](#work-related-modules-work-nix)
+- [Gitcrypt](#gitcrypt)
+- [Native NixOS](#native-nixos)
+  - [Maintenance](#maintenance)
+- [WSL](#wsl)
+  - [Maintenance](#maintenance-1)
+- [Nix-on-droid](#nix-on-droid)
+  - [Maintenance](#maintenance-2)
+- [Home-manager](#home-manager)
+  - [Maintenance](#maintenance-3)
 
 ## Modules
 
@@ -144,8 +140,6 @@ stty -echo;head -n1|base64 -d|git crypt unlock -;stty echo
 
 ## Native NixOS
 
-### Installation
-
 1. Clone repo
 
 ```shell
@@ -192,8 +186,6 @@ nixos-install --flake .#<hostname> --no-root-password
 
 ## WSL
 
-### Installation
-
 1. Follow NixOS installation on WSL from https://github.com/nix-community/NixOS-WSL
 2. Clone repo
 
@@ -232,8 +224,6 @@ wsl -t nixos
 - Pull from git with `pu`
 
 ## Nix-on-droid
-
-### Installation
 
 1. Install app from [F-droid](https://f-droid.org/packages/com.termux.nix/)
 2. Enable Flake install and let installation configure base system
