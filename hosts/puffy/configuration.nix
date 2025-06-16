@@ -1,13 +1,13 @@
 {...}: {
   imports = [
     ./hardware-configuration.nix
-    #../../modules/amdgpu-patch/default.nix
     ../../modules/amdgpu.nix
     ../../modules/cli.nix
     ../../modules/default.nix
     ../../modules/dev.nix
     ../../modules/gaming.nix
     ../../modules/gnome.nix
+    #../../modules/gnome-remote-desktop.nix
     ../../modules/gui-extras.nix
     ../../modules/gui.nix
     ../../modules/home.nix

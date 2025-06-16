@@ -53,7 +53,8 @@
     packages = with pkgs; [
       adwaita-fonts
       fira-code
-      noto-fonts-emoji
+      noto-fonts
+      noto-fonts-color-emoji
       vistafonts
     ];
   };
