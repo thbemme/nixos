@@ -27,6 +27,7 @@
         libsForQt5.qt5ct
         lyx
         nextcloud-client
+        nixos-icons
         openshot-qt
         paper-plane
         phoronix-test-suite
