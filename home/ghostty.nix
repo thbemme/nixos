@@ -12,10 +12,17 @@
       font-style-bold-italic = "Medium Oblique";
       font-style-italic = "Light Oblique";
       font-synthetic-style = false;
-      keybind = ["f11=toggle_fullscreen"];
       mouse-hide-while-typing = true;
       quit-after-last-window-closed = true;
       theme = "Dracula";
+      keybind = [
+        "f11=toggle_fullscreen"
+        "ctrl+shift+enter=new_split:auto"
+        "ctrl+shift+up=resize_split:up,10"
+        "ctrl+shift+down=resize_split:down,10"
+        "ctrl+shift+right=resize_split:right,10"
+        "ctrl+shift+left=resize_split:left,10"
+      ];
     };
   };
   home.sessionVariables = {
