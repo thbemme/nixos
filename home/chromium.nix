@@ -1,30 +1,42 @@
 {pkgs, ...}: {
   programs.chromium = {
     enable = true;
-    package = pkgs.ungoogled-chromium;
-    commandLineArgs = [
-      "--enable-features=WebRTCPipeWireCapturer,VaapiVideoDecoder,AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL"
-      "--ignore-gpu-blocklist"
-      "--enable-gpu-rasterization"
-      "--disable-background-networking"
-      "--enable-accelerated-video-decode"
-      "--enable-zero-copy"
-      "--no-default-browser-check"
-      "--disable-sync"
-      "--disable-features=MediaRouter"
-      "--enable-features=UseOzonePlatform"
-      "--ozone-platform-hint=auto"
+    dictionaries = [
+      pkgs.hunspellDictsChromium.de_DE
+      pkgs.hunspellDictsChromium.en_GB
     ];
     extensions = [
-      "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
+      "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock origin lite
       "hfjbmagddngcpeloejdejnfgbamkjaeg" # vimium-c
       "akpkoodohacdmlddblgnaahbbfjplcig" # darkreader
       "bhghoamapcdpbohphigoooaddinpkbai" # authenticator
       "oeakphpfoaeggagmgphfejmfjbhjfhhh" # YT tweaks
       "gfapcejdoghpoidkfodoiiffaaibpaem" # dracula theme
     ];
+    commandLineArgs = [
+      # chromium
+      "--site-per-process"
+      # ungoogled-chromium
+      "--enable-features=ReducedSystemInfo,RemoveClientHints,SpoofWebGLInfo,DisableLinkDrag,MinimalReferrers"
+      "--omnibox-autocomplete-filtering=search-bookmarks"
+      "--fingerprinting-canvas-measuretext-noise"
+      "--fingerprinting-canvas-image-data-noise"
+      "--fingerprinting-client-rects-noise"
+      "--close-window-with-last-tab=never"
+      "--no-default-browser-check"
+      "--show-avatar-button=never"
+      "--disable-beforeunload"
+      "--scroll-tabs=always"
+      "--start-maximized"
+      "--popups-to-tabs"
+      "--no-pings"
+      "--component-updater=require_encryption"
+      "--no-crash-upload"
+      "--no-service-autorun"
+      "--disable-sync"
+    ];
   };
-  home.sessionVariables = {
-    BROWSER = "chromium";
-  };
+  #home.sessionVariables = {
+  #  BROWSER = "chromium";
+  #};
 }
