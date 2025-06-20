@@ -18,6 +18,7 @@
         ffmpeg-full
         gimp-with-plugins
         gpu-viewer
+        handbrake
         hexchat
         hunspell
         hunspellDicts.de_DE
@@ -43,7 +44,6 @@
       ])
       ++ (with pkgs-unstable; [
         cryptomator
-        handbrake
       ]);
   };
 
