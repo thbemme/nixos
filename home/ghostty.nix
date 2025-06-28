@@ -14,6 +14,7 @@
       font-synthetic-style = false;
       mouse-hide-while-typing = true;
       quit-after-last-window-closed = true;
+      shell-integration = "fish";
       theme = "Dracula";
       keybind = [
         "f11=toggle_fullscreen"

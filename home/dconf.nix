@@ -5,7 +5,7 @@ _: {
       color-scheme = "prefer-dark";
       font-name = "Adwaita Sans 10";
       document-font-name = "Adwaita Sans 10";
-      monospace-font-name = "Adwaita Mono 10";
+      monospace-font-name = "Fira Code 10";
       font-hinting = "full";
       font-antialiasing = "rgba";
       text-scaling-factor = 1;
