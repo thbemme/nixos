@@ -3,13 +3,23 @@
   pkgs-unstable,
   vars,
   ...
-}: {
+}: let
+  # temporary workaround due to a regression
+  # that made ghostty unusable on 6.15.4 kernel
+  ghostty = pkgs.ghostty.overrideAttrs (_: {
+    preBuild = ''
+      shopt -s globstar
+      sed -i 's/^const xev = @import("xev");$/const xev = @import("xev").Epoll;/' **/*.zig
+      shopt -u globstar
+    '';
+  });
+in {
   # Bootloader
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     initrd.systemd.enable = true;
-    #kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   # Configure network proxy if necessary
