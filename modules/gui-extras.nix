@@ -16,7 +16,7 @@
         })
         easyeffects
         ffmpeg-full
-        gimp-with-plugins
+        gimp3-with-plugins
         gpu-viewer
         handbrake
         hexchat
