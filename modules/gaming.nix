@@ -8,6 +8,7 @@
     packages =
       (with pkgs; [
         adwsteamgtk
+        brogue-ce
         ecwolf
         furmark
         gzdoom
