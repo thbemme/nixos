@@ -125,11 +125,10 @@
     shellAliases = {
       p = "alejandra -q ~/git/nixos/;git -C ~/git/nixos/ diff;read -lP 'Continue?' && git -C ~/git/nixos/ add .&&git -C ~/git/nixos/ commit -m 'Update Flake'&&git -C ~/git/nixos/ commit --amend&&git -C ~/git/nixos/ push";
       pu = "git -C ~/git/nixos/ pull";
-      ez = "eza --group-directories-first";
-      l = "ez -laF";
-      ls = "ez -F";
+      l = "eza -laF --group-directories-first";
+      ls = "eza -F --group-directories-first";
+      tree = "eza --tree --git-ignore";
       grrrr = "git reset --hard";
-      gs = "git status";
       mkdir = "mkdir -p";
       pw = "openssl rand -base64 30";
       ngit = "git -C ~/git/nixos";
