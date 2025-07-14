@@ -37,6 +37,7 @@
         scribus
         stellarium
         tenacity
+        texlive.combined.scheme-small
         tor-browser
         transmission_4-gtk
         vesktop
