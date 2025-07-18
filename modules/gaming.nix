@@ -17,6 +17,9 @@
         protonup-qt
         scummvm
         sdlpop
+        zeroad
+        zeroad-unwrapped
+        zeroad-data
       ])
       ++ (with pkgs-unstable; [
         #path-of-building
