@@ -26,8 +26,6 @@
   };
 
   environment.systemPackages = with pkgs-unstable; [
-    alpaca-proxy
-    chawan
     ghostty
   ];
 
