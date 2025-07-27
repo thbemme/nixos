@@ -4,7 +4,6 @@
   ...
 }: {
   home.file = {
-    ".config/MangoHud/MangoHud.conf".source = ./dotfiles/MangoHud.conf;
     ".config/hexchat/colors.conf".source = ./dotfiles/hexchat;
   };
 

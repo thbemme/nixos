@@ -13,7 +13,6 @@
         furmark
         gzdoom
         lutris
-        mangohud
         protonup-qt
         scummvm
         sdlpop
@@ -44,4 +43,11 @@
   programs.gamescope.enable = true;
 
   boot.kernel.sysctl."vm.max_map_count" = 2147483642;
+
+  # Additional home manager settings
+  home-manager = {
+    users = {
+      "${vars.user}" = import ../home/gaming.nix;
+    };
+  };
 }
