@@ -1,7 +1,7 @@
 _: {
   config = {
     environment.etc = {
-      "sensors3.conf".text = ''
+      "sensors.d/msib450mpro.conf".text = ''
         chip "nct6795-isa-*"
           ignore in1
           ignore in4
