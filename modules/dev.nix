@@ -11,6 +11,7 @@
         #bison
         curl
         #flex
+        gh
         git
         gitRepo
         gnumake
@@ -22,6 +23,7 @@
         m4
         ncurses5
         nettools
+        nixpkgs-review
         openssl
         perl
         procps
