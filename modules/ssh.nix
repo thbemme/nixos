@@ -1,4 +1,4 @@
-{vars, ...}: {
+{vars, config, ...}: {
   networking.firewall.allowedTCPPorts = [22];
 
   # Enable the OpenSSH daemon.
@@ -6,7 +6,7 @@
     enable = true;
     banner = "
  _____________
-< NixOS, btw! >
+< NixOS on ${config.networking.hostName}, btw! >
  -------------
         \\   ^__^
          \\  (oo)\\_______
