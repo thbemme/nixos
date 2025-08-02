@@ -17,32 +17,31 @@
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
   # Resume for hibernation
-  boot.resumeDevice = "/dev/disk/by-uuid/79b39c5a-f3ed-44e7-80bb-e1707d417b5c";
+  boot.resumeDevice = "/dev/disk/by-label/rootfs";
   # sudo btrfs inspect-internal map-swapfile -r /var/lib/swapfile
   boot.kernelParams = ["resume_offset=23978470"];
+  boot.initrd.luks.devices."rootfs".device = "/dev/disk/by-partlabel/root";
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/79b39c5a-f3ed-44e7-80bb-e1707d417b5c";
+    label = "rootfs";
     fsType = "btrfs";
     options = ["subvol=root" "compress=zstd"];
   };
 
-  boot.initrd.luks.devices."rootfs".device = "/dev/disk/by-uuid/56f1fdbf-22a4-4c99-bbea-42ef983e8d7b";
-
   fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/79b39c5a-f3ed-44e7-80bb-e1707d417b5c";
+    label = "rootfs";
     fsType = "btrfs";
     options = ["subvol=home" "compress=zstd"];
   };
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/79b39c5a-f3ed-44e7-80bb-e1707d417b5c";
+    label = "rootfs";
     fsType = "btrfs";
     options = ["subvol=nix" "compress=zstd"];
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/D153-37BC";
+    label = "boot";
     fsType = "vfat";
     options = ["fmask=0022" "dmask=0022"];
   };
