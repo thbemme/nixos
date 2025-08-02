@@ -3,7 +3,9 @@
   lib,
   inputs,
   ...
-}: {
+}: let
+  enableSecrueboot = true;
+in {
   # How to enter setup mode - msi motherboard
   ## 1. enter BIOS via [Del] Key
   ## 2. <Advance mode> => <Settings> => <Security> => <Secure Boot>
@@ -25,10 +27,13 @@
   # This setting is usually set to true in configuration.nix
   # generated at installation time. So we force it to false
   # for now.
-  boot.loader.systemd-boot.enable = lib.mkForce false;
+  boot.loader.systemd-boot = {
+    enable = lib.mkForce (!enableSecrueboot);
+    memtest86.enable = true;
+  };
 
   boot.lanzaboote = {
-    enable = true;
+    enable = enableSecrueboot;
     pkiBundle = "/etc/secureboot";
   };
 }

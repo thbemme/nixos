@@ -8,8 +8,7 @@
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
-    banner = "
- _____________
+    banner = " _____________
 < NixOS on ${config.networking.hostName}, btw! >
  -------------
         \\   ^__^
