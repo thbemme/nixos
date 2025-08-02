@@ -18,35 +18,34 @@
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
+  boot.initrd.luks.devices."rootfs-nvme0n1".device = "/dev/disk/by-partlabel/root";
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/2d26e522-4db4-4932-aef1-b00c16c50552";
+    label = "rootfs";
     fsType = "btrfs";
     options = ["subvol=root" "compress=zstd"];
   };
 
-  boot.initrd.luks.devices."rootfs-nvme0n1".device = "/dev/disk/by-uuid/995993d8-9d05-468a-b202-d00162c62a85";
-
   fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/2d26e522-4db4-4932-aef1-b00c16c50552";
+    label = "rootfs";
     fsType = "btrfs";
     options = ["subvol=home" "compress=zstd"];
   };
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/2d26e522-4db4-4932-aef1-b00c16c50552";
+    label = "rootfs";
     fsType = "btrfs";
     options = ["subvol=nix" "compress=zstd" "noatime"];
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/59DD-90A8";
+    label = "boot";
     fsType = "vfat";
     options = ["fmask=0022" "dmask=0022"];
   };
 
   fileSystems."/media" = {
-    device = "/dev/disk/by-uuid/66e5b8b9-787b-42d7-b327-30f1d68ba02d";
+    label = "media";
     fsType = "btrfs";
     options = ["compress=zstd" "noatime"];
   };
