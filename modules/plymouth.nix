@@ -12,10 +12,10 @@
         };
         nativeBuildInputs = with pkgs; [imagemagick];
         buildPhase = ''
-          magick -background none -size 200x200 $src logo.png
+          magick -background none -size 200x200 $src nix-snowflake-rainbow.png
         '';
         installPhase = ''
-          install -Dm0644 logo.png $out
+          install -Dm0644 nix-snowflake-rainbow.png $out
         '';
       };
     };
