@@ -14,6 +14,7 @@
             obs-pipewire-audio-capture
           ];
         })
+        _64gram
         easyeffects
         ffmpeg-full
         gimp3-with-plugins
@@ -30,7 +31,6 @@
         nextcloud-client
         nixos-icons
         openshot-qt
-        paper-plane
         phoronix-test-suite
         pika-backup
         revolt-desktop
