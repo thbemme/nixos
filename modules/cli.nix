@@ -26,6 +26,7 @@
     jq
     killall
     mosh
+    nvme-cli
     openssh
     openssl
     procs
