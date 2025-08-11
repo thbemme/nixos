@@ -14,6 +14,9 @@
       terminal_output --append serial
     '';
   };
+
+  boot.kernelPackages = pkgs.linuxPackages_hardened;
+
   zramSwap = {
     enable = true;
     algorithm = "zstd";
@@ -43,6 +46,7 @@
     })
     eza
     grc
+    htop
     openssl
   ];
 
