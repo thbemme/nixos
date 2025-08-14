@@ -9,6 +9,7 @@
       lynis
       nikto
       nmap
+      ssh-audit
       subfinder
       wapiti
       wireshark
