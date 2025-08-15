@@ -5,17 +5,18 @@
   ...
 }: {
   # Use the GRUB 2 boot loader.
-  boot.loader.grub = {
-    enable = true;
-    device = "/dev/vda";
-    extraConfig = ''
-      serial --unit=0 --speed=115200 --word=8 --parity=no --stop=1
-      terminal_input --append serial
-      terminal_output --append serial
-    '';
+  boot = {
+    loader.grub = {
+      enable = true;
+      device = "/dev/vda";
+      extraConfig = ''
+        serial --unit=0 --speed=115200 --word=8 --parity=no --stop=1
+        terminal_input --append serial
+        terminal_output --append serial
+      '';
+    };
+    kernelPackages = pkgs.linuxPackages_hardened;
   };
-
-  boot.kernelPackages = pkgs.linuxPackages_hardened;
 
   zramSwap = {
     enable = true;
@@ -51,8 +52,10 @@
   ];
 
   # List services that you want to enable:
-  services.btrfs.autoScrub.enable = true;
-  services.btrfs.autoScrub.interval = "weekly";
+  services.btrfs.autoScrub = {
+    enable = true;
+    interval = "weekly";
+  };
 
   imports = [inputs.home-manager.nixosModules.home-manager];
   home-manager = {

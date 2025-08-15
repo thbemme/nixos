@@ -1,29 +1,35 @@
 {
   vars,
   config,
+  lib,
   ...
-}: {
+}: let
+  hostname = config.networking.hostName;
+  message = "NixOS on ${hostname}, btw!";
+  boxLineTop = lib.concatStrings (lib.replicate (lib.stringLength message + 2) "_");
+  boxLineBottom = lib.concatStrings (lib.replicate (lib.stringLength message + 2) "-");
+in {
   networking.firewall.allowedTCPPorts = [22];
 
-  # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
-    banner = " _____________
-< NixOS on ${config.networking.hostName}, btw! >
- -------------
-        \\   ^__^
-         \\  (oo)\\_______
-            (__)\\       )\\/\\
-                ||----w |
-                ||     ||
-
-";
+    banner = ''
+       ${boxLineTop}
+      < ${message} >
+       ${boxLineBottom}
+              \   ^__^
+               \  (oo)\_______
+                  (__)\       )\/\
+                      ||----w |
+                      ||     ||
+    '';
     settings = {
-      AllowUsers = ["${vars.user}"];
+      AllowUsers = [vars.user];
       KbdInteractiveAuthentication = false;
       PasswordAuthentication = false;
       PermitRootLogin = "no";
     };
   };
-  users.users.${vars.user}.openssh.authorizedKeys.keys = ["${vars.publickey}"];
+
+  users.users.${vars.user}.openssh.authorizedKeys.keys = [vars.publickey];
 }
