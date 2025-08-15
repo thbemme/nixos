@@ -12,7 +12,7 @@
     ../../modules/gui.nix
     ../../modules/home.nix
     ../../modules/led.nix
-    #../../modules/llm.nix
+    ../../modules/llm.nix
     ../../modules/msib450mpro.nix
     ../../modules/plymouth.nix
     ../../modules/printing.nix
