@@ -20,24 +20,28 @@
   boot.resumeDevice = "/dev/disk/by-label/rootfs";
   # sudo btrfs inspect-internal map-swapfile -r /var/lib/swapfile
   boot.kernelParams = ["resume_offset=23978470"];
-  boot.initrd.luks.devices."rootfs".device = "/dev/disk/by-partlabel/root";
+  boot.initrd.luks.devices."rootfs" = {
+    device = "/dev/disk/by-partlabel/root";
+    bypassWorkqueues = true; # increase SSD performance
+    allowDiscards = true; # allow fstrim; it might reveal information about the filesystem
+  };
 
   fileSystems."/" = {
     label = "rootfs";
     fsType = "btrfs";
-    options = ["subvol=root" "compress=zstd"];
+    options = ["subvol=root" "compress=zstd" "noatime"];
   };
 
   fileSystems."/home" = {
     label = "rootfs";
     fsType = "btrfs";
-    options = ["subvol=home" "compress=zstd"];
+    options = ["subvol=home" "compress=zstd" "noatime"];
   };
 
   fileSystems."/nix" = {
     label = "rootfs";
     fsType = "btrfs";
-    options = ["subvol=nix" "compress=zstd"];
+    options = ["subvol=nix" "compress=zstd" "noatime"];
   };
 
   fileSystems."/boot" = {

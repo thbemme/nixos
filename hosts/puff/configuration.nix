@@ -2,6 +2,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ../../modules/btrfs.nix
     ../../modules/cli.nix
     ../../modules/default.nix
     ../../modules/gaming.nix

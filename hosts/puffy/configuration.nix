@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/amdgpu.nix
+    ../../modules/btrfs.nix
     ../../modules/cli.nix
     ../../modules/default.nix
     ../../modules/dev.nix

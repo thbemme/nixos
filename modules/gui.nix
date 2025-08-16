@@ -66,10 +66,6 @@
     };
   };
 
-  # List services that you want to enable:
-  services.btrfs.autoScrub.enable = true;
-  services.btrfs.autoScrub.interval = "weekly";
-
   # Disable bluetooth on boot
   hardware.bluetooth.powerOnBoot = false;
 

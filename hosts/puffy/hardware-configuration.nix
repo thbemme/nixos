@@ -18,18 +18,22 @@
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
-  boot.initrd.luks.devices."rootfs-nvme0n1".device = "/dev/disk/by-partlabel/root";
+  boot.initrd.luks.devices."rootfs-nvme0n1" = {
+    device = "/dev/disk/by-partlabel/root";
+    bypassWorkqueues = true; # increase SSD performance
+    allowDiscards = true; # allow fstrim; it might reveal information about the filesystem
+  };
 
   fileSystems."/" = {
     label = "rootfs";
     fsType = "btrfs";
-    options = ["subvol=root" "compress=zstd"];
+    options = ["subvol=root" "compress=zstd" "noatime"];
   };
 
   fileSystems."/home" = {
     label = "rootfs";
     fsType = "btrfs";
-    options = ["subvol=home" "compress=zstd"];
+    options = ["subvol=home" "compress=zstd" "noatime"];
   };
 
   fileSystems."/nix" = {
