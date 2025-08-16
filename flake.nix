@@ -93,7 +93,6 @@
     homeConfigurations.hm = inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = import nixpkgs {
         backupFileExtension = "hm-back";
-
         system = "x86_64-linux";
         config.allowUnfree = true;
       };
@@ -105,6 +104,7 @@
         pkgs-unstable = pkgsUnstable;
       };
     };
+
     nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
       pkgs = import nixpkgs {
         system = "aarch64-linux";
