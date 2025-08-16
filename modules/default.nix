@@ -54,19 +54,11 @@
 
   programs.nano.enable = false;
 
-  # Remove extra man pages https://discourse.nixos.org/t/solve-slow-man-cache-the-content-addressed-way-but-not-ca-derivation/58463#p-194464-edit-1-7
-  environment.extraSetup =
-    /*
-    bash
-    */
-    ''
-      find "$out/share/man" \
-          -mindepth 1 -maxdepth 1 \
-          -not -name "man[1-8]" \
-          -exec rm -r "{}" ";"
-      rm -r "$out/share/man/man3"
-    '';
   security.sudo.wheelNeedsPassword = true;
+
+  # faster eval time
+  documentation.nixos.enable = false;
+  documentation.man.generateCaches = false;
 
   environment.variables = {
     NH_FLAKE = "/home/${vars.user}/git/nixos";

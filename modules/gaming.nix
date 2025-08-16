@@ -42,8 +42,11 @@
   programs.gamemode.enable = true;
   programs.gamescope.enable = true;
 
-  boot.kernel.sysctl."vm.max_map_count" = 2147483642;
-
+  # Kernel parameters for gaming
+  boot.kernel.sysctl = {
+    "vm.max_map_count" = 2147483642;
+    "fs.file-max" = 524288;
+  };
   # Additional home manager settings
   home-manager = {
     users = {
