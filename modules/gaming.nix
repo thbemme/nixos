@@ -16,7 +16,6 @@
         protonup-qt
         scummvm
         sdlpop
-        zeroad
         zeroad-unwrapped
         zeroad-data
       ])

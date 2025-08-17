@@ -1,15 +1,10 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    astroterm
     bat
-    bottom
-    caligula
-    clinfo
     coreutils
     curl
     dig
     du-dust
-    dysk
     eza
     fd
     findutils
@@ -17,7 +12,6 @@
     fishPlugins.fzf-fish
     fishPlugins.grc
     fishPlugins.hydro
-    fx
     fzf
     git
     git-crypt
@@ -25,21 +19,13 @@
     htop
     jq
     killall
-    mosh
-    nvme-cli
     openssh
     openssl
-    procs
     pv
     ripgrep
-    sd
     spectre-meltdown-checker
     stress-ng
-    tealdeer
-    tree
-    unzip
     wget
-    zip
     # formatters and linters
     alejandra # nix
     deadnix # nix

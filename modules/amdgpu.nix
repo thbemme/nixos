@@ -11,16 +11,10 @@
     "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
   ];
 
-  users.users.${vars.user} = {
-    packages = with pkgs; [
-      amdgpu_top
-      blender-hip
-    ];
-  };
-
   environment.systemPackages = with pkgs; [
+    amdgpu_top
+    blender-hip
     corectrl
-    vulkan-tools
   ];
 
   # Corectrl without password

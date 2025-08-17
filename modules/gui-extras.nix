@@ -18,12 +18,8 @@
         easyeffects
         ffmpeg-full
         gimp3-with-plugins
-        gpu-viewer
         handbrake
         hexchat
-        hunspell
-        hunspellDicts.de_DE
-        hunspellDicts.en_US
         krita
         libreoffice-fresh
         libsForQt5.qt5ct
@@ -31,9 +27,7 @@
         nextcloud-client
         nixos-icons
         openshot-qt
-        phoronix-test-suite
         pika-backup
-        revolt-desktop
         scribus
         stellarium
         tenacity
@@ -50,6 +44,9 @@
 
   environment.systemPackages = with pkgs; [
     btrfs-assistant
+    hunspell
+    hunspellDicts.de_DE
+    hunspellDicts.en_US
     lm_sensors
   ];
 

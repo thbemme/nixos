@@ -37,7 +37,7 @@
 
 ### [Development](modules/dev.nix)
 
-- Thony (Micropython for Raspberry Pico development)
+- Thonny (Micropython for Raspberry Pico development)
 - Android Studio (Unstable)
 
 ### [Gaming](modules/gaming.nix)

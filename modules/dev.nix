@@ -4,39 +4,33 @@
   vars,
   ...
 }: {
+  environment.systemPackages = with pkgs; [
+    gnumake
+    gnupg
+    gperf
+    jdk
+    libxml2
+    lzop
+    m4
+    ncurses5
+    nettools
+    nixpkgs-review
+    openssl
+    perl
+    procps
+    rustfmt
+    schedtool
+    scrcpy
+    unzip
+    util-linux
+    zip
+    zlib
+  ];
+
   users.users.${vars.user} = {
     packages =
       (with pkgs; [
-        #androidenv.androidPkgs_9_0.platform-tools
-        #bison
-        curl
-        #flex
-        gh
-        git
-        gitRepo
-        gnumake
-        gnupg
-        gperf
-        jdk
-        libxml2
-        lzop
-        m4
-        ncurses5
-        nettools
-        nixpkgs-review
-        openssl
-        perl
-        procps
-        #python2
-        python3
-        rustfmt
-        schedtool
-        scrcpy
         thonny
-        unzip
-        util-linux
-        zip
-        zlib
       ])
       ++ (with pkgs-unstable; [
         android-studio

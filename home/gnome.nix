@@ -53,6 +53,7 @@ with lib.hm.gvariant; {
   # Use `dconf watch /` to track stateful changes you are doing, then set them here.
   dconf.settings = {
     "org/gnome/mutter" = {
+      dynamic-workspaces = true;
       experimental-features = ["variable-refresh-rate"];
     };
     "org/gnome/shell" = {
@@ -86,6 +87,9 @@ with lib.hm.gvariant; {
       name = "Dracula-standard-buttons";
     };
     "org/gnome/desktop/interface" = {
+      clock-format = "24h";
+      clock-show-date = true;
+      clock-show-weekday = true;
       cursor-theme = "oreo_spark_purple_bordered_cursors";
       enable-animations = true;
       enable-hot-corners = false;
@@ -106,16 +110,8 @@ with lib.hm.gvariant; {
       show-weekdate = true;
       clock-show-weekday = true;
     };
-    "org/gnome/desktop/interface" = {
-      clock-format = "24h";
-      clock-show-weekday = true;
-      clock-show-date = true;
-    };
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:minimize,maximize,close";
-      dynamic-workspaces = true;
-    };
-    "org/gnome/mutter" = {
       dynamic-workspaces = true;
     };
     "org/gtk/gtk4/settings/file-chooser" = {
