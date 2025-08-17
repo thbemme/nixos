@@ -140,6 +140,7 @@ with lib.hm.gvariant; {
     "org/gnome/shell/extensions/just-perfection" = {
       clock-menu-position = 1;
       clock-menu-position-offset = 20;
+      notification-banner-position = 2;
       panel-button-padding-size = 6;
       startup-status = 0;
       theme = true;
