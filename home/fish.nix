@@ -127,7 +127,7 @@
       pu = "git -C ~/git/nixos/ pull";
       l = "eza -laF --group-directories-first";
       ls = "eza -F --group-directories-first";
-      tree = "eza --tree --git-ignore";
+      tree = "eza --tree --git-ignore --group-directories-first";
       grrrr = "git reset --hard";
       mkdir = "mkdir -p";
       pw = "openssl rand -base64 30";
