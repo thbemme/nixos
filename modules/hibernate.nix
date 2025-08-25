@@ -9,6 +9,7 @@ _: {
   boot.kernelParams = ["mem_sleep_default=deep"];
 
   systemd.sleep.extraConfig = ''
+    HibernateOnACPower=no
     HibernateDelaySec=30m
     SuspendState=mem
   '';
