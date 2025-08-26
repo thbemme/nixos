@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ../../modules/cli.nix
     ../../modules/default.nix
+    ../../modules/desktop-kernel.nix
     ../../modules/gnome.nix
     ../../modules/gui-extras.nix
     ../../modules/gui.nix

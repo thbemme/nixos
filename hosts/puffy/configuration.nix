@@ -5,6 +5,7 @@
     ../../modules/btrfs.nix
     ../../modules/cli.nix
     ../../modules/default.nix
+    ../../modules/desktop-kernel.nix
     ../../modules/dev.nix
     ../../modules/gaming.nix
     ../../modules/gnome.nix
