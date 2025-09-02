@@ -57,6 +57,7 @@
       jnoortheen.nix-ide
       timonwong.shellcheck
       streetsidesoftware.code-spell-checker
+      foxundermoon.shell-format
     ];
     profiles.default.userSettings = {
       "files.autoSave" = "afterDelay";
