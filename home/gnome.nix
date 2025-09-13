@@ -96,6 +96,9 @@ with lib.hm.gvariant; {
       gtk-theme = "Dracula-standard-buttons";
       icon-theme = "Dracula";
     };
+    "org/gnome/desktop/sound" = {
+      event-sounds = false;
+    };
     "org/gnome/desktop/lockdown" = {
       disable-lock-screen = false;
     };
