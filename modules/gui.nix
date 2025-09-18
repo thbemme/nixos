@@ -12,7 +12,7 @@
   };
 
   users.users.${vars.user} = {
-    packages = with pkgs-unstable; [
+    packages = with pkgs; [
       ghostty
     ];
   };
