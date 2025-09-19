@@ -16,10 +16,13 @@
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
+
   # Resume for hibernation
   boot.resumeDevice = "/dev/disk/by-label/rootfs";
+
   # sudo btrfs inspect-internal map-swapfile -r /var/lib/swapfile
   boot.kernelParams = ["resume_offset=23978470"];
+
   boot.initrd.luks.devices."rootfs" = {
     device = "/dev/disk/by-partlabel/root";
     bypassWorkqueues = true; # increase SSD performance
