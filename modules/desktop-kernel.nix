@@ -1,9 +1,4 @@
-{
-  pkgs,
-  pkgs-unstable,
-  vars,
-  ...
-}: {
+{pkgs, ...}: {
   # Bootloader
   boot = {
     loader.systemd-boot.enable = true;
