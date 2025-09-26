@@ -96,6 +96,9 @@ with lib.hm.gvariant; {
       gtk-theme = "Dracula-standard-buttons";
       icon-theme = "Dracula";
     };
+    "org/gnome/system/location" = {
+      enabled = true;
+    };
     "org/gnome/desktop/datetime" = {
       automatic-timezone = true;
     };
