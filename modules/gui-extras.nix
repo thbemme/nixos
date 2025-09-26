@@ -26,7 +26,6 @@
         lyx
         nextcloud-client
         nixos-icons
-        openshot-qt
         pika-backup
         scribus
         stellarium
