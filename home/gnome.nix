@@ -56,10 +56,17 @@ with lib.hm.gvariant; {
       dynamic-workspaces = true;
       experimental-features = ["variable-refresh-rate"];
     };
+    "org/gnome/desktop/background" = {
+      picture-uri = "https://i.redd.it/pivo53w9nyd51.jpg";
+      picture-uri-dark = "https://i.redd.it/pivo53w9nyd51.jpg";
+      picture-options = "zoom";
+    };
     "org/gnome/shell" = {
       disable-user-extensions = false;
       favorite-apps = [
         "librewolf.desktop"
+        "firefox.desktop"
+        "firefox-esr.desktop"
         "com.mitchellh.ghostty.desktop"
         "org.gnome.Nautilus.desktop"
         "codium.desktop"
