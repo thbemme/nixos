@@ -55,9 +55,8 @@
       dracula-theme.theme-dracula
       yzhang.markdown-all-in-one
       jnoortheen.nix-ide
-      timonwong.shellcheck
+      esbenp.prettier-vscode
       streetsidesoftware.code-spell-checker
-      foxundermoon.shell-format
     ];
     profiles.default.userSettings = {
       "files.autoSave" = "afterDelay";

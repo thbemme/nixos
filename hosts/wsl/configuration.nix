@@ -25,7 +25,7 @@
     wslConf.network.generateHosts = false;
   };
 
-  environment.systemPackages = with pkgs-unstable; [
+  environment.systemPackages = with pkgs; [
     ghostty
   ];
 
