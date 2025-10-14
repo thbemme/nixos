@@ -2,7 +2,6 @@
   inputs,
   gpuAcceleration,
   pkgs,
-  pkgs-unstable,
   vars,
   ...
 }: {

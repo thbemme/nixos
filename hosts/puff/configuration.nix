@@ -15,6 +15,7 @@
     ../../modules/plymouth.nix
     ../../modules/secureboot.nix
     ../../modules/security.nix
+    ../../modules/smart.nix
     ../../modules/ssh.nix
     ../../modules/work.nix
   ];
