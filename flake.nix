@@ -83,7 +83,7 @@
         configPath = ./hosts/vm/configuration.nix;
         useUnstable = true;
       };
-      DEN02263 = nixosConfig {
+      PWXCFPC6C4 = nixosConfig {
         configPath = ./hosts/wsl/configuration.nix;
         useWorkVars = true;
       };
