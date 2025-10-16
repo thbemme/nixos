@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
-file="$HOME/git/nixos/home/gnome.nix"
+FILE="$HOME/git/nixos/home/gnome.nix"
 
 # Extract hashes from gnome.nix
-declare -A EXPECTED_HASHES=(
-    ["https://raw.githubusercontent.com/dracula/gedit/master/dracula.xml"]=$(grep -A2 'dracula.xml' "$file" | grep 'hash = "sha256-' | awk -F'"' '{print $2}')
-    ["https://github.com/dracula/gtk/archive/refs/heads/standard-buttons.zip"]=$(grep -A2 'standard-buttons.zip' "$file" | grep 'hash = "sha256-' | awk -F'"' '{print $2}')
-    ["https://github.com/dracula/gtk/files/5214870/Dracula.zip"]=$(grep -A2 'Dracula.zip' "$file" | grep 'hash = "sha256-' | awk -F'"' '{print $2}')
-)
+declare -A EXPECTED_HASHES
 
+echo -e "\n\033[0;33mExtracting urls and hashes from $FILE:\033[0m\n"
+while IFS= read -r URL; do
+  HASH=$(grep -A2 "$URL" "$FILE" | grep 'hash = "sha256-' | awk -F'"' '{print $2}')
+  EXPECTED_HASHES["$URL"]=$HASH
+  echo -e "$URL -> $HASH"
+done < <(grep "url =" "$FILE"|awk -F'"' '{print $2}')
+
+echo -e "\n\033[0;33mFetching current hashes:\033[0m\n"
 for url in "${!EXPECTED_HASHES[@]}"; do
     if HASH=$(nix-prefetch-url "$url" --unpack 2>/dev/null); then
         BASE64_HASH=$(nix hash convert --from nix32 --to base64 --hash-algo sha256 "$HASH")
@@ -22,7 +26,7 @@ for url in "${!EXPECTED_HASHES[@]}"; do
 
     if [ "${EXPECTED_HASHES[$url]}" != "$COMPUTED_HASH" ]; then
         echo -e "\033[0;31m${url}: Hash mismatch! Updating gnome.nix...\033[0m"
-        sed -i "s/${EXPECTED_HASHES[$url]}/$COMPUTED_HASH/g" "$file"
+        sed -i "s/${EXPECTED_HASHES[$url]}/$COMPUTED_HASH/g" "$FILE"
         echo -e "\033[0;32mUpdated hash for ${url} to ${COMPUTED_HASH}\033[0m"
     else
         echo -e "\033[0;32m${url}: ${COMPUTED_HASH}\033[0m"
