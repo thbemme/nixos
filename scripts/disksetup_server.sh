@@ -1,5 +1,5 @@
 #!/run/current-system/sw/bin/sh
-	DISK=/dev/vda
+DISK=/dev/vda
 # Create partitions
 printf "label: dos\n,,L\n" | sfdisk "$DISK"
 
