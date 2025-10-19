@@ -1,3 +1,4 @@
+# https://git.kbnetcloud.de/riza/nixos
 {
   description = "Nixos config flake";
 

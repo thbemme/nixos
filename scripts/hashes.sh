@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
-FILE="$HOME/git/nixos/home/gnome.nix"
+# https://git.kbnetcloud.de/riza/nixos/src/branch/main/scripts/hashes.sh
+
+# Function to display help
+help() {
+    echo -e "\nFetch hashed for pkg.fetch* files\n\nUsage:\n$(basename "$0") file.nix\n"
+    exit 1
+}
+
+# Check if a .nix file is provided
+if [[ "$#" -ne 1 || ! "$1" =~ \.nix$ ]]; then
+    help
+fi
+
+FILE="$1"
 
 # Extract hashes from gnome.nix
 declare -A EXPECTED_HASHES
