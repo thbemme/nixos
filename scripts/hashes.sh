@@ -3,7 +3,7 @@
 
 # Function to display help
 help() {
-    echo -e "\nFetch hashed for pkg.fetch* files\n\nUsage:\n$(basename "$0") file.nix\n"
+    echo -e "\nFetch and update hashes for pkg.fetch* files\n\nUsage:\n$(basename "$0") file.nix\n"
     exit 1
 }
 
