@@ -1,7 +1,7 @@
 #!/run/current-system/sw/bin/bash
 DISK=/dev/nvme0n1
 # Create partitions
-printf "label: gpt\n,550M,U\n,,L\n" | sfdisk "$DISK"
+printf "label: gpt\n,1024M,U\n,,L\n" | sfdisk "$DISK"
 parted "$DISK" -- name 1 efi
 parted "$DISK" -- name 2 root
 # Format the EFI partition
