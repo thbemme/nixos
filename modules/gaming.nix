@@ -12,7 +12,6 @@
         ecwolf
         furmark
         gzdoom
-        lutris
         protonup-qt
         scummvm
         sdlpop
@@ -20,6 +19,7 @@
         zeroad-data
       ])
       ++ (with pkgs-unstable; [
+        lutris
         #path-of-building
       ]);
     extraGroups = ["gamemode"];
