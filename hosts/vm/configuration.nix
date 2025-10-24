@@ -4,12 +4,12 @@
     ./hardware-configuration.nix
     ../../modules/cli-packages.nix
     ../../modules/default.nix
-    ../../modules/desktop-kernel.nix
     ../../modules/gnome.nix
     ../../modules/gui-extras.nix
     ../../modules/gui-minimal.nix
     ../../modules/hibernate.nix
     ../../modules/home.nix
+    ../../modules/kernel-desktop.nix
     ../../modules/plymouth.nix
     ../../modules/security.nix
     ../../modules/ssh.nix

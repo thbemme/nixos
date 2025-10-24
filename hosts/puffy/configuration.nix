@@ -5,14 +5,14 @@
     ../../modules/btrfs.nix
     ../../modules/cli-packages.nix
     ../../modules/default.nix
-    ../../modules/desktop-kernel.nix
     ../../modules/dev.nix
     ../../modules/gaming.nix
-    ../../modules/gnome.nix
     #../../modules/gnome-remote-desktop.nix
+    ../../modules/gnome.nix
     ../../modules/gui-extras.nix
     ../../modules/gui-minimal.nix
     ../../modules/home.nix
+    ../../modules/kernel-desktop.nix
     ../../modules/led.nix
     #../../modules/llm.nix
     ../../modules/msib450mpro.nix

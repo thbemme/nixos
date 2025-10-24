@@ -16,6 +16,7 @@ with pkgs; [
   git
   git-crypt
   grc
+  hostname
   htop
   jq
   killall

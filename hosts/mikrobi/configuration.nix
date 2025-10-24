@@ -4,7 +4,7 @@
   vars,
   ...
 }: let
-  myPackages = import ../modules/packages.nix {inherit pkgs;};
+  myPackages = import ../../modules/packages.nix {inherit pkgs;};
 in {
   environment.packages = myPackages;
 

@@ -1,4 +1,6 @@
 {pkgs, ...}: {
+  imports = [./kernel-default.nix];
+
   # Bootloader
   boot = {
     loader.systemd-boot.enable = true;
@@ -11,10 +13,5 @@
   console = {
     keyMap = "de-latin1-nodeadkeys";
     font = "${pkgs.kbd}/share/consolefonts/Lat2-Terminus16.psfu.gz";
-  };
-
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
   };
 }
