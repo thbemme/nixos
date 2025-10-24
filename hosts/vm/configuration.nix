@@ -2,12 +2,12 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../modules/cli.nix
+    ../../modules/cli-packages.nix
     ../../modules/default.nix
     ../../modules/desktop-kernel.nix
     ../../modules/gnome.nix
     ../../modules/gui-extras.nix
-    ../../modules/gui.nix
+    ../../modules/gui-minimal.nix
     ../../modules/hibernate.nix
     ../../modules/home.nix
     ../../modules/plymouth.nix

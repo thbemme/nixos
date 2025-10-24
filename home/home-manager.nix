@@ -1,29 +1,7 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    bat
-    du-dust
-    dysk
-    eza
-    fd
-    fx
-    fzf
-    grc
-    mosh
-    oreo-cursors-plus
-    papirus-icon-theme
-    procs
-    pv
-    ripgrep
-    sd
-    tealdeer
-    # formatters and linters
-    alejandra # nix
-    deadnix # nix
-    nodePackages.prettier
-    shellcheck
-    shfmt
-    statix # nix
-  ];
+{pkgs, ...}: let
+  myPackages = import ../modules/packages.nix {inherit pkgs;};
+in {
+  home.packages = myPackages;
   programs.fish = {
     shellAliases = {
       r = "home-manager switch --flake ~/git/nixos/#hm";

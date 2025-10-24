@@ -9,7 +9,7 @@
     # include NixOS-WSL modules
     inputs.home-manager.nixosModules.home-manager
     <nixos-wsl/modules>
-    ../../modules/cli.nix
+    ../../modules/cli-packages.nix
     ../../modules/default.nix
     #../../modules/llm.nix
   ];

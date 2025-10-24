@@ -3,44 +3,10 @@
   pkgs,
   vars,
   ...
-}: {
-  environment.packages = with pkgs; [
-    alejandra
-    bat
-    curl
-    diffutils
-    dig
-    eza
-    fastfetch
-    fd
-    findutils
-    fish
-    fishPlugins.fzf-fish
-    fishPlugins.grc
-    fishPlugins.hydro
-    fzf
-    git
-    git-crypt
-    gnupg
-    grc
-    hostname
-    htop
-    iputils
-    jq
-    lynis
-    man
-    ncurses
-    nikto
-    nix-index
-    nmap
-    openssh
-    openssl
-    ripgrep
-    shellcheck
-    tzdata
-    utillinux
-    wapiti
-  ];
+}: let
+  myPackages = import ../modules/packages.nix {inherit pkgs;};
+in {
+  environment.packages = myPackages;
 
   environment.extraOutputsToInstall = [
     "doc"

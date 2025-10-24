@@ -3,7 +3,7 @@
     ./hardware-configuration.nix
     ../../modules/amdgpu.nix
     ../../modules/btrfs.nix
-    ../../modules/cli.nix
+    ../../modules/cli-packages.nix
     ../../modules/default.nix
     ../../modules/desktop-kernel.nix
     ../../modules/dev.nix
@@ -11,7 +11,7 @@
     ../../modules/gnome.nix
     #../../modules/gnome-remote-desktop.nix
     ../../modules/gui-extras.nix
-    ../../modules/gui.nix
+    ../../modules/gui-minimal.nix
     ../../modules/home.nix
     ../../modules/led.nix
     #../../modules/llm.nix
