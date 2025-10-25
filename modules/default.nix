@@ -64,6 +64,9 @@
     VISUAL = "vim";
   };
 
+  services.journald.extraConfig = "SystemMaxUse=1G";
+  systemd.coredump.enable = false;
+
   programs.fish.enable = true;
 
   programs.nh.enable = true;
