@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  myPackages = import ../modules/packages.nix {inherit pkgs;};
+  myPackages = import ../../modules/profiles/packages.nix {inherit pkgs;};
 in {
   home.packages = myPackages;
   programs.fish = {
