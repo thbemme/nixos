@@ -15,6 +15,7 @@
           ];
         })
         _64gram
+        cozy
         easyeffects
         ffmpeg-full
         gimp3-with-plugins
