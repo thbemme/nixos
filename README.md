@@ -1,24 +1,24 @@
 # 🌈 My NixOS configuration and setup <!-- omit from toc -->
-
+- [Tree](#tree)
 - [Modules](#modules)
-  - [AMD GPU](#amd-gpu)
-  - [Development](#development)
-  - [Gaming](#gaming)
-  - [Generative AI/LLM](#generative-aillm)
-  - [Ghostty](#ghostty)
-  - [Gnome](#gnome)
-  - [GUI/GUI-Extras](#guigui-extras)
-  - [Hibernation](#hibernation)
-  - [Kernels desktop/server](#kernels-desktopserver)
-  - [Librewolf](#librewolf)
-  - [NeoVim](#neovim)
-  - [Printing](#printing)
-  - [Prometheus](#prometheus)
-  - [Secure Boot](#secure-boot)
-  - [Security](#security)
-  - [SSH](#ssh)
-  - [Virtualization](#virtualization)
-  - [Work related](#work-related)
+  - [AMD GPU](#amd-gpu-modules-hardware-amdgpu-nix)
+  - [Development](#development-modules-profiles-dev-nix)
+  - [Gaming](#gaming-modules-profiles-gaming-nix)
+  - [Generative AI/LLM](#generative-ai-llm-modules-services-llm-nix)
+  - [Ghostty](#ghostty-home-apps-ghostty-nix)
+  - [Gnome](#gnome-modules-profiles-gnome-nix)
+  - [GUI/GUI-Extras](#gui-modules-profiles-gui-minimal-nix-gui-extras-modules-profiles-gui-extras-nix)
+  - [Hibernation](#hibernation-modules-system-hibernate-nix)
+  - [Kernels desktop/server](#kernels-modules-system-kernel-default-nix-desktop-modules-system-kernel-desktop-nix-server-modules-system-kernel-server-nix)
+  - [Librewolf](#librewolf-home-apps-librewolf-nix)
+  - [NeoVim](#neovim-home-apps-neovim-nix)
+  - [Printing](#printing-modules-services-printing-nix)
+  - [Prometheus](#prometheus-modules-services-prometheus-nix)
+  - [Secure Boot](#secure-boot-modules-system-secureboot-nix)
+  - [Security](#security-modules-profiles-security-nix)
+  - [SSH](#ssh-modules-services-ssh-nix)
+  - [Virtualization](#virtualization-modules-services-virt-nix)
+  - [Work related](#work-related-modules-profiles-work-nix)
 - [Gitcrypt](#gitcrypt)
 - [Native NixOS](#native-nixos)
   - [Maintenance](#maintenance)
@@ -29,6 +29,109 @@
 - [Home-manager](#home-manager)
   - [Maintenance](#maintenance-3)
 
+## Tree
+
+```shell
+git/nixos
+├── home
+│   ├── apps
+│   │   ├── chromium.nix
+│   │   ├── fish.nix
+│   │   ├── fish_nixos.nix
+│   │   ├── fish_wsl.nix
+│   │   ├── ghostty.nix
+│   │   ├── librewolf.nix
+│   │   └── neovim.nix
+│   ├── dotfiles
+│   │   ├── qt5ct
+│   │   │   ├── colors
+│   │   │   │   └── Dracula.conf
+│   │   │   ├── qss
+│   │   │   └── qt5ct.conf
+│   │   ├── qt6ct
+│   │   │   ├── colors
+│   │   │   │   └── Dracula.conf
+│   │   │   ├── qss
+│   │   │   └── qt6ct.conf
+│   │   ├── bookmarks
+│   │   └── hexchat
+│   └── profiles
+│       ├── base.nix
+│       ├── dconf.nix
+│       ├── default.nix
+│       ├── gaming.nix
+│       ├── gnome.nix
+│       ├── gui-extras.nix
+│       ├── gui-minimal.nix
+│       ├── home-manager.nix
+│       ├── nixondroid.nix
+│       ├── server.nix
+│       └── wsl.nix
+├── hosts
+│   ├── hm
+│   │   └── home.nix
+│   ├── mikrobi
+│   │   └── configuration.nix
+│   ├── nixos-template
+│   │   ├── configuration.nix
+│   │   └── hardware-configuration.nix
+│   ├── puff
+│   │   ├── configuration.nix
+│   │   └── hardware-configuration.nix
+│   ├── puffy
+│   │   ├── configuration.nix
+│   │   └── hardware-configuration.nix
+│   ├── vm
+│   │   ├── configuration.nix
+│   │   └── hardware-configuration.nix
+│   └── wsl
+│       └── configuration.nix
+├── modules
+│   ├── hardware
+│   │   ├── amdgpu.nix
+│   │   ├── led.nix
+│   │   └── msib450mpro.nix
+│   ├── profiles
+│   │   ├── cli-packages.nix
+│   │   ├── default.nix
+│   │   ├── dev.nix
+│   │   ├── gaming.nix
+│   │   ├── gnome.nix
+│   │   ├── gui-extras.nix
+│   │   ├── gui-minimal.nix
+│   │   ├── home.nix
+│   │   ├── packages.nix
+│   │   ├── security.nix
+│   │   ├── server.nix
+│   │   └── work.nix
+│   ├── services
+│   │   ├── llm.nix
+│   │   ├── printing.nix
+│   │   ├── prometheus.nix
+│   │   ├── smart.nix
+│   │   ├── ssh.nix
+│   │   └── virt.nix
+│   └── system
+│       ├── btrfs.nix
+│       ├── hibernate.nix
+│       ├── kernel-default.nix
+│       ├── kernel-desktop.nix
+│       ├── kernel-server.nix
+│       ├── plymouth.nix
+│       └── secureboot.nix
+├── scripts
+│   ├── disksetup_nvme.sh
+│   ├── disksetup_sda.sh
+│   ├── disksetup_server.sh
+│   ├── disksetup_vda.sh
+│   └── hashes.sh
+├── secrets
+│   ├── variables.json
+│   └── variables.json.sample
+├── flake.lock
+├── flake.nix
+└── README.md
+```
 ## Modules
 
 ### [AMD GPU](modules/hardware/amdgpu.nix)
