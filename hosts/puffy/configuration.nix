@@ -1,30 +1,30 @@
 {...}: {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/amdgpu.nix
-    ../../modules/btrfs.nix
-    ../../modules/cli-packages.nix
-    ../../modules/default.nix
-    ../../modules/dev.nix
-    ../../modules/gaming.nix
-    #../../modules/gnome-remote-desktop.nix
-    ../../modules/gnome.nix
-    ../../modules/gui-extras.nix
-    ../../modules/gui-minimal.nix
-    ../../modules/home.nix
-    ../../modules/kernel-desktop.nix
-    ../../modules/led.nix
-    #../../modules/llm.nix
-    ../../modules/msib450mpro.nix
-    ../../modules/plymouth.nix
-    ../../modules/printing.nix
-    ../../modules/prometheus.nix
-    ../../modules/secureboot.nix
-    ../../modules/security.nix
-    ../../modules/smart.nix
-    ../../modules/ssh.nix
-    ../../modules/virt.nix
-    ../../modules/work.nix
+    ../../modules/hardware/amdgpu.nix
+    ../../modules/hardware/led.nix
+    ../../modules/hardware/msib450mpro.nix
+    ../../modules/profiles/cli-packages.nix
+    ../../modules/profiles/default.nix
+    ../../modules/profiles/dev.nix
+    ../../modules/profiles/gaming.nix
+    ../../modules/profiles/gnome.nix
+    ../../modules/profiles/gui-extras.nix
+    ../../modules/profiles/gui-minimal.nix
+    ../../modules/profiles/home.nix
+    ../../modules/profiles/security.nix
+    ../../modules/profiles/work.nix
+    ../../modules/services/printing.nix
+    ../../modules/services/smart.nix
+    ../../modules/services/ssh.nix
+    #../../modules/services/llm.nix
+    ../../modules/services/prometheus.nix
+    ../../modules/services/virt.nix
+    ../../modules/system/btrfs.nix
+    ../../modules/system/hibernate.nix
+    ../../modules/system/kernel-desktop.nix
+    ../../modules/system/plymouth.nix
+    ../../modules/system/secureboot.nix
   ];
 
   networking.hostName = "puffy"; # Define your hostname.

@@ -9,9 +9,9 @@
     # include NixOS-WSL modules
     inputs.home-manager.nixosModules.home-manager
     <nixos-wsl/modules>
-    ../../modules/cli-packages.nix
-    ../../modules/default.nix
-    #../../modules/llm.nix
+    ../../modules/profiles/cli-packages.nix
+    ../../modules/profiles/default.nix
+    #../../modules/services/llm.nix
   ];
 
   wsl = {
@@ -53,7 +53,7 @@
     extraSpecialArgs = {inherit inputs vars gpuAcceleration;};
     backupFileExtension = "hm-back";
     users = {
-      "${vars.user}" = import ../../home/wsl.nix;
+      "${vars.user}" = import ../../home/profiles/wsl.nix;
     };
   };
 }

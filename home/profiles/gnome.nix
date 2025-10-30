@@ -40,14 +40,14 @@ with lib.hm.gvariant; {
       };
     };
     ".config/gtk-3.0/bookmarks" = {
-      source = ./dotfiles/bookmarks;
+      source = ../dotfiles/bookmarks;
       force = true;
     };
     ".config/assets".source = config.lib.file.mkOutOfStoreSymlink "/home/${vars.user}/.themes/Dracula-standard-buttons/assets";
     ".config/gtk-4.0/gtk.css".source = config.lib.file.mkOutOfStoreSymlink "/home/${vars.user}/.themes/Dracula-standard-buttons/gtk-4.0/gtk.css";
     ".config/gtk-4.0/gtk-dark.css".source = config.lib.file.mkOutOfStoreSymlink "/home/${vars.user}/.themes/Dracula-standard-buttons/gtk-4.0/gtk-dark.css";
-    ".config/qt5ct".source = ./dotfiles/qt5ct;
-    ".config/qt6ct".source = ./dotfiles/qt6ct;
+    ".config/qt5ct".source = ../dotfiles/qt5ct;
+    ".config/qt6ct".source = ../dotfiles/qt6ct;
   };
 
   # Use `dconf watch /` to track stateful changes you are doing, then set them here.
@@ -56,10 +56,12 @@ with lib.hm.gvariant; {
       dynamic-workspaces = true;
       experimental-features = ["variable-refresh-rate"];
     };
-    "org/gnome/desktop/background" = {
-      picture-uri = "https://i.redd.it/pivo53w9nyd51.jpg";
-      picture-uri-dark = "https://i.redd.it/pivo53w9nyd51.jpg";
+    "org/gnome/desktop/background" = rec {
+      color-shading-type = "solid";
       picture-options = "zoom";
+      picture-uri = "https://i.redd.it/pivo53w9nyd51.jpg";
+      picture-uri-dark = picture-uri;
+      primary-color = "#000000";
     };
     "org/gnome/shell" = {
       disable-user-extensions = false;

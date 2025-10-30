@@ -1,23 +1,24 @@
 # 🌈 My NixOS configuration and setup <!-- omit from toc -->
 
 - [Modules](#modules)
-  - [AMD GPU](#amd-gpu-modules-amdgpu-nix)
-  - [Development](#development-modules-dev-nix)
-  - [Gaming](#gaming-modules-gaming-nix)
-  - [Generative AI/LLM](#generative-ai-llm-modules-llm-nix)
-  - [Ghostty](#ghostty-home-ghostty-nix)
-  - [Gnome](#gnome-modules-gnome-nix)
-  - [GUI/GUI-Extras](#gui-modules-gui-nix-gui-extras-modules-gui-extras-nix)
-  - [Hibernation](#hibernation-modules-hibernate-nix)
-  - [Librewolf](#librewolf-home-librewolf-nix)
-  - [NeoVim](#neovim-home-neovim-nix)
-  - [Printing](#printing-modules-printing-nix)
-  - [Prometheus](#prometheus-modules-prometheus-nix)
-  - [Secure Boot](#secure-boot-modules-secureboot-nix)
-  - [Security](#security-modules-security-nix)
-  - [SSH](#ssh-modules-ssh-nix)
-  - [Virtualization](#virtualization-modules-virt-nix)
-  - [Work related](#work-related-modules-work-nix)
+  - [AMD GPU](#amd-gpu)
+  - [Development](#development)
+  - [Gaming](#gaming)
+  - [Generative AI/LLM](#generative-aillm)
+  - [Ghostty](#ghostty)
+  - [Gnome](#gnome)
+  - [GUI/GUI-Extras](#guigui-extras)
+  - [Hibernation](#hibernation)
+  - [Kernels desktop/server](#kernels-desktopserver)
+  - [Librewolf](#librewolf)
+  - [NeoVim](#neovim)
+  - [Printing](#printing)
+  - [Prometheus](#prometheus)
+  - [Secure Boot](#secure-boot)
+  - [Security](#security)
+  - [SSH](#ssh)
+  - [Virtualization](#virtualization)
+  - [Work related](#work-related)
 - [Gitcrypt](#gitcrypt)
 - [Native NixOS](#native-nixos)
   - [Maintenance](#maintenance)
@@ -30,23 +31,23 @@
 
 ## Modules
 
-### [AMD GPU](modules/amdgpu.nix)
+### [AMD GPU](modules/hardware/amdgpu.nix)
 
 - CoreCTRL (Undervolting GPU)
 - Vulkan Tools
 
-### [Development](modules/dev.nix)
+### [Development](modules/profiles/dev.nix)
 
 - Thonny (Micropython for Raspberry Pico development)
 - Android Studio (Unstable)
 
-### [Gaming](modules/gaming.nix)
+### [Gaming](modules/profiles/gaming.nix)
 
 - Lutris
 - Stream
 - Wine
 
-### [Generative AI/LLM](modules/llm.nix)
+### [Generative AI/LLM](modules/services/llm.nix)
 
 - Comfyui
 - Mimic (TTS)
@@ -54,61 +55,65 @@
 - Open-webui
 - oterm
 
-### [Ghostty](home/ghostty.nix)
+### [Ghostty](home/apps/ghostty.nix)
 
 - Customized Ghostty config
 
-### [Gnome](modules/gnome.nix)
+### [Gnome](modules/profiles/gnome.nix)
 
 - Gnome desktop environment
 - Default theme: Dracula
 
-### [GUI](modules/gui.nix)/[GUI-Extras](modules/gui-extras.nix)
+### [GUI](modules/profiles/gui-minimal.nix)/[GUI-Extras](modules/profiles/gui-extras.nix)
 
 - Desktop applications
 
-### [Hibernation](modules/hibernate.nix)
+### [Hibernation](modules/system/hibernate.nix)
 
 - Hibernate on power button pressed
 - Sleep then hibernate on lid close
 
-### [Librewolf](home/librewolf.nix)
+### [Kernels](modules/system/kernel-default.nix) [desktop](modules/system/kernel-desktop.nix)/[server](modules/system/kernel-server.nix)
+
+- Kernel settings for desktop and server
+ 
+### [Librewolf](home/apps/librewolf.nix)
 
 - Customized Librewolf config
 
-### [NeoVim](home/neovim.nix)
+### [NeoVim](home/apps/neovim.nix)
 
 - Customized nvim config
 
-### [Printing](modules/printing.nix)
+### [Printing](modules/services/printing.nix)
 
 - Setup printer and scanner
 
-### [Prometheus](modules/prometheus.nix)
+### [Prometheus](modules/services/prometheus.nix)
 
 - Prometheus exporter for Grafana monitoring
 
-### [Secure Boot](modules/secureboot.nix)
+### [Secure Boot](modules/system/secureboot.nix)
 
 - Enabling Secure Boot
 
-### [Security](modules/security.nix)
+### [Security](modules/profiles/security.nix)
 
 - Nmap
 - Wireshark
 - Misc security and auditing tools
 
-### [SSH](modules/ssh.nix)
+### [SSH](modules/services/ssh.nix)
 
 - SSH Remote log in
 
-### [Virtualization](modules/virt.nix)
+### [Virtualization](modules/services/virt.nix)
 
 - Gnome Boxes
 - UEFI fix
 - Qemu
 
-### [Work related](modules/work.nix)
+### [Work related](modules/profiles/work.nix)
 
 - Citrix Client
 - Alpaca Proxy

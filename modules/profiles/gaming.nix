@@ -49,7 +49,7 @@
   # Additional home manager settings
   home-manager = {
     users = {
-      "${vars.user}" = import ../home/gaming.nix;
+      "${vars.user}" = import ../../home/profiles/gaming.nix;
     };
   };
 }

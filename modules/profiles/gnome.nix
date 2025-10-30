@@ -54,7 +54,7 @@
   # Additional home manager settings
   home-manager = {
     users = {
-      "${vars.user}" = import ../home/gnome.nix;
+      "${vars.user}" = import ../../home/profiles/gnome.nix;
     };
   };
 }

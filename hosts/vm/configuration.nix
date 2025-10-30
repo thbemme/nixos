@@ -2,18 +2,18 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../modules/cli-packages.nix
-    ../../modules/default.nix
-    ../../modules/gnome.nix
-    ../../modules/gui-extras.nix
-    ../../modules/gui-minimal.nix
-    ../../modules/hibernate.nix
-    ../../modules/home.nix
-    ../../modules/kernel-desktop.nix
-    ../../modules/plymouth.nix
-    ../../modules/security.nix
-    ../../modules/ssh.nix
-    ../../modules/work.nix
+    ../../modules/profiles/cli-packages.nix
+    ../../modules/profiles/default.nix
+    ../../modules/profiles/gnome.nix
+    ../../modules/profiles/gui-extras.nix
+    ../../modules/profiles/gui-minimal.nix
+    ../../modules/profiles/home.nix
+    ../../modules/profiles/security.nix
+    ../../modules/profiles/work.nix
+    ../../modules/services/ssh.nix
+    ../../modules/system/btrfs.nix
+    ../../modules/system/kernel-desktop.nix
+    ../../modules/system/plymouth.nix
   ];
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;

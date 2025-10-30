@@ -61,7 +61,7 @@
   # Additional home manager settings
   home-manager = {
     users = {
-      "${vars.user}" = import ../home/gui-extras.nix;
+      "${vars.user}" = import ../../home/profiles/gui-extras.nix;
     };
   };
 }

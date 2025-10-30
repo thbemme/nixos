@@ -1,7 +1,7 @@
 {vars, ...}: {
   imports = [
-    ./fish.nix
-    ./fish_nixos.nix
+    ../apps/fish.nix
+    ../apps/fish_nixos.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.

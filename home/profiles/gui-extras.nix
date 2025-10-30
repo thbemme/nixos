@@ -4,7 +4,7 @@
   ...
 }: {
   home.file = {
-    ".config/hexchat/colors.conf".source = ./dotfiles/hexchat;
+    ".config/hexchat/colors.conf".source = ../dotfiles/hexchat;
   };
 
   # Fix vscodium settings.json readonly issue

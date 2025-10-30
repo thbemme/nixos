@@ -1,7 +1,7 @@
 {vars, ...}: {
   imports = [
-    ./fish.nix
-    ./neovim.nix
+    ../apps/fish.nix
+    ../apps/neovim.nix
   ];
   # Read the changelog before changing this value
   home.stateVersion = "24.05";

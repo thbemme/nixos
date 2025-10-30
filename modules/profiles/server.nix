@@ -38,7 +38,7 @@
     extraSpecialArgs = {inherit inputs vars;};
     backupFileExtension = "hm-back";
     users = {
-      "${vars.user}" = import ../home/server.nix;
+      "${vars.user}" = import ../../home/profiles/server.nix;
     };
   };
 }
