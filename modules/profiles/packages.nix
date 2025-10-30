@@ -4,7 +4,7 @@ with pkgs; [
   coreutils
   curl
   dig
-  du-dust
+  dust
   eza
   fd
   findutils

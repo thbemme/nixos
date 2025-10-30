@@ -31,7 +31,7 @@
       fira-code
       noto-fonts
       noto-fonts-color-emoji
-      vistafonts
+      vista-fonts
     ];
   };
 

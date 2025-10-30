@@ -31,7 +31,7 @@
   fonts.packages = with pkgs; [
     adwaita-fonts
     fira-code
-    vistafonts
+    vista-fonts
   ];
 
   programs = {
