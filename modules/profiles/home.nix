@@ -10,7 +10,7 @@
     extraSpecialArgs = {inherit inputs vars gpuAcceleration;};
     backupFileExtension = "hm-back";
     users = {
-      "${vars.user}" = import ../../home/profiles/default.nix;
+      "${vars.user}" = import ../../home/profiles/nixos.nix;
     };
   };
 }

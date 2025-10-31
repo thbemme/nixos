@@ -1,12 +1,4 @@
-{
-  vars,
-  pkgs,
-  gpuAcceleration,
-  ...
-}: {
-  imports = [
-    ./dconf.nix
-  ];
+{vars, ...}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "${vars.user}";
@@ -21,51 +13,8 @@
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
-  home.sessionVariables = {
-    EDITOR = "vim";
-  };
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   programs.direnv.enable = true;
-
-  programs.btop = {
-    enable = true;
-    package =
-      if gpuAcceleration
-      then pkgs.btop-rocm
-      else pkgs.btop;
-    settings = {
-      color_theme = "dracula";
-      theme_background = false;
-    };
-  };
-
-  programs.fastfetch = {
-    enable = true;
-  };
-
-  programs.git = {
-    enable = true;
-    userName = "${vars.gitName}";
-    userEmail = "${vars.gitEmail}";
-    extraConfig = {
-      credential.helper = "store";
-    };
-  };
-
-  programs.ssh = {
-    enable = true;
-    forwardAgent = true;
-    extraConfig = ''
-      SetEnv TERM=xterm-256color
-      User ${vars.sshuser}
-    '';
-    matchBlocks = {
-      "gitlab.com github.com" = {
-        user = "git";
-      };
-    };
-  };
 }
