@@ -4,7 +4,9 @@
   pkgs,
   vars,
   ...
-}: {
+}: let
+  fonts = import ../../modules/profiles/fonts.nix {inherit pkgs;};
+in {
   imports = [
     # include NixOS-WSL modules
     inputs.home-manager.nixosModules.home-manager
@@ -28,11 +30,7 @@
     ghostty
   ];
 
-  fonts.packages = with pkgs; [
-    adwaita-fonts
-    fira-code
-    vistafonts
-  ];
+  fonts.packages = fonts;
 
   programs = {
     ssh.startAgent = true;
