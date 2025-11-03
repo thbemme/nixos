@@ -1,15 +1,17 @@
 {vars, ...}: {
   programs.ssh = {
     enable = true;
-    forwardAgent = true;
-    extraConfig = ''
-      SetEnv TERM=xterm-256color
-      User ${vars.sshuser}
-    '';
+    enableDefaultConfig = false;
     matchBlocks = {
+      "*" = {
+        forwardAgent = true;
+        setEnv.TERM = "xterm-256color";
+        user = "${vars.sshuser}";
+      };
       "gitlab.com github.com" = {
         user = "git";
       };
     };
   };
+
 }
