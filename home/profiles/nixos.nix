@@ -1,12 +1,12 @@
 {...}: {
   imports = [
     ./base.nix
-    ./fish/wsl.nix
+    ../apps/btop.nix
     ../apps/dconf.nix
     ../apps/fish.nix
-    ../apps/ghostty.ni
-    ../apps/git.ni
+    ../apps/git.nix
     ../apps/neovim.nix
     ../apps/ssh.nix
+    ../profiles/fish/nixos.nix
   ];
 }

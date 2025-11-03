@@ -35,13 +35,18 @@
 git/nixos
 ├── home
 │   ├── apps
+│   │   ├── btop.nix
 │   │   ├── chromium.nix
+│   │   ├── codium.nix
+│   │   ├── dconf.nix
 │   │   ├── fish.nix
-│   │   ├── fish_nixos.nix
-│   │   ├── fish_wsl.nix
 │   │   ├── ghostty.nix
+│   │   ├── git.nix
+│   │   ├── hexchat.nix
 │   │   ├── librewolf.nix
-│   │   └── neovim.nix
+│   │   ├── mangohud.nix
+│   │   ├── neovim.nix
+│   │   └── ssh.nix
 │   ├── dotfiles
 │   │   ├── qt5ct
 │   │   │   ├── colors
@@ -56,15 +61,19 @@ git/nixos
 │   │   ├── bookmarks
 │   │   └── hexchat
 │   └── profiles
+│       ├── fish
+│       │   ├── home-manager.nix
+│       │   ├── nixondroid.nix
+│       │   ├── nixos.nix
+│       │   └── wsl.nix
 │       ├── base.nix
-│       ├── dconf.nix
-│       ├── default.nix
 │       ├── gaming.nix
 │       ├── gnome.nix
 │       ├── gui-extras.nix
 │       ├── gui-minimal.nix
 │       ├── home-manager.nix
 │       ├── nixondroid.nix
+│       ├── nixos.nix
 │       ├── server.nix
 │       └── wsl.nix
 ├── hosts
@@ -95,6 +104,7 @@ git/nixos
 │   │   ├── cli-packages.nix
 │   │   ├── default.nix
 │   │   ├── dev.nix
+│   │   ├── fonts.nix
 │   │   ├── gaming.nix
 │   │   ├── gnome.nix
 │   │   ├── gui-extras.nix

@@ -2,13 +2,8 @@
   myPackages = import ../../modules/profiles/packages.nix {inherit pkgs;};
 in {
   home.packages = myPackages;
-  programs.fish = {
-    shellAliases = {
-      r = "home-manager switch --flake ~/git/nixos/#hm";
-      c = "nix-collect-garbage -d";
-    };
-  };
 
+  # Setup fish shell via bash hook
   programs.bash = {
     enable = true;
     package = null;

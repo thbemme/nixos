@@ -4,7 +4,9 @@
   pkgs,
   vars,
   ...
-}: {
+}: let
+  fonts = import ../../modules/profiles/fonts.nix {inherit pkgs;};
+in {
   imports = [
     # include NixOS-WSL modules
     inputs.home-manager.nixosModules.home-manager
@@ -26,12 +28,6 @@
 
   environment.systemPackages = with pkgs; [
     ghostty
-  ];
-
-  fonts.packages = with pkgs; [
-    adwaita-fonts
-    fira-code
-    vista-fonts
   ];
 
   programs = {

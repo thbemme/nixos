@@ -10,5 +10,4 @@
   ];
   services.qemuGuest.enable = true;
   networking.hostName = "nixos-template"; # Define your hostname.
-  nix.settings.trusted-users = ["@wheel"];
 }

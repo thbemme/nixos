@@ -2,7 +2,9 @@
   pkgs,
   vars,
   ...
-}: {
+}: let
+  fonts = import ./fonts.nix {inherit pkgs;};
+in {
   # Configure keymap in Wayland
   services.xserver = {
     enable = true;
@@ -26,13 +28,7 @@
       defaultFonts.emoji = ["Noto Color Emoji"];
     };
     fontDir.enable = true;
-    packages = with pkgs; [
-      adwaita-fonts
-      fira-code
-      noto-fonts
-      noto-fonts-color-emoji
-      vista-fonts
-    ];
+    packages = fonts;
   };
 
   # Additional home manager settings

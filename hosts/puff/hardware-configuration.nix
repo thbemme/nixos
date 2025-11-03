@@ -20,8 +20,8 @@
   # Resume for hibernation
   boot.resumeDevice = "/dev/disk/by-label/rootfs";
 
-  # sudo btrfs inspect-internal map-swapfile -r /var/lib/swapfile
-  boot.kernelParams = ["resume_offset=23978470"];
+  # btrfs inspect-internal map-swapfile -r /var/lib/swapfile
+  boot.kernelParams = ["resume_offset=93038216"];
 
   boot.initrd.luks.devices."rootfs" = {
     device = "/dev/disk/by-partlabel/root";
@@ -57,7 +57,7 @@
   swapDevices = [
     {
       device = "/var/lib/swapfile";
-      size = 8 * 1024;
+      size = 12 * 1024;
     }
   ];
 

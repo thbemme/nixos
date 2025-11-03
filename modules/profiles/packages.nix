@@ -6,6 +6,7 @@ with pkgs; [
   dig
   dust
   eza
+  fastfetch
   fd
   findutils
   fish

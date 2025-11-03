@@ -11,7 +11,7 @@
       nmap
       ssh-audit
       subfinder
-      wapiti
+      #wapiti
       wireshark
     ];
     extraGroups = ["wireshark"];
