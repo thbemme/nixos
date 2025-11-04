@@ -3,7 +3,6 @@ with pkgs; [
   bat
   coreutils
   curl
-  dig
   du-dust
   eza
   fastfetch
@@ -24,6 +23,7 @@ with pkgs; [
   openssh
   openssl
   pv
+  q
   ripgrep
   spectre-meltdown-checker
   stress-ng
