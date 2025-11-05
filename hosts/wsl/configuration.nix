@@ -26,10 +26,6 @@ in {
     wslConf.network.generateHosts = false;
   };
 
-  environment.systemPackages = with pkgs; [
-    ghostty
-  ];
-
   programs = {
     ssh.startAgent = true;
     dconf.enable = true;
