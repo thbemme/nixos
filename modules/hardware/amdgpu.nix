@@ -1,4 +1,15 @@
 {pkgs, ...}: {
+  hardware.amdgpu = {
+    opencl.enable = true;
+    initrd.enable = true;
+    # Enable driver support for AMD GPU overclocking
+    overdrive = {
+      enable = true;
+      ppfeaturemask = "0xffffffff";
+    };
+  };
+
+  # OpenCL backends - Pocl for CPU, ROCM for iGPU and discrete GPU
   hardware.graphics.extraPackages = with pkgs; [
     rocmPackages.clr.icd
   ];
@@ -11,6 +22,7 @@
     amdgpu_top
     blender-hip
     corectrl
+    lact
   ];
 
   # Corectrl without password

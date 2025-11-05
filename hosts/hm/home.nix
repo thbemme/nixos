@@ -1,10 +1,12 @@
 {...}: {
   targets.genericLinux.enable = true;
   imports = [
+    ../../home/apps/btop.nix
     ../../home/apps/dconf.nix
     ../../home/apps/fish.nix
     ../../home/apps/ghostty.nix
     ../../home/apps/git.nix
+    ../../home/apps/mangohud.nix
     ../../home/apps/neovim.nix
     ../../home/profiles/base.nix
     ../../home/profiles/fish/home-manager.nix
