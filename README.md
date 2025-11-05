@@ -12,6 +12,7 @@
   - [Kernels desktop/server](#kernels-modules-system-kernel-default-nix-desktop-modules-system-kernel-desktop-nix-server-modules-system-kernel-server-nix)
   - [Librewolf](#librewolf-home-apps-librewolf-nix)
   - [NeoVim](#neovim-home-apps-neovim-nix)
+  - [Packages](#packages-modules-profiles-packages-nix)
   - [Printing](#printing-modules-services-printing-nix)
   - [Prometheus](#prometheus-modules-services-prometheus-nix)
   - [Secure Boot](#secure-boot-modules-system-secureboot-nix)
@@ -51,12 +52,10 @@ git/nixos
 │   │   ├── qt5ct
 │   │   │   ├── colors
 │   │   │   │   └── Dracula.conf
-│   │   │   ├── qss
 │   │   │   └── qt5ct.conf
 │   │   ├── qt6ct
 │   │   │   ├── colors
 │   │   │   │   └── Dracula.conf
-│   │   │   ├── qss
 │   │   │   └── qt6ct.conf
 │   │   ├── bookmarks
 │   │   └── hexchat
@@ -198,6 +197,10 @@ git/nixos
 
 - Customized nvim config
 
+### [Packages](modules/profiles/packages.nix)
+
+- Default packages for all variants
+
 ### [Printing](modules/services/printing.nix)
 
 - Setup printer and scanner
@@ -287,7 +290,7 @@ nixos-generate-config --root /mnt --show-hardware-config > hosts/<host>/hardware
 
 - Check if btrfs mountpoints have `"compress=zstd"` parameter or add it manually
 
-5. Start installation for `<hostname>` and set `<username>` password
+5. Start installation for `<hostname>`. Password is defined in the secrets json:
 
 ```shell
 nixos-install --flake .#<hostname> --no-root-password
@@ -296,8 +299,8 @@ nixos-install --flake .#<hostname> --no-root-password
 ### Maintenance
 
 - `nh` is being used to maintain NixOS
-- Update with `u [--dry]`
-- Reconfiguration with `r [--dry]`
+- Update with `u`
+- Reconfiguration with `r`
 - Cleanup with `c`
 - Push to git with `p`
 - Pull from git with `pu`
@@ -335,8 +338,8 @@ wsl -t nixos
 ### Maintenance
 
 - `nh` is being used to maintain NixOS
-- Update with `u [--dry]`
-- Reconfiguration with `r [--dry]`
+- Update with `u`
+- Reconfiguration with `r`
 - Cleanup with `c`
 - Push to git with `p`
 - Pull from git with `pu`
@@ -363,7 +366,7 @@ nix-on-droid -F ~/nixos/
 ### Maintenance
 
 - `nix-on-droid` to maintain nix-on-droid
-- Reconfiguration with `r [--dry]`
+- Reconfiguration with `r [--dry-run]`
 - Pull from git with `pu`
 
 ## Home-manager
