@@ -67,7 +67,6 @@
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   hardware.amdgpu = {
     opencl.enable = true;
-    amdvlk.enable = true;
     initrd.enable = true;
   };
 }

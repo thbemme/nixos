@@ -31,9 +31,6 @@
 
   services.xserver.videoDrivers = ["amdgpu"];
 
-  # Enable AMD GPU overclocking
-  boot.kernelParams = ["amdgpu.ppfeaturemask=0xfffffff"];
-
   # Enable nct6775 module for sensor readings
   boot.kernelModules = ["nct6775"];
 
