@@ -39,7 +39,7 @@ for url in "${!EXPECTED_HASHES[@]}"; do
 
 	if [ "${EXPECTED_HASHES[$url]}" != "$COMPUTED_HASH" ]; then
 		echo -e "\033[0;31m${url}: Hash mismatch! Updating gnome.nix...\033[0m"
-		sed -i "s/${EXPECTED_HASHES[$url]}/$COMPUTED_HASH/g" "$FILE"
+      sed -i "s|${EXPECTED_HASHES[$url]}|$COMPUTED_HASH|g" "$FILE"
 		echo -e "\033[0;32mUpdated hash for ${url} to ${COMPUTED_HASH}\033[0m"
 	else
 		echo -e "\033[0;32m${url}: ${COMPUTED_HASH}\033[0m"
