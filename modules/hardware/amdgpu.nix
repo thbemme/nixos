@@ -22,7 +22,6 @@
     amdgpu_top
     blender-hip
     corectrl
-    lact
   ];
 
   # Corectrl without password

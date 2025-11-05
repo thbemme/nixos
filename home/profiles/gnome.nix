@@ -6,18 +6,18 @@
   ...
 }:
 with lib.hm.gvariant; {
-  home.packages = [
-    pkgs.gnomeExtensions.appindicator
-    pkgs.gnomeExtensions.blur-my-shell
-    pkgs.gnomeExtensions.dash-to-dock
-    pkgs.gnomeExtensions.freon
-    #pkgs.gnomeExtensions.gamemode-indicator-in-system-settings
-    pkgs.gnomeExtensions.just-perfection
-    pkgs.gnomeExtensions.nothing-to-say
-    pkgs.gnomeExtensions.rounded-corners
-    pkgs.gnomeExtensions.user-avatar-in-quick-settings
-    pkgs.gnomeExtensions.user-themes
-    pkgs.gnomeExtensions.weather-or-not
+  home.packages = with pkgs.gnomeExtensions; [
+    appindicator
+    blur-my-shell
+    dash-to-dock
+    freon
+    just-perfection
+    gamemode-shell-extension
+    nothing-to-say
+    rounded-corners
+    user-avatar-in-quick-settings
+    user-themes
+    weather-or-not
   ];
 
   home.file = {
@@ -83,7 +83,7 @@ with lib.hm.gvariant; {
         "blur-my-shell@aunetx"
         "dash-to-dock@micxgx.gmail.com"
         "freon@UshakovVasilii_Github.yahoo.com"
-        "gamemode@christian.kellner.me"
+        "gamemodeshellextension@trsnaqe.com"
         "just-perfection-desktop@just-perfection"
         "nothing-to-say@extensions.gnome.wouter.bolsterl.ee"
         "quick-settings-avatar@d-go"
@@ -176,11 +176,13 @@ with lib.hm.gvariant; {
     "org/gnome/shell/extensions/freon" = {
       hot-sensors = ["__max__"];
     };
+    "org/gnome/shell/extensions/gamemodeshellextension" = {
+      show-close-notification = false;
+      show-icon-only-when-active = true;
+      show-launch-notification = false;
+    };
     "org/gnome/GWeather4" = {
       temperature-unit = "centigrade";
-    };
-    "org/gnome/shell/extensions/gamemodeshellextension" = {
-      show-icon-only-when-active = true;
     };
   };
 }
