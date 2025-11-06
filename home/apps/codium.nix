@@ -49,10 +49,10 @@
     profiles.default.enableExtensionUpdateCheck = false;
     profiles.default.extensions = with pkgs.vscode-extensions; [
       dracula-theme.theme-dracula
-      yzhang.markdown-all-in-one
-      jnoortheen.nix-ide
       esbenp.prettier-vscode
+      jnoortheen.nix-ide
       streetsidesoftware.code-spell-checker
+      yzhang.markdown-all-in-one
     ];
     profiles.default.userSettings = {
       "files.autoSave" = "afterDelay";
