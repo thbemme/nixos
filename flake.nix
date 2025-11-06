@@ -37,26 +37,32 @@
   outputs = {
     nixpkgs,
     nixpkgs-unstable,
+    home-manager,
     nix-on-droid,
     ...
   } @ inputs: let
     system = "x86_64-linux";
     variables = nixpkgs.lib.importJSON ./secrets/variables.json;
-
     pkgsUnstable = import nixpkgs-unstable {
       inherit system;
       config.allowUnfree = true;
     };
 
-    specialArgs = useWorkVars: {
+    # Shared function for common arguments
+    makeSpecialArgs = {
+      useWorkVars ? false,
+      gpuAcceleration ? false,
+    }: {
       inherit inputs;
       vars =
         if useWorkVars
         then variables.work
         else variables.home;
       pkgs-unstable = pkgsUnstable;
+      inherit gpuAcceleration;
     };
 
+    # NixOS configuration function
     nixosConfig = {
       configPath,
       useUnstable ? false,
@@ -70,41 +76,43 @@
     in
       nixpkgsSrc.lib.nixosSystem {
         modules = [configPath];
-        specialArgs = specialArgs useWorkVars // {inherit gpuAcceleration;};
+        specialArgs = makeSpecialArgs {inherit useWorkVars gpuAcceleration;};
+      };
+
+    # Home Manager configuration function
+    homeConfig = {
+      configPath,
+      useWorkVars ? false,
+      gpuAcceleration ? false,
+    }:
+      inputs.home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+        modules = [configPath];
+        extraSpecialArgs = makeSpecialArgs {inherit useWorkVars gpuAcceleration;};
       };
   in {
     nixosConfigurations = {
+      nixos = nixosConfig {configPath = ./hosts/wsl/configuration.nix;};
+      nixos-template = nixosConfig {configPath = ./hosts/nixos-template/configuration.nix;};
+      puff = nixosConfig {configPath = ./hosts/puff/configuration.nix;};
       puffy = nixosConfig {
         configPath = ./hosts/puffy/configuration.nix;
         gpuAcceleration = true;
-      };
-      puff = nixosConfig {configPath = ./hosts/puff/configuration.nix;};
-      nixos-template = nixosConfig {configPath = ./hosts/nixos-template/configuration.nix;};
-      vm = nixosConfig {
-        configPath = ./hosts/vm/configuration.nix;
-        useUnstable = true;
       };
       PWXCFPC6C4 = nixosConfig {
         configPath = ./hosts/wsl/configuration.nix;
         useWorkVars = true;
       };
-      nixos = nixosConfig {configPath = ./hosts/wsl/configuration.nix;};
+      vm = nixosConfig {
+        configPath = ./hosts/vm/configuration.nix;
+        useUnstable = true;
+      };
     };
 
-    homeConfigurations.hm = inputs.home-manager.lib.homeManagerConfiguration {
-      pkgs = import nixpkgs {
-        backupFileExtension = "hm-back";
-        system = "x86_64-linux";
-        config.allowUnfree = true;
-      };
-      modules = [./hosts/hm/home.nix];
-      extraSpecialArgs = {
-        inherit inputs;
-        gpuAcceleration = false;
-        vars = variables.home;
-        pkgs-unstable = pkgsUnstable;
-      };
-    };
+    homeConfigurations.hm = homeConfig {configPath = ./hosts/hm/home.nix;};
 
     nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
       pkgs = import nixpkgs {
