@@ -23,18 +23,18 @@
       hi Normal guibg=NONE ctermbg=NONE
     '';
     plugins = with pkgs.vimPlugins; [
-      dracula-nvim
-      minimap-vim
-      nerdtree
-      nvim-fzf
-      rust-vim
-      supertab
-      vim-airline
-      vim-fugitive
-      vim-lastplace
-      vim-misc
-      vim-nix
-      vim-signify
+      dracula-nvim # Dracula color scheme
+      minimap-vim # Minimap sidebar
+      nerdtree # File tree explorer
+      nvim-fzf # FZF integration for Neovim
+      rust-vim # Rust filetype and helper configs
+      supertab # Tab completion improvements
+      vim-airline # Status/tabline
+      vim-fugitive # Git integration
+      vim-lastplace # Restore cursor to last edit position
+      vim-misc # Misc useful vim utilities
+      vim-nix # Nix syntax highlighting and ftplugin
+      vim-signify # Show VCS changes in the gutter
     ];
   };
 }

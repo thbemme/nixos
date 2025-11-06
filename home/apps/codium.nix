@@ -45,39 +45,41 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    profiles.default.enableUpdateCheck = false;
-    profiles.default.enableExtensionUpdateCheck = false;
-    profiles.default.extensions = with pkgs.vscode-extensions; [
-      dracula-theme.theme-dracula
-      esbenp.prettier-vscode
-      jnoortheen.nix-ide
-      streetsidesoftware.code-spell-checker
-      yzhang.markdown-all-in-one
-    ];
-    profiles.default.userSettings = {
-      "files.autoSave" = "afterDelay";
-      "editor.fontSize" = 12;
-      "terminal.integrated.fontSize" = 12;
-      "editor.fontLigatures" = true;
-      "editor.fontFamily" = "Fira Code";
-      "editor.tabSize" = 2;
-      "editor.mouseWheelZoom" = true;
-      "editor.renderWhitespace" = "selection";
-      "editor.cursorStyle" = "line";
-      "editor.multiCursorModifier" = "alt";
-      "editor.insertSpaces" = true;
-      "editor.wordWrap" = "off";
-      "workbench.colorTheme" = "Dracula Theme";
-      "nix.formatterPath" = "alejandra";
-      "ollama-autocoder.model" = "deepseek-coder-v2:latest";
-      "markdown.extension.toc.slugifyMode" = "gitea";
-      "files.exclude" = {
-        "**/.git" = true;
-        "**/.svn" = true;
-        "**/.hg" = true;
-        "**/CVS" = true;
-        "**/.DS_Store" = true;
-        "**/Thumbs.db" = true;
+    profiles.default = {
+      enableUpdateCheck = false;
+      enableExtensionUpdateCheck = false;
+      extensions = with pkgs.vscode-extensions; [
+        dracula-theme.theme-dracula
+        esbenp.prettier-vscode
+        jnoortheen.nix-ide
+        streetsidesoftware.code-spell-checker
+        yzhang.markdown-all-in-one
+      ];
+      userSettings = {
+        "files.autoSave" = "afterDelay";
+        "editor.fontSize" = 12;
+        "terminal.integrated.fontSize" = 12;
+        "editor.fontLigatures" = true;
+        "editor.fontFamily" = "Fira Code";
+        "editor.tabSize" = 2;
+        "editor.mouseWheelZoom" = true;
+        "editor.renderWhitespace" = "selection";
+        "editor.cursorStyle" = "line";
+        "editor.multiCursorModifier" = "alt";
+        "editor.insertSpaces" = true;
+        "editor.wordWrap" = "off";
+        "workbench.colorTheme" = "Dracula Theme";
+        "nix.formatterPath" = "alejandra";
+        "ollama-autocoder.model" = "deepseek-coder-v2:latest";
+        "markdown.extension.toc.slugifyMode" = "gitea";
+        "files.exclude" = {
+          "**/.git" = true;
+          "**/.svn" = true;
+          "**/.hg" = true;
+          "**/CVS" = true;
+          "**/.DS_Store" = true;
+          "**/Thumbs.db" = true;
+        };
       };
     };
   };
