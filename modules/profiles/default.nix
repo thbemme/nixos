@@ -30,9 +30,6 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # Automatic Timezone Daemon
-  services.automatic-timezoned.enable = true;
-
   # Define a user account.
   users.users.${vars.user} = {
     description = "${vars.user}";
