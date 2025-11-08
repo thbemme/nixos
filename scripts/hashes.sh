@@ -45,3 +45,4 @@ for url in "${!EXPECTED_HASHES[@]}"; do
 		echo -e "\033[0;32m${url}: ${COMPUTED_HASH}\033[0m"
 	fi
 done
+echo -e "\n\033[0;33mFetching hashes done\033[0m\n"

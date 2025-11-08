@@ -25,8 +25,8 @@ in {
     '';
     settings = {
       AllowUsers = [vars.user];
-      KbdInteractiveAuthentication = false;
-      PasswordAuthentication = false;
+      #KbdInteractiveAuthentication = false;
+      #PasswordAuthentication = false;
       PermitRootLogin = "no";
     };
   };

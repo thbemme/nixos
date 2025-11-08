@@ -1,5 +1,5 @@
 # 🌈 My NixOS configuration and setup <!-- omit from toc -->
-- [Tree](#tree)
+- [Structure](#structure)
 - [Modules](#modules)
   - [AMD GPU](#amd-gpu-modules-hardware-amdgpu-nix)
   - [Development](#development-modules-profiles-dev-nix)
@@ -30,117 +30,34 @@
 - [Home-manager](#home-manager)
   - [Maintenance](#maintenance-3)
 
-## Tree
+## Structure
 
-```shell
-git/nixos
-├── home
-│   ├── apps
-│   │   ├── btop.nix
-│   │   ├── chromium.nix
-│   │   ├── codium.nix
-│   │   ├── dconf.nix
-│   │   ├── fish.nix
-│   │   ├── ghostty.nix
-│   │   ├── git.nix
-│   │   ├── hexchat.nix
-│   │   ├── librewolf.nix
-│   │   ├── mangohud.nix
-│   │   ├── neovim.nix
-│   │   └── ssh.nix
-│   ├── dotfiles
-│   │   ├── qt5ct
-│   │   │   ├── colors
-│   │   │   │   └── Dracula.conf
-│   │   │   └── qt5ct.conf
-│   │   ├── qt6ct
-│   │   │   ├── colors
-│   │   │   │   └── Dracula.conf
-│   │   │   └── qt6ct.conf
-│   │   ├── bookmarks
-│   │   └── hexchat
-│   └── profiles
-│       ├── fish
-│       │   ├── home-manager.nix
-│       │   ├── nixondroid.nix
-│       │   ├── nixos.nix
-│       │   └── wsl.nix
-│       ├── base.nix
-│       ├── gaming.nix
-│       ├── gnome.nix
-│       ├── gui-extras.nix
-│       ├── gui-minimal.nix
-│       ├── home-manager.nix
-│       ├── nixondroid.nix
-│       ├── nixos.nix
-│       ├── server.nix
-│       └── wsl.nix
-├── hosts
-│   ├── hm
-│   │   └── home.nix
-│   ├── mikrobi
-│   │   └── configuration.nix
-│   ├── nixos-template
-│   │   ├── configuration.nix
-│   │   └── hardware-configuration.nix
-│   ├── puff
-│   │   ├── configuration.nix
-│   │   └── hardware-configuration.nix
-│   ├── puffy
-│   │   ├── configuration.nix
-│   │   └── hardware-configuration.nix
-│   ├── vm
-│   │   ├── configuration.nix
-│   │   └── hardware-configuration.nix
-│   └── wsl
-│       └── configuration.nix
-├── modules
-│   ├── hardware
-│   │   ├── amdgpu.nix
-│   │   ├── led.nix
-│   │   └── msib450mpro.nix
-│   ├── profiles
-│   │   ├── cli-packages.nix
-│   │   ├── default.nix
-│   │   ├── dev.nix
-│   │   ├── fonts.nix
-│   │   ├── gaming.nix
-│   │   ├── gnome.nix
-│   │   ├── gui-extras.nix
-│   │   ├── gui-minimal.nix
-│   │   ├── home.nix
-│   │   ├── packages.nix
-│   │   ├── security.nix
-│   │   ├── server.nix
-│   │   └── work.nix
-│   ├── services
-│   │   ├── llm.nix
-│   │   ├── printing.nix
-│   │   ├── prometheus.nix
-│   │   ├── smart.nix
-│   │   ├── ssh.nix
-│   │   └── virt.nix
-│   └── system
-│       ├── btrfs.nix
-│       ├── hibernate.nix
-│       ├── kernel-default.nix
-│       ├── kernel-desktop.nix
-│       ├── kernel-server.nix
-│       ├── plymouth.nix
-│       └── secureboot.nix
-├── scripts
-│   ├── disksetup_nvme.sh
-│   ├── disksetup_sda.sh
-│   ├── disksetup_server.sh
-│   ├── disksetup_vda.sh
-│   └── hashes.sh
-├── secrets
-│   ├── variables.json
-│   └── variables.json.sample
-├── flake.lock
-├── flake.nix
-└── README.md
-```
+`home/` Home Manager configurations and user-specific settings
+- `apps/` Per-application configurations (e.g., `btop.nix`, `neovim.nix`)
+- `dotfiles/` User dotfiles and application-specific configurations (e.g., `qt5ct`, `hexchat`)
+- `profiles/` Predefined profiles for different environments (e.g., `gnome.nix`, `server.nix`, `wsl.nix`)
+  - `fish/` Fish shell-specific profiles for different environments
+
+
+`hosts/` Host-specific configurations
+- Each subdirectory (e.g., `mikrobi/`, `puffy/`) contains a configuration.nix and optionally a hardware-configuration.nix for 
+
+`modules/` Reusable NixOS modules
+- `hardware/` Hardware-specific configurations (e.g., `amdgpu.nix`, `msib450mpro.nix`)
+- `profiles/` Predefined profiles for different use cases (e.g., `gaming.nix`, `server.nix`)
+- `services/` Service configurations (e.g., `llm.nix`, `ssh.nix`)
+- `system/` System-level configurations (e.g., `btrfs.nix`, `hibernate.nix`)
+
+`scripts/`
+- Utility scripts for setup and maintenance.
+  - `disksetup_client.sh` Script for setting up disks on client machines
+  - `disksetup_server.sh` Script for setting up disks on server machines
+  - `hashes.sh` Script for managing file hashes in nix files
+
+`secrets/` Sensitive data and configuration.
+- `variables.json` Contains secret variables, see [git-crypt](#gitcrypt)
+- `variables.json.sample` Template for variables.json.
+
 ## Modules
 
 ### [AMD GPU](modules/hardware/amdgpu.nix)
@@ -275,11 +192,13 @@ cd ~/git/nixos
 - One btrfs volume with subvolumes for `rootfs`, `home` and `nix`
 - Physical volumes (nvme, sda) encrypted via cryptsetup
 - Virtual volumes (vda) unencrypted
-- Server variant assuming classic BIOS setting not UEFI
+- Server variant assuming classic BIOS setting with Grub boot loader
 - Swap via `zram`
 
 ```shell
-scripts/disksetup_<type>.sh
+scripts/disksetup_client.sh
+# Or  
+scripts/disksetup_server.sh
 ```
 
 4. Generate Hardware configuration
