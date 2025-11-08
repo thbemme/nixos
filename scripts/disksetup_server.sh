@@ -1,4 +1,5 @@
-#!/run/current-system/sw/bin/sh
+#!/usr/bin/env bash
+# https://git.kbnetcloud.de/riza/nixos/src/branch/main/scripts/disksetup_server.sh
 DISK=/dev/vda
 # Create partitions
 printf "label: dos\n,,L\n" | sfdisk "$DISK"

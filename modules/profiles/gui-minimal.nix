@@ -12,6 +12,9 @@ in {
     xkb.variant = "nodeadkeys";
   };
 
+  # Automatic Timezone Daemon
+  services.automatic-timezoned.enable = true;
+
   users.users.${vars.user} = {
     packages = with pkgs; [
       ghostty

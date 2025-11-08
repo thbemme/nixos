@@ -27,6 +27,7 @@ with pkgs; [
   ripgrep
   spectre-meltdown-checker
   stress-ng
+  viddy
   wget
   # formatters and linters
   alejandra # nix

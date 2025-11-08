@@ -7,66 +7,70 @@
 }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    inputs.nixos-hardware.nixosModules.common-pc
-    inputs.nixos-hardware.nixosModules.common-pc-ssd
     inputs.nixos-hardware.nixosModules.common-cpu-amd
     inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
+    inputs.nixos-hardware.nixosModules.common-cpu-amd-zenpower
     inputs.nixos-hardware.nixosModules.common-gpu-amd
+    inputs.nixos-hardware.nixosModules.common-gpu-amd-sea-islands
+    inputs.nixos-hardware.nixosModules.common-hidpi
+    inputs.nixos-hardware.nixosModules.common-pc
+    inputs.nixos-hardware.nixosModules.common-pc-ssd
   ];
 
-  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-amd"];
-  boot.extraModulePackages = [];
-  boot.initrd.luks.devices."rootfs-nvme0n1" = {
-    device = "/dev/disk/by-partlabel/root";
-    bypassWorkqueues = true; # increase SSD performance
-    allowDiscards = true; # allow fstrim; it might reveal information about the filesystem
+  # Boot configuration
+  boot = {
+    initrd = {
+      availableKernelModules = ["nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
+      kernelModules = [];
+      luks.devices."rootfs-nvme0n1" = {
+        device = "/dev/disk/by-partlabel/root";
+        bypassWorkqueues = true; # Improve SSD performance
+        allowDiscards = true; # Enable fstrim (note: potential info leak)
+      };
+    };
+    kernelModules = ["kvm-amd"];
+    extraModulePackages = [];
   };
 
-  fileSystems."/" = {
-    label = "rootfs";
-    fsType = "btrfs";
-    options = ["subvol=root" "compress=zstd" "noatime"];
-  };
-
-  fileSystems."/home" = {
-    label = "rootfs";
-    fsType = "btrfs";
-    options = ["subvol=home" "compress=zstd" "noatime"];
-  };
-
-  fileSystems."/nix" = {
-    label = "rootfs";
-    fsType = "btrfs";
-    options = ["subvol=nix" "compress=zstd" "noatime"];
-  };
-
-  fileSystems."/boot" = {
-    label = "boot";
-    fsType = "vfat";
-    options = ["fmask=0022" "dmask=0022"];
-  };
-
-  fileSystems."/media" = {
-    label = "media";
-    fsType = "btrfs";
-    options = ["compress=zstd" "noatime"];
+  # Filesystem configuration
+  fileSystems = {
+    "/" = {
+      label = "rootfs";
+      fsType = "btrfs";
+      options = ["subvol=root" "compress=zstd" "noatime"];
+    };
+    "/home" = {
+      label = "rootfs";
+      fsType = "btrfs";
+      options = ["subvol=home" "compress=zstd" "noatime"];
+    };
+    "/nix" = {
+      label = "rootfs";
+      fsType = "btrfs";
+      options = ["subvol=nix" "compress=zstd" "noatime"];
+    };
+    "/boot" = {
+      label = "boot";
+      fsType = "vfat";
+      options = ["fmask=0022" "dmask=0022"];
+    };
+    "/media" = {
+      label = "media";
+      fsType = "btrfs";
+      options = ["compress=zstd" "noatime"];
+    };
   };
 
   swapDevices = [];
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+  # Networking
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp37s0.useDHCP = lib.mkDefault true;
 
+  # Platform
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  # Hardware-specific settings
   hardware.amdgpu = {
     opencl.enable = true;
-    initrd.enable = true;
   };
 }
