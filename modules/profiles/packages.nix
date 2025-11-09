@@ -15,6 +15,7 @@ with pkgs; [
   fzf
   git
   git-crypt
+  gnupg
   grc
   hostname
   htop
@@ -32,8 +33,5 @@ with pkgs; [
   # formatters and linters
   alejandra # nix
   deadnix # nix
-  nodePackages.prettier
-  shellcheck
-  shfmt
   statix # nix
 ]

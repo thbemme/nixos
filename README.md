@@ -40,7 +40,7 @@
 
 
 `hosts/` Host-specific configurations
-- Each subdirectory (e.g., `mikrobi/`, `puffy/`) contains a configuration.nix and optionally a hardware-configuration.nix for 
+- Each subdirectory (e.g., `mikrobi/`, `puffy/`) contains a configuration.nix and optionally a hardware-configuration.nix for the specific machine
 
 `modules/` Reusable NixOS modules
 - `hardware/` Hardware-specific configurations (e.g., `amdgpu.nix`, `msib450mpro.nix`)

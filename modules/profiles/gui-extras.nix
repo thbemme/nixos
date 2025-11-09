@@ -16,6 +16,7 @@
         })
         _64gram
         cozy
+        cryptomator
         easyeffects
         ffmpeg-full
         gimp3-with-plugins
@@ -38,8 +39,7 @@
         vlc
       ])
       ++ (with pkgs-unstable; [
-        cryptomator
-      ]);
+        ]);
   };
 
   environment.systemPackages = with pkgs; [
