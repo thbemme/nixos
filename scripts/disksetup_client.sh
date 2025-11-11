@@ -22,7 +22,7 @@ elif ls /dev/sda >/dev/null 2>&1; then
 	DISK="/dev/sda"
 	EFI_PARTITION="$DISK"1
 	ROOT_PARTITION="$DISK"2
-	MAPPER_NAME="rootfs-vda"
+	MAPPER_NAME="rootfs-sda"
 elif ls /dev/vda >/dev/null 2>&1; then
 	DISK="/dev/vda"
 	EFI_PARTITION="$DISK"1
