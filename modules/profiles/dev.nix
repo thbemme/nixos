@@ -6,7 +6,6 @@
 }: {
   environment.systemPackages = with pkgs; [
     gnumake
-    gnupg
     gperf
     jdk
     libxml2
@@ -15,12 +14,15 @@
     ncurses5
     nettools
     nixpkgs-review
+    nodePackages.prettier
     openssl
     perl
     procps
     rustfmt
     schedtool
     scrcpy
+    shellcheck
+    shfmt
     unzip
     util-linux
     zip
