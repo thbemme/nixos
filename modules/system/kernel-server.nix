@@ -1,5 +1,8 @@
 {pkgs, ...}: {
-  imports = [./kernel-default.nix];
+  imports = [
+    ./kernel-default.nix
+    ./kernel-hardening.nix
+  ];
 
   # Use the GRUB 2 boot loader.
   boot = {

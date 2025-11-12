@@ -42,6 +42,7 @@
   system.stateVersion = "24.05";
 
   programs.nano.enable = false;
+  programs.command-not-found.enable = false;
 
   security.sudo.wheelNeedsPassword = true;
 
