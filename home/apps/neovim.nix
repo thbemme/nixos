@@ -37,4 +37,7 @@
       vim-signify # Show VCS changes in the gutter
     ];
   };
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
 }
