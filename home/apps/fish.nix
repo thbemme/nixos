@@ -72,7 +72,14 @@
     '';
     # Prompt customization (simple example)
     functions = {
-      fish_greeting = "uname -a";
+      fish_greeting = ''
+        # Show kernel information
+        uname -a
+        # Show "ghostty +boo" animation if ghostty is installed
+        if command -v ghostty >/dev/null
+          ghostty +boo
+        end
+      '';
       fish_prompt = ''
         if [ $status = 0 ]
           set_color green
