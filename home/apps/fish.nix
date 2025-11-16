@@ -76,8 +76,10 @@
         # Show kernel information
         uname -a
         # Show "ghostty +boo" animation if ghostty is installed
-        if command -v ghostty >/dev/null
-          ghostty +boo
+        if not test -n "$IN_NIX_SHELL"
+          if command -v ghostty >/dev/null
+            ghostty +boo
+          end
         end
       '';
       fish_prompt = ''
