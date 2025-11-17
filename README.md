@@ -1,158 +1,79 @@
-# 🌈 My NixOS configuration and setup <!-- omit from toc -->
-- [Structure](#structure)
-- [Modules](#modules)
-  - [AMD GPU](#amd-gpu-modules-hardware-amdgpu-nix)
-  - [Development](#development-modules-profiles-dev-nix)
-  - [Gaming](#gaming-modules-profiles-gaming-nix)
-  - [Generative AI/LLM](#generative-ai-llm-modules-services-llm-nix)
-  - [Ghostty](#ghostty-home-apps-ghostty-nix)
-  - [Gnome](#gnome-modules-profiles-gnome-nix)
-  - [GUI/GUI-Extras](#gui-modules-profiles-gui-minimal-nix-gui-extras-modules-profiles-gui-extras-nix)
-  - [Hibernation](#hibernation-modules-system-hibernate-nix)
-  - [Kernels desktop/server](#kernels-modules-system-kernel-default-nix-desktop-modules-system-kernel-desktop-nix-server-modules-system-kernel-server-nix)
-  - [Librewolf](#librewolf-home-apps-librewolf-nix)
-  - [NeoVim](#neovim-home-apps-neovim-nix)
-  - [Packages](#packages-modules-profiles-packages-nix)
-  - [Printing](#printing-modules-services-printing-nix)
-  - [Prometheus](#prometheus-modules-services-prometheus-nix)
-  - [Secure Boot](#secure-boot-modules-system-secureboot-nix)
-  - [Security](#security-modules-profiles-security-nix)
-  - [SSH](#ssh-modules-services-ssh-nix)
-  - [Virtualization](#virtualization-modules-services-virt-nix)
-  - [Work related](#work-related-modules-profiles-work-nix)
-- [Gitcrypt](#gitcrypt)
-- [Native NixOS](#native-nixos)
-  - [Maintenance](#maintenance)
-- [WSL](#wsl)
-  - [Maintenance](#maintenance-1)
-- [Nix-on-droid](#nix-on-droid)
-  - [Maintenance](#maintenance-2)
-- [Home-manager](#home-manager)
-  - [Maintenance](#maintenance-3)
+# 🌈 My NixOS configuration and setup
 
-## Structure
+**A modular, reproducible, and secure NixOS configuration for homeservers, workstations, WSL, and Nix-on-Droid.**
 
-`home/` Home Manager configurations and user-specific settings
-- `apps/` Per-application configurations (e.g., `btop.nix`, `neovim.nix`)
-- `dotfiles/` User dotfiles and application-specific configurations (e.g., `qt5ct`, `hexchat`)
-- `profiles/` Predefined profiles for different environments (e.g., `gnome.nix`, `server.nix`, `wsl.nix`)
-  - `fish/` Fish shell-specific profiles for different environments
+---
 
+## 📌 Overview
+This repository contains my **NixOS** and **Home Manager** configurations for various environments, including:
+- **Native NixOS** (Desktops, Servers)
+- **WSL** (Windows Subsystem for Linux)
+- **Nix-on-Droid** (Android devices)
+- **Home Manager** (Nix on other GNU/Linux distributions)
 
-`hosts/` Host-specific configurations
-- Each subdirectory (e.g., `mikrobi/`, `puffy/`) contains a configuration.nix and optionally a hardware-configuration.nix for the specific machine
+The setup is **modular**, **reproducible**, and **secure**, with support for **GitCrypt** for secrets management.
 
-`modules/` Reusable NixOS modules
-- `hardware/` Hardware-specific configurations (e.g., `amdgpu.nix`, `msib450mpro.nix`)
-- `profiles/` Predefined profiles for different use cases (e.g., `gaming.nix`, `server.nix`)
-- `services/` Service configurations (e.g., `llm.nix`, `ssh.nix`)
-- `system/` System-level configurations (e.g., `btrfs.nix`, `hibernate.nix`)
+---
 
-`scripts/`
-- Utility scripts for setup and maintenance.
-  - `disksetup_client.sh` Script for setting up disks on client machines
-  - `disksetup_server.sh` Script for setting up disks on server machines
-  - `hashes.sh` Script for managing file hashes in nix files
+## 📂 Structure
+   | Directory/File | Description                                                   |
+   |----------------|---------------------------------------------------------------|
+   | `home/`        | Home Manager configurations and user-specific settings        |
+   | `hosts/`       | Host-specific configurations (e.g., `mikrobi/`, `puffy/`)     |
+   | `modules/`     | Reusable NixOS modules (hardware, profiles, services, system) |
+   | `scripts/`     | Utility scripts for setup and maintenance                     |
+   | `secrets/`     | Sensitive data and configuration (encrypted with GitCrypt)    |
 
-`secrets/` Sensitive data and configuration.
-- `variables.json` Contains secret variables, see [git-crypt](#gitcrypt)
-- `variables.json.sample` Template for variables.json.
+---
 
-## Modules
+## 🔧 Modules
 
-### [AMD GPU](modules/hardware/amdgpu.nix)
+### Hardware
+ | Module                                  | Description                                  |
+ |-----------------------------------------|----------------------------------------------|
+ | [AMD GPU](modules/hardware/amdgpu.nix)  | CoreCTRL, Vulkan Tools, and GPU undervolting |
+ | [LED control](modules/hardware/led.nix) | Control LED colors                           |
 
-- CoreCTRL (Undervolting GPU)
-- Vulkan Tools
+### Profiles
+ | Module                                        | Description                                  |
+ |-----------------------------------------------|----------------------------------------------|
+ | [Development](modules/profiles/dev.nix)       | Thonny, Android Studio (unstable)            |
+ | [Gaming](modules/profiles/gaming.nix)         | Lutris, Steam, Wine                          |
+ | [GNOME](modules/profiles/gnome.nix)           | GNOME desktop environment with Dracula theme |
+ | [GUI](modules/profiles/gui-minimal.nix)       | Minimal GUI applications                     |
+ | [GUI Extras](modules/profiles/gui-extras.nix) | Additional GUI applications                  |
+ | [Security](modules/profiles/security.nix)     | Nmap, Wireshark, and auditing tools          |
+ | [Work](modules/profiles/work.nix)             | Citrix Client, Alpaca Proxy                  |
 
-### [Development](modules/profiles/dev.nix)
+### Services
+ | Module                                        | Description                                     |
+ |-----------------------------------------------|-------------------------------------------------|
+ | [Generative AI/LLM](modules/services/llm.nix) | ComfyUI, Mimic (TTS), Ollama, Open-WebUI, oterm |
+ | [Printing](modules/services/printing.nix)     | Printer and scanner setup                       |
+ | [Prometheus](modules/services/prometheus.nix) | Prometheus exporter for Grafana monitoring      |
+ | [SSH](modules/services/ssh.nix)               | SSH remote login configuration                  |
+ | [Virtualization](modules/services/virt.nix)   | GNOME Boxes, UEFI fix, QEMU                     |
 
-- Thonny (Micropython for Raspberry Pico development)
-- Android Studio (Unstable)
+### System
+ | Module                                       | Description                                                  |
+ |----------------------------------------------|--------------------------------------------------------------|
+ | [Hibernation](modules/system/hibernate.nix)  | Hibernate on power button, sleep then hibernate on lid close |
+ | [Kernels](modules/system/kernel-default.nix) | Default, desktop, and server kernel settings                 |
+ | [Plymouth](modules/system/plymouth.nix)      | Plymouth graphical boot process settings                     |
+ | [Secure Boot](modules/system/secureboot.nix) | Secure Boot configuration                                    |
 
-### [Gaming](modules/profiles/gaming.nix)
+### Home Manager
+ | Module                               | Description                                |
+ |--------------------------------------|--------------------------------------------|
+ | [Ghostty](home/apps/ghostty.nix)     | Customized Ghostty terminal configuration  |
+ | [Librewolf](home/apps/librewolf.nix) | Customized Librewolf browser configuration |
+ | [NeoVim](home/apps/neovim.nix)       | Customized NeoVim configuration            |
 
-- Lutris
-- Stream
-- Wine
+---
 
-### [Generative AI/LLM](modules/services/llm.nix)
-
-- Comfyui
-- Mimic (TTS)
-- Ollama
-- Open-webui
-- oterm
-
-### [Ghostty](home/apps/ghostty.nix)
-
-- Customized Ghostty config
-
-### [Gnome](modules/profiles/gnome.nix)
-
-- Gnome desktop environment
-- Default theme: Dracula
-
-### [GUI](modules/profiles/gui-minimal.nix)/[GUI-Extras](modules/profiles/gui-extras.nix)
-
-- Desktop applications
-
-### [Hibernation](modules/system/hibernate.nix)
-
-- Hibernate on power button pressed
-- Sleep then hibernate on lid close
-
-### [Kernels](modules/system/kernel-default.nix) [desktop](modules/system/kernel-desktop.nix)/[server](modules/system/kernel-server.nix)
-
-- Kernel settings for desktop and server
- 
-### [Librewolf](home/apps/librewolf.nix)
-
-- Customized Librewolf config
-
-### [NeoVim](home/apps/neovim.nix)
-
-- Customized nvim config
-
-### [Packages](modules/profiles/packages.nix)
-
-- Default packages for all variants
-
-### [Printing](modules/services/printing.nix)
-
-- Setup printer and scanner
-
-### [Prometheus](modules/services/prometheus.nix)
-
-- Prometheus exporter for Grafana monitoring
-
-### [Secure Boot](modules/system/secureboot.nix)
-
-- Enabling Secure Boot
-
-### [Security](modules/profiles/security.nix)
-
-- Nmap
-- Wireshark
-- Misc security and auditing tools
-
-### [SSH](modules/services/ssh.nix)
-
-- SSH Remote log in
-
-### [Virtualization](modules/services/virt.nix)
-
-- Gnome Boxes
-- UEFI fix
-- Qemu
-
-### [Work related](modules/profiles/work.nix)
-
-- Citrix Client
-- Alpaca Proxy
-
-## Gitcrypt
-
+## 🔐 Gitcrypt
+**GitCrypt** is used to encrypt sensitive files (e.g., `secrets/variables.json`).
+### Setup
 - [Setup steps](https://lgug2z.com/articles/handling-secrets-in-nixos-an-overview/#managing-your-own-physical-machines)
 
 - Make sure `git` and `git-crypt` is installed:
@@ -168,7 +89,7 @@ git-crypt export-key -|base64 -w0
 ```
 
 - Save key
-- Decrypt with base64 key
+### Unlock the repository
 
 ```shell
 stty -echo;head -n1|base64 -d|git crypt unlock -;stty echo
@@ -176,7 +97,7 @@ stty -echo;head -n1|base64 -d|git crypt unlock -;stty echo
 
 - Sample config file [variables.json](./secrets/variables.json.sample)
 
-## Native NixOS
+## 💻 Native NixOS
 
 1. Clone repo
 
@@ -188,7 +109,7 @@ cd ~/git/nixos
 2. Decrypt [git-crypt](#gitcrypt)
 3. Setup disk
 
-- **Warning: The disksetup scripts will delete all partitions on `nvme0n1`, `sda` or `vda`**
+- **⚠️ Warning**: The disksetup scripts will delete all partitions on `nvme0n1`, `sda` or `vda`
 - One btrfs volume with subvolumes for `rootfs`, `home` and `nix`
 - Physical volumes (nvme, sda) encrypted via cryptsetup
 - Virtual volumes (vda) unencrypted
@@ -224,7 +145,7 @@ nixos-install --flake .#<hostname> --no-root-password
 - Push to git with `p`
 - Pull from git with `pu`
 
-## WSL
+## 🪟 WSL
 
 1. Follow NixOS installation on WSL from https://github.com/nix-community/NixOS-WSL
 2. Clone repo
@@ -256,14 +177,9 @@ wsl -t nixos
 
 ### Maintenance
 
-- `nh` is being used to maintain NixOS
-- Update with `u`
-- Reconfiguration with `r`
-- Cleanup with `c`
-- Push to git with `p`
-- Pull from git with `pu`
+- Use `nh` for maintenance (same commands as Native NixOS).
 
-## Nix-on-droid
+## 📱 Nix-on-droid
 
 1. Install app from [F-droid](https://f-droid.org/packages/com.termux.nix/)
 2. Enable Flake install and let installation configure base system
@@ -288,7 +204,7 @@ nix-on-droid -F ~/nixos/
 - Reconfiguration with `r [--dry-run]`
 - Pull from git with `pu`
 
-## Home-manager
+## 🏠 Home-manager
 
 Requirements:
 Any GNU/Linux with native package installed:
@@ -297,7 +213,7 @@ Any GNU/Linux with native package installed:
 - [Ghostty](https://ghostty.org/docs/install/binary)
 - SELinux disabled/permissive
 
-1. Install nix packet manager
+1. Install [nix packet manager](https://nixos.org/download/)
 
 ```shell
 sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
@@ -336,3 +252,6 @@ home-manager switch --flake ~/git/nixos/#hm
 - Reconfiguration with `r [--dry-run]`
 - Cleanup with `c`
 - Pull from git with `pu`
+
+## 📜 License
+This project is licensed under the **MIT License**.

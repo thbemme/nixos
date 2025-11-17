@@ -2,6 +2,7 @@
   inputs,
   gpuAcceleration,
   pkgs,
+  pkgs-unstable,
   vars,
   ...
 }: let
@@ -26,7 +27,7 @@ in {
     wslConf.network.generateHosts = false;
   };
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs-unstable; [
     ghostty
   ];
 
