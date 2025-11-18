@@ -2,6 +2,7 @@
   inputs,
   gpuAcceleration,
   pkgs,
+  pkgs-unstable,
   vars,
   ...
 }: let
@@ -25,6 +26,12 @@ in {
     wslConf.interop.appendWindowsPath = false;
     wslConf.network.generateHosts = false;
   };
+
+  environment.systemPackages = with pkgs-unstable; [
+    ghostty
+  ];
+
+  fonts.packages = fonts;
 
   programs = {
     ssh.startAgent = true;

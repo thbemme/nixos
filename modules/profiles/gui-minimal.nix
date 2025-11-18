@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-unstable,
   vars,
   ...
 }: let
@@ -16,7 +17,7 @@ in {
   services.automatic-timezoned.enable = true;
 
   users.users.${vars.user} = {
-    packages = with pkgs; [
+    packages = with pkgs-unstable; [
       ghostty
     ];
   };

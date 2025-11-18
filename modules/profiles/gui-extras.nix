@@ -19,6 +19,7 @@
         cryptomator
         easyeffects
         ffmpeg-full
+        freecad
         gimp3-with-plugins
         handbrake
         hexchat

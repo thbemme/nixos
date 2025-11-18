@@ -77,7 +77,7 @@ with lib.hm.gvariant; # bring mkUint32 etc. into scope
       "${draculaThemeDir}" = {
         source = pkgs.fetchzip {
           url = "https://github.com/dracula/gtk/archive/refs/heads/standard-buttons.zip";
-          hash = "sha256-RDbSvlHKdxvvXF/LIsLTKt0y/2MxrJbqKYW5vQ6zyV8=";
+          hash = "sha256-/U9vUrjIMFB0eOlzFDfLCHV3SYnLxeadWPasSdXsGPY=";
         };
       };
 
@@ -225,6 +225,7 @@ with lib.hm.gvariant; # bring mkUint32 etc. into scope
       };
 
       "org/gnome/shell/extensions/gamemodeshellextension" = {
+        active-color = "rgb(138,42,226)";
         show-close-notification = false;
         show-icon-only-when-active = true;
         show-launch-notification = false;
