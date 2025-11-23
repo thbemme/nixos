@@ -77,7 +77,7 @@ with lib.hm.gvariant; # bring mkUint32 etc. into scope
       "${draculaThemeDir}" = {
         source = pkgs.fetchzip {
           url = "https://github.com/dracula/gtk/archive/refs/heads/standard-buttons.zip";
-          hash = "sha256-/U9vUrjIMFB0eOlzFDfLCHV3SYnLxeadWPasSdXsGPY=";
+          hash = "sha256-PU7sjeh8KHb9mOVhgRRvR1w4KWPRy88terN/yjnJdPA=";
         };
       };
 
