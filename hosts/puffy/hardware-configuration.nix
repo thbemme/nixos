@@ -69,7 +69,5 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   # Hardware-specific settings
-  hardware.amdgpu = {
-    opencl.enable = true;
-  };
+  hardware.amdgpu.opencl.enable = true;
 }
