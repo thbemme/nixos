@@ -6,6 +6,9 @@
 }: let
   myPackages = import ../../modules/profiles/packages.nix {inherit pkgs;};
 in {
+  imports = [
+    ../../modules/system/hosts.nix
+  ];
   environment.packages = myPackages;
 
   environment.extraOutputsToInstall = [
@@ -29,6 +32,10 @@ in {
   '';
 
   networking.hosts = {
+    "192.168.178.1" = ["rt-dd-01"];
+    "192.168.178.2" = ["rt-dd-02"];
+    "192.168.178.3" = ["printer"];
+    "192.168.178.4" = ["chromecast"];
     "192.168.178.5" = ["pita"];
     "192.168.178.6" = ["pihole-amd64-vm"];
     "192.168.178.7" = ["blowfish"];
