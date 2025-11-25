@@ -6,6 +6,7 @@
     ../../modules/profiles/server.nix
     ../../modules/services/ssh.nix
     ../../modules/system/btrfs.nix
+    ../../modules/system/hosts.nix
     ../../modules/system/kernel-server.nix
   ];
   services.qemuGuest.enable = true;
