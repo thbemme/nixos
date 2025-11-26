@@ -3,7 +3,7 @@ with pkgs; [
   bat
   coreutils
   curl
-  du-dust
+  dust
   eza
   fastfetch
   fd

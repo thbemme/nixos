@@ -1,10 +1,12 @@
 {vars, ...}: {
   programs.git = {
     enable = true;
-    userName = "${vars.gitName}";
-    userEmail = "${vars.gitEmail}";
-    extraConfig = {
-      credential.helper = "store";
+    settings = {
+      user.name = "${vars.gitName}";
+      user.email = "${vars.gitEmail}";
+      extraConfig = {
+        credential.helper = "store";
+      };
     };
   };
 }

@@ -1,7 +1,6 @@
 {...}: {
   programs.ghostty = {
     enable = true;
-    package = null;
     settings = {
       adjust-cell-width = "-10%";
       background-opacity = 0.85;
