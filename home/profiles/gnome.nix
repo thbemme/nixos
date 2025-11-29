@@ -27,6 +27,7 @@ with lib.hm.gvariant; # bring mkUint32 etc. into scope
       rounded-corners
       user-avatar-in-quick-settings
       user-themes
+      vitals
       weather-or-not
     ];
 
@@ -49,13 +50,14 @@ with lib.hm.gvariant; # bring mkUint32 etc. into scope
       "appindicatorsupport@rgcjonas.gmail.com"
       "blur-my-shell@aunetx"
       "dash-to-dock@micxgx.gmail.com"
-      "freon@UshakovVasilii_Github.yahoo.com"
+      #"freon@UshakovVasilii_Github.yahoo.com"
       "gamemodeshellextension@trsnaqe.com"
       "just-perfection-desktop@just-perfection"
       "nothing-to-say@extensions.gnome.wouter.bolsterl.ee"
       "quick-settings-avatar@d-go"
       "Rounded_Corners@lennart-k"
       "user-theme@gnome-shell-extensions.gcampax.github.com"
+      "Vitals@CoreCoding.com"
       "weatherornot@somepaulo.github.io"
     ];
   in {
@@ -220,8 +222,15 @@ with lib.hm.gvariant; # bring mkUint32 etc. into scope
         show-trash = false;
       };
 
-      "org/gnome/shell/extensions/freon" = {
-        hot-sensors = ["__max__"];
+      # "org/gnome/shell/extensions/freon" = {
+      #   hot-sensors = ["__max__"];
+      # };
+
+      "org/gnome/shell/extensions/vitals" = {
+        alphabetize = true;
+        hide-zeros = true;
+        hot-sensors = ["__temperature_max__"];
+        icon-style = true;
       };
 
       "org/gnome/shell/extensions/gamemodeshellextension" = {
