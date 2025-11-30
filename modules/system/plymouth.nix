@@ -7,15 +7,15 @@
         name = "out.png";
         dontUnpack = true;
         src = pkgs.fetchurl {
-          url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/refs/heads/master/logo/nix-snowflake-rainbow.svg";
-          sha256 = "sha256-gMeJgiSSA5hFwtW3njZQAd4OHji6kbRCJKVoN6zsRbY=";
+          url = "https://nixos.org/_astro/nixos-logo-25.11-xantusia-lores.CLapGrL7_Z1CRDey.webp";
+          hash = "sha256-glQBCJDrRsS+J+PnmVr/Vv9oU73ullZb7TwlCIbJDQ8=";
         };
         nativeBuildInputs = with pkgs; [imagemagick];
         buildPhase = ''
-          magick -background none -size 200x200 $src nix-snowflake-rainbow.png
+          magick $src -background none -resize 200x200 nix-plymouth-logo.png
         '';
         installPhase = ''
-          install -Dm0644 nix-snowflake-rainbow.png $out
+          install -Dm0644 nix-plymouth-logo.png $out
         '';
       };
     };
