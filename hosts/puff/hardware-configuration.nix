@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   lib,
   modulesPath,
@@ -27,7 +26,7 @@
     kernelModules = ["kvm-intel"];
     extraModulePackages = [];
     resumeDevice = "/dev/disk/by-label/rootfs";
-    kernelParams = ["resume_offset=93038216"];
+    kernelParams = ["resume_offset=93038216"]; # btrfs inspect-internal map-swapfile -r /var/lib/swapfile
   };
 
   # Filesystem configuration

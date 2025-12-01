@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# https://git.kbnetcloud.de/riza/nixos/src/branch/main/scripts/disksetup_client.sh
+# https://git.kbnetcloud.de/riza/nixos/src/branch/main/scripts/disksetup_gpt.sh
 set -euo pipefail
 
 # Default parameters

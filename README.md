@@ -113,13 +113,14 @@ cd ~/git/nixos
 - One btrfs volume with subvolumes for `rootfs`, `home` and `nix`
 - Physical volumes (nvme, sda) encrypted via cryptsetup
 - Virtual volumes (vda) unencrypted
-- Server variant assuming classic BIOS setting with Grub boot loader
+- GPT-based configuration for modern UEFI systems using systemd-boot
+- MBR-based configuration for legacy BIOS systems using the GRUB bootloader
 - Swap via `zram`
 
 ```shell
-scripts/disksetup_client.sh
+scripts/disksetup_gpt.sh
 # Or  
-scripts/disksetup_server.sh
+scripts/disksetup_mbr.sh
 ```
 
 4. Generate Hardware configuration
