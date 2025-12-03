@@ -75,10 +75,12 @@
       fish_greeting = ''
         # Show kernel information
         uname -a
-        # Show "ghostty +boo" animation if ghostty is installed
-        if not test -n "$IN_NIX_SHELL"
-          if command -v ghostty >/dev/null
-            ghostty +boo
+        if test (tput cols) -ge 100 -a (tput lines) -ge 41
+          # Show "ghostty +boo" animation if ghostty is installed
+          if not test -n "$IN_NIX_SHELL"
+            if command -v ghostty >/dev/null
+              ghostty +boo
+            end
           end
         end
       '';
