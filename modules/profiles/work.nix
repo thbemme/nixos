@@ -11,7 +11,6 @@
       ])
       ++ (with pkgs-unstable; [
         #citrix_workspace
-        #teams-for-linux
         #alpaca-proxy
       ]);
   };

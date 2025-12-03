@@ -10,7 +10,7 @@ _: {
     };
   };
 
-  boot.kernelParams = ["mem_sleep_default=deep"];
+  boot.kernelParams = [];
 
   systemd.sleep.extraConfig = ''
     HibernateOnACPower=no
