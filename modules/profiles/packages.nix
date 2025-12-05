@@ -21,6 +21,7 @@ with pkgs; [
   htop
   jq
   killall
+  ncurses
   openssh
   openssl
   pv
