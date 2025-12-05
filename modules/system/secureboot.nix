@@ -29,7 +29,6 @@ in {
   # for now.
   boot.loader.systemd-boot = {
     enable = lib.mkForce (!enableSecrueboot);
-    memtest86.enable = true;
   };
 
   boot.lanzaboote = {

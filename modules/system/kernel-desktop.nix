@@ -3,10 +3,13 @@
 
   # Bootloader
   boot = {
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
     initrd.systemd.enable = true;
     kernelPackages = pkgs.linuxPackages_latest;
+    loader = {
+      efi.canTouchEfiVariables = true;
+      systemd-boot.enable = true;
+      systemd-boot.memtest86.enable = true;
+    };
   };
 
   # Configure console keymap
