@@ -10,7 +10,7 @@ _: {
     };
   };
 
-  boot.kernelParams = [];
+  #boot.kernelParams = [];
 
   systemd.sleep.extraConfig = ''
     HibernateOnACPower=no
