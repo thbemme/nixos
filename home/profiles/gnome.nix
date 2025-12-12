@@ -174,9 +174,20 @@ with lib.hm.gvariant; # bring mkUint32 etc. into scope
         dynamic-workspaces = true;
       };
 
-      # File chooser should list directories first
+      # File chooser should list directories first and show hidden
       "org/gtk/gtk4/settings/file-chooser" = {
+        show-hidden = true;
         sort-directories-first = true;
+      };
+
+      # Default Icon sizing in nautilus
+      "org/gnome/nautilus/icon-view" = {
+        default-zoom-level = "small-plus";
+      };
+
+      # Default icon view in nautilus
+      "org/gnome/nautilus/preferences" = {
+        default-folder-viewer = "icon-view";
       };
 
       # Custom keybinding for Launching Ghostty (Super+Return)
