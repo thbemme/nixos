@@ -2,6 +2,7 @@
   imports = [
     ./base.nix
     ../apps/btop.nix
+    ../apps/cava.nix
     ../apps/dconf.nix
     ../apps/fish.nix
     ../apps/git.nix
