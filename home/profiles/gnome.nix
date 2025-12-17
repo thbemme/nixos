@@ -10,7 +10,7 @@ with lib.hm.gvariant; # bring mkUint32 etc. into scope
   let
     # Helpers / constants to reduce repetition and improve readability
     userHome = "/home/${vars.user}";
-    draculaThemeDir = "${userHome}/.themes/Dracula-standard-buttons";
+    draculaThemeDir = "${userHome}/.themes/Dracula-slim-standard-buttons";
 
     # small helper to create out-of-store symlink entries for home.file
     symlink = path: {source = config.lib.file.mkOutOfStoreSymlink path;};
@@ -78,8 +78,8 @@ with lib.hm.gvariant; # bring mkUint32 etc. into scope
       # Theme / icon bundles fetched from upstream; pinned with hashes
       "${draculaThemeDir}" = {
         source = pkgs.fetchzip {
-          url = "https://github.com/dracula/gtk/archive/refs/heads/standard-buttons.zip";
-          hash = "sha256-PU7sjeh8KHb9mOVhgRRvR1w4KWPRy88terN/yjnJdPA=";
+          url = "https://github.com/dracula/gtk/archive/refs/heads/slim-standard-buttons.zip";
+          hash = "sha256-b1SH1VpS9gZnX183hWQdcQ0E0oIsx/1nwrrqC6XrV0M=";
         };
       };
 
@@ -132,7 +132,7 @@ with lib.hm.gvariant; # bring mkUint32 etc. into scope
 
       # Ensure the user-theme extension points to the theme directory name
       "org/gnome/shell/extensions/user-theme" = {
-        name = "Dracula-standard-buttons";
+        name = "Dracula-slim-standard-buttons";
       };
 
       # Interface settings: themes, icons, cursor, clock, animations
@@ -143,7 +143,7 @@ with lib.hm.gvariant; # bring mkUint32 etc. into scope
         cursor-theme = "oreo_spark_purple_bordered_cursors";
         enable-animations = true;
         enable-hot-corners = false;
-        gtk-theme = "Dracula-standard-buttons";
+        gtk-theme = "Dracula-slim-standard-buttons";
         icon-theme = "Dracula";
       };
 
