@@ -20,7 +20,7 @@
       ])
       ++ (with pkgs-unstable; [
         lutris
-        #path-of-building
+        rusty-path-of-building
       ]);
     extraGroups = ["gamemode"];
   };
