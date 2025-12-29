@@ -33,7 +33,6 @@
       amberol
       gnome-tweaks
       oreo-cursors-plus
-      papers
       papirus-icon-theme
       remmina
       seahorse
