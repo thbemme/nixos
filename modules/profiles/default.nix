@@ -52,17 +52,16 @@
     VISUAL = "vim";
   };
 
-  services.journald.extraConfig = "SystemMaxUse=1G";
-  systemd.coredump.enable = false;
-
-  programs.fish.enable = true;
-
   programs.nh = {
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 7d --keep 3";
-    flake = "/home/${vars.user}/git/nixos";
   };
+
+  services.journald.extraConfig = "SystemMaxUse=1G";
+  systemd.coredump.enable = false;
+
+  programs.fish.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

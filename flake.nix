@@ -31,10 +31,8 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     nixpkgs-unstable,
-    nix-on-droid,
     home-manager,
     ...
   } @ inputs: let

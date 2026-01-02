@@ -1,7 +1,7 @@
 _: {
   programs.fish = {
     shellAliases = {
-      r = "home-manager switch --flake ~/git/nixos/#hm";
+      r = "nh home switch -c hm --ask";
       c = "nix-collect-garbage -d";
     };
   };

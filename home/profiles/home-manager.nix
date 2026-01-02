@@ -3,6 +3,8 @@
 in {
   home.packages = myPackages;
 
+  programs.nh.enable = true;
+
   # Setup fish shell via bash hook
   programs.bash = {
     enable = true;

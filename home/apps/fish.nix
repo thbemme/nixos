@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  vars,
+  ...
+}: {
   programs.fish = {
     enable = true;
     plugins = with pkgs.fishPlugins; [
@@ -68,7 +72,8 @@
       set -gx fish_pager_color_secondary_description $comment
 
       set -gx BAT_THEME Dracula
-      set -xg MANPAGER "nvim -c 'Man!'"
+      set -gx NH_FLAKE /home/${vars.user}/git/nixos/
+      set -gx MANPAGER "nvim -c 'Man!'"
     '';
     # Prompt customization (simple example)
     functions = {
