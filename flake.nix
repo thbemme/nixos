@@ -1,14 +1,12 @@
 # https://git.kbnetcloud.de/riza/nixos
 {
-  description = "Nixos config flake";
+  description = "NixOS config flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixos-hardware = {
-      url = "github:NixOS/nixos-hardware";
-    };
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
@@ -30,38 +28,38 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-
-    #nix-comfyui.url = "github:dyscorv/nix-comfyui";
   };
 
   outputs = {
+    self,
     nixpkgs,
     nixpkgs-unstable,
     nix-on-droid,
+    home-manager,
     ...
   } @ inputs: let
     system = "x86_64-linux";
     variables = nixpkgs.lib.importJSON ./secrets/variables.json;
-    pkgsUnstable = import nixpkgs-unstable {
-      inherit system;
-      config.allowUnfree = true;
-    };
 
-    # Shared function for common arguments
+    # Shared arguments for all configurations
     makeSpecialArgs = {
-      useWorkVars ? false,
       gpuAcceleration ? false,
+      useUnstable ? false,
+      useWorkVars ? false,
     }: {
       inherit inputs;
       vars =
         if useWorkVars
         then variables.work
         else variables.home;
-      pkgs-unstable = pkgsUnstable;
-      inherit gpuAcceleration;
+      pkgs-unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      inherit useUnstable gpuAcceleration;
     };
 
-    # NixOS configuration function
+    # NixOS configuration helper
     nixosConfig = {
       configPath,
       useUnstable ? false,
@@ -75,22 +73,22 @@
     in
       nixpkgsSrc.lib.nixosSystem {
         modules = [configPath];
-        specialArgs = makeSpecialArgs {inherit useWorkVars gpuAcceleration;};
+        specialArgs = makeSpecialArgs {inherit useUnstable gpuAcceleration useWorkVars;};
       };
 
-    # Home Manager configuration function
+    # Home Manager configuration helper
     homeConfig = {
       configPath,
       useWorkVars ? false,
       gpuAcceleration ? false,
     }:
-      inputs.home-manager.lib.homeManagerConfiguration {
+      home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           inherit system;
           config.allowUnfree = true;
         };
         modules = [configPath];
-        extraSpecialArgs = makeSpecialArgs {inherit useWorkVars gpuAcceleration;};
+        extraSpecialArgs = makeSpecialArgs {inherit gpuAcceleration useWorkVars;};
       };
   in {
     nixosConfigurations = {
@@ -112,14 +110,16 @@
       };
     };
 
-    homeConfigurations.hm = homeConfig {configPath = ./hosts/hm/home.nix;};
+    homeConfigurations = {
+      hm = homeConfig {configPath = ./hosts/hm/home.nix;};
+    };
 
-    nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
-      pkgs = import nixpkgs {
-        system = "aarch64-linux";
+    nixOnDroidConfigurations = {
+      default = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
+        pkgs = import nixpkgs {system = "aarch64-linux";};
+        modules = [./hosts/mikrobi/configuration.nix];
+        extraSpecialArgs = {vars = variables.home;};
       };
-      modules = [./hosts/mikrobi/configuration.nix];
-      extraSpecialArgs = {vars = variables.home;};
     };
   };
 }

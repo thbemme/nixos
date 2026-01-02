@@ -9,10 +9,6 @@
       auto-optimise-store = true;
       trusted-users = ["@wheel"];
     };
-    gc = {
-      automatic = true;
-      options = "--delete-older-than 7d";
-    };
   };
 
   # Select internationalisation properties.
@@ -51,7 +47,6 @@
   documentation.man.generateCaches = false;
 
   environment.variables = {
-    NH_FLAKE = "/home/${vars.user}/git/nixos";
     EDITOR = "vim";
     SYSTEMD_EDITOR = "vim";
     VISUAL = "vim";
@@ -62,7 +57,12 @@
 
   programs.fish.enable = true;
 
-  programs.nh.enable = true;
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 7d --keep 3";
+    flake = "/home/${vars.user}/git/nixos";
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

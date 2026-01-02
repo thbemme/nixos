@@ -1,10 +1,19 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  useUnstable,
+  ...
+}: let
+  kernelPackage =
+    if useUnstable
+    then pkgs.linuxPackages_testing
+    else pkgs.linuxPackages_latest;
+in {
   imports = [./kernel-default.nix];
 
   # Bootloader
   boot = {
     initrd.systemd.enable = true;
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = kernelPackage;
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = true;
