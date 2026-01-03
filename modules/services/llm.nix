@@ -8,12 +8,7 @@
   ollamaPkg =
     if gpuAcceleration
     then pkgs-unstable.ollama-rocm
-    else pkgs-unstable.ollama;
-
-  ollamaAcceleration =
-    if gpuAcceleration
-    then "rocm"
-    else false;
+    else pkgs-unstable.ollama-cpu;
 
   ollamaEnv =
     if gpuAcceleration
@@ -39,7 +34,6 @@ in {
   services.ollama = {
     enable = true;
     package = ollamaPkg;
-    acceleration = ollamaAcceleration;
     environmentVariables = ollamaEnv;
     rocmOverrideGfx = ollamaRocmGfx;
   };
@@ -55,11 +49,8 @@ in {
     };
   };
 
-  environment.systemPackages = with pkgs;
-    [
-      mimic
-    ]
-    ++ (with pkgs-unstable; [
-      oterm
-    ]);
+  environment.systemPackages = [
+    pkgs.mimic
+    pkgs.oterm
+  ];
 }

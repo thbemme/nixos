@@ -17,7 +17,7 @@
     ../../modules/services/printing.nix
     ../../modules/services/smart.nix
     ../../modules/services/ssh.nix
-    #../../modules/services/llm.nix
+    ../../modules/services/llm.nix
     ../../modules/services/prometheus.nix
     ../../modules/services/virt.nix
     ../../modules/system/btrfs.nix

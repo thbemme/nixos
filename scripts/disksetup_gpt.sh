@@ -5,7 +5,8 @@ set -euo pipefail
 # Default parameters
 ROOT_PARTITION_LABEL="root"
 BOOT_PARTITION_LABEL="boot"
-MOUNT_MEDIA=false
+EFI_PARTITION="$DISK"1
+ROOT_PARTITION="$DISK"2
 ENCRYPT=true
 
 # EFI partition size for all disk types
@@ -17,16 +18,11 @@ if ls /dev/nvme0n1 >/dev/null 2>&1; then
 	EFI_PARTITION="$DISK"p1
 	ROOT_PARTITION="$DISK"p2
 	MAPPER_NAME="rootfs-nvme0n1"
-	MOUNT_MEDIA=true
 elif ls /dev/sda >/dev/null 2>&1; then
 	DISK="/dev/sda"
-	EFI_PARTITION="$DISK"1
-	ROOT_PARTITION="$DISK"2
 	MAPPER_NAME="rootfs-sda"
 elif ls /dev/vda >/dev/null 2>&1; then
 	DISK="/dev/vda"
-	EFI_PARTITION="$DISK"1
-	ROOT_PARTITION="$DISK"2
 	ENCRYPT=false
 else
 	echo "No supported disk found (NVMe, SATA, or virtual)." >&2
@@ -47,7 +43,7 @@ parted "$DISK" -- name 1 efi
 parted "$DISK" -- name 2 "$ROOT_PARTITION_LABEL"
 
 # Format the EFI partition
-mkfs.vfat -n "$BOOT_PARTITION_LABEL" "$EFI_PARTITION"
+mkfs.vfat -In "$BOOT_PARTITION_LABEL" "$EFI_PARTITION"
 
 # Setup encryption
 if [ "$ENCRYPT" = true ]; then
@@ -59,7 +55,7 @@ else
 fi
 
 # Create rootfs
-mkfs.btrfs -L rootfs "$ROOTFS_DEVICE"
+mkfs.btrfs -fL rootfs "$ROOTFS_DEVICE"
 
 # Create and mount subvolumes
 mount -t btrfs -L rootfs /mnt
@@ -75,11 +71,5 @@ mount -o subvol=nix,compress=zstd,noatime -L rootfs /mnt/nix
 # Mount boot
 mkdir -p /mnt/boot
 mount -L "$BOOT_PARTITION_LABEL" /mnt/boot
-
-# Mount /media
-if [ "$MOUNT_MEDIA" = true ]; then
-	mkdir -p /media
-	mount -L media /media
-fi
 
 echo "Disk setup complete for $DISK."
