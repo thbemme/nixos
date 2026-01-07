@@ -143,6 +143,8 @@ with lib.hm.gvariant; # bring mkUint32 etc. into scope
         cursor-theme = "oreo_spark_purple_bordered_cursors";
         enable-animations = true;
         enable-hot-corners = false;
+        # Workaround for https://gitlab.gnome.org/GNOME/gsettings-desktop-schemas/-/merge_requests/119
+        gtk-enable-primary-paste = true;
         gtk-theme = "Dracula-slim-standard-buttons";
         icon-theme = "Dracula";
       };
