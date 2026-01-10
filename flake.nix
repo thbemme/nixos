@@ -71,7 +71,7 @@
     in
       nixpkgsSrc.lib.nixosSystem {
         modules = [configPath];
-        specialArgs = makeSpecialArgs {inherit useUnstable gpuAcceleration useWorkVars;};
+        specialArgs = makeSpecialArgs {inherit gpuAcceleration useUnstable useWorkVars;};
       };
 
     # Home Manager configuration helper

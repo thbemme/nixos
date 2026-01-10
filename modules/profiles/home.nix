@@ -2,12 +2,13 @@
   inputs,
   vars,
   gpuAcceleration,
+  useUnstable,
   ...
 }: {
   imports = [inputs.home-manager.nixosModules.home-manager];
   home-manager = {
     # also pass inputs to home-manager modules
-    extraSpecialArgs = {inherit inputs vars gpuAcceleration;};
+    extraSpecialArgs = {inherit inputs vars gpuAcceleration useUnstable;};
     backupFileExtension = "hm-back";
     users = {
       "${vars.user}" = import ../../home/profiles/nixos.nix;
