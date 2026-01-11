@@ -25,10 +25,11 @@
     then "True"
     else "False";
 in {
-  disabledModules = ["services/misc/ollama.nix"];
+  disabledModules = ["services/misc/ollama.nix" "services/misc/open-webui.nix"];
 
   imports = [
     "${inputs.nixpkgs-unstable}/nixos/modules/services/misc/ollama.nix"
+    "${inputs.nixpkgs-unstable}/nixos/modules/services/misc/open-webui.nix"
   ];
 
   services.ollama = {
@@ -40,6 +41,7 @@ in {
 
   services.open-webui = {
     enable = true;
+    package = pkgs-unstable.open-webui;
     openFirewall = true;
     host = "0.0.0.0"; # Point reverse proxy to http://<ip>:8080
     environment = {

@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  useUnstable,
   vars,
   ...
 }: {
@@ -35,7 +36,7 @@
   imports = [inputs.home-manager.nixosModules.home-manager];
   home-manager = {
     # also pass inputs to home-manager modules
-    extraSpecialArgs = {inherit inputs vars;};
+    extraSpecialArgs = {inherit inputs vars useUnstable;};
     backupFileExtension = "hm-back";
     users = {
       "${vars.user}" = import ../../home/profiles/server.nix;

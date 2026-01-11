@@ -22,6 +22,7 @@ in {
                   (__)\       )\/\
                       ||----w |
                       ||     ||
+
     '';
     settings = {
       AllowUsers = [vars.user];

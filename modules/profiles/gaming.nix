@@ -8,15 +8,12 @@
     packages =
       (with pkgs; [
         adwsteamgtk
-        brogue-ce
         ecwolf
         furmark
         gzdoom
         protonup-qt
         scummvm
         sdlpop
-        zeroad-unwrapped
-        zeroad-data
       ])
       ++ (with pkgs-unstable; [
         lutris
