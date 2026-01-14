@@ -3,6 +3,7 @@
   gpuAcceleration,
   pkgs,
   pkgs-unstable,
+  useUnstable,
   vars,
   ...
 }: let
@@ -50,7 +51,7 @@ in {
 
   home-manager = {
     # also pass inputs to home-manager modules
-    extraSpecialArgs = {inherit inputs vars gpuAcceleration;};
+    extraSpecialArgs = {inherit inputs vars gpuAcceleration useUnstable;};
     backupFileExtension = "hm-back";
     users = {
       "${vars.user}" = import ../../home/profiles/wsl.nix;
