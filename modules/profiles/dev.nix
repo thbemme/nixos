@@ -42,4 +42,8 @@
   };
 
   programs.adb.enable = true;
+
+  zramSwap = {
+    memoryPercent = 100;
+  };
 }
