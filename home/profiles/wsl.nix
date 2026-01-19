@@ -2,8 +2,9 @@
   imports = [
     ./base.nix
     ./fish/wsl.nix
-    ../apps/btop.nix
     ../apps/dconf.nix
+    ../apps/bat.nix
+    ../apps/btop.nix
     ../apps/fish.nix
     ../apps/ghostty.nix
     ../apps/git.nix

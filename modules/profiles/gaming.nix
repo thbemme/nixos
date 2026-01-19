@@ -11,6 +11,7 @@
         ecwolf
         furmark
         gzdoom
+        limo
         protonup-qt
         scummvm
         sdlpop

@@ -1,6 +1,7 @@
 {...}: {
   targets.genericLinux.enable = true;
   imports = [
+    ../../home/apps/bat.nix
     ../../home/apps/btop.nix
     ../../home/apps/codium.nix
     ../../home/apps/dconf.nix

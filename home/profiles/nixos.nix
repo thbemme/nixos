@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./base.nix
+    ../apps/bat.nix
     ../apps/btop.nix
     ../apps/cava.nix
     ../apps/dconf.nix

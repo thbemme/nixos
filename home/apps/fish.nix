@@ -71,7 +71,6 @@
       set -gx fish_pager_color_secondary_completion $foreground
       set -gx fish_pager_color_secondary_description $comment
 
-      set -gx BAT_THEME Dracula
       set -gx NH_FLAKE /home/${vars.user}/git/nixos/
       set -gx MANPAGER "nvim -c 'Man!'"
     '';
@@ -137,18 +136,20 @@
         end
       '';
       nix-shell = "command nix-shell --command fish $argv";
+      nix-shell-run = "command nix-shell -p $argv --run $argv";
     };
     shellAliases = {
+      cat = "bat";
       grrrr = "git reset --hard";
-      l = "eza -laF --group-directories-first";
-      ls = "eza -F --group-directories-first";
+      l = "eza -laF --icons --git --group-directories-first";
+      ls = "eza -F --icons --git --group-directories-first";
       mkdir = "mkdir -p";
       ngit = "git -C ~/git/nixos";
       p = "alejandra -q ~/git/nixos/;git -C ~/git/nixos/ diff;read -lP 'Continue?' && git -C ~/git/nixos/ add .&&git -C ~/git/nixos/ commit -m 'Update Flake'&&git -C ~/git/nixos/ commit --amend&&git -C ~/git/nixos/ push";
       pu = "git -C ~/git/nixos/ pull";
       pw = "openssl rand -base64 30";
       sudo = "sudo -E";
-      tree = "eza --tree --git-ignore --group-directories-first";
+      tree = "eza --tree --icons --git --group-directories-first";
       watch = "viddy --disable_auto_save";
     };
   };

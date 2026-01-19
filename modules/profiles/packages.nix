@@ -1,6 +1,5 @@
 {pkgs}:
 with pkgs; [
-  bat
   coreutils
   curl
   dust

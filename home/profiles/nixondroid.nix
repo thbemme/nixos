@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ../apps/bat.nix
     ../apps/fish.nix
     ../apps/git.nix
     ../apps/neovim.nix
