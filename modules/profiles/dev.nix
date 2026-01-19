@@ -36,14 +36,12 @@
       ])
       ++ (with pkgs-unstable; [
         android-studio
-        #ladybird
+        ladybird
       ]);
     extraGroups = ["kvm" "adbusers" "dialout"];
   };
 
   programs.adb.enable = true;
 
-  zramSwap = {
-    memoryPercent = 100;
-  };
+  zramSwap.memoryPercent = 100;
 }
