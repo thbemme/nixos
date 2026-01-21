@@ -9,19 +9,18 @@ in {
   imports = [
     ../../modules/system/hosts.nix
   ];
-  environment.packages = myPackages;
-
-  environment.extraOutputsToInstall = [
-    "doc"
-    "info"
-    "devdoc"
-  ];
-  environment.motd = null;
+  environment = {
+    etcBackupExtension = ".bak";
+    extraOutputsToInstall = [
+      "doc"
+      "info"
+      "devdoc"
+    ];
+    motd = null;
+    packages = myPackages;
+  };
 
   user.shell = "${lib.getExe pkgs.fish}";
-
-  # Backup etc files instead of failing to activate generation if a file already exists in /etc
-  environment.etcBackupExtension = ".bak";
 
   # Read the changelog before changing this value
   system.stateVersion = "24.05";

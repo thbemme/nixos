@@ -8,15 +8,15 @@
     plugins = with pkgs.fishPlugins; [
       {
         name = "fzf-fish";
-        src = fzf-fish.src;
+        inherit (fzf-fish) src;
       }
       {
         name = "grc";
-        src = grc.src;
+        inherit (grc) src;
       }
       {
         name = "hydro";
-        src = hydro.src;
+        inherit (hydro) src;
       }
     ];
     interactiveShellInit = ''

@@ -24,9 +24,11 @@ in {
     enable = true;
     startMenuLaunchers = true;
     useWindowsDriver = true;
-    wslConf.automount.root = "/mnt";
-    wslConf.interop.appendWindowsPath = false;
-    wslConf.network.generateHosts = false;
+    wslConf = {
+      automount.root = "/mnt";
+      interop.appendWindowsPath = false;
+      network.generateHosts = false;
+    };
   };
 
   environment.systemPackages = with pkgs-unstable; [
@@ -36,8 +38,8 @@ in {
   fonts.packages = fonts;
 
   programs = {
-    ssh.startAgent = true;
     dconf.enable = true;
+    ssh.startAgent = true;
   };
 
   environment.enableAllTerminfo = true;
@@ -47,12 +49,10 @@ in {
   nixpkgs.hostPlatform = "x86_64-linux";
 
   hardware.graphics.enable = true;
-  #hardware.graphics.setLdLibraryPath = true;
 
   home-manager = {
-    # also pass inputs to home-manager modules
-    extraSpecialArgs = {inherit inputs vars gpuAcceleration useUnstable;};
     backupFileExtension = "hm-back";
+    extraSpecialArgs = {inherit inputs vars gpuAcceleration useUnstable;};
     users = {
       "${vars.user}" = import ../../home/profiles/wsl.nix;
     };

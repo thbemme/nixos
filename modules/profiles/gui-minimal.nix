@@ -26,10 +26,12 @@ in {
     enableDefaultPackages = true;
     fontconfig = {
       enable = true;
-      defaultFonts.monospace = ["Fira Code"];
-      defaultFonts.sansSerif = ["Adwaita Sans"];
-      defaultFonts.serif = ["Adwaita Serif"];
-      defaultFonts.emoji = ["Noto Color Emoji"];
+      defaultFonts = {
+        monospace = ["Fira Code"];
+        sansSerif = ["Adwaita Sans"];
+        serif = ["Adwaita Serif"];
+        emoji = ["Noto Color Emoji"];
+      };
     };
     fontDir.enable = true;
     packages = fonts;

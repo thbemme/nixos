@@ -1,4 +1,4 @@
-{...}: {
+_: {
   # Ensure Home Manager manages the config file
   home = {
     file.".config/ghostty/config".text = ''

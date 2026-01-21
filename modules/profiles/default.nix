@@ -37,14 +37,26 @@
 
   system.stateVersion = "24.05";
 
-  programs.nano.enable = false;
-  programs.command-not-found.enable = false;
+  programs = {
+    command-not-found.enable = false;
+    fish.enable = true;
+    nano.enable = false;
+    nh = {
+      enable = true;
+      clean = {
+        enable = true;
+        extraArgs = "--keep-since 7d --keep 3";
+      };
+    };
+  };
 
   security.sudo.wheelNeedsPassword = true;
 
   # faster eval time
-  documentation.nixos.enable = false;
-  documentation.man.generateCaches = false;
+  documentation = {
+    nixos.enable = false;
+    man.generateCaches = false;
+  };
 
   environment.variables = {
     EDITOR = "vim";
@@ -52,16 +64,8 @@
     VISUAL = "vim";
   };
 
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 7d --keep 3";
-  };
-
   services.journald.extraConfig = "SystemMaxUse=1G";
   systemd.coredump.enable = false;
-
-  programs.fish.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
