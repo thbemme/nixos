@@ -60,7 +60,7 @@
         "editor.fontSize" = 12;
         "terminal.integrated.fontSize" = 12;
         "editor.fontLigatures" = true;
-        "editor.fontFamily" = "Fira Code";
+        "editor.fontFamily" = "FiraCode Nerd Font";
         "editor.tabSize" = 2;
         "editor.mouseWheelZoom" = true;
         "editor.renderWhitespace" = "selection";

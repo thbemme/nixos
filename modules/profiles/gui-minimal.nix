@@ -27,7 +27,7 @@ in {
     fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = ["Fira Code"];
+        monospace = ["FiraCode Nerd Font"];
         sansSerif = ["Adwaita Sans"];
         serif = ["Adwaita Serif"];
         emoji = ["Noto Color Emoji"];

@@ -10,7 +10,6 @@ with pkgs; [
   fish
   fishPlugins.fzf-fish
   fishPlugins.grc
-  fishPlugins.hydro
   fzf
   git
   git-crypt

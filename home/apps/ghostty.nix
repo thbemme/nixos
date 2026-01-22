@@ -5,7 +5,7 @@ _: {
       adjust-cell-width = -10%
       background-opacity = 0.850000
       confirm-close-surface = false
-      font-family = Fira Code
+      font-family = FiraCode Nerd Font
       font-size = 10
       font-style-bold = Medium
       font-style-bold-italic = Medium Oblique

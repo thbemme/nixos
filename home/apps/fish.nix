@@ -14,10 +14,6 @@
         name = "grc";
         inherit (grc) src;
       }
-      {
-        name = "hydro";
-        inherit (hydro) src;
-      }
     ];
     interactiveShellInit = ''
       # Dracula Color Palette
