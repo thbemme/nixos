@@ -20,7 +20,6 @@ with lib.hm.gvariant; # bring mkUint32 etc. into scope
       appindicator
       blur-my-shell
       dash-to-dock
-      freon
       just-perfection
       gamemode-shell-extension
       nothing-to-say
@@ -50,7 +49,6 @@ with lib.hm.gvariant; # bring mkUint32 etc. into scope
       "appindicatorsupport@rgcjonas.gmail.com"
       "blur-my-shell@aunetx"
       "dash-to-dock@micxgx.gmail.com"
-      #"freon@UshakovVasilii_Github.yahoo.com"
       "gamemodeshellextension@trsnaqe.com"
       "just-perfection-desktop@just-perfection"
       "nothing-to-say@extensions.gnome.wouter.bolsterl.ee"

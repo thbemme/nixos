@@ -47,6 +47,8 @@
     geary # email client
     gnome-connections
     gnome-console
+    gnome-music
+    gnome-tour
   ];
 
   # Additional home manager settings
