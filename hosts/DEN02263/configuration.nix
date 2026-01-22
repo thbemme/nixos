@@ -2,7 +2,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../modules/profiles/cli-packages.nix
     ../../modules/profiles/default.nix
     ../../modules/profiles/gaming.nix
     ../../modules/profiles/gnome.nix

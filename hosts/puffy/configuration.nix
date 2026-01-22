@@ -4,7 +4,6 @@
     ../../modules/hardware/amdgpu.nix
     ../../modules/hardware/led.nix
     ../../modules/hardware/msib450mpro.nix
-    ../../modules/profiles/cli-packages.nix
     ../../modules/profiles/default.nix
     ../../modules/profiles/dev.nix
     ../../modules/profiles/gaming.nix

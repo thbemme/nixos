@@ -2,7 +2,9 @@
   pkgs,
   vars,
   ...
-}: {
+}: let
+  defaultPackages = import ./packages.nix {inherit pkgs;};
+in {
   nix = {
     settings = {
       experimental-features = ["nix-command" "flakes"];
@@ -10,6 +12,8 @@
       trusted-users = ["@wheel"];
     };
   };
+
+  environment.systemPackages = defaultPackages;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";

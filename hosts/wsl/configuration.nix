@@ -13,7 +13,6 @@ in {
     # include NixOS-WSL modules
     inputs.home-manager.nixosModules.home-manager
     <nixos-wsl/modules>
-    ../../modules/profiles/cli-packages.nix
     ../../modules/profiles/default.nix
     ../../modules/system/hosts.nix
     #../../modules/services/llm.nix

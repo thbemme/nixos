@@ -184,11 +184,12 @@ wsl -t nixos
 
 1. Install app from [F-droid](https://f-droid.org/packages/com.termux.nix/)
 2. Enable Flake install and let installation configure base system
-3. Add `openssh` and `git` packages under `.config/nix-on-droid/nix-on-droid.nix`
-4. Clone repo
+3. Add `openssh`, `git` and `git-crypt` packages in package section of `.config/nix-on-droid/nix-on-droid.nix`
+4. Rebuild to install additional packages
+5. Clone repo
 
 ```shell
-git clone https://git.kbnetcloud.de/riza/nixos.git
+git clone https://git.kbnetcloud.de/riza/nixos.git git/nixos
 ```
 
 5. Decrypt [git-crypt](#gitcrypt)
@@ -196,7 +197,7 @@ git clone https://git.kbnetcloud.de/riza/nixos.git
 6. Switch to new config
 
 ```shell
-nix-on-droid -F ~/nixos/
+nix-on-droid switch -F ~/git/nixos/
 ```
 
 ### Maintenance

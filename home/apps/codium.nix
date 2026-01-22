@@ -56,22 +56,22 @@
         yzhang.markdown-all-in-one
       ];
       userSettings = {
-        "files.autoSave" = "afterDelay";
-        "editor.fontSize" = 12;
-        "terminal.integrated.fontSize" = 12;
-        "editor.fontLigatures" = true;
-        "editor.fontFamily" = "FiraCode Nerd Font";
-        "editor.tabSize" = 2;
-        "editor.mouseWheelZoom" = true;
-        "editor.renderWhitespace" = "selection";
         "editor.cursorStyle" = "line";
-        "editor.multiCursorModifier" = "alt";
+        "editor.fontFamily" = "FiraCode Nerd Font";
+        "editor.fontLigatures" = true;
+        "editor.fontSize" = 12;
         "editor.insertSpaces" = true;
+        "editor.mouseWheelZoom" = true;
+        "editor.multiCursorModifier" = "alt";
+        "editor.renderWhitespace" = "selection";
+        "editor.tabSize" = 2;
         "editor.wordWrap" = "off";
-        "workbench.colorTheme" = "Dracula Theme";
-        "nix.formatterPath" = "alejandra";
-        "ollama-autocoder.model" = "deepseek-coder-v2:latest";
+        "files.autoSave" = "afterDelay";
         "markdown.extension.toc.slugifyMode" = "gitea";
+        "nix.formatterPath" = "alejandra";
+        "terminal.integrated.fontSize" = 12;
+        "workbench.colorTheme" = "Dracula Theme";
+        "workbench.editor.enablePreview" = false;
         "files.exclude" = {
           "**/.git" = true;
           "**/.svn" = true;

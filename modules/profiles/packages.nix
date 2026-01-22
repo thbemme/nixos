@@ -10,7 +10,6 @@ with pkgs; [
   fish
   fishPlugins.fzf-fish
   fishPlugins.grc
-  fzf
   git
   git-crypt
   gnupg
@@ -19,7 +18,6 @@ with pkgs; [
   htop
   jq
   killall
-  ncurses
   openssh
   openssl
   pv
