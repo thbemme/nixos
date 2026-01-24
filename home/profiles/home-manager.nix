@@ -2,8 +2,6 @@
   myPackages = import ../../modules/profiles/packages.nix {inherit pkgs;};
 in {
   imports = [
-    ./theme-cli.nix
-    ./theme-gui.nix
     ../apps/bat.nix
     ../apps/btop.nix
     ../apps/dconf.nix
@@ -12,12 +10,14 @@ in {
     ../apps/git.nix
     ../apps/neovim.nix
     ../apps/ssh.nix
-    ../profiles/base.nix
-    ../profiles/fish/home-manager.nix
-    ../profiles/gaming.nix
-    ../profiles/gnome.nix
-    ../profiles/gui-extras.nix
-    ../profiles/gui-minimal.nix
+    ../themes/theme-cli.nix
+    ../themes/theme-gui.nix
+    ./base.nix
+    ./desktop-extras.nix
+    ./desktop-gnome.nix
+    ./desktop-minimal.nix
+    ./fish/home-manager.nix
+    ./gaming.nix
   ];
 
   home.packages = myPackages;

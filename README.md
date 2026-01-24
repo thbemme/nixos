@@ -39,9 +39,9 @@ The setup is **modular**, **reproducible**, and **secure**, with support for **G
  |-----------------------------------------------|----------------------------------------------|
  | [Development](modules/profiles/dev.nix)       | Thonny, Android Studio (unstable)            |
  | [Gaming](modules/profiles/gaming.nix)         | Lutris, Steam, Wine                          |
- | [GNOME](modules/profiles/gnome.nix)           | GNOME desktop environment with Dracula theme |
- | [GUI](modules/profiles/gui-minimal.nix)       | Minimal GUI applications                     |
- | [GUI Extras](modules/profiles/gui-extras.nix) | Additional GUI applications                  |
+ | [GNOME](modules/profiles/desktop-gnome.nix)           | GNOME desktop environment with Dracula theme |
+ | [GUI](modules/profiles/desktop-minimal.nix)       | Minimal GUI applications                     |
+ | [GUI Extras](modules/profiles/desktop-extras.nix) | Additional GUI applications                  |
  | [Security](modules/profiles/security.nix)     | Nmap, Wireshark, and auditing tools          |
  | [Work](modules/profiles/work.nix)             | Citrix Client, Alpaca Proxy                  |
 

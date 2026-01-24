@@ -5,19 +5,19 @@
     ../../modules/hardware/led.nix
     ../../modules/hardware/msib450mpro.nix
     ../../modules/profiles/default.nix
+    ../../modules/profiles/desktop-extras.nix
+    ../../modules/profiles/desktop-gnome.nix
+    ../../modules/profiles/desktop-minimal.nix
     ../../modules/profiles/dev.nix
     ../../modules/profiles/gaming.nix
-    ../../modules/profiles/gnome.nix
-    ../../modules/profiles/gui-extras.nix
-    ../../modules/profiles/gui-minimal.nix
     ../../modules/profiles/home.nix
     ../../modules/profiles/security.nix
     ../../modules/profiles/work.nix
+    ../../modules/services/llm.nix
     ../../modules/services/printing.nix
+    ../../modules/services/prometheus.nix
     ../../modules/services/smart.nix
     ../../modules/services/ssh.nix
-    ../../modules/services/llm.nix
-    ../../modules/services/prometheus.nix
     ../../modules/services/virt.nix
     ../../modules/system/btrfs.nix
     ../../modules/system/hibernate.nix
