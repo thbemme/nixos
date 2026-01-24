@@ -20,8 +20,6 @@ in {
     packages = myPackages;
   };
 
-  terminal.font = "${pkgs.nerd-fonts.fira-code}/share/fonts/truetype/NerdFonts/FiraCode/FiraCodeNerdFont-Regular.ttf";
-
   user.shell = "${lib.getExe pkgs.fish}";
 
   # Read the changelog before changing this value

@@ -7,9 +7,7 @@ with pkgs; [
   fastfetch
   fd
   findutils
-  fish
-  fishPlugins.fzf-fish
-  fishPlugins.grc
+  fzf
   git
   git-crypt
   gnupg
@@ -18,6 +16,7 @@ with pkgs; [
   htop
   jq
   killall
+  timg
   openssh
   openssl
   pv
