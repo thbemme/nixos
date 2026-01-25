@@ -14,7 +14,6 @@ in {
     package = btopPackage;
     settings =
       {
-        color_theme = "dracula";
         theme_background = false;
       }
       // (

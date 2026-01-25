@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./base.nix
+    ./theme-cli.nix
     ./fish/wsl.nix
     ../apps/dconf.nix
     ../apps/bat.nix

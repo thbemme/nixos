@@ -12,10 +12,10 @@ with pkgs; [
   git-crypt
   gnupg
   grc
-  hostname
   htop
   jq
   killall
+  net-tools
   timg
   openssh
   openssl

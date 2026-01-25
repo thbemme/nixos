@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./theme-cli.nix
     ../apps/bat.nix
     ../apps/fish.nix
     ../apps/git.nix

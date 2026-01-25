@@ -1,6 +1,8 @@
 {...}: {
   imports = [
     ./base.nix
+    ./theme-cli.nix
+    ./theme-gui.nix
     ../apps/bat.nix
     ../apps/btop.nix
     ../apps/cava.nix

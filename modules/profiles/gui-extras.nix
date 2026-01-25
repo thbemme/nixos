@@ -25,7 +25,6 @@
         hexchat
         krita
         libreoffice-fresh
-        libsForQt5.qt5ct
         lyx
         nextcloud-client
         nixos-icons
@@ -54,10 +53,6 @@
   # Appimage support
   programs.appimage.enable = true;
   programs.appimage.binfmt = true;
-
-  # QT theming
-  qt.enable = true;
-  qt.platformTheme = "qt5ct";
 
   # Additional home manager settings
   home-manager = {

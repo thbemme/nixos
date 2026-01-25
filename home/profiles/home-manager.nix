@@ -2,19 +2,21 @@
   myPackages = import ../../modules/profiles/packages.nix {inherit pkgs;};
 in {
   imports = [
-    ../../home/apps/bat.nix
-    ../../home/apps/btop.nix
-    ../../home/apps/dconf.nix
-    ../../home/apps/fish.nix
-    ../../home/apps/git.nix
-    ../../home/apps/neovim.nix
-    ../../home/apps/ssh.nix
-    ../../home/profiles/base.nix
-    ../../home/profiles/fish/home-manager.nix
-    ../../home/profiles/gaming.nix
-    ../../home/profiles/gnome.nix
-    ../../home/profiles/gui-extras.nix
-    ../../home/profiles/gui-minimal.nix
+    ./theme-cli.nix
+    ./theme-gui.nix
+    ../apps/bat.nix
+    ../apps/btop.nix
+    ../apps/dconf.nix
+    ../apps/fish.nix
+    ../apps/git.nix
+    ../apps/neovim.nix
+    ../apps/ssh.nix
+    ../profiles/base.nix
+    ../profiles/fish/home-manager.nix
+    ../profiles/gaming.nix
+    ../profiles/gnome.nix
+    ../profiles/gui-extras.nix
+    ../profiles/gui-minimal.nix
   ];
 
   home.packages = myPackages;
