@@ -1,11 +1,16 @@
-{config, lib, pkgs, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./theme-cli.nix
     ../apps/bat.nix
     ../apps/fish.nix
- #   ../apps/git.nix
+    ../apps/git.nix
     ../apps/neovim.nix
-#    ../apps/ssh.nix
+    ../apps/ssh.nix
     ../profiles/fish/nixondroid.nix
   ];
 
