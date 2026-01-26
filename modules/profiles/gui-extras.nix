@@ -33,6 +33,7 @@
         stellarium
         tenacity
         texlive.combined.scheme-small
+        timg
         tor-browser
         transmission_4-gtk
         vesktop

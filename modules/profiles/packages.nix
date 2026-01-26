@@ -16,7 +16,6 @@ with pkgs; [
   jq
   killall
   net-tools
-  timg
   openssh
   openssl
   pv

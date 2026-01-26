@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs = {
     bat.config.theme = "Dracula";
     btop.settings.color_theme = "dracula";
