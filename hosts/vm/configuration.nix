@@ -3,9 +3,9 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/profiles/default.nix
-    ../../modules/profiles/gnome.nix
-    ../../modules/profiles/gui-extras.nix
-    ../../modules/profiles/gui-minimal.nix
+    ../../modules/profiles/desktop-extras.nix
+    ../../modules/profiles/desktop-gnome.nix
+    ../../modules/profiles/desktop-minimal.nix
     ../../modules/profiles/home.nix
     ../../modules/profiles/security.nix
     ../../modules/profiles/work.nix
@@ -13,7 +13,6 @@
     ../../modules/system/btrfs.nix
     ../../modules/system/hosts.nix
     ../../modules/system/kernel-desktop.nix
-    ../../modules/system/plymouth.nix
   ];
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;

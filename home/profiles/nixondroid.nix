@@ -5,14 +5,14 @@
   ...
 }: {
   imports = [
-    ./theme-cli.nix
     ../apps/bat.nix
     ../apps/fastfetch.nix
     ../apps/fish.nix
     ../apps/git.nix
     ../apps/neovim.nix
     ../apps/ssh.nix
-    ../profiles/fish/nixondroid.nix
+    ../themes/theme-cli.nix
+    ./fish/nixondroid.nix
   ];
 
   home.stateVersion = "24.05";

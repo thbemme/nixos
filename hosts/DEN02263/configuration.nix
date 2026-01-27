@@ -3,10 +3,10 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/profiles/default.nix
+    ../../modules/profiles/desktop-extras.nix
+    ../../modules/profiles/desktop-gnome.nix
+    ../../modules/profiles/desktop-minimal.nix
     ../../modules/profiles/gaming.nix
-    ../../modules/profiles/gnome.nix
-    ../../modules/profiles/gui-extras.nix
-    ../../modules/profiles/gui-minimal.nix
     ../../modules/profiles/home.nix
     ../../modules/profiles/security.nix
     ../../modules/profiles/work.nix

@@ -1,8 +1,5 @@
 {...}: {
   imports = [
-    ./base.nix
-    ./theme-cli.nix
-    ./theme-gui.nix
     ../apps/bat.nix
     ../apps/btop.nix
     ../apps/cava.nix
@@ -12,6 +9,9 @@
     ../apps/git.nix
     ../apps/neovim.nix
     ../apps/ssh.nix
-    ../profiles/fish/nixos.nix
+    ../themes/theme-cli.nix
+    ../themes/theme-gui.nix
+    ./base.nix
+    ./fish/nixos.nix
   ];
 }
