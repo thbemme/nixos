@@ -4,7 +4,6 @@ with pkgs; [
   curl
   dust
   eza
-  fastfetch
   fd
   findutils
   fzf

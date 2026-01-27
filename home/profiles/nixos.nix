@@ -7,6 +7,7 @@
     ../apps/btop.nix
     ../apps/cava.nix
     ../apps/dconf.nix
+    ../apps/fastfetch.nix
     ../apps/fish.nix
     ../apps/git.nix
     ../apps/neovim.nix

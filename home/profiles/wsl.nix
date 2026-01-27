@@ -6,6 +6,7 @@
     ../apps/dconf.nix
     ../apps/bat.nix
     ../apps/btop.nix
+    ../apps/fastfetch.nix
     ../apps/fish.nix
     ../apps/ghostty.nix
     ../apps/git.nix

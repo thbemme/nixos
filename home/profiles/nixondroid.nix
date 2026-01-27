@@ -7,6 +7,7 @@
   imports = [
     ./theme-cli.nix
     ../apps/bat.nix
+    ../apps/fastfetch.nix
     ../apps/fish.nix
     ../apps/git.nix
     ../apps/neovim.nix

@@ -7,6 +7,7 @@ in {
     ../apps/bat.nix
     ../apps/btop.nix
     ../apps/dconf.nix
+    ../apps/fastfetch.nix
     ../apps/fish.nix
     ../apps/git.nix
     ../apps/neovim.nix

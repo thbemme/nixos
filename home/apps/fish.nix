@@ -26,10 +26,13 @@
         uname -a
         # Show "ghostty +boo" animation if ghostty is installed and conditions are met
         if command -v ghostty >/dev/null 2>&1
+            if not set -q GHOSTTY_BOO
             and not set -q IN_NIX_SHELL
             and test (tput cols) -ge 100
             and test (tput lines) -ge 41
-            ghostty +boo
+              ghostty +boo
+              set -Ux GHOSTTY_BOO 1
+          end
         end
       '';
       fish_prompt = ''
