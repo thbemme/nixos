@@ -1,15 +1,26 @@
 {
+  config,
   lib,
   pkgs,
+  pkgs-unstable,
+  vars,
   ...
 }: {
-  programs.dms-shell = {
-    enable = true;
-    systemd = {
-      enable = true; # Systemd service for auto-start
-      restartIfChanged = true; # Auto-restart dms.service when dank-material-shell changes
-    };
+  #  programs.dms-shell = {
+  #    enable = true;
+  #    systemd = {
+  #      enable = true; # Systemd service for auto-start
+  #      restartIfChanged = true; # Auto-restart dms.service when dank-material-shell changes
+  #    };
+  #  };
+
+  users.users.${vars.user} = {
+    packages = with pkgs-unstable; [
+      dms-shell
+      quickshell
+    ];
   };
+
   systemd.user.services.niri-flake-polkit.enable = false;
 
   # Niri system requirements (compositor configured via home-manager)
