@@ -15,10 +15,23 @@
   #  };
 
   users.users.${vars.user} = {
-    packages = with pkgs-unstable; [
-      dms-shell
-      quickshell
-    ];
+    packages =
+      (with pkgs; [
+        cmus
+        fuzzel
+        galculator
+        matugen
+        quickshell
+        swaylock-effects
+        nautilus
+        xwayland-satellite
+        swayidle
+      ])
+      ++ (with pkgs-unstable; [
+        dgop
+        dms-shell
+        dsearch
+      ]);
   };
 
   systemd.user.services.niri-flake-polkit.enable = false;
@@ -58,4 +71,11 @@
   services.power-profiles-daemon.enable = true;
 
   programs.xwayland.enable = true;
+
+  # Additional home manager settings
+  home-manager = {
+    users = {
+      "${vars.user}" = import ../../home/profiles/desktop-niri.nix;
+    };
+  };
 }

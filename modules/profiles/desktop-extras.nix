@@ -15,6 +15,7 @@
           ];
         })
         _64gram
+        amberol
         cozy
         cryptomator
         easyeffects
@@ -28,7 +29,10 @@
         lyx
         nextcloud-client
         nixos-icons
+        oreo-cursors-plus
+        papirus-icon-theme
         pika-backup
+        remmina
         scribus
         stellarium
         tenacity

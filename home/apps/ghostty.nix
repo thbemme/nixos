@@ -3,7 +3,8 @@ _: {
   home = {
     file.".config/ghostty/config".text = ''
       adjust-cell-width = -10%
-      background-opacity = 0.850000
+      #background-opacity = 0.850000
+      window-decoration = none
       confirm-close-surface = false
       font-family = FiraCode Nerd Font
       font-size = 10

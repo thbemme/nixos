@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.firefox = {
     enable = true;
-    #package = pkgs.librewolf;
+    package = pkgs.librewolf;
     languagePacks = ["en-US" "de"];
     policies = {
       DisableTelemetry = true;

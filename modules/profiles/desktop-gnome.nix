@@ -12,11 +12,7 @@
   users.users.${vars.user} = {
     packages = with pkgs; [
       alsa-utils
-      amberol
       gnome-tweaks
-      oreo-cursors-plus
-      papirus-icon-theme
-      remmina
       seahorse
       soundconverter
     ];
