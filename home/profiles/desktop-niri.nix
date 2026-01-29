@@ -21,7 +21,7 @@
       selection-text = "f8f8f2ff";
       border = "bd93f9ff";
     };
-    settings.main.font = "FiraCode Nerd Font:size=8";
+    settings.main.font = "FiraCode Nerd Font:size=12";
   };
 
   programs.noctalia-shell = {
@@ -35,7 +35,7 @@
         monitors = [];
         density = "compact";
         showOutline = false;
-        showCapsule = false;
+        showCapsule = true;
         capsuleOpacity = 0.6;
         backgroundOpacity = 0.93;
         useSeparateOpacity = false;
@@ -71,7 +71,7 @@
           ];
           center = [
             {
-              colorizeIcons = false;
+              colorizeIcons = true;
               hideMode = "hidden";
               iconScale = 0.8;
               id = "Taskbar";
@@ -105,8 +105,8 @@
             }
             {
               blacklist = [];
-              colorizeIcons = false;
-              drawerEnabled = false;
+              colorizeIcons = true;
+              drawerEnabled = true;
               hidePassive = false;
               id = "Tray";
               pinned = [];
@@ -172,7 +172,10 @@
         screenOverrides = [];
       };
       general = {
-        avatarImage = "/home/riza/Pictures/blowfish-notext-square.png";
+        avatarImage = pkgs.fetchurl {
+          url = "https://xosc.org/gpn2019/img/puffy.png";
+          hash = "sha256-MBDNaoxf5mO0cBUNyc4jzTlllpx+STcv1CtmGzCWh2E=";
+        };
         dimmerOpacity = 0.2;
         showScreenCorners = false;
         forceBlackScreenCorners = false;
@@ -225,7 +228,7 @@
         showCalendarEvents = true;
         showCalendarWeather = true;
         analogClockInCalendar = false;
-        firstDayOfWeek = 0;
+        firstDayOfWeek = 1;
         hideWeatherTimezone = false;
         hideWeatherCityName = false;
       };
@@ -248,7 +251,7 @@
       wallpaper = {
         enabled = true;
         overviewEnabled = false;
-        directory = "/home/riza/Pictures/Wallpapers";
+        directory = "kbnetcloud/Wallpapers";
         monitorDirectories = [];
         enableMultiMonitorDirectories = false;
         showHiddenFiles = false;
@@ -263,7 +266,7 @@
         randomIntervalSec = 300;
         transitionDuration = 1500;
         transitionType = "random";
-        transitionEdgeSmoothness = 5.0e-2;
+        transitionEdgeSmoothness = 0.5;
         panelPosition = "follow_bar";
         hideWallpaperFilenames = false;
         useWallhaven = false;
@@ -553,7 +556,7 @@
           }
           {
             enabled = true;
-            id = "code";
+            id = "fuzzel";
           }
         ];
         enableUserTheming = false;
@@ -636,6 +639,8 @@
       hotkey-overlay.skip-at-startup = true;
 
       input = {
+        focus-follows-mouse.enable = true;
+        workspace-auto-back-and-forth = true;
         keyboard = {
           xkb = {
             layout = "de";
@@ -661,17 +666,34 @@
         };
 
         power-key-handling.enable = false;
-        workspace-auto-back-and-forth = false;
       };
 
       gestures.hot-corners.enable = false;
 
       binds = with config.lib.niri.actions; {
+        "Mod+Left".action = focus-column-left;
+        "Mod+Down".action = focus-window-down;
+        "Mod+Up".action = focus-window-up;
+        "Mod+Right".action = focus-column-right;
+
+        "Mod+Ctrl+Left".action = move-column-left;
+        "Mod+Ctrl+Down".action = move-window-down;
+        "Mod+Ctrl+Up".action = move-window-up;
+        "Mod+Ctrl+Right".action = move-column-right;
+
+        "Mod+WheelScrollDown".action = focus-column-right;
+        "Mod+WheelScrollUp".action = focus-column-left;
+        "Mod+Ctrl+WheelScrollDown".action = move-column-right;
+        "Mod+Ctrl+WheelScrollUp".action = move-column-left;
+
+        "Mod+Minus".action = switch-preset-window-width;
+        "Mod+Shift+Minus".action = switch-preset-window-height;
+
         "Mod+Return".action = spawn "ghostty";
         "Mod+b".action = spawn "librewolf";
         "Menu".action = spawn "fuzzel";
         "Mod+d".action = spawn "fuzzel";
-        "Mod+Alt+l".action = spawn "swaylock";
+        "Mod+Alt+l".action = spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock";
 
         "Mod+q".action = close-window;
         "Mod+t".action = toggle-window-floating;
@@ -679,7 +701,7 @@
         "Mod+f".action = maximize-column;
         "Mod+Shift+f".action = expand-column-to-available-width;
         "Mod+Ctrl+f".action = fullscreen-window;
-
+        "Mod+Shift+h".action = show-hotkey-overlay;
         "Mod+Escape" = {
           action = toggle-keyboard-shortcuts-inhibit;
           allow-inhibiting = false;
@@ -715,7 +737,7 @@
 
       window-rules = [
         {
-          opacity = 0.95;
+          #opacity = 0.95;
         }
         {
           matches = [{app-id = "com.mitchellh.ghostty";}];
@@ -726,8 +748,14 @@
           matches = [{app-id = "librewolf";}];
           open-on-workspace = "browser";
           open-maximized = true;
+          opacity = 0.95;
         }
       ];
+
+      cursor = {
+        theme = "oreo_purple_cursors";
+        hide-when-typing = true;
+      };
 
       layout = {
         gaps = 1;
@@ -748,7 +776,7 @@
         preset-window-heights = [
           {proportion = 0.33333;}
           {proportion = 0.5;}
-          {proportion = 0.66667;}
+          {proportion = 1.0;}
         ];
 
         focus-ring = {

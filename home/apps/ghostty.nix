@@ -2,10 +2,10 @@ _: {
   # Ensure Home Manager manages the config file
   home = {
     file.".config/ghostty/config".text = ''
-      adjust-cell-width = -10%
       #background-opacity = 0.850000
-      window-decoration = none
+      adjust-cell-width = -10%
       confirm-close-surface = false
+      focus-follows-mouse = true
       font-family = FiraCode Nerd Font
       font-size = 10
       font-style-bold = Medium
@@ -26,6 +26,7 @@ _: {
       quit-after-last-window-closed = true
       shell-integration = fish
       theme = Dracula
+      window-decoration = none
     '';
     sessionVariables = {
       TERMINAL = "ghostty";

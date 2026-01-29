@@ -18,8 +18,9 @@
     packages =
       (with pkgs; [
         cmus
-        #galculator
+        galculator
         nautilus
+        tlp
         xwayland-satellite
       ])
       ++ (with pkgs-unstable; [
