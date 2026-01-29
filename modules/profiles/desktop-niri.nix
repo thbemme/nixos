@@ -19,7 +19,7 @@
       (with pkgs; [
         cmus
         fuzzel
-        galculator
+        #galculator
         matugen
         quickshell
         swaylock-effects
@@ -42,6 +42,10 @@
   services.gnome.gnome-keyring.enable = true;
   hardware.graphics.enable = true;
   security.pam.services.swaylock = {};
+
+  # QT theming
+  qt.enable = true;
+  qt.platformTheme = "qt5ct";
 
   # greetd display manager
   services.greetd = {
