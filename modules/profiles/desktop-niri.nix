@@ -18,20 +18,12 @@
     packages =
       (with pkgs; [
         cmus
-        fuzzel
         #galculator
-        matugen
-        quickshell
-        swaylock-effects
         nautilus
         xwayland-satellite
-        swayidle
       ])
       ++ (with pkgs-unstable; [
-        dgop
-        dms-shell
-        dsearch
-      ]);
+        ]);
   };
 
   systemd.user.services.niri-flake-polkit.enable = false;
@@ -65,10 +57,6 @@
   };
 
   services.udisks2.enable = true;
-
-  programs.niri = {
-    enable = true;
-  };
 
   # DMS dependencies
   services.accounts-daemon.enable = true;
