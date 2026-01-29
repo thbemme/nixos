@@ -6,8 +6,9 @@
     ../../modules/hardware/msib450mpro.nix
     ../../modules/profiles/default.nix
     ../../modules/profiles/desktop-extras.nix
-    ../../modules/profiles/desktop-gnome.nix
+    #../../modules/profiles/desktop-gnome.nix
     ../../modules/profiles/desktop-minimal.nix
+    ../../modules/profiles/desktop-niri.nix
     ../../modules/profiles/dev.nix
     ../../modules/profiles/gaming.nix
     ../../modules/profiles/home.nix
