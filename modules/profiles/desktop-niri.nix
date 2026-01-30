@@ -17,10 +17,14 @@
   users.users.${vars.user} = {
     packages =
       (with pkgs; [
+        brightnessctl
         cmus
         galculator
+        gpu-screen-recorder
         nautilus
+        power-profiles-daemon
         tlp
+        wlsunset
         xwayland-satellite
       ])
       ++ (with pkgs-unstable; [
@@ -38,7 +42,8 @@
 
   # QT theming
   qt.enable = true;
-  qt.platformTheme = "qt5ct";
+  qt.platformTheme = "gnome";
+  qt.style = "adwaita-dark";
 
   # greetd display manager
   services.greetd = {

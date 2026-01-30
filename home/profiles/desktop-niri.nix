@@ -1,7 +1,9 @@
 {
   config,
   inputs,
+  lib,
   pkgs,
+  system,
   vars,
   ...
 }: {
@@ -9,6 +11,63 @@
     inputs.noctalia.homeModules.default
     inputs.niri.homeModules.niri
   ];
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
+
+  services.swayidle = let
+    niri = "${pkgs.niri}/bin/niri";
+    noctalia-shell = "${inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/noctalia-shell";
+    lock-cmd = "${noctalia-shell} ipc call lockScreen lock";
+    monitor-on = "${niri} msg action power-on-monitors";
+    monitor-off = "${niri} msg action power-off-monitors";
+    lower-brightness = "${pkgs.brightnessctl}/bin/brightnessctl -s set 10";
+    restore-brightness = "${pkgs.brightnessctl}/bin/brightnessctl -r";
+    suspend = "${noctalia-shell} ipc call sessionMenu lockAndSuspend";
+    suspend-battery = "systemd-ac-power || ${suspend}";
+  in {
+    enable = true;
+    events = [
+      {
+        event = "before-sleep";
+        command = lock-cmd;
+      }
+      {
+        event = "after-resume";
+        command = monitor-on;
+      }
+      {
+        event = "lock";
+        command = lock-cmd;
+      }
+    ];
+    timeouts = [
+      {
+        timeout = 60;
+        command = lower-brightness;
+        resumeCommand = restore-brightness;
+      }
+      {
+        timeout = 300;
+        command = monitor-off;
+      }
+      {
+        timeout = 1800;
+        command = lock-cmd;
+      }
+      {
+        timeout = 600;
+        command = suspend-battery;
+      }
+      {
+        timeout = 3600;
+        command = suspend;
+      }
+    ];
+  };
 
   programs.fuzzel = {
     enable = true;
@@ -27,6 +86,24 @@
   programs.noctalia-shell = {
     enable = true;
     systemd.enable = true;
+    colors = {
+      mPrimary = "#bd93f9";
+      mOnPrimary = "#282A36";
+      mSecondary = "#ff79c6";
+      mOnSecondary = "#4e1d32";
+      mTertiary = "#8be9fd";
+      mOnTertiary = "#003543";
+      mError = "#FF5555";
+      mOnError = "#282A36";
+      mSurface = "#282A36";
+      mOnSurface = "#bd93f9";
+      mSurfaceVariant = "#44475A";
+      mOnSurfaceVariant = "#d6d8e0";
+      mOutline = "#5a5e77";
+      mShadow = "#282A36";
+      mHover = "#8be9fd";
+      mOnHover = "#003543";
+    };
 
     settings = {
       bar = {
@@ -51,9 +128,9 @@
           left = [
             {
               colorizeDistroLogo = false;
-              colorizeSystemIcon = "none";
+              colorizeSystemIcon = "primary";
               customIconPath = "";
-              enableColorization = false;
+              enableColorization = true;
               icon = "noctalia";
               id = "ControlCenter";
               useDistroLogo = true;
@@ -160,12 +237,16 @@
             }
             {
               customFont = "";
-              formatHorizontal = "ddd dd.MM. HH:mm:ss";
+              formatHorizontal = "ddd dd.MM. HH:mm";
               formatVertical = "HH mm - dd MM";
               id = "Clock";
               tooltipFormat = "HH:mm ddd, MMM dd";
               useCustomFont = false;
               usePrimaryColor = false;
+            }
+            {
+              colorName = "primary";
+              id = "SessionMenu";
             }
           ];
         };
@@ -516,7 +597,6 @@
       };
       colorSchemes = {
         useWallpaperColors = false;
-        predefinedScheme = "Dracula";
         darkMode = true;
         schedulingMode = "off";
         manualSunrise = "06:30";
@@ -528,19 +608,7 @@
         activeTemplates = [
           {
             enabled = true;
-            id = "btop";
-          }
-          {
-            enabled = true;
-            id = "cava";
-          }
-          {
-            enabled = true;
             id = "gtk";
-          }
-          {
-            enabled = true;
-            id = "ghostty";
           }
           {
             enabled = true;
@@ -630,6 +698,7 @@
         "MOZ_WEBRENDER" = "1";
         "QT_WAYLAND_DISABLE_WINDOWDECORATION" = "1";
         "GDK_BACKEND" = "wayland";
+        "QT_QPA_PLATFORMTHEME" = "qt6ct";
       };
 
       overview.workspace-shadow.enable = false;
@@ -685,6 +754,8 @@
         "Mod+WheelScrollUp".action = focus-column-left;
         "Mod+Ctrl+WheelScrollDown".action = move-column-right;
         "Mod+Ctrl+WheelScrollUp".action = move-column-left;
+        "Mod+Shift+WheelScrollDown".action = focus-workspace-down;
+        "Mod+Shift+WheelScrollUp".action = focus-workspace-up;
 
         "Mod+Minus".action = switch-preset-window-width;
         "Mod+Shift+Minus".action = switch-preset-window-height;
@@ -692,8 +763,8 @@
         "Mod+Return".action = spawn "ghostty";
         "Mod+b".action = spawn "librewolf";
         "Menu".action = spawn "fuzzel";
-        "Mod+d".action = spawn "fuzzel";
-        "Mod+Alt+l".action = spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock";
+        "Mod+Space".action = spawn "fuzzel";
+        "Mod+Alt+l".action = spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock";
 
         "Mod+q".action = close-window;
         "Mod+t".action = toggle-window-floating;
@@ -748,7 +819,6 @@
           matches = [{app-id = "librewolf";}];
           open-on-workspace = "browser";
           open-maximized = true;
-          opacity = 0.95;
         }
       ];
 
