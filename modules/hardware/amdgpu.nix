@@ -23,6 +23,7 @@
     blender-hip
     corectrl
   ];
+  programs.corectrl.enable = true;
 
   # Corectrl without password
   security.polkit = {

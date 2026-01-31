@@ -6,18 +6,9 @@
   vars,
   ...
 }: {
-  #  programs.dms-shell = {
-  #    enable = true;
-  #    systemd = {
-  #      enable = true; # Systemd service for auto-start
-  #      restartIfChanged = true; # Auto-restart dms.service when dank-material-shell changes
-  #    };
-  #  };
-
   users.users.${vars.user} = {
     packages =
       (with pkgs; [
-        gvfs
         power-profiles-daemon
         tlp
       ])
@@ -32,12 +23,9 @@
   programs.dconf.enable = true;
   services.gnome.gnome-keyring.enable = true;
   hardware.graphics.enable = true;
-  security.pam.services.swaylock = {};
 
   # QT theming
   qt.enable = true;
-  qt.platformTheme = "gnome";
-  qt.style = "adwaita-dark";
 
   # greetd display manager
   services.greetd = {
@@ -47,6 +35,7 @@
       user = "greeter";
     };
   };
+
   services.displayManager.sddm.enable = lib.mkForce false;
 
   # XDG portals
@@ -56,8 +45,13 @@
     config.common.default = "*"; # Use first available portal implementation
   };
 
+  # Virtual file systems for Nautilus
+  services.gvfs.enable = true;
+
+  # D-Bus service for power management
   services.upower.enable = true;
 
+  # X server for interfacing X11 apps with the Wayland protocol
   programs.xwayland.enable = true;
 
   # Additional home manager settings

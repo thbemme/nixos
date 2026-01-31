@@ -14,18 +14,36 @@
   ];
 
   home.packages = with pkgs; [
+    adw-gtk3
     brightnessctl
     cmus
     galculator
     gpu-screen-recorder
+    kdePackages.qt6ct
     mission-center
     nautilus
     nirius
+    nwg-look
     pwvucontrol
     wl-clipboard-rs
     wlsunset
     xwayland-satellite
   ];
+
+  programs.fish = {
+    shellInit = ''
+      set -gx QT_QPA_PLATFORM "wayland";
+      set -gx XDG_SESSION_TYPE "wayland";
+      set -gx NIXOS_OZONE_WL "1";
+      set -gx MOZ_ENABLE_WAYLAND "1";
+      set -gx MOZ_WEBRENDER "1";
+      set -gx QT_WAYLAND_DISABLE_WINDOWDECORATION "1";
+      set -gx GDK_BACKEND "wayland";
+      set -gx QT_QPA_PLATFORMTHEME "qt6ct";
+    '';
+  };
+
+  gtk.theme.name = "adw-gtk3";
 
   services.gnome-keyring.enable = true;
   xdg.portal = {
@@ -93,10 +111,6 @@
       {
         timeout = 1800;
         command = lock-cmd;
-      }
-      {
-        timeout = 600;
-        command = suspend-battery;
       }
       {
         timeout = 3600;
@@ -203,7 +217,7 @@
               compactShowAlbumArt = true;
               compactShowVisualizer = false;
               hideMode = "hidden";
-              hideWhenIdle = false;
+              hideWhenIdle = true;
               id = "MediaMini";
               maxWidth = 145;
               panelShowAlbumArt = true;
@@ -257,7 +271,7 @@
               hideIfNotDetected = true;
               id = "Battery";
               showNoctaliaPerformance = false;
-              showPowerProfiles = false;
+              showPowerProfiles = true;
               warningThreshold = 20;
             }
             {
@@ -616,6 +630,7 @@
       };
       colorSchemes = {
         useWallpaperColors = false;
+        predefinedScheme = "Dracula";
         darkMode = true;
         schedulingMode = "off";
         manualSunrise = "06:30";
@@ -677,17 +692,6 @@
     package = pkgs.niri;
 
     settings = {
-      environment = {
-        "QT_QPA_PLATFORM" = "wayland";
-        "XDG_SESSION_TYPE" = "wayland";
-        "NIXOS_OZONE_WL" = "1";
-        "MOZ_ENABLE_WAYLAND" = "1";
-        "MOZ_WEBRENDER" = "1";
-        "QT_WAYLAND_DISABLE_WINDOWDECORATION" = "1";
-        "GDK_BACKEND" = "wayland";
-        "QT_QPA_PLATFORMTHEME" = "qt6ct";
-      };
-
       overview.workspace-shadow.enable = false;
       debug.honor-xdg-activation-with-invalid-serial = [];
       prefer-no-csd = true;
@@ -725,6 +729,13 @@
       };
 
       gestures.hot-corners.enable = false;
+
+      spawn-at-startup = [
+        {command = ["librewolf"];}
+        {command = ["ghostty"];}
+        {command = ["nextcloud" "--background"];}
+        {command = ["corectrl" "--minimize-systray"];}
+      ];
 
       binds = with config.lib.niri.actions; {
         "Mod+Return".action = spawn "ghostty";
@@ -851,11 +862,6 @@
           opacity = 0.8;
         }
         {
-          matches = [{app-id = "librewolf";}];
-          open-on-workspace = "browser";
-          open-maximized = true;
-        }
-        {
           matches = [
             {
               app-id = "^librewolf$";
@@ -863,6 +869,25 @@
             }
           ];
           open-floating = true;
+        }
+        {
+          matches = [{app-id = "^librewolf$";}];
+          open-maximized = true;
+        }
+        {
+          matches = [{app-id = "^com.nextcloud.desktopclient.nextcloud$";}];
+          open-floating = true;
+        }
+        {
+          matches = [
+            {app-id = "^steam_app_default$";}
+            {app-id = "^net.lutris.Lutris$";}
+          ];
+          open-floating = false;
+        }
+        {
+          matches = [{app-id = "^steam_app_.*$";}];
+          open-fullscreen = true;
         }
         {
           matches = [
@@ -876,6 +901,14 @@
             y = 10;
             relative-to = "bottom-right";
           };
+        }
+        {
+          matches = [
+            {app-id = "codium";}
+            {app-id = "VSCodium";}
+            {app-id = "nautilus";}
+          ];
+          opacity = 0.9;
         }
       ];
 
