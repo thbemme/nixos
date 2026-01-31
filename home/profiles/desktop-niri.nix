@@ -10,12 +10,48 @@
   imports = [
     inputs.noctalia.homeModules.default
     inputs.niri.homeModules.niri
+    ../apps/vicinae.nix
   ];
 
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
+  home.packages = with pkgs; [
+    brightnessctl
+    cmus
+    galculator
+    gpu-screen-recorder
+    mission-center
+    nautilus
+    nirius
+    pwvucontrol
+    wl-clipboard-rs
+    wlsunset
+    xwayland-satellite
+  ];
+
+  services.gnome-keyring.enable = true;
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    config.niri = {
+      default = [
+        "gtk"
+        "gnome"
+      ];
+      "org.freedesktop.impl.portal.Access" = ["gtk"];
+      "org.freedesktop.impl.portal.Notification" = ["gtk"];
+      "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
+      "org.freedesktop.impl.portal.FileChooser" = ["gtk"];
+      "org.freedesktop.impl.portal.ScreenCast" = ["xdg-desktop-portal-gnome"];
+      "org.freedesktop.impl.portal.Screenshot" = ["xdg-desktop-portal-gnome"];
     };
+    extraPortals = [
+      pkgs.gnome-keyring
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-gnome
+    ];
+  };
+
+  services.udiskie = {
+    enable = true;
   };
 
   services.swayidle = let
@@ -69,19 +105,19 @@
     ];
   };
 
-  programs.fuzzel = {
-    enable = true;
-    settings.colors = {
-      background = "282a36dd";
-      text = "f8f8f2ff";
-      match = "8be9fdff";
-      selection-match = "8be9fdff";
-      selection = "44475add";
-      selection-text = "f8f8f2ff";
-      border = "bd93f9ff";
-    };
-    settings.main.font = "FiraCode Nerd Font:size=12";
-  };
+  # programs.fuzzel = {
+  #   enable = true;
+  #   settings.colors = {
+  #     background = "282a36dd";
+  #     text = "f8f8f2ff";
+  #     match = "8be9fdff";
+  #     selection-match = "8be9fdff";
+  #     selection = "44475add";
+  #     selection-text = "f8f8f2ff";
+  #     border = "bd93f9ff";
+  #   };
+  #   settings.main.font = "FiraCode Nerd Font:size=12";
+  # };
 
   programs.noctalia-shell = {
     enable = true;
@@ -141,7 +177,7 @@
             }
             {
               colorName = "primary";
-              hideWhenIdle = false;
+              hideWhenIdle = true;
               id = "AudioVisualizer";
               width = 200;
             }
@@ -190,7 +226,7 @@
             }
             {
               compactMode = false;
-              diskPath = "/persist";
+              diskPath = "/";
               id = "SystemMonitor";
               showCpuTemp = true;
               showCpuUsage = false;
@@ -213,10 +249,6 @@
               displayMode = "alwaysShow";
               id = "Volume";
               middleClickCommand = "pwvucontrol || pavucontrol";
-            }
-            {
-              displayMode = "alwaysShow";
-              id = "Brightness";
             }
             {
               deviceNativePath = "";
@@ -472,19 +504,6 @@
       };
       dock = {
         enabled = false;
-        position = "left";
-        displayMode = "auto_hide";
-        backgroundOpacity = 1;
-        floatingRatio = 1;
-        size = 1;
-        onlySameOutput = true;
-        monitors = [];
-        pinnedApps = [];
-        colorizeIcons = false;
-        pinnedStatic = false;
-        inactiveIndicators = false;
-        deadOpacity = 0.6;
-        animationSpeed = 1;
       };
       network = {
         wifiEnabled = true;
@@ -570,7 +589,7 @@
       };
       osd = {
         enabled = true;
-        location = "top_right";
+        location = "bottom_center";
         autoHideMs = 2000;
         overlayLayer = true;
         backgroundOpacity = 1;
@@ -622,10 +641,6 @@
             enabled = true;
             id = "qt";
           }
-          {
-            enabled = true;
-            id = "fuzzel";
-          }
         ];
         enableUserTheming = false;
       };
@@ -655,34 +670,6 @@
         monitorWidgets = [];
       };
     };
-  };
-
-  home.packages = [
-    pkgs.nirius
-    pkgs.wl-clipboard-rs
-  ];
-
-  services.gnome-keyring.enable = true;
-  xdg.portal = {
-    enable = true;
-    xdgOpenUsePortal = true;
-    config.niri = {
-      default = [
-        "gtk"
-        "gnome"
-      ];
-      "org.freedesktop.impl.portal.Access" = ["gtk"];
-      "org.freedesktop.impl.portal.Notification" = ["gtk"];
-      "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
-      "org.freedesktop.impl.portal.FileChooser" = ["gtk"];
-      "org.freedesktop.impl.portal.ScreenCast" = ["xdg-desktop-portal-gnome"];
-      "org.freedesktop.impl.portal.Screenshot" = ["xdg-desktop-portal-gnome"];
-    };
-    extraPortals = [
-      pkgs.gnome-keyring
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-gnome
-    ];
   };
 
   programs.niri = {
@@ -725,7 +712,7 @@
           tap = true;
           dwt = true;
           dwtp = true;
-          natural-scroll = false;
+          natural-scroll = true;
           accel-profile = "flat";
         };
 
@@ -740,15 +727,11 @@
       gestures.hot-corners.enable = false;
 
       binds = with config.lib.niri.actions; {
-        "Mod+Left".action = focus-column-left;
-        "Mod+Down".action = focus-window-down;
-        "Mod+Up".action = focus-window-up;
-        "Mod+Right".action = focus-column-right;
-
-        "Mod+Ctrl+Left".action = move-column-left;
-        "Mod+Ctrl+Down".action = move-window-down;
-        "Mod+Ctrl+Up".action = move-window-up;
-        "Mod+Ctrl+Right".action = move-column-right;
+        "Mod+Return".action = spawn "ghostty";
+        "Mod+b".action = spawn "librewolf";
+        "Menu".action = spawn "vicinae" "toggle";
+        "Mod+Space".action = spawn "vicinae" "toggle";
+        "Mod+Alt+l".action = spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock";
 
         "Mod+WheelScrollDown".action = focus-column-right;
         "Mod+WheelScrollUp".action = focus-column-left;
@@ -760,19 +743,39 @@
         "Mod+Minus".action = switch-preset-window-width;
         "Mod+Shift+Minus".action = switch-preset-window-height;
 
-        "Mod+Return".action = spawn "ghostty";
-        "Mod+b".action = spawn "librewolf";
-        "Menu".action = spawn "fuzzel";
-        "Mod+Space".action = spawn "fuzzel";
-        "Mod+Alt+l".action = spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock";
-
         "Mod+q".action = close-window;
         "Mod+t".action = toggle-window-floating;
         "Mod+Ctrl+t".action = switch-focus-between-floating-and-tiling;
         "Mod+f".action = maximize-column;
         "Mod+Shift+f".action = expand-column-to-available-width;
         "Mod+Ctrl+f".action = fullscreen-window;
-        "Mod+Shift+h".action = show-hotkey-overlay;
+
+        "Mod+Left".action = focus-column-left;
+        "Mod+Right".action = focus-column-right;
+        "Mod+Up".action = focus-window-or-workspace-up;
+        "Mod+Down".action = focus-window-or-workspace-down;
+
+        "Mod+Shift+Left".action = move-column-left;
+        "Mod+Shift+Right".action = move-column-right;
+        "Mod+Shift+Up".action = move-window-up;
+        "Mod+Shift+Down".action = move-window-down;
+
+        "Mod+Ctrl+Left".action = focus-monitor-left;
+        "Mod+Ctrl+Right".action = focus-monitor-right;
+        "Mod+Ctrl+Up".action = focus-monitor-up;
+        "Mod+Ctrl+Down".action = focus-monitor-down;
+
+        "Mod+Shift+Ctrl+Left".action = move-column-to-monitor-left;
+        "Mod+Shift+Ctrl+Right".action = move-column-to-monitor-right;
+        "Mod+Shift+Ctrl+Up".action = move-column-to-workspace-up;
+        "Mod+Shift+Ctrl+Down".action = move-column-to-workspace-down;
+
+        "Mod+Home".action = focus-column-first;
+        "Mod+End".action = focus-column-last;
+        "Mod+Alt+Left".action = consume-or-expel-window-left;
+        "Mod+Alt+Right".action = consume-or-expel-window-right;
+        "Mod+y".action = toggle-column-tabbed-display;
+
         "Mod+Escape" = {
           action = toggle-keyboard-shortcuts-inhibit;
           allow-inhibiting = false;
@@ -800,10 +803,42 @@
           action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
           allow-when-locked = true;
         };
+        "f9" = {
+          action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
+          allow-when-locked = true;
+        };
         "Mod+MouseForward" = {
           action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
           allow-when-locked = true;
         };
+        XF86AudioPlay = {
+          action = spawn "playerctl play-pause";
+          allow-when-locked = true;
+        };
+        XF86AudioStop = {
+          action = spawn "playerctl stop";
+          allow-when-locked = true;
+        };
+        XF86AudioPrev = {
+          action = spawn "playerctl previous";
+          allow-when-locked = true;
+        };
+        XF86AudioNext = {
+          action = spawn "playerctl next";
+          allow-when-locked = true;
+        };
+
+        XF86MonBrightnessUp = {
+          action = spawn "brightnessctl" "--class=backlight" "set" "+10%";
+          allow-when-locked = true;
+        };
+        XF86MonBrightnessDown = {
+          action = spawn "brightnessctl" "--class=backlight" "set" "10%-";
+          allow-when-locked = true;
+        };
+        "Print".action.screenshot = {};
+        "Ctrl+Print".action.screenshot-screen = {};
+        "Alt+Print".action.screenshot-window = {};
       };
 
       window-rules = [
@@ -819,6 +854,28 @@
           matches = [{app-id = "librewolf";}];
           open-on-workspace = "browser";
           open-maximized = true;
+        }
+        {
+          matches = [
+            {
+              app-id = "^librewolf$";
+              title = "^Picture-in-Picture$";
+            }
+          ];
+          open-floating = true;
+        }
+        {
+          matches = [
+            {
+              app-id = "steam";
+              title = "^notificationtoasts_\\d+_desktop$";
+            }
+          ];
+          default-floating-position = {
+            x = 10;
+            y = 10;
+            relative-to = "bottom-right";
+          };
         }
       ];
 
@@ -852,7 +909,7 @@
         focus-ring = {
           enable = true;
           width = 2;
-          active.color = "#7fc8ff";
+          active.color = "#bd93f9";
           inactive.color = "#505050";
         };
 

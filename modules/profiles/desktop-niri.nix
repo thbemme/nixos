@@ -17,15 +17,9 @@
   users.users.${vars.user} = {
     packages =
       (with pkgs; [
-        brightnessctl
-        cmus
-        galculator
-        gpu-screen-recorder
-        nautilus
+        gvfs
         power-profiles-daemon
         tlp
-        wlsunset
-        xwayland-satellite
       ])
       ++ (with pkgs-unstable; [
         ]);
@@ -62,11 +56,7 @@
     config.common.default = "*"; # Use first available portal implementation
   };
 
-  services.udisks2.enable = true;
-
-  # DMS dependencies
-  services.accounts-daemon.enable = true;
-  services.power-profiles-daemon.enable = true;
+  services.upower.enable = true;
 
   programs.xwayland.enable = true;
 
