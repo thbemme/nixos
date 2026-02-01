@@ -14,17 +14,15 @@
   ];
 
   home.packages = with pkgs; [
-    adw-gtk3
     brightnessctl
     cmus
-    galculator
     gpu-screen-recorder
     kdePackages.qt6ct
     mission-center
     nautilus
     nirius
-    nwg-look
     pwvucontrol
+    qalculate-gtk
     wl-clipboard-rs
     wlsunset
     xwayland-satellite
@@ -726,6 +724,9 @@
         };
 
         power-key-handling.enable = false;
+
+        # Disable caps lock
+        keyboard.xkb.options = "caps:none";
       };
 
       gestures.hot-corners.enable = false;
@@ -875,7 +876,10 @@
           open-maximized = true;
         }
         {
-          matches = [{app-id = "^com.nextcloud.desktopclient.nextcloud$";}];
+          matches = [
+            {app-id = "^com.nextcloud.desktopclient.nextcloud$";}
+            {app-id = "qalculate-gtk";}
+          ];
           open-floating = true;
         }
         {
@@ -906,9 +910,19 @@
           matches = [
             {app-id = "codium";}
             {app-id = "VSCodium";}
-            {app-id = "nautilus";}
           ];
-          opacity = 0.9;
+          open-maximized = true;
+        }
+
+        {
+          matches = [
+            {app-id = "codium";}
+            {app-id = "nautilus";}
+            {app-id = "qalculate-gtk";}
+            {app-id = "VSCodium";}
+          ];
+          draw-border-with-background = false;
+          opacity = 0.95;
         }
       ];
 

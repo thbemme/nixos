@@ -21,6 +21,7 @@
         easyeffects
         ffmpeg-full
         freecad
+        gedit
         gimp3-with-plugins
         handbrake
         hexchat
