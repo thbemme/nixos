@@ -35,15 +35,16 @@ The setup is **modular**, **reproducible**, and **secure**, with support for **G
  | [LED control](modules/hardware/led.nix) | Control LED colors                           |
 
 ### Profiles
- | Module                                        | Description                                  |
- |-----------------------------------------------|----------------------------------------------|
- | [Development](modules/profiles/dev.nix)       | Thonny, Android Studio (unstable)            |
- | [Gaming](modules/profiles/gaming.nix)         | Lutris, Steam, Wine                          |
- | [GNOME](modules/profiles/desktop-gnome.nix)           | GNOME desktop environment with Dracula theme |
- | [GUI](modules/profiles/desktop-minimal.nix)       | Minimal GUI applications                     |
- | [GUI Extras](modules/profiles/desktop-extras.nix) | Additional GUI applications                  |
- | [Security](modules/profiles/security.nix)     | Nmap, Wireshark, and auditing tools          |
- | [Work](modules/profiles/work.nix)             | Citrix Client, Alpaca Proxy                  |
+ | Module                                                     | Description                                  |
+ |-----------------------------------------------|-----------------------------------------------------------|
+ | [Development](modules/profiles/dev.nix)                    | Thonny, Android Studio (unstable)            |
+ | [Gaming](modules/profiles/gaming.nix)                      | Lutris, Steam, Wine                          |
+ | [GNOME](modules/profiles/desktop-gnome.nix)                | GNOME desktop environment with Dracula theme |
+ | [GUI Extras](modules/profiles/desktop-extras.nix)          | Additional GUI applications                  |
+ | [GUI](modules/profiles/desktop-minimal.nix)                | Minimal GUI applications                     |
+ | [Niri + Noctalia Shell](modules/profiles/desktop-niri.nix) | Niri + Noctalia with Dracula theme           |
+ | [Security](modules/profiles/security.nix)                  | Nmap, Wireshark, and auditing tools          |
+ | [Work](modules/profiles/work.nix)                          | Citrix Client, Alpaca Proxy                  |
 
 ### Services
  | Module                                        | Description                                     |
@@ -68,6 +69,7 @@ The setup is **modular**, **reproducible**, and **secure**, with support for **G
  | [Ghostty](home/apps/ghostty.nix)     | Customized Ghostty terminal configuration  |
  | [Librewolf](home/apps/librewolf.nix) | Customized Librewolf browser configuration |
  | [NeoVim](home/apps/neovim.nix)       | Customized NeoVim configuration            |
+ | [VSCodium](home/apps/codium.nix)     | Customized VSCodium configuration          |
 
 ---
 
@@ -211,7 +213,8 @@ nix-on-droid switch -F ~/git/nixos/
 Requirements:
 Any GNU/Linux with native package installed:
 
-- [Gnome Desktop Environment](https://www.gnome.org/)
+- [Gnome Desktop Environment](https://www.gnome.org/) or
+- [Niri](https://www.niri.org/) and [Noctalia-shell](https://github.com/noctalia-dev/noctalia-shell)
 - [Ghostty](https://ghostty.org/docs/install/binary)
 - SELinux disabled/permissive
 
