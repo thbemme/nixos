@@ -1,4 +1,5 @@
 {
+  inputs,
   lib,
   pkgs,
   pkgs-unstable,
@@ -6,13 +7,10 @@
   ...
 }: {
   users.users.${vars.user} = {
-    packages =
-      (with pkgs; [
-        power-profiles-daemon
-        tlp
-      ])
-      ++ (with pkgs-unstable; [
-        ]);
+    packages = with pkgs; [
+      power-profiles-daemon
+      tlp
+    ];
   };
 
   systemd.user.services.niri-flake-polkit.enable = false;
@@ -26,13 +24,44 @@
   # QT theming
   qt.enable = true;
 
-  # greetd display manager
-  services.greetd = {
+  # # greetd display manager
+  # services.greetd = {
+  #   enable = true;
+  #   settings.default_session = {
+  #     command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --asterisks --asterisks-char ● --theme 'time=lightred;container=black;border=grey;text=white;greet=lightblue;prompt=green;input=lightgreen;action=lightblue;button=yellow;' --cmd niri-session";
+  #     user = "greeter";
+  #   };
+  # };
+
+  programs.regreet = let
+    background =
+      pkgs.fetchurl
+      {
+        url = "https://i.redd.it/pivo53w9nyd51.jpg";
+        hash = "sha256-5QjFGb1wO5qfWimRYIAF6BEesxrsZg1AXC3MhKutcEg=";
+      };
+  in {
     enable = true;
-    settings.default_session = {
-      command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd niri-session";
-      user = "greeter";
+    settings = {
+      background = {
+        path = background;
+        fit = "Cover";
+      };
+      GTK = {
+        application_prefer_dark_theme = true;
+      };
     };
+    theme = {
+      package = pkgs.dracula-theme;
+      name = "Dracula";
+    };
+    font = {
+      size = 10;
+    };
+  };
+
+  programs.niri = {
+    enable = true;
   };
 
   services.displayManager.sddm.enable = lib.mkForce false;

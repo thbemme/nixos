@@ -210,6 +210,22 @@
               smartWidth = true;
               titleWidth = 120;
             }
+            {
+              characterCount = 2;
+              emptyColor = "primary";
+              enableScrollWheel = true;
+              focusedColor = "primary";
+              followFocusedScreen = false;
+              groupedBorderOpacity = 1;
+              hideUnoccupied = true;
+              id = "Workspace";
+              labelMode = "none";
+              occupiedColor = "secondary";
+              reverseScroll = false;
+              showApplications = false;
+              showBadge = true;
+              showLabelsOnlyWhenOccupied = true;
+            }
           ];
           right = [
             {
@@ -283,12 +299,10 @@
             }
             {
               customFont = "";
-              formatHorizontal = "ddd dd.MM. HH:mm";
+              formatHorizontal = "HH:mm ddd, MMM dd";
               formatVertical = "HH mm - dd MM";
               id = "Clock";
               tooltipFormat = "HH:mm ddd, MMM dd";
-              useCustomFont = false;
-              usePrimaryColor = false;
             }
             {
               colorName = "primary";
@@ -734,14 +748,16 @@
       gestures.hot-corners.enable = false;
 
       spawn-at-startup = [
+        {command = ["ghostty" "-e" "cmus"];}
+        {command = ["ghostty" "-e" "btop"];}
         {command = ["librewolf"];}
-        {command = ["ghostty"];}
+        {command = ["codium"];}
         {command = ["nextcloud" "--background"];}
         {command = ["corectrl" "--minimize-systray"];}
       ];
 
       binds = with config.lib.niri.actions; {
-        "Mod+Return".action = spawn "ghostty";
+        "Mod+Return".action = spawn "sh" "-c" "ghostty";
         "Mod+b".action = spawn "librewolf";
         "Menu".action = spawn "vicinae" "toggle";
         "Mod+Space".action = spawn "vicinae" "toggle";
@@ -789,6 +805,25 @@
         "Mod+Alt+Left".action = consume-or-expel-window-left;
         "Mod+Alt+Right".action = consume-or-expel-window-right;
         "Mod+y".action = toggle-column-tabbed-display;
+
+        "Mod+1".action.focus-workspace = 1;
+        "Mod+2".action.focus-workspace = 2;
+        "Mod+3".action.focus-workspace = 3;
+        "Mod+4".action.focus-workspace = 4;
+        "Mod+5".action.focus-workspace = 5;
+        "Mod+6".action.focus-workspace = 6;
+        "Mod+7".action.focus-workspace = 7;
+        "Mod+8".action.focus-workspace = 8;
+        "Mod+9".action.focus-workspace = 9;
+        "Mod+Shift+1".action.move-column-to-workspace = 1;
+        "Mod+Shift+2".action.move-column-to-workspace = 2;
+        "Mod+Shift+3".action.move-column-to-workspace = 3;
+        "Mod+Shift+4".action.move-column-to-workspace = 4;
+        "Mod+Shift+5".action.move-column-to-workspace = 5;
+        "Mod+Shift+6".action.move-column-to-workspace = 6;
+        "Mod+Shift+7".action.move-column-to-workspace = 7;
+        "Mod+Shift+8".action.move-column-to-workspace = 8;
+        "Mod+Shift+9".action.move-column-to-workspace = 9;
 
         "Mod+Escape" = {
           action = toggle-keyboard-shortcuts-inhibit;
@@ -853,6 +888,16 @@
         "Print".action.screenshot = {};
         "Ctrl+Print".action.screenshot-screen = {};
         "Alt+Print".action.screenshot-window = {};
+
+        "Ctrl+Alt+Delete".action = spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle";
+      };
+
+      workspaces = {
+        "1" = {};
+        "2" = {};
+        "3" = {};
+        "4" = {};
+        "5" = {};
       };
 
       window-rules = [
@@ -863,6 +908,7 @@
           matches = [{app-id = "com.mitchellh.ghostty";}];
           draw-border-with-background = false;
           opacity = 0.8;
+          open-on-workspace = "2";
         }
         {
           matches = [
@@ -876,24 +922,33 @@
         {
           matches = [{app-id = "^librewolf$";}];
           open-maximized = true;
+          open-on-workspace = "2";
         }
         {
           matches = [
-            {app-id = "^com.nextcloud.desktopclient.nextcloud$";}
+            {app-id = "com.nextcloud.desktopclient.nextcloud";}
             {app-id = "qalculate-gtk";}
+            {app-id = "org.corectrl.CoreCtrl";}
           ];
           open-floating = true;
         }
         {
           matches = [
-            {app-id = "^steam_app_default$";}
-            {app-id = "^net.lutris.Lutris$";}
+            {app-id = "steam_app_default";}
+            {app-id = "net.lutris.Lutris";}
+            {app-id = "ascension launcher.ex";}
           ];
           open-floating = false;
+          open-on-workspace = "1";
         }
         {
-          matches = [{app-id = "^steam_app_.*$";}];
-          open-fullscreen = true;
+          matches = [
+            {app-id = "^steam_app_";}
+            {app-id = "^rusty-path-of-building-";}
+            {app-id = "ascension.exe";}
+          ];
+          open-maximized = true;
+          open-on-workspace = "1";
         }
         {
           matches = [
@@ -914,8 +969,29 @@
             {app-id = "VSCodium";}
           ];
           open-maximized = true;
+          open-on-workspace = "3";
         }
-
+        {
+          matches = [
+            {app-id = "telegram";}
+            {app-id = "vesktop";}
+            {app-id = "wasistlos";}
+            {app-id = "hexchat";}
+          ];
+          open-maximized = true;
+          open-on-workspace = "5";
+        }
+        {
+          matches = [
+            {app-id = "^libreoffice-";}
+            {app-id = "gimp";}
+            {app-id = "lyx";}
+            {app-id = "scribus";}
+            {app-id = "krita";}
+          ];
+          open-maximized = true;
+          open-on-workspace = "4";
+        }
         {
           matches = [
             {app-id = "codium";}
@@ -978,7 +1054,7 @@
             y = 5;
           };
           draw-behind-window = true;
-          color = "#00000070";
+          color = "#282A36";
           # inactive-color "#00000054"
         };
 
