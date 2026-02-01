@@ -1,10 +1,7 @@
 {
   config,
   inputs,
-  lib,
   pkgs,
-  system,
-  vars,
   ...
 }: {
   imports = [
@@ -79,7 +76,8 @@
     lower-brightness = "${pkgs.brightnessctl}/bin/brightnessctl -s set 10";
     restore-brightness = "${pkgs.brightnessctl}/bin/brightnessctl -r";
     suspend = "${noctalia-shell} ipc call sessionMenu lockAndSuspend";
-    suspend-battery = "systemd-ac-power || ${suspend}";
+    systemd-ac-power = "${pkgs.systemd}/bin/systemd-ac-power";
+    suspendOnBatt = "${systemd-ac-power} || ${suspend}";
   in {
     enable = true;
     events = [
@@ -105,6 +103,10 @@
       {
         timeout = 300;
         command = monitor-off;
+      }
+      {
+        timeout = 900;
+        command = suspendOnBatt;
       }
       {
         timeout = 1800;

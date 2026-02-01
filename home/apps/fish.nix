@@ -82,8 +82,17 @@
           echo -ne "\\ek"$maybehost(status current-command)"\\e\\" > /dev/tty
         end
       '';
+      ns = ''
+        # Better nix-shell
+        if ! nix-shell --packages "$argv" --run "exit" 2>/dev/null
+            echo "Package not found. Searching Nixpkgs..."
+            nh search "$argv"
+        else if ! nix-shell --packages "$argv" --run "$argv"
+            echo "Command not found in shell. Opening normal nix-shell..."
+            nix-shell --packages "$argv"
+        end
+      '';
       nix-shell = "command nix-shell --command fish $argv";
-      nix-shell-run = "command nix-shell -p $argv --run $argv";
     };
     shellAliases = {
       cat = "bat";

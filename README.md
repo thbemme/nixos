@@ -17,7 +17,7 @@ The setup is **modular**, **reproducible**, and **secure**, with support for **G
 
 ## 📂 Structure
    | Directory/File | Description                                                   |
-   |----------------|---------------------------------------------------------------|
+   | -------------- | ------------------------------------------------------------- |
    | `home/`        | Home Manager configurations and user-specific settings        |
    | `hosts/`       | Host-specific configurations (e.g., `mikrobi/`, `puffy/`)     |
    | `modules/`     | Reusable NixOS modules (hardware, profiles, services, system) |
@@ -30,13 +30,13 @@ The setup is **modular**, **reproducible**, and **secure**, with support for **G
 
 ### Hardware
  | Module                                  | Description                                  |
- |-----------------------------------------|----------------------------------------------|
+ | --------------------------------------- | -------------------------------------------- |
  | [AMD GPU](modules/hardware/amdgpu.nix)  | CoreCTRL, Vulkan Tools, and GPU undervolting |
  | [LED control](modules/hardware/led.nix) | Control LED colors                           |
 
 ### Profiles
  | Module                                                     | Description                                  |
- |-----------------------------------------------|-----------------------------------------------------------|
+ | ---------------------------------------------------------- | -------------------------------------------- |
  | [Development](modules/profiles/dev.nix)                    | Thonny, Android Studio (unstable)            |
  | [Gaming](modules/profiles/gaming.nix)                      | Lutris, Steam, Wine                          |
  | [GNOME](modules/profiles/desktop-gnome.nix)                | GNOME desktop environment with Dracula theme |
@@ -48,7 +48,7 @@ The setup is **modular**, **reproducible**, and **secure**, with support for **G
 
 ### Services
  | Module                                        | Description                                     |
- |-----------------------------------------------|-------------------------------------------------|
+ | --------------------------------------------- | ----------------------------------------------- |
  | [Generative AI/LLM](modules/services/llm.nix) | ComfyUI, Mimic (TTS), Ollama, Open-WebUI, oterm |
  | [Printing](modules/services/printing.nix)     | Printer and scanner setup                       |
  | [Prometheus](modules/services/prometheus.nix) | Prometheus exporter for Grafana monitoring      |
@@ -57,7 +57,7 @@ The setup is **modular**, **reproducible**, and **secure**, with support for **G
 
 ### System
  | Module                                       | Description                                                  |
- |----------------------------------------------|--------------------------------------------------------------|
+ | -------------------------------------------- | ------------------------------------------------------------ |
  | [Hibernation](modules/system/hibernate.nix)  | Hibernate on power button, sleep then hibernate on lid close |
  | [Kernels](modules/system/kernel-default.nix) | Default, desktop, and server kernel settings                 |
  | [Plymouth](modules/system/plymouth.nix)      | Plymouth graphical boot process settings                     |
@@ -65,7 +65,7 @@ The setup is **modular**, **reproducible**, and **secure**, with support for **G
 
 ### Home Manager
  | Module                               | Description                                |
- |--------------------------------------|--------------------------------------------|
+ | ------------------------------------ | ------------------------------------------ |
  | [Ghostty](home/apps/ghostty.nix)     | Customized Ghostty terminal configuration  |
  | [Librewolf](home/apps/librewolf.nix) | Customized Librewolf browser configuration |
  | [NeoVim](home/apps/neovim.nix)       | Customized NeoVim configuration            |
