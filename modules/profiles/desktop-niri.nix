@@ -33,30 +33,21 @@
   #   };
   # };
 
-  programs.regreet = let
-    background =
-      pkgs.fetchurl
-      {
-        url = "https://i.redd.it/pivo53w9nyd51.jpg";
-        hash = "sha256-5QjFGb1wO5qfWimRYIAF6BEesxrsZg1AXC3MhKutcEg=";
-      };
-  in {
+  services.displayManager = {
     enable = true;
-    settings = {
-      background = {
-        path = background;
-        fit = "Cover";
+    defaultSession = "niri";
+    ly = {
+      enable = true;
+      settings = {
+        # doom, matrix, colormix, gameoflife
+        animation = "matrix";
+        auth_fails = 3;
+
+        bigclock = "en";
+        clear_password = true;
+        default_input = "password";
+        cmatrix_fg = "0xC11C84";
       };
-      GTK = {
-        application_prefer_dark_theme = true;
-      };
-    };
-    theme = {
-      package = pkgs.dracula-theme;
-      name = "Dracula";
-    };
-    font = {
-      size = 10;
     };
   };
 

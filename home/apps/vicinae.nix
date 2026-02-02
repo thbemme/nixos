@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [inputs.vicinae.homeManagerModules.default];
   services.vicinae = {
     enable = true;
@@ -26,5 +30,9 @@
         };
       };
     };
+    extensions = with inputs.vicinae-extensions.packages.${pkgs.stdenv.hostPlatform.system}; [
+      niri
+      nix
+    ];
   };
 }

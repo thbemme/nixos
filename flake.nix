@@ -29,6 +29,7 @@
     };
 
     vicinae.url = "github:vicinaehq/vicinae";
+    vicinae-extensions.url = "github:vicinaehq/extensions";
 
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
