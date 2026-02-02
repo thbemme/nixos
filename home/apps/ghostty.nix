@@ -2,8 +2,8 @@ _: {
   # Ensure Home Manager manages the config file
   home = {
     file.".config/ghostty/config".text = ''
-      #background-opacity = 0.850000
       adjust-cell-width = -10%
+      #background-opacity = 0.850000
       confirm-close-surface = false
       focus-follows-mouse = true
       font-family = FiraCode Nerd Font

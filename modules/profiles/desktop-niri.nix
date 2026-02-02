@@ -24,14 +24,7 @@
   # QT theming
   qt.enable = true;
 
-  # # greetd display manager
-  # services.greetd = {
-  #   enable = true;
-  #   settings.default_session = {
-  #     command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --asterisks --asterisks-char ● --theme 'time=lightred;container=black;border=grey;text=white;greet=lightblue;prompt=green;input=lightgreen;action=lightblue;button=yellow;' --cmd niri-session";
-  #     user = "greeter";
-  #   };
-  # };
+  systemd.services.display-manager.environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
 
   services.displayManager = {
     enable = true;
