@@ -219,7 +219,7 @@
               groupedBorderOpacity = 1;
               hideUnoccupied = true;
               id = "Workspace";
-              labelMode = "none";
+              labelMode = "name";
               occupiedColor = "secondary";
               reverseScroll = false;
               showApplications = false;
@@ -893,11 +893,11 @@
       };
 
       workspaces = {
-        "1" = {};
-        "2" = {};
-        "3" = {};
-        "4" = {};
-        "5" = {};
+        "1".name="gaming";
+        "2".name="main";
+        "3".name="dev";
+        "4".name="comm";
+        "5".name="office";
       };
 
       window-rules = [
@@ -908,7 +908,6 @@
           matches = [{app-id = "com.mitchellh.ghostty";}];
           draw-border-with-background = false;
           opacity = 0.8;
-          open-on-workspace = "2";
         }
         {
           matches = [
@@ -922,7 +921,7 @@
         {
           matches = [{app-id = "^librewolf$";}];
           open-maximized = true;
-          open-on-workspace = "2";
+          open-on-workspace = "main";
         }
         {
           matches = [
@@ -939,7 +938,7 @@
             {app-id = "ascension launcher.ex";}
           ];
           open-floating = false;
-          open-on-workspace = "1";
+          open-on-workspace = "gaming";
         }
         {
           matches = [
@@ -948,7 +947,7 @@
             {app-id = "ascension.exe";}
           ];
           open-maximized = true;
-          open-on-workspace = "1";
+          open-on-workspace = "gaming";
         }
         {
           matches = [
@@ -969,17 +968,17 @@
             {app-id = "VSCodium";}
           ];
           open-maximized = true;
-          open-on-workspace = "3";
+          open-on-workspace = "dev";
         }
         {
           matches = [
-            {app-id = "telegram";}
+            {app-id = "hexchat";}
+            {app-id = "io.github.tdesktop_x64.TDesktop";}
             {app-id = "vesktop";}
             {app-id = "wasistlos";}
-            {app-id = "hexchat";}
           ];
           open-maximized = true;
-          open-on-workspace = "5";
+          open-on-workspace = "comm";
         }
         {
           matches = [
@@ -990,7 +989,7 @@
             {app-id = "krita";}
           ];
           open-maximized = true;
-          open-on-workspace = "4";
+          open-on-workspace = "office";
         }
         {
           matches = [
