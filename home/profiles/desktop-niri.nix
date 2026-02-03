@@ -893,11 +893,11 @@
       };
 
       workspaces = {
-        "1".name="gaming";
-        "2".name="main";
-        "3".name="dev";
-        "4".name="comm";
-        "5".name="office";
+        "1".name = "gaming";
+        "2".name = "main";
+        "3".name = "dev";
+        "4".name = "comm";
+        "5".name = "office";
       };
 
       window-rules = [

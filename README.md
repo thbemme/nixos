@@ -13,6 +13,10 @@ This repository contains my **NixOS** and **Home Manager** configurations for va
 
 The setup is **modular**, **reproducible**, and **secure**, with support for **GitCrypt** for secrets management.
 
+## 👀 Screenshot
+Niri + Noctalia with Dracula theme:
+
+![nini-noctalia-dracula](assets/nini-noctalia-dracula.jpg)
 ---
 
 ## 📂 Structure
