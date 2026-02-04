@@ -49,7 +49,6 @@
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;
       extensions = with pkgs.vscode-extensions; [
-        dracula-theme.theme-dracula
         esbenp.prettier-vscode
         jnoortheen.nix-ide
         streetsidesoftware.code-spell-checker
@@ -70,7 +69,6 @@
         "markdown.extension.toc.slugifyMode" = "gitea";
         "nix.formatterPath" = "alejandra";
         "terminal.integrated.fontSize" = 12;
-        "workbench.colorTheme" = "Dracula Theme";
         "workbench.editor.enablePreview" = false;
         "files.exclude" = {
           "**/.git" = true;

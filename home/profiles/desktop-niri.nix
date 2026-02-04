@@ -757,7 +757,7 @@
       ];
 
       binds = with config.lib.niri.actions; {
-        "Mod+Return".action = spawn "sh" "-c" "ghostty";
+        "Mod+Return".action = spawn "ghostty";
         "Mod+b".action = spawn "librewolf";
         "Menu".action = spawn "vicinae" "toggle";
         "Mod+Space".action = spawn "vicinae" "toggle";
@@ -907,7 +907,8 @@
         {
           matches = [{app-id = "com.mitchellh.ghostty";}];
           draw-border-with-background = false;
-          opacity = 0.8;
+          opacity = 0.9;
+          open-on-workspace = "main";
         }
         {
           matches = [

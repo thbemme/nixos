@@ -10,8 +10,7 @@ in {
     ../apps/git.nix
     ../apps/neovim.nix
     ../apps/ssh.nix
-    ../themes/dracula-cli.nix
-    ../themes/dracula-gui.nix
+    ../themes
     ./base.nix
     ./desktop-extras.nix
     ./desktop-gnome.nix
