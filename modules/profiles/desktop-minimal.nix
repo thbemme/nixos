@@ -57,13 +57,18 @@ in {
     packages = fonts;
   };
 
+  services.system76-scheduler = {
+    enable = true;
+    useStockConfig = true;
+  };
+
+  # Disable bluetooth on boot
+  hardware.bluetooth.powerOnBoot = false;
+
   # Additional home manager settings
   home-manager = {
     users = {
       "${vars.user}" = import ../../home/profiles/desktop-minimal.nix;
     };
   };
-
-  # Disable bluetooth on boot
-  hardware.bluetooth.powerOnBoot = false;
 }

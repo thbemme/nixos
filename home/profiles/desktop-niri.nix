@@ -1006,6 +1006,7 @@
       cursor = {
         theme = "oreo_purple_cursors";
         hide-when-typing = true;
+        hide-after-inactive-ms = 1000;
       };
 
       layout = {

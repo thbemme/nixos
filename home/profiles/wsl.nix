@@ -9,7 +9,7 @@
     ../apps/git.nix
     ../apps/neovim.nix
     ../apps/ssh.nix
-    ../themes/theme-cli.nix
+    ../themes/dracula-cli.nix
     ./base.nix
     ./fish/wsl.nix
   ];
