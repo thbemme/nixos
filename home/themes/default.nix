@@ -1,7 +1,6 @@
-_:
-{
-    imports = [
-      ./dracula-cli.nix
-      ./dracula-gui.nix
-    ];
+_: {
+  imports = [
+    ./dracula-cli.nix
+    ./dracula-gui.nix
+  ];
 }

@@ -38,8 +38,6 @@
     '';
   };
 
-  gtk.theme.name = "adw-gtk3";
-
   services.gnome-keyring.enable = true;
   xdg.portal = {
     enable = true;
@@ -118,20 +116,6 @@
       }
     ];
   };
-
-  # programs.fuzzel = {
-  #   enable = true;
-  #   settings.colors = {
-  #     background = "282a36dd";
-  #     text = "f8f8f2ff";
-  #     match = "8be9fdff";
-  #     selection-match = "8be9fdff";
-  #     selection = "44475add";
-  #     selection-text = "f8f8f2ff";
-  #     border = "bd93f9ff";
-  #   };
-  #   settings.main.font = "FiraCode Nerd Font:size=12";
-  # };
 
   programs.noctalia-shell = {
     enable = true;

@@ -5,6 +5,8 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    delta
+    glow
     gnumake
     gperf
     jdk
@@ -13,6 +15,7 @@
     m4
     ncurses5
     nettools
+    nix-output-monitor
     nixpkgs-review
     nodePackages.prettier
     openssl
