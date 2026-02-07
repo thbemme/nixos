@@ -11,10 +11,6 @@ _: {
         separator = " ➜  ";
       };
 
-      logo = {
-        type = "small";
-      };
-
       modules = [
         "break"
         {

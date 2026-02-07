@@ -289,7 +289,7 @@
               tooltipFormat = "HH:mm ddd, MMM dd";
             }
             {
-              colorName = "primary";
+              iconColor = "primary";
               id = "SessionMenu";
             }
           ];
