@@ -55,14 +55,20 @@
     config.common.default = "*"; # Use first available portal implementation
   };
 
-  # Virtual file systems for Nautilus
-  services.gvfs.enable = true;
-
-  # D-Bus service for power management
-  services.upower.enable = true;
-
   # X server for interfacing X11 apps with the Wayland protocol
   programs.xwayland.enable = true;
+
+  services = {
+    # Virtual file systems for Nautilus
+    gvfs.enable = true;
+
+    # D-Bus service for power management
+    upower.enable = true;
+
+    # Calendar data
+    gnome.evolution-data-server.enable = true;
+    gnome.gnome-online-accounts.enable = true;
+  };
 
   # Additional home manager settings
   home-manager = {

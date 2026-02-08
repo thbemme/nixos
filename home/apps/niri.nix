@@ -1,0 +1,319 @@
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}: {
+  imports = [inputs.niri.homeModules.niri];
+
+  programs.niri = {
+    enable = true;
+    package = pkgs.niri;
+
+    settings = {
+      overview.workspace-shadow.enable = false;
+      debug.honor-xdg-activation-with-invalid-serial = [];
+      prefer-no-csd = true;
+      screenshot-path = "~/Pictures/screenshots/%Y-%m-%dT%H:%M:%S%:z.png";
+      hotkey-overlay.skip-at-startup = true;
+
+      input = {
+        focus-follows-mouse.enable = true;
+        workspace-auto-back-and-forth = true;
+        keyboard = {
+          xkb = {
+            layout = "de";
+            variant = "nodeadkeys";
+            options = "caps:none";
+          };
+          repeat-delay = 235;
+          repeat-rate = 60;
+          numlock = true;
+        };
+        touchpad = {
+          tap = true;
+          dwt = true;
+          dwtp = true;
+          natural-scroll = true;
+          accel-profile = "flat";
+        };
+        mouse = {
+          accel-speed = -0.5;
+          accel-profile = "flat";
+        };
+        power-key-handling.enable = false;
+      };
+
+      gestures.hot-corners.enable = false;
+
+      spawn-at-startup = [
+        {command = ["ghostty" "-e" "cmus"];}
+        {command = ["ghostty" "-e" "btop"];}
+        {command = ["librewolf"];}
+        {command = ["codium"];}
+        {command = ["nextcloud" "--background"];}
+        {command = ["corectrl" "--minimize-systray"];}
+      ];
+
+      binds = with config.lib.niri.actions; {
+        "Mod+Return".action = spawn "ghostty";
+        "Mod+b".action = spawn "librewolf";
+        "Mod+n".action = spawn "nautilus";
+        "Menu".action = spawn "vicinae" "toggle";
+        "Mod+Space".action = spawn "vicinae" "toggle";
+        "Mod+Alt+l".action = spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock";
+
+        "Mod+WheelScrollDown".action = focus-column-right;
+        "Mod+WheelScrollUp".action = focus-column-left;
+        "Mod+Ctrl+WheelScrollDown".action = move-column-right;
+        "Mod+Ctrl+WheelScrollUp".action = move-column-left;
+        "Mod+Shift+WheelScrollDown".action = focus-workspace-down;
+        "Mod+Shift+WheelScrollUp".action = focus-workspace-up;
+
+        "Mod+Minus".action = switch-preset-window-width;
+        "Mod+Shift+Minus".action = switch-preset-window-height;
+
+        "Mod+q".action = close-window;
+        "Mod+t".action = toggle-window-floating;
+        "Mod+Ctrl+t".action = switch-focus-between-floating-and-tiling;
+        "Mod+f".action = maximize-column;
+        "Mod+Shift+f".action = expand-column-to-available-width;
+        "Mod+Ctrl+f".action = fullscreen-window;
+
+        "Mod+Left".action = focus-column-left;
+        "Mod+Right".action = focus-column-right;
+        "Mod+Up".action = focus-window-or-workspace-up;
+        "Mod+Down".action = focus-window-or-workspace-down;
+
+        "Mod+Shift+Left".action = move-column-left;
+        "Mod+Shift+Right".action = move-column-right;
+        "Mod+Shift+Up".action = move-window-up;
+        "Mod+Shift+Down".action = move-window-down;
+
+        "Mod+Ctrl+Left".action = focus-monitor-left;
+        "Mod+Ctrl+Right".action = focus-monitor-right;
+        "Mod+Ctrl+Up".action = focus-monitor-up;
+        "Mod+Ctrl+Down".action = focus-monitor-down;
+
+        "Mod+Shift+Ctrl+Left".action = move-column-to-monitor-left;
+        "Mod+Shift+Ctrl+Right".action = move-column-to-monitor-right;
+        "Mod+Shift+Ctrl+Up".action = move-column-to-workspace-up;
+        "Mod+Shift+Ctrl+Down".action = move-column-to-workspace-down;
+
+        "Mod+Home".action = focus-column-first;
+        "Mod+End".action = focus-column-last;
+        "Mod+Alt+Left".action = consume-or-expel-window-left;
+        "Mod+Alt+Right".action = consume-or-expel-window-right;
+        "Mod+y".action = toggle-column-tabbed-display;
+
+        "Mod+1".action.focus-workspace = 1;
+        "Mod+2".action.focus-workspace = 2;
+        "Mod+3".action.focus-workspace = 3;
+        "Mod+4".action.focus-workspace = 4;
+        "Mod+5".action.focus-workspace = 5;
+        "Mod+6".action.focus-workspace = 6;
+        "Mod+7".action.focus-workspace = 7;
+        "Mod+8".action.focus-workspace = 8;
+        "Mod+9".action.focus-workspace = 9;
+        "Mod+Shift+1".action.move-column-to-workspace = 1;
+        "Mod+Shift+2".action.move-column-to-workspace = 2;
+        "Mod+Shift+3".action.move-column-to-workspace = 3;
+        "Mod+Shift+4".action.move-column-to-workspace = 4;
+        "Mod+Shift+5".action.move-column-to-workspace = 5;
+        "Mod+Shift+6".action.move-column-to-workspace = 6;
+        "Mod+Shift+7".action.move-column-to-workspace = 7;
+        "Mod+Shift+8".action.move-column-to-workspace = 8;
+        "Mod+Shift+9".action.move-column-to-workspace = 9;
+
+        "Mod+Escape" = {
+          action = toggle-keyboard-shortcuts-inhibit;
+          allow-inhibiting = false;
+        };
+
+        "Mod+Ctrl+Shift+q".action = quit;
+        "Mod+Shift+p".action = power-off-monitors;
+
+        XF86AudioRaiseVolume = {
+          action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+";
+          allow-when-locked = true;
+        };
+        XF86AudioLowerVolume = {
+          action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-";
+          allow-when-locked = true;
+        };
+        XF86AudioMute = {
+          action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
+          allow-when-locked = true;
+        };
+        XF86AudioMicMute = {
+          action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
+          allow-when-locked = true;
+        };
+        "f9" = {
+          action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
+          allow-when-locked = true;
+        };
+        "Mod+MouseForward" = {
+          action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
+          allow-when-locked = true;
+        };
+        XF86AudioPlay = {
+          action = spawn "playerctl play-pause";
+          allow-when-locked = true;
+        };
+        XF86AudioStop = {
+          action = spawn "playerctl stop";
+          allow-when-locked = true;
+        };
+        XF86AudioPrev = {
+          action = spawn "playerctl previous";
+          allow-when-locked = true;
+        };
+        XF86AudioNext = {
+          action = spawn "playerctl next";
+          allow-when-locked = true;
+        };
+        XF86MonBrightnessUp = {
+          action = spawn "brightnessctl" "--class=backlight" "set" "+10%";
+          allow-when-locked = true;
+        };
+        XF86MonBrightnessDown = {
+          action = spawn "brightnessctl" "--class=backlight" "set" "10%-";
+          allow-when-locked = true;
+        };
+        "Print".action.screenshot = {};
+        "Ctrl+Print".action.screenshot-screen = {};
+        "Alt+Print".action.screenshot-window = {};
+        "Ctrl+Alt+Delete".action = spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle";
+      };
+
+      workspaces = {
+        "1".name = "gaming";
+        "2".name = "main";
+        "3".name = "dev";
+        "4".name = "comm";
+        "5".name = "office";
+      };
+
+      window-rules = [
+        {
+          matches = [{app-id = "com.mitchellh.ghostty";}];
+          draw-border-with-background = false;
+          opacity = 0.9;
+          open-on-workspace = "main";
+        }
+        {
+          matches = [
+            {
+              app-id = "^librewolf$";
+              title = "^Picture-in-Picture$";
+            }
+          ];
+          open-floating = true;
+        }
+        {
+          matches = [{app-id = "^librewolf$";}];
+          open-maximized = true;
+          open-on-workspace = "main";
+        }
+        {
+          matches = [{app-id = "com.nextcloud.desktopclient.nextcloud";} {app-id = "qalculate-gtk";} {app-id = "org.corectrl.CoreCtrl";}];
+          open-floating = true;
+        }
+        {
+          matches = [{app-id = "steam_app_default";} {app-id = "net.lutris.Lutris";}];
+          open-on-workspace = "gaming";
+        }
+        {
+          matches = [{app-id = "^steam_app_";} {app-id = "^rusty-path-of-building-";} {app-id = "\.exe$";}];
+          open-maximized = true;
+          open-on-workspace = "gaming";
+        }
+        {
+          matches = [
+            {
+              app-id = "steam";
+              title = "^notificationtoasts_\\d+_desktop$";
+            }
+          ];
+          default-floating-position = {
+            x = 10;
+            y = 10;
+            relative-to = "bottom-right";
+          };
+        }
+        {
+          matches = [{app-id = "codium";} {app-id = "VSCodium";}];
+          open-maximized = true;
+          open-on-workspace = "dev";
+        }
+        {
+          matches = [{app-id = "hexchat";} {app-id = "io.github.tdesktop_x64.TDesktop";} {app-id = "vesktop";} {app-id = "wasistlos";}];
+          open-maximized = true;
+          open-on-workspace = "comm";
+        }
+        {
+          matches = [{app-id = "^libreoffice-";} {app-id = "gimp";} {app-id = "lyx";} {app-id = "scribus";} {app-id = "krita";}];
+          open-maximized = true;
+          open-on-workspace = "office";
+        }
+        {
+          matches = [{app-id = "codium";} {app-id = "nautilus";} {app-id = "qalculate-gtk";} {app-id = "VSCodium";}];
+          draw-border-with-background = false;
+          opacity = 0.95;
+        }
+      ];
+
+      cursor = {
+        theme = "oreo_purple_cursors";
+        hide-when-typing = true;
+        hide-after-inactive-ms = 1000;
+      };
+
+      layout = {
+        gaps = 1;
+        center-focused-column = "never";
+        empty-workspace-above-first = true;
+        background-color = "transparent";
+        preset-column-widths = [{proportion = 0.33333;} {proportion = 0.5;} {proportion = 0.66667;}];
+        default-column-width = {proportion = 0.5;};
+        preset-window-heights = [{proportion = 0.33333;} {proportion = 0.5;} {proportion = 1.0;}];
+        focus-ring = {
+          enable = true;
+          width = 2;
+          active.color = "#bd93f9";
+          inactive.color = "#505050";
+        };
+        border = {
+          enable = false;
+          width = 2;
+          active.color = "#ffc87f";
+          inactive.color = "#505050";
+        };
+        shadow = {
+          softness = 30;
+          spread = 5;
+          offset = {
+            x = 0;
+            y = 5;
+          };
+          draw-behind-window = true;
+          color = "#282A36";
+        };
+        tab-indicator = {
+          hide-when-single-tab = true;
+          place-within-column = true;
+          gap = 5;
+          width = 4;
+          length = {total-proportion = 1.0;};
+          position = "right";
+          gaps-between-tabs = 2;
+          corner-radius = 8;
+          active.color = "red";
+          inactive.color = "gray";
+        };
+        insert-hint = {display.color = "#ffc87f80";};
+      };
+    };
+  };
+}

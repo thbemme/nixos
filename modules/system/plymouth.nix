@@ -7,7 +7,7 @@
         name = "out.png";
         dontUnpack = true;
         src = pkgs.fetchurl {
-          url = "https://nixos.org/_astro/nixos-logo-25.11-xantusia-lores.CLapGrL7_Z1CRDey.webp";
+          url = "https://nixos.org/_astro/nixos-logo-25.11-xantusia-lores.CLapGrL7_18iEK3.webp";
           hash = "sha256-glQBCJDrRsS+J+PnmVr/Vv9oU73ullZb7TwlCIbJDQ8=";
         };
         nativeBuildInputs = with pkgs; [imagemagick];
