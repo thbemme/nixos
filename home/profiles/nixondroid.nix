@@ -24,7 +24,7 @@
 
   home.activation = {
     copyFont = let
-      font_src = "${pkgs.nerdfonts.override {fonts = ["FiraCode"];}}/share/fonts/truetype/NerdFonts/FiraCodeNerdFont-Regular.ttf";
+      font_src = "${pkgs.nerd-fonts.fira-code}/share/fonts/truetype/NerdFonts/FiraCode/FiraCodeNerdFont-Regular.ttf";
       font_dst = "${config.home.homeDirectory}/.termux/font.ttf";
     in
       lib.hm.dag.entryAfter ["writeBoundary"] ''
