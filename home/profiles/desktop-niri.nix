@@ -16,6 +16,7 @@
     nirius
     pwvucontrol
     qalculate-gtk
+    simple-scan
     wl-clipboard-rs
     wlsunset
     xwayland-satellite

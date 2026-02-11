@@ -22,11 +22,11 @@
   # QT theming
   qt.enable = true;
 
-  systemd.services.display-manager.environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
+  environment.variables.NIXOS_OZONE_WL = "1";
 
   services.displayManager = {
     enable = true;
-    defaultSession = "niri";
+    environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
     ly = {
       enable = true;
       settings = {
@@ -47,13 +47,6 @@
   };
 
   services.displayManager.sddm.enable = lib.mkForce false;
-
-  # XDG portals
-  xdg.portal = {
-    enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gnome];
-    config.common.default = "*"; # Use first available portal implementation
-  };
 
   # X server for interfacing X11 apps with the Wayland protocol
   programs.xwayland.enable = true;

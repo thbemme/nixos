@@ -253,7 +253,7 @@
           open-on-workspace = "comm";
         }
         {
-          matches = [{app-id = "^libreoffice-";} {app-id = "gimp";} {app-id = "lyx";} {app-id = "scribus";} {app-id = "krita";}];
+          matches = [{app-id = "^libreoffice-.*$";} {app-id = "^gimp";} {app-id = "lyx";} {app-id = "scribus";} {app-id = "krita";} {app-id = "org.gnome.SimpleScan";}];
           open-maximized = true;
           open-on-workspace = "office";
         }
