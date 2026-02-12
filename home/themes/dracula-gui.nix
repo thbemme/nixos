@@ -26,7 +26,7 @@ in {
     "${draculaThemeDir}" = {
       source = pkgs.fetchzip {
         url = "https://github.com/dracula/gtk/archive/refs/heads/slim-standard-buttons.zip";
-        hash = "sha256-zL2mgNjnYcmJLyQa2wq2pOhgHlNMolBZ0y9Y3Rn6Y8w=";
+        hash = "sha256-0N4MBYpLEQ5aL4MNlXhHSZrh5O7ndwYeJ0vjXDjb4hQ=";
       };
     };
 

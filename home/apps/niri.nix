@@ -44,6 +44,12 @@
         power-key-handling.enable = false;
       };
 
+      outputs = {
+        "LG Electronics LG ULTRAGEAR 204NTWG14769" = {
+          variable-refresh-rate = true;
+        };
+      };
+
       gestures.hot-corners.enable = false;
 
       spawn-at-startup = [
