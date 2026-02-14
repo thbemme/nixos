@@ -4,20 +4,31 @@
   vars,
   ...
 }: {
-  users.users.${vars.user} = {
-    packages = with pkgs; [
-      power-profiles-daemon
-      tlp
-    ];
-  };
+  environment.systemPackages = with pkgs; [
+    (where-is-my-sddm-theme.override {
+      themeConfig.General = {
+        background = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+        backgroundMode = "none";
+        passwordCharacter = "•";
+        passwordInputWidth = "1";
+        passwordMask = true;
+        passwordInputCursorVisible = false;
+        passwordFontSize = 8;
+        sessionsFontSize = 8;
+        usersFontSize = 8;
+        blurRadius = "";
+        helpFontSize = 8;
+      };
+    })
+    brightnessctl
+  ];
 
   systemd.user.services.niri-flake-polkit.enable = false;
 
   # Niri system requirements (compositor configured via home-manager)
-  security.polkit.enable = true;
-  programs.dconf.enable = true;
-  services.gnome.gnome-keyring.enable = true;
   hardware.graphics.enable = true;
+  programs.dconf.enable = true;
+  security.polkit.enable = true;
 
   # QT theming
   qt.enable = true;
@@ -27,26 +38,29 @@
   services.displayManager = {
     enable = true;
     environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
-    ly = {
+    #sddm.enable = lib.mkForce false;
+    sddm = {
       enable = true;
-      settings = {
-        # doom, matrix, colormix, gameoflife
-        animation = "matrix";
-        auth_fails = 3;
-
-        bigclock = "en";
-        clear_password = true;
-        default_input = "password";
-        cmatrix_fg = "0xC11C84";
-      };
+      wayland.enable = true;
+      theme = "where_is_my_sddm_theme";
     };
+    # ly = {
+    #   enable = false;
+    #   settings = {
+    #     animation = "matrix";
+    #     auth_fails = 3;
+
+    #     bigclock = "en";
+    #     clear_password = true;
+    #     default_input = "password";
+    #     cmatrix_fg = "0xC11C84";
+    #   };
+    #};
   };
 
   programs.niri = {
     enable = true;
   };
-
-  services.displayManager.sddm.enable = lib.mkForce false;
 
   # X server for interfacing X11 apps with the Wayland protocol
   programs.xwayland.enable = true;
@@ -61,6 +75,18 @@
     # Calendar data
     gnome.evolution-data-server.enable = true;
     gnome.gnome-online-accounts.enable = true;
+
+    blueman.enable = true;
+
+    power-profiles-daemon.enable = true;
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+    config.common.default = "gtk";
   };
 
   # Additional home manager settings

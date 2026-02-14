@@ -63,7 +63,10 @@ in {
   };
 
   # Disable bluetooth on boot
-  hardware.bluetooth.powerOnBoot = false;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
 
   # Additional home manager settings
   home-manager = {

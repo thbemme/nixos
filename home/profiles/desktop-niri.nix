@@ -8,7 +8,6 @@
   ];
 
   home.packages = with pkgs; [
-    brightnessctl
     gpu-screen-recorder
     kdePackages.qt6ct
     mission-center
@@ -33,31 +32,11 @@
     QT_QPA_PLATFORMTHEME = "qt6ct";
   };
 
-  services.gnome-keyring.enable = true;
+  services = {
+    gnome-keyring.enable = true;
 
-  xdg.portal = {
-    enable = true;
-    xdgOpenUsePortal = true;
-    config.niri = {
-      default = [
-        "gtk"
-        "gnome"
-      ];
-      "org.freedesktop.impl.portal.Access" = ["gtk"];
-      "org.freedesktop.impl.portal.Notification" = ["gtk"];
-      "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
-      "org.freedesktop.impl.portal.FileChooser" = ["gtk"];
-      "org.freedesktop.impl.portal.ScreenCast" = ["xdg-desktop-portal-gnome"];
-      "org.freedesktop.impl.portal.Screenshot" = ["xdg-desktop-portal-gnome"];
+    udiskie = {
+      enable = true;
     };
-    extraPortals = [
-      pkgs.gnome-keyring
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-gnome
-    ];
-  };
-
-  services.udiskie = {
-    enable = true;
   };
 }
