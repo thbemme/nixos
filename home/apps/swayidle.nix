@@ -1,17 +1,17 @@
 {
   config,
+  inputs,
   pkgs,
   ...
 }: {
   services.swayidle = let
     niri = "${config.programs.niri.package}/bin/niri";
-    noctalia-shell = "${config.programs.noctalia-shell.package}/bin/noctalia-shell";
-    lock-cmd = "${noctalia-shell} ipc call lockScreen lock";
+    lock-cmd = "${pkgs.systemd}/bin/loginctl lock-session";
     monitor-on = "${niri} msg action power-on-monitors";
     monitor-off = "${niri} msg action power-off-monitors";
     lower-brightness = "${pkgs.brightnessctl}/bin/brightnessctl -s set 10";
     restore-brightness = "${pkgs.brightnessctl}/bin/brightnessctl -r";
-    suspend = "${noctalia-shell} ipc call sessionMenu lockAndSuspend";
+    suspend = "${pkgs.systemd}/bin/systemctl suspend";
     systemd-ac-power = "${pkgs.systemd}/bin/systemd-ac-power";
     suspendOnBatt = "${systemd-ac-power} || ${suspend}";
   in {

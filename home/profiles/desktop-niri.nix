@@ -1,9 +1,11 @@
 {pkgs, ...}: {
   imports = [
     ../apps/cmus.nix
+    ../apps/dms.nix
     ../apps/niri.nix
-    ../apps/noctalia.nix
+    #../apps/noctalia.nix
     ../apps/swayidle.nix
+    ../apps/swaylock.nix
     ../apps/vicinae.nix
   ];
 

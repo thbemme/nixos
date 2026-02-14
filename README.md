@@ -14,9 +14,9 @@ This repository contains my **NixOS** and **Home Manager** configurations for va
 The setup is **modular**, **reproducible**, and **secure**, with support for **GitCrypt** for secrets management.
 
 ## 👀 Screenshot
-Niri + Noctalia with Dracula theme:
+Niri + Dank Material Shell with Dracula theme:
 
-![nini-noctalia-dracula](assets/nini-noctalia-dracula.jpg)
+![nini-dms-dracula](assets/nini-dms-dracula.jpg)
 ---
 
 ## 📂 Structure
@@ -39,16 +39,16 @@ Niri + Noctalia with Dracula theme:
  | [LED control](modules/hardware/led.nix) | Control LED colors                           |
 
 ### Profiles
- | Module                                                     | Description                                  |
- | ---------------------------------------------------------- | -------------------------------------------- |
- | [Development](modules/profiles/dev.nix)                    | Thonny, Android Studio (unstable)            |
- | [Gaming](modules/profiles/gaming.nix)                      | Lutris, Steam, Wine                          |
- | [GNOME](modules/profiles/desktop-gnome.nix)                | GNOME desktop environment with Dracula theme |
- | [GUI Extras](modules/profiles/desktop-extras.nix)          | Additional GUI applications                  |
- | [GUI](modules/profiles/desktop-minimal.nix)                | Minimal GUI applications                     |
- | [Niri + Noctalia Shell](modules/profiles/desktop-niri.nix) | Niri + Noctalia with Dracula theme           |
- | [Security](modules/profiles/security.nix)                  | Nmap, Wireshark, and auditing tools          |
- | [Work](modules/profiles/work.nix)                          | Citrix Client, Alpaca Proxy                  |
+ | Module                                                          | Description                                  |
+ | --------------------------------------------------------------- | -------------------------------------------- |
+ | [Development](modules/profiles/dev.nix)                         | Thonny, Android Studio (unstable)            |
+ | [Gaming](modules/profiles/gaming.nix)                           | Lutris, Steam, Wine                          |
+ | [GNOME](modules/profiles/desktop-gnome.nix)                     | GNOME desktop environment with Dracula theme |
+ | [GUI Extras](modules/profiles/desktop-extras.nix)               | Additional GUI applications                  |
+ | [GUI](modules/profiles/desktop-minimal.nix)                     | Minimal GUI applications                     |
+ | [Niri + Dank Material Shell](modules/profiles/desktop-niri.nix) | Niri + Dank Material Shell with Dracula theme      |
+ | [Security](modules/profiles/security.nix)                       | Nmap, Wireshark, and auditing tools          |
+ | [Work](modules/profiles/work.nix)                               | Citrix Client, Alpaca Proxy                  |
 
 ### Services
  | Module                                        | Description                                     |
@@ -218,7 +218,7 @@ Requirements:
 Any GNU/Linux with native package installed:
 
 - [Gnome Desktop Environment](https://www.gnome.org/) or
-- [Niri](https://www.niri.org/) and [Noctalia-shell](https://github.com/noctalia-dev/noctalia-shell)
+- [Niri](https://github.com/niri-wm/niri) and [DMS](https://danklinux.com)
 - [Ghostty](https://ghostty.org/docs/install/binary)
 - SELinux disabled/permissive
 

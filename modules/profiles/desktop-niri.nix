@@ -1,11 +1,13 @@
 {
+  inputs,
   lib,
   pkgs,
+  pkgs-unstable,
   vars,
   ...
 }: {
-  environment.systemPackages = with pkgs; [
-    (where-is-my-sddm-theme.override {
+  environment.systemPackages = [
+    (pkgs.where-is-my-sddm-theme.override {
       themeConfig.General = {
         background = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
         backgroundMode = "none";
@@ -20,7 +22,9 @@
         helpFontSize = 8;
       };
     })
-    brightnessctl
+    pkgs.brightnessctl
+    pkgs.bluez
+    pkgs-unstable.dgop
   ];
 
   systemd.user.services.niri-flake-polkit.enable = false;
@@ -38,24 +42,11 @@
   services.displayManager = {
     enable = true;
     environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
-    #sddm.enable = lib.mkForce false;
     sddm = {
       enable = true;
       wayland.enable = true;
       theme = "where_is_my_sddm_theme";
     };
-    # ly = {
-    #   enable = false;
-    #   settings = {
-    #     animation = "matrix";
-    #     auth_fails = 3;
-
-    #     bigclock = "en";
-    #     clear_password = true;
-    #     default_input = "password";
-    #     cmatrix_fg = "0xC11C84";
-    #   };
-    #};
   };
 
   programs.niri = {
