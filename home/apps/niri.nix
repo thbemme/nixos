@@ -195,6 +195,10 @@
               app-id = "^librewolf$";
               title = "^Picture-in-Picture$";
             }
+            {app-id = "com.nextcloud.desktopclient.nextcloud";}
+            {app-id = "qalculate-gtk";}
+            {app-id = "org.corectrl.CoreCtrl";}
+            {app-id = ".blueman-manager-wrapped";}
           ];
           open-floating = true;
         }
@@ -202,10 +206,6 @@
           matches = [{app-id = "^librewolf$";}];
           open-maximized = true;
           open-on-workspace = "main";
-        }
-        {
-          matches = [{app-id = "com.nextcloud.desktopclient.nextcloud";} {app-id = "qalculate-gtk";} {app-id = "org.corectrl.CoreCtrl";}];
-          open-floating = true;
         }
         {
           matches = [{app-id = "steam_app_default";} {app-id = "net.lutris.Lutris";}];
@@ -240,7 +240,7 @@
           open-on-workspace = "comm";
         }
         {
-          matches = [{app-id = "^libreoffice-.*$";} {app-id = "^gimp";} {app-id = "lyx";} {app-id = "scribus";} {app-id = "krita";} {app-id = "org.gnome.SimpleScan";}];
+          matches = [{app-id = "^libreoffice-";} {app-id = "^gimp";} {app-id = "lyx";} {app-id = "scribus";} {app-id = "krita";} {app-id = "org.gnome.SimpleScan";}];
           open-maximized = true;
           open-on-workspace = "office";
         }

@@ -22,7 +22,7 @@
     enableVPN = false; # VPN management widget
     enableDynamicTheming = false; # Wallpaper-based theming (matugen)
     enableAudioWavelength = true; # Audio visualizer (cava)
-    enableCalendarEvents = true; # Calendar integration (khal)
+    enableCalendarEvents = false; # Calendar integration (khal)
     enableClipboardPaste = true; # Pasting items from the clipboard (wtype)
     settings = {
       currentThemeName = "custom";
@@ -55,19 +55,21 @@
             light = theme;
           }
         );
-      launcherLogoMode = "os";
-      powerMenuDefaultAction = "suspend";
-      showWorkspaceApps = true;
-      showOccupiedWorkspacesOnly = true;
-      scrollTitleEnabled = false;
+
       clockDateFormat = "ddd MMM d";
+      groupWorkspaceApps = false;
+      launcherLogoMode = "os";
+      maxWorkspaceIcons = "10";
+      powerMenuDefaultAction = "suspend";
+      scrollTitleEnabled = false;
+      showOccupiedWorkspacesOnly = true;
+      showWorkspaceApps = true;
+      transparency = "0.8";
       widgetBackgroundColor = "sch";
       widgetColorMode = "default";
-      transparency = "0.8";
       widgetTransparency = "0.8";
       workspaceColorMode = "sc";
       workspaceUnfocusedColorMode = "sch";
-      groupWorkspaceApps = false;
 
       barConfigs = [
         {

@@ -5,7 +5,6 @@
     ../apps/niri.nix
     #../apps/noctalia.nix
     ../apps/swayidle.nix
-    ../apps/swaylock.nix
     ../apps/vicinae.nix
   ];
 
