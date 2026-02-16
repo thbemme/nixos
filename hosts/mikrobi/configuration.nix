@@ -29,6 +29,8 @@ in {
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
+  # Stop all running processes on exit (ssh-agent)
+  build.extraProotOptions = ["--kill-on-exit"];
 
   # Set your time zone
   #time.timeZone = "Europe/Berlin";

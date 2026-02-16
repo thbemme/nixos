@@ -16,7 +16,7 @@ The setup is **modular**, **reproducible**, and **secure**, with support for **G
 ## 👀 Screenshot
 Niri + Dank Material Shell with Dracula theme:
 
-![nini-dms-dracula](assets/nini-dms-dracula.jpg)
+![niri-dms-dracula](assets/niri-dms-dracula.jpg)
 ---
 
 ## 📂 Structure

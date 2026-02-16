@@ -17,6 +17,7 @@ with pkgs; [
   net-tools
   openssh
   openssl
+  procps
   pv
   q
   ripgrep
