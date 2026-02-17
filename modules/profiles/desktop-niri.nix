@@ -35,7 +35,7 @@
   security.polkit.enable = true;
 
   # QT theming
-  qt.enable = true;
+  #qt.enable = true;
 
   environment.variables.NIXOS_OZONE_WL = "1";
 

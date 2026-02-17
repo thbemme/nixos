@@ -25,36 +25,36 @@
     enableCalendarEvents = false; # Calendar integration (khal)
     enableClipboardPaste = true; # Pasting items from the clipboard (wtype)
     settings = {
-      currentThemeName = "custom";
-      customThemeFile = let
-        theme = {
-          name = "Dracula";
-          primary = "#bd93f9";
-          primaryText = "#282A36";
-          primaryContainer = "#a1efe4";
-          secondary = "#ff79c6";
-          surface = "#282A36";
-          surfaceText = "#F8F8F2";
-          surfaceVariant = "#44475A";
-          surfaceVariantText = "#d6d8e0";
-          surfaceTint = "#2d6e8";
-          background = "#282936";
-          backgroundText = "#e9e9f4";
-          outline = "#5a5e77";
-          surfaceContainer = "#282A36";
-          surfaceContainerHigh = "#333547";
-          surfaceContainerHighest = "#4d4f68";
-          error = "#FF5555";
-          warning = "#00f769";
-          info = "#a1efe4";
-        };
-      in
-        pkgs.writeText "dracula.json" (
-          builtins.toJSON {
-            dark = theme;
-            light = theme;
-          }
-        );
+      currentThemeName = "stylix";
+      # customThemeFile = let
+      #   theme = {
+      #     name = "Dracula";
+      #     primary = "#bd93f9";
+      #     primaryText = "#282A36";
+      #     primaryContainer = "#a1efe4";
+      #     secondary = "#ff79c6";
+      #     surface = "#282A36";
+      #     surfaceText = "#F8F8F2";
+      #     surfaceVariant = "#44475A";
+      #     surfaceVariantText = "#d6d8e0";
+      #     surfaceTint = "#2d6e8";
+      #     background = "#282936";
+      #     backgroundText = "#e9e9f4";
+      #     outline = "#5a5e77";
+      #     surfaceContainer = "#282A36";
+      #     surfaceContainerHigh = "#333547";
+      #     surfaceContainerHighest = "#4d4f68";
+      #     error = "#FF5555";
+      #     warning = "#00f769";
+      #     info = "#a1efe4";
+      #   };
+      # in
+      #   pkgs.writeText "dracula.json" (
+      #     builtins.toJSON {
+      #       dark = theme;
+      #       light = theme;
+      #     }
+      #   );
 
       clockDateFormat = "ddd MMM d";
       groupWorkspaceApps = false;

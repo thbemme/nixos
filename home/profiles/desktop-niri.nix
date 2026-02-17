@@ -30,7 +30,7 @@
     MOZ_WEBRENDER = "1";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     GDK_BACKEND = "wayland";
-    QT_QPA_PLATFORMTHEME = "qt6ct";
+    #QT_QPA_PLATFORMTHEME = "qt6ct"; # Stylix conflict
   };
 
   services = {

@@ -57,7 +57,7 @@
         {command = ["ghostty" "-e" "btop"];}
         {command = ["librewolf"];}
         {command = ["codium"];}
-        {command = ["nextcloud" "--background"];}
+        #{command = ["nextcloud" "--background"];}
         {command = ["corectrl" "--minimize-systray"];}
       ];
 
@@ -251,11 +251,11 @@
         }
       ];
 
-      cursor = {
-        theme = "oreo_purple_cursors";
-        hide-when-typing = true;
-        hide-after-inactive-ms = 1000;
-      };
+      # cursor = {
+      #   theme = "oreo_purple_cursors";
+      #   hide-when-typing = true;
+      #   hide-after-inactive-ms = 1000;
+      # };  # Stylix conflict
 
       layout = {
         gaps = 1;
