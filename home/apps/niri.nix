@@ -67,7 +67,7 @@
         "Mod+n".action = spawn "nautilus";
         "Menu".action = spawn "vicinae" "toggle";
         "Mod+Space".action = spawn "vicinae" "toggle";
-        "Mod+Alt+l".action = spawn "dms" "ipc" "lock" "lock";
+        "Mod+Alt+l".action = spawn "loginctl" "lock-session";
 
         "Mod+WheelScrollDown".action = focus-column-right;
         "Mod+WheelScrollUp".action = focus-column-left;

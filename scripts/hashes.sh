@@ -19,14 +19,14 @@ declare -A EXPECTED_HASHES
 
 echo -e "\n\033[0;33mExtracting urls and hashes from $FILE:\033[0m\n"
 while IFS= read -r URL; do
-	HASH=$(grep -A2 "$URL" "$FILE" | egrep 'hash\s*=\s*"sha256-' | awk -F'"' '{print $2}')
+	HASH=$(grep -A2 "$URL" "$FILE" | grep -E 'hash\s*=\s*"sha256-' | awk -F'"' '{print $2}')
 	if [ -n "$HASH" ]; then
 		echo -e "$URL -> $HASH"
 		EXPECTED_HASHES["$URL"]=$HASH
 	else
 		echo -e "$URL -> \033[0;31mHASH not found!\033[0m"
 	fi
-done < <(egrep "url\s*=" "$FILE" | awk -F'"' '{print $2}')
+done < <(grep -E "url\s*=" "$FILE" | awk -F'"' '{print $2}')
 
 echo -e "\n\033[0;33mFetching current hashes:\033[0m\n"
 for url in "${!EXPECTED_HASHES[@]}"; do
