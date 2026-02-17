@@ -58,6 +58,7 @@
 
       clockDateFormat = "ddd MMM d";
       groupWorkspaceApps = false;
+      innerPadding = "0";
       launcherLogoMode = "os";
       maxWorkspaceIcons = "10";
       powerMenuDefaultAction = "suspend";
