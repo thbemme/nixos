@@ -57,7 +57,7 @@
         {command = ["ghostty" "-e" "btop"];}
         {command = ["librewolf"];}
         {command = ["codium"];}
-        {command = ["nextcloud" "--background"];}
+        #{command = ["nextcloud" "--background"];}
         {command = ["corectrl" "--minimize-systray"];}
       ];
 

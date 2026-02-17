@@ -2,6 +2,7 @@
   imports = [
     ../apps/cmus.nix
     ../apps/dms.nix
+    ../apps/mpv.nix
     ../apps/niri.nix
     #../apps/noctalia.nix
     ../apps/swayidle.nix

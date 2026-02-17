@@ -42,7 +42,6 @@
         tor-browser
         transmission_4-gtk
         vesktop
-        vlc
       ])
       ++ (with pkgs-unstable; [
         ]);
