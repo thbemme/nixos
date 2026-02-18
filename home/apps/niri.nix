@@ -4,7 +4,10 @@
   pkgs,
   ...
 }: {
-  imports = [inputs.niri.homeModules.niri];
+  imports = [
+    inputs.niri.homeModules.niri
+    inputs.niri.homeModules.stylix
+  ];
 
   programs.niri = {
     enable = true;
@@ -251,12 +254,6 @@
         }
       ];
 
-      # cursor = {
-      #   theme = "oreo_purple_cursors";
-      #   hide-when-typing = true;
-      #   hide-after-inactive-ms = 1000;
-      # };  # Stylix conflict
-
       layout = {
         gaps = 1;
         center-focused-column = "never";
@@ -265,27 +262,8 @@
         preset-column-widths = [{proportion = 0.33333;} {proportion = 0.5;} {proportion = 0.66667;}];
         default-column-width = {proportion = 0.5;};
         preset-window-heights = [{proportion = 0.33333;} {proportion = 0.5;} {proportion = 1.0;}];
-        focus-ring = {
-          enable = true;
-          width = 2;
-          active.color = "#bd93f9";
-          inactive.color = "#505050";
-        };
         border = {
-          enable = false;
           width = 2;
-          active.color = "#ffc87f";
-          inactive.color = "#505050";
-        };
-        shadow = {
-          softness = 30;
-          spread = 5;
-          offset = {
-            x = 0;
-            y = 5;
-          };
-          draw-behind-window = true;
-          color = "#282A36";
         };
         tab-indicator = {
           hide-when-single-tab = true;

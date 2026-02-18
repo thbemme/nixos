@@ -25,7 +25,7 @@
     enableCalendarEvents = false; # Calendar integration (khal)
     enableClipboardPaste = true; # Pasting items from the clipboard (wtype)
     settings = {
-      currentThemeName = "stylix";
+      #currentThemeName = "stylix";
       # customThemeFile = let
       #   theme = {
       #     name = "Dracula";

@@ -13,11 +13,11 @@
     enable = true;
     autoEnable = true;
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-dark.yaml";
 
     targets = {
       mangohud.enable = false;
-      firefox.profileNames = ["${vars.user}"];
+      firefox.profileNames = ["default"];
     };
 
     cursor = {
@@ -59,14 +59,6 @@
       popups = 10;
       terminal = 10;
     };
-
-    opacity = {
-      terminal = 0.85;
-      applications = 0.9;
-      desktop = 0.9;
-      popups = 0.9;
-    };
-
     icons = {
       enable = true;
       dark = "Papirus-Dark";
