@@ -18,6 +18,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    stylix.url = "github:nix-community/stylix";
+
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,6 +49,7 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
+    stylix,
     ...
   } @ inputs: let
     system = "x86_64-linux";

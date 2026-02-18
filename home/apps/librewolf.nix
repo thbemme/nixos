@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  vars,
+  ...
+}: {
   programs.firefox = {
     enable = true;
     package = pkgs.librewolf;

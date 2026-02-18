@@ -19,16 +19,6 @@
         "applications:vscodium"
         "applications:steam"
       ];
-      theme = {
-        light = {
-          name = "dracula";
-          icon_theme = "default";
-        };
-        dark = {
-          name = "dracula";
-          icon_theme = "default";
-        };
-      };
     };
     extensions = with inputs.vicinae-extensions.packages.${pkgs.stdenv.hostPlatform.system}; [
       niri

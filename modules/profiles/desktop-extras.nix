@@ -29,7 +29,6 @@
         lyx
         nextcloud-client
         nixos-icons
-        oreo-cursors-plus
         papirus-icon-theme
         papers
         pika-backup

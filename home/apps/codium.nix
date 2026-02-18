@@ -56,9 +56,7 @@
       ];
       userSettings = {
         "editor.cursorStyle" = "line";
-        "editor.fontFamily" = "FiraCode Nerd Font";
         "editor.fontLigatures" = true;
-        "editor.fontSize" = 12;
         "editor.insertSpaces" = true;
         "editor.mouseWheelZoom" = true;
         "editor.multiCursorModifier" = "alt";
@@ -68,7 +66,7 @@
         "files.autoSave" = "afterDelay";
         "markdown.extension.toc.slugifyMode" = "gitea";
         "nix.formatterPath" = "alejandra";
-        "terminal.integrated.fontSize" = 12;
+        "workbench.colorTheme" = "Stylix";
         "workbench.editor.enablePreview" = false;
         "files.exclude" = {
           "**/.git" = true;
