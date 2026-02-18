@@ -10,7 +10,7 @@ in {
     ../apps/git.nix
     ../apps/neovim.nix
     ../apps/ssh.nix
-    ../themes
+    ../profiles/stylix.nix
     ./base.nix
     ./desktop-extras.nix
     ./desktop-gnome.nix

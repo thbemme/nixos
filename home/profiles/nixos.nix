@@ -9,7 +9,7 @@ _: {
     ../apps/git.nix
     ../apps/neovim.nix
     ../apps/ssh.nix
-    ../themes
+    ../profiles/stylix.nix
     ./base.nix
     ./fish/nixos.nix
   ];

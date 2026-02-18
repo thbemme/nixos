@@ -11,7 +11,7 @@
     ../apps/git.nix
     ../apps/neovim.nix
     ../apps/ssh.nix
-    ../themes/dracula-cli.nix
+    ../profiles/stylix.nix
     ./fish/nixondroid.nix
   ];
 
