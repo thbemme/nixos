@@ -248,7 +248,7 @@
           open-on-workspace = "office";
         }
         {
-          matches = [{app-id = "codium";} {app-id = "nautilus";} {app-id = "qalculate-gtk";} {app-id = "VSCodium";}];
+          matches = [{app-id = "codium";} {app-id = "org.gnome.Nautilus";} {app-id = "qalculate-gtk";} {app-id = "VSCodium";}];
           draw-border-with-background = false;
           opacity = 0.95;
         }

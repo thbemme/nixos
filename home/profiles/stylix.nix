@@ -61,9 +61,8 @@
     };
     icons = {
       enable = true;
-      dark = "Papirus-Dark";
-      light = "Papirus-Light";
-      package = pkgs.papirus-icon-theme;
+      dark = "rose-pine-moon";
+      package = pkgs.rose-pine-icon-theme;
     };
   };
 }

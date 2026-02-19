@@ -1,8 +1,11 @@
 {
+  gpuAcceleration,
   inputs,
   pkgs,
   ...
-}: {
+}: let
+  hasBattery = builtins.pathExists "/sys/class/power_supply/BAT0/";
+in {
   imports = [
     inputs.dms.homeModules.dank-material-shell
     inputs.dms.homeModules.niri
@@ -25,37 +28,6 @@
     enableCalendarEvents = false; # Calendar integration (khal)
     enableClipboardPaste = true; # Pasting items from the clipboard (wtype)
     settings = {
-      #currentThemeName = "stylix";
-      # customThemeFile = let
-      #   theme = {
-      #     name = "Dracula";
-      #     primary = "#bd93f9";
-      #     primaryText = "#282A36";
-      #     primaryContainer = "#a1efe4";
-      #     secondary = "#ff79c6";
-      #     surface = "#282A36";
-      #     surfaceText = "#F8F8F2";
-      #     surfaceVariant = "#44475A";
-      #     surfaceVariantText = "#d6d8e0";
-      #     surfaceTint = "#2d6e8";
-      #     background = "#282936";
-      #     backgroundText = "#e9e9f4";
-      #     outline = "#5a5e77";
-      #     surfaceContainer = "#282A36";
-      #     surfaceContainerHigh = "#333547";
-      #     surfaceContainerHighest = "#4d4f68";
-      #     error = "#FF5555";
-      #     warning = "#00f769";
-      #     info = "#a1efe4";
-      #   };
-      # in
-      #   pkgs.writeText "dracula.json" (
-      #     builtins.toJSON {
-      #       dark = theme;
-      #       light = theme;
-      #     }
-      #   );
-
       clockDateFormat = "ddd MMM d";
       groupWorkspaceApps = false;
       innerPadding = "0";
@@ -91,60 +63,77 @@
               enabled = true;
             }
           ];
-          rightWidgets = [
-            {
-              id = "privacyIndicator";
-              enabled = true;
-            }
-            {
-              id = "music";
-              enabled = true;
-              mediaSize = 1;
-            }
-            {
-              id = "weather";
-              enabled = true;
-            }
-            {
-              id = "systemTray";
-              enabled = true;
-            }
-            {
-              id = "cpuTemp";
-              enabled = true;
-              minimumWidth = true;
-            }
-            {
-              id = "gpuTemp";
-              enabled = true;
-              selectedGpuIndex = 0;
-              pciId = "1002:73df";
-            }
-            {
-              id = "clipboard";
-              enabled = true;
-            }
-            {
-              id = "notificationButton";
-              enabled = true;
-            }
-            {
-              id = "battery";
-              enabled = true;
-            }
-            {
-              id = "controlCenterButton";
-              enabled = true;
-            }
-            {
-              id = "clock";
-              enabled = true;
-            }
-            {
-              id = "powerMenuButton";
-              enabled = true;
-            }
-          ];
+          rightWidgets =
+            [
+              {
+                id = "privacyIndicator";
+                enabled = true;
+              }
+              {
+                id = "music";
+                enabled = true;
+                mediaSize = 1;
+              }
+              {
+                id = "weather";
+                enabled = true;
+              }
+              {
+                id = "systemTray";
+                enabled = true;
+              }
+              {
+                id = "cpuTemp";
+                enabled = true;
+                minimumWidth = true;
+              }
+            ]
+            ++ (
+              if gpuAcceleration
+              then [
+                {
+                  id = "gpuTemp";
+                  enabled = true;
+                  selectedGpuIndex = 0;
+                  pciId = "1002:73df";
+                }
+              ]
+              else []
+            )
+            ++ [
+              {
+                id = "clipboard";
+                enabled = true;
+              }
+              {
+                id = "notificationButton";
+                enabled = true;
+              }
+            ]
+            ++ (
+              if hasBattery
+              then [
+                {
+                  id = "battery";
+                  enabled = true;
+                }
+              ]
+              else []
+            )
+            ++ [
+              {
+                id = "controlCenterButton";
+                enabled = true;
+              }
+              {
+                id = "clock";
+                enabled = true;
+              }
+              {
+                id = "powerMenuButton";
+                enabled = true;
+              }
+            ];
         }
       ];
     };
