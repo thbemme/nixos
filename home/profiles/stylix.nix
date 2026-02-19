@@ -13,7 +13,7 @@
     enable = true;
     autoEnable = true;
     enableReleaseChecks = false;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
 
     targets = {
       mangohud.enable = false;
