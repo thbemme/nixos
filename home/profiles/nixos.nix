@@ -8,6 +8,7 @@ _: {
     ../apps/fish.nix
     ../apps/git.nix
     ../apps/neovim.nix
+    ../apps/obs.nix
     ../apps/ssh.nix
     ../profiles/stylix.nix
     ./base.nix

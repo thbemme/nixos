@@ -49,7 +49,7 @@
 
       outputs = {
         "LG Electronics LG ULTRAGEAR 204NTWG14769" = {
-          variable-refresh-rate = true;
+          variable-refresh-rate = "on-demand";
         };
       };
 
@@ -189,7 +189,7 @@
         {
           matches = [{app-id = "com.mitchellh.ghostty";}];
           draw-border-with-background = false;
-          opacity = 0.9;
+          opacity = 0.95;
           open-on-workspace = "main";
         }
         {
@@ -198,10 +198,11 @@
               app-id = "^librewolf$";
               title = "^Picture-in-Picture$";
             }
-            {app-id = "com.nextcloud.desktopclient.nextcloud";}
-            {app-id = "qalculate-gtk";}
-            {app-id = "org.corectrl.CoreCtrl";}
             {app-id = ".blueman-manager-wrapped";}
+            {app-id = "com.nextcloud.desktopclient.nextcloud";}
+            {app-id = "mpv";}
+            {app-id = "org.corectrl.CoreCtrl";}
+            {app-id = "qalculate-gtk";}
           ];
           open-floating = true;
         }

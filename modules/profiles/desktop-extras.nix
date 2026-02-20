@@ -5,45 +5,35 @@
   ...
 }: {
   users.users.${vars.user} = {
-    packages =
-      (with pkgs; [
-        (pkgs.wrapOBS {
-          plugins = with pkgs.obs-studio-plugins; [
-            wlrobs
-            obs-backgroundremoval
-            obs-pipewire-audio-capture
-          ];
-        })
-        _64gram
-        amberol
-        cozy
-        cryptomator
-        ffmpeg-full
-        gedit
-        gimp3-with-plugins
-        handbrake
-        hexchat
-        krita
-        libreoffice-fresh
-        loupe
-        lyx
-        nextcloud-client
-        nixos-icons
-        papirus-icon-theme
-        papers
-        pika-backup
-        remmina
-        scribus
-        stellarium
-        tenacity
-        texlive.combined.scheme-small
-        timg
-        tor-browser
-        transmission_4-gtk
-        vesktop
-      ])
-      ++ (with pkgs-unstable; [
-        ]);
+    packages = with pkgs; [
+      _64gram
+      amberol
+      cozy
+      cryptomator
+      ffmpeg-full
+      gedit
+      gimp3-with-plugins
+      handbrake
+      hexchat
+      krita
+      libreoffice-fresh
+      loupe
+      lyx
+      nextcloud-client
+      nixos-icons
+      papirus-icon-theme
+      papers
+      pika-backup
+      remmina
+      scribus
+      stellarium
+      tenacity
+      texlive.combined.scheme-small
+      timg
+      tor-browser
+      transmission_4-gtk
+      vesktop
+    ];
   };
 
   environment.systemPackages = with pkgs; [

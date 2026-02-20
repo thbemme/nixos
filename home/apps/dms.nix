@@ -29,7 +29,7 @@ in {
     settings = {
       clockDateFormat = "ddd MMM d";
       groupWorkspaceApps = false;
-      innerPadding = "0";
+      innerPadding = 0;
       launcherLogoMode = "os";
       maxWorkspaceIcons = "10";
       powerMenuDefaultAction = "suspend";
