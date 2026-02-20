@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+_: {
   programs.ghostty = {
     enable = true;
     #package = (config.lib.nixGL.wrap pkgs.ghostty);

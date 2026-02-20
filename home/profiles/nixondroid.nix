@@ -11,7 +11,6 @@
     ../apps/git.nix
     ../apps/neovim.nix
     ../apps/ssh.nix
-    ../profiles/stylix.nix
     ./fish/nixondroid.nix
   ];
 

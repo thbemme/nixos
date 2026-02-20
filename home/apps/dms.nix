@@ -1,7 +1,6 @@
 {
   gpuAcceleration,
   inputs,
-  pkgs,
   ...
 }: let
   hasBattery = builtins.pathExists "/sys/class/power_supply/BAT0/";

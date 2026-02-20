@@ -49,7 +49,6 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
-    stylix,
     ...
   } @ inputs: let
     system = "x86_64-linux";

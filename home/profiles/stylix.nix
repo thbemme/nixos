@@ -1,10 +1,16 @@
 {
   inputs,
-  config,
   pkgs,
-  vars,
   ...
-}: {
+}: let
+  stylix-background = pkgs.fetchurl {
+    url = "https://i.redd.it/pivo53w9nyd51.jpg";
+    hash = "sha256-5QjFGb1wO5qfWimRYIAF6BEesxrsZg1AXC3MhKutcEg=";
+  };
+
+  opacity = 0.95;
+  fontSize = 10;
+in {
   imports = [
     inputs.stylix.homeModules.stylix
   ];
@@ -12,18 +18,31 @@
   stylix = {
     enable = true;
     autoEnable = true;
+    polarity = "dark";
     enableReleaseChecks = false;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
 
     targets = {
       mangohud.enable = false;
       firefox.profileNames = ["default"];
+      neovim = {
+        transparentBackground = {
+          main = true;
+          numberLine = true;
+          signColumn = true;
+        };
+      };
     };
 
     cursor = {
       package = pkgs.oreo-cursors-plus;
       name = "oreo_purple_cursors";
       size = 24;
+    };
+
+    opacity = {
+      terminal = opacity;
+      popups = opacity;
     };
 
     fonts = {
@@ -46,19 +65,16 @@
         package = pkgs.noto-fonts-color-emoji;
         name = "Noto Color Emoji";
       };
+      sizes = {
+        applications = fontSize;
+        desktop = fontSize;
+        popups = fontSize;
+        terminal = fontSize;
+      };
     };
 
-    image = pkgs.fetchurl {
-      url = "https://i.redd.it/pivo53w9nyd51.jpg";
-      hash = "sha256-5QjFGb1wO5qfWimRYIAF6BEesxrsZg1AXC3MhKutcEg=";
-    };
+    image = stylix-background;
 
-    fonts.sizes = {
-      applications = 10;
-      desktop = 10;
-      popups = 10;
-      terminal = 10;
-    };
     icons = {
       enable = true;
       dark = "rose-pine-moon";

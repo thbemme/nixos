@@ -17,17 +17,12 @@
       set shiftwidth=2
       set tabstop=2
       set wildmenu
-      let g:dracula_colorterm = 0
-      colorscheme dracula
       syntax on
-      hi Normal guibg=NONE ctermbg=NONE
     '';
     plugins = with pkgs.vimPlugins; [
-      dracula-nvim # Dracula color scheme
       minimap-vim # Minimap sidebar
       nerdtree # File tree explorer
       nvim-fzf # FZF integration for Neovim
-      rust-vim # Rust filetype and helper configs
       supertab # Tab completion improvements
       vim-airline # Status/tabline
       vim-fugitive # Git integration
