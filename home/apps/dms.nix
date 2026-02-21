@@ -1,14 +1,33 @@
 {
+  config,
   gpuAcceleration,
   inputs,
   ...
-}: let
-  hasBattery = builtins.pathExists "/sys/class/power_supply/BAT0/";
-in {
+}: {
   imports = [
+    inputs.danksearch.homeModules.default
     inputs.dms.homeModules.dank-material-shell
     inputs.dms.homeModules.niri
+    inputs.dms-plugin-registry.modules.default
   ];
+
+  programs.dsearch = {
+    enable = true;
+    config = {
+      max_file_bytes = 2097152; # 2MB
+      worker_count = 4;
+      index_all_files = true;
+      auto_reindex = true;
+      reindex_interval_hours = 24;
+      index_paths = [
+        {
+          path = "${config.home.homeDirectory}";
+          exclude_hidden = true;
+          exclude_dirs = ["Android" "Games" ".git" "target" "dist" "bin" "obj" "build"];
+        }
+      ];
+    };
+  };
 
   programs.dank-material-shell = {
     enable = true;
@@ -26,11 +45,28 @@ in {
     enableAudioWavelength = true; # Audio visualizer (cava)
     enableCalendarEvents = false; # Calendar integration (khal)
     enableClipboardPaste = true; # Pasting items from the clipboard (wtype)
+
+    plugins = {
+      dankActions.enable = true;
+      dankBatteryAlerts = {
+        enable = true;
+        settings = {
+          criticalThreshold = 10;
+        };
+      };
+      # Community plugins
+      calculator.enable = true;
+      emojiLauncher.enable = true;
+    };
+
     settings = {
       clockDateFormat = "ddd MMM d";
       groupWorkspaceApps = false;
       innerPadding = 0;
       launcherLogoMode = "os";
+      launcherPluginVisibility = {
+        dms_settings_search.allowWithoutTrigger = false;
+      };
       maxWorkspaceIcons = "10";
       powerMenuDefaultAction = "suspend";
       scrollTitleEnabled = false;
@@ -108,18 +144,10 @@ in {
                 id = "notificationButton";
                 enabled = true;
               }
-            ]
-            ++ (
-              if hasBattery
-              then [
-                {
-                  id = "battery";
-                  enabled = true;
-                }
-              ]
-              else []
-            )
-            ++ [
+              {
+                id = "battery";
+                enabled = true;
+              }
               {
                 id = "controlCenterButton";
                 enabled = true;

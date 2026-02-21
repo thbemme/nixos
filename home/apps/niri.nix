@@ -68,8 +68,8 @@
         "Mod+Return".action = spawn "ghostty";
         "Mod+b".action = spawn "librewolf";
         "Mod+n".action = spawn "nautilus";
-        "Menu".action = spawn "vicinae" "toggle";
-        "Mod+Space".action = spawn "vicinae" "toggle";
+        "Menu".action = spawn "dms" "ipc" "launcher" "toggle";
+        "Mod+Space".action = spawn "dms" "ipc" "launcher" "toggle";
         "Mod+Alt+l".action = spawn "loginctl" "lock-session";
 
         "Mod+WheelScrollDown".action = focus-column-right;

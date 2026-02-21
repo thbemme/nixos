@@ -6,7 +6,7 @@
     ../apps/niri.nix
     #../apps/noctalia.nix
     ../apps/swayidle.nix
-    ../apps/vicinae.nix
+    #../apps/vicinae.nix
   ];
 
   home.packages = with pkgs; [
