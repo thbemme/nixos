@@ -79,15 +79,6 @@ with lib.hm.gvariant; # bring mkUint32 etc. into scope
         experimental-features = ["variable-refresh-rate"];
       };
 
-      # Desktop background: use `rec` so `picture-uri-dark` points to same value as `picture-uri`
-      "org/gnome/desktop/background" = rec {
-        color-shading-type = "solid";
-        picture-options = "zoom";
-        picture-uri = "https://i.redd.it/pivo53w9nyd51.jpg";
-        picture-uri-dark = picture-uri;
-        primary-color = "#000000";
-      };
-
       # Core Shell settings: favourites and enabled extensions pulled from variables above
       "org/gnome/shell" = {
         disable-user-extensions = false;
