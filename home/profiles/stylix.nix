@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  vars,
   ...
 }: let
   stylix-background = pkgs.fetchurl {
@@ -24,7 +25,7 @@ in {
 
     targets = {
       mangohud.enable = false;
-      firefox.profileNames = ["default"];
+      librewolf.profileNames = ["default"];
       neovim = {
         transparentBackground = {
           main = true;

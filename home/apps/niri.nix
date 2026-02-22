@@ -234,7 +234,7 @@
           };
         }
         {
-          matches = [{app-id = "codium";} {app-id = "VSCodium";}];
+          matches = [{app-id = "codium";} {app-id = "VSCodium";} {app-id = "Thonny";} {app-id = "jetbrains-studio";}];
           open-maximized = true;
           open-on-workspace = "dev";
         }

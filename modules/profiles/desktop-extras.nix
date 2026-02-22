@@ -20,8 +20,6 @@
       loupe
       lyx
       nextcloud-client
-      nixos-icons
-      papirus-icon-theme
       papers
       pika-backup
       remmina
