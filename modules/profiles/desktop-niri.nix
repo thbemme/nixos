@@ -61,13 +61,11 @@
     # D-Bus service for power management
     upower.enable = true;
 
-    # Calendar data
-    gnome.evolution-data-server.enable = true;
-    gnome.gnome-online-accounts.enable = true;
-
     blueman.enable = true;
 
     power-profiles-daemon.enable = true;
+
+    accounts-daemon.enable = true;
   };
 
   xdg.portal = {

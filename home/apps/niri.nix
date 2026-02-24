@@ -41,7 +41,6 @@
           accel-profile = "flat";
         };
         mouse = {
-          accel-speed = -0.5;
           accel-profile = "flat";
         };
         power-key-handling.enable = false;
@@ -203,6 +202,8 @@
             {app-id = "mpv";}
             {app-id = "org.corectrl.CoreCtrl";}
             {app-id = "qalculate-gtk";}
+            {title = "^Open File";}
+            {title = "^Open Folder";}
           ];
           open-floating = true;
         }
