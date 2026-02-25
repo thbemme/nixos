@@ -34,7 +34,7 @@
           privateDefault = "searx.kbnetcloud.de";
           order = [
             "searx.kbnetcloud.de"
-            "NoAI"
+            "DuckDuckGo NoAI"
             "NixOS Packages"
             "Nixcode"
             "PR-tracker"
@@ -45,7 +45,6 @@
               description = "SearXNG is a metasearch engine that respects your privacy.";
               queryCharset = "UTF-8";
               searchForm = "https://searx.kbnetcloud.de/search";
-              icon = "https://searx.kbnetcloud.de/search/static/themes/simple/img/favicon.svg";
               urls = [
                 {
                   "params" = [
@@ -75,7 +74,7 @@
               urls = [{template = "https://nixpk.gs/pr-tracker.html?pr={searchTerms}";}];
               definedAliases = ["pr"];
             };
-            "NoAI" = {
+            "DuckDuckGo NoAI" = {
               urls = [{template = "https://noai.duckduckgo.com/?q={searchTerms}";}];
               definedAliases = ["ddg"];
             };
