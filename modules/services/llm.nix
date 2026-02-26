@@ -52,7 +52,7 @@ in {
   };
 
   environment.systemPackages = [
-    pkgs.mimic
     pkgs.oterm
+    pkgs.piper-tts
   ];
 }
