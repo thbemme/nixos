@@ -30,7 +30,6 @@ with lib.hm.gvariant; # bring mkUint32 etc. into scope
       "com.mitchellh.ghostty.desktop"
       "org.gnome.Nautilus.desktop"
       "codium.desktop"
-      "vesktop.desktop"
       "io.github.Hexchat.desktop"
       "steam.desktop"
       "Path of Exile.desktop"

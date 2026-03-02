@@ -22,6 +22,7 @@
 
       input = {
         focus-follows-mouse.enable = true;
+        warp-mouse-to-focus.enable = false;
         workspace-auto-back-and-forth = true;
         keyboard = {
           xkb = {
@@ -240,7 +241,7 @@
           open-on-workspace = "dev";
         }
         {
-          matches = [{app-id = "hexchat";} {app-id = "io.github.tdesktop_x64.TDesktop";} {app-id = "vesktop";} {app-id = "wasistlos";}];
+          matches = [{app-id = "hexchat";} {app-id = "io.github.tdesktop_x64.TDesktop";} {app-id = "wasistlos";}];
           open-maximized = true;
           open-on-workspace = "comm";
         }

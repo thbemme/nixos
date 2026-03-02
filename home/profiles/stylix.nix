@@ -1,7 +1,6 @@
 {
   inputs,
   pkgs,
-  vars,
   ...
 }: let
   stylix-background = pkgs.fetchurl {

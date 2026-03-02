@@ -1,11 +1,6 @@
-{
-  pkgs,
-  vars,
-  ...
-}: {
+_: {
   programs.librewolf = {
     enable = true;
-    #package = pkgs.librewolf;
     languagePacks = ["en-US" "de"];
     settings = {
       "cookiebanners.service.mode.privateBrowsing" = 2; # Block cookie banners in private browsing

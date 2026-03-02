@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgs-unstable,
   vars,
   ...
 }: {
@@ -30,7 +29,6 @@
       timg
       tor-browser
       transmission_4-gtk
-      vesktop
     ];
   };
 
