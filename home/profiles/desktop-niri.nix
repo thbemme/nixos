@@ -12,7 +12,6 @@
   home.packages = with pkgs; [
     gpu-screen-recorder
     kdePackages.qt6ct
-    mission-center
     nautilus
     nirius
     pwvucontrol

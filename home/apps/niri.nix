@@ -214,7 +214,7 @@
           open-on-workspace = "main";
         }
         {
-          matches = [{app-id = "steam_app_default";} {app-id = "net.lutris.Lutris";}];
+          matches = [{app-id = "steam";} {app-id = "net.lutris.Lutris";}];
           open-on-workspace = "gaming";
         }
         {

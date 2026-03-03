@@ -58,7 +58,16 @@
       calculator.enable = true;
       emojiLauncher.enable = true;
     };
-
+    session = {
+      hiddenTrayIds = [
+        "steam"
+        "corectrl"
+        "blueman::Bluetooth Disabled"
+        "udiskie"
+      ];
+      weatherLocation = "Dresden, Germany";
+      weatherCoordinates = "51.03784342840871, 13.762874829338783";
+    };
     settings = {
       clockDateFormat = "ddd MMM d";
       groupWorkspaceApps = false;
