@@ -47,6 +47,8 @@
     enableClipboardPaste = true; # Pasting items from the clipboard (wtype)
 
     plugins = {
+      calculator.enable = true;
+      emojiLauncher.enable = true;
       dankActions.enable = true;
       dankBatteryAlerts = {
         enable = true;
@@ -54,9 +56,7 @@
           criticalThreshold = 10;
         };
       };
-      # Community plugins
-      calculator.enable = true;
-      emojiLauncher.enable = true;
+      niriWindows.enable = true;
     };
     session = {
       hiddenTrayIds = [
