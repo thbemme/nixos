@@ -3,9 +3,7 @@
   pkgs-unstable,
   vars,
   ...
-}: let
-  fonts = import ./fonts.nix {inherit pkgs;};
-in {
+}: {
   # Configure keymap in Wayland
   services.xserver = {
     enable = true;
@@ -41,21 +39,6 @@ in {
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-  fonts = {
-    enableDefaultPackages = true;
-    fontconfig = {
-      enable = true;
-      defaultFonts = {
-        monospace = ["FiraCode Nerd Font"];
-        sansSerif = ["Adwaita Sans"];
-        serif = ["Adwaita Serif"];
-        emoji = ["Noto Color Emoji"];
-      };
-    };
-    fontDir.enable = true;
-    packages = fonts;
-  };
 
   services.system76-scheduler = {
     enable = true;

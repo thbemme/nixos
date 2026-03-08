@@ -6,9 +6,7 @@
   useUnstable,
   vars,
   ...
-}: let
-  fonts = import ../../modules/profiles/fonts.nix {inherit pkgs;};
-in {
+}: {
   imports = [
     # include NixOS-WSL modules
     inputs.home-manager.nixosModules.home-manager
@@ -33,8 +31,6 @@ in {
   environment.systemPackages = with pkgs-unstable; [
     ghostty
   ];
-
-  fonts.packages = fonts;
 
   programs = {
     dconf.enable = true;
