@@ -241,7 +241,7 @@
           open-on-workspace = "dev";
         }
         {
-          matches = [{app-id = "hexchat";} {app-id = "io.github.tdesktop_x64.TDesktop";} {app-id = "wasistlos";}];
+          matches = [{app-id = "hexchat";} {app-id = "io.github.tdesktop_x64.TDesktop";} {app-id = "telegram-desktop";} {app-id = "wasistlos";}];
           open-maximized = true;
           open-on-workspace = "comm";
         }
