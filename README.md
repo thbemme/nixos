@@ -14,9 +14,9 @@ This repository contains my **NixOS** and **Home Manager** configurations for va
 The setup is **modular**, **reproducible**, and **secure**, with support for **GitCrypt** for secrets management.
 
 ## 👀 Screenshot
-Niri + Dank Material Shell with Dracula theme:
+Niri + Dank Material Shell with [Rose Pine theme](https://rosepinetheme.com/):
 
-![niri-dms-dracula](assets/niri-dms-dracula.jpg)
+![niri-dms-rosepine](assets/niri-dms-rosepine.jpg)
 ---
 
 ## 📂 Structure
@@ -39,16 +39,16 @@ Niri + Dank Material Shell with Dracula theme:
  | [LED control](modules/hardware/led.nix) | Control LED colors                           |
 
 ### Profiles
- | Module                                                          | Description                                  |
- | --------------------------------------------------------------- | -------------------------------------------- |
- | [Development](modules/profiles/dev.nix)                         | Thonny, Android Studio (unstable)            |
- | [Gaming](modules/profiles/gaming.nix)                           | Lutris, Steam, Wine                          |
- | [GNOME](modules/profiles/desktop-gnome.nix)                     | GNOME desktop environment with Dracula theme |
- | [GUI Extras](modules/profiles/desktop-extras.nix)               | Additional GUI applications                  |
- | [GUI](modules/profiles/desktop-minimal.nix)                     | Minimal GUI applications                     |
- | [Niri + Dank Material Shell](modules/profiles/desktop-niri.nix) | Niri + Dank Material Shell with Dracula theme      |
- | [Security](modules/profiles/security.nix)                       | Nmap, Wireshark, and auditing tools          |
- | [Work](modules/profiles/work.nix)                               | Citrix Client, Alpaca Proxy                  |
+ | Module                                                          | Description                                   |
+ | --------------------------------------------------------------- | --------------------------------------------- |
+ | [Development](modules/profiles/dev.nix)                         | Thonny, Android Studio (unstable)             |
+ | [Gaming](modules/profiles/gaming.nix)                           | Lutris, Steam, Wine                           |
+ | [GNOME](modules/profiles/desktop-gnome.nix)                     | GNOME desktop environment with Dracula theme  |
+ | [GUI Extras](modules/profiles/desktop-extras.nix)               | Additional GUI applications                   |
+ | [GUI](modules/profiles/desktop-minimal.nix)                     | Minimal GUI applications                      |
+ | [Niri + Dank Material Shell](modules/profiles/desktop-niri.nix) | Niri + Dank Material Shell with Dracula theme |
+ | [Security](modules/profiles/security.nix)                       | Nmap, Wireshark, and auditing tools           |
+ | [Work](modules/profiles/work.nix)                               | Citrix Client, Alpaca Proxy                   |
 
 ### Services
  | Module                                        | Description                                     |
@@ -73,6 +73,7 @@ Niri + Dank Material Shell with Dracula theme:
  | [Ghostty](home/apps/ghostty.nix)     | Customized Ghostty terminal configuration  |
  | [Librewolf](home/apps/librewolf.nix) | Customized Librewolf browser configuration |
  | [NeoVim](home/apps/neovim.nix)       | Customized NeoVim configuration            |
+ | [Stylix](home/profiles/stylix.nix)   | Stylix configuration for Rose Pine theme   |
  | [VSCodium](home/apps/codium.nix)     | Customized VSCodium configuration          |
 
 ---

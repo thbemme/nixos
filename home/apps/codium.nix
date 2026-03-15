@@ -76,6 +76,8 @@
           "**/.DS_Store" = true;
           "**/Thumbs.db" = true;
         };
+        # Formatter settings
+        "[markdown]"."editor.defaultFormatter" = "yzhang.markdown-all-in-one";
       };
     };
   };

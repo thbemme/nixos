@@ -198,6 +198,10 @@
               app-id = "^librewolf$";
               title = "^Picture-in-Picture$";
             }
+            {
+              app-id = "org.remmina.Remmina";
+              title = "Remmina Remote Desktop Client";
+            }
             {app-id = ".blueman-manager-wrapped";}
             {app-id = "com.nextcloud.desktopclient.nextcloud";}
             {app-id = "mpv";}
