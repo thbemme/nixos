@@ -25,6 +25,7 @@ Niri + Dank Material Shell with [Rose Pine theme](https://rosepinetheme.com/):
    | `home/`        | Home Manager configurations and user-specific settings        |
    | `hosts/`       | Host-specific configurations (e.g., `mikrobi/`, `puffy/`)     |
    | `modules/`     | Reusable NixOS modules (hardware, profiles, services, system) |
+   | `packages/`    | Self defined packages                                         |
    | `scripts/`     | Utility scripts for setup and maintenance                     |
    | `secrets/`     | Sensitive data and configuration (encrypted with GitCrypt)    |
 

@@ -14,13 +14,6 @@
   # Automatic Timezone Daemon
   services.automatic-timezoned.enable = true;
 
-  users.users.${vars.user} = {
-    extraGroups = ["networkmanager"];
-    packages = with pkgs-unstable; [
-      ghostty
-    ];
-  };
-
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -39,6 +32,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  users.users.${vars.user}.extraGroups = ["networkmanager"];
 
   services.system76-scheduler = {
     enable = true;

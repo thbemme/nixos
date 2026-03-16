@@ -28,10 +28,6 @@
     };
   };
 
-  environment.systemPackages = with pkgs-unstable; [
-    ghostty
-  ];
-
   programs = {
     dconf.enable = true;
     ssh.startAgent = true;
