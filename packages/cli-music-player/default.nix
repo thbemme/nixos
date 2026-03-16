@@ -7,7 +7,7 @@ pkgs.rustPlatform.buildRustPackage rec {
     owner = "professor-lee";
     repo = "cli-music-player";
     rev = "v${version}";
-    sha256 = "sha256-NO1HzpKj+1z9RX5U1n6OUlMGxXFHjrWIB5GyAJuO2bw=";
+    sha256 = "sha256-wbaOd4LvGRM1FnsQymWdVmpQWtxX7u8JxbEtXtxnezo=";
   };
 
   cargoLock = {
