@@ -4,46 +4,41 @@
   vars,
   ...
 }: {
-  users.users.${vars.user} = {
-    packages =
-      (with pkgs; [
-        #_64gram
-        amberol
-        cozy
-        cryptomator
-        ffmpeg-full
-        gedit
-        gimp3-with-plugins
-        handbrake
-        hexchat
-        krita
-        libreoffice-fresh
-        loupe
-        lyx
-        nextcloud-client
-        papers
-        pika-backup
-        remmina
-        scribus
-        stellarium
-        tenacity
-        texlive.combined.scheme-small
-        timg
-        tor-browser
-        transmission_4-gtk
-      ])
-      ++ (with pkgs-unstable; [
-        _64gram # Missing backport
-      ]);
-  };
-
-  environment.systemPackages = with pkgs; [
-    btrfs-assistant
-    hunspell
-    hunspellDicts.de_DE
-    hunspellDicts.en_US
-    lm_sensors
-  ];
+  environment.systemPackages =
+    (with pkgs; [
+      _64gram
+      amberol
+      btrfs-assistant
+      cozy
+      cryptomator
+      ffmpeg-full
+      gedit
+      gimp3-with-plugins
+      handbrake
+      hexchat
+      hunspell
+      hunspellDicts.de_DE
+      hunspellDicts.en_US
+      krita
+      libreoffice-fresh
+      lm_sensors
+      loupe
+      lyx
+      nextcloud-client
+      papers
+      pika-backup
+      remmina
+      scribus
+      stellarium
+      tenacity
+      texlive.combined.scheme-small
+      timg
+      tor-browser
+      transmission_4-gtk
+    ])
+    ++ (with pkgs-unstable; [
+      #_64gram
+    ]);
 
   # Appimage support
   programs.appimage.enable = true;

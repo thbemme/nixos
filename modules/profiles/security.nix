@@ -3,19 +3,18 @@
   vars,
   ...
 }: {
-  users.users.${vars.user} = {
-    packages = with pkgs; [
-      gobuster
-      lynis
-      nikto
-      nmap
-      ssh-audit
-      subfinder
-      #wapiti
-      wireshark
-    ];
-    extraGroups = ["wireshark"];
-  };
+  environment.systemPackages = with pkgs; [
+    gobuster
+    lynis
+    nikto
+    nmap
+    ssh-audit
+    subfinder
+    #wapiti
+    wireshark
+  ];
+
+  users.users.${vars.user}.extraGroups = ["wireshark"];
 
   programs.wireshark.enable = true;
 

@@ -9,8 +9,7 @@
     desktopManager.gnome.enable = true;
   };
 
-  users.users.${vars.user} = {
-    packages = with pkgs; [
+environment.systemPackages = with pkgs; [
       alsa-utils
       gnome-tweaks
       seahorse

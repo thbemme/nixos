@@ -4,29 +4,25 @@
   vars,
   ...
 }: {
-  users.users.${vars.user} = {
-    packages =
-      (with pkgs; [
-        adwsteamgtk
-        ecwolf
-        furmark
-        gzdoom
-        limo
-        protonup-qt
-        scummvm
-        sdlpop
-      ])
-      ++ (with pkgs-unstable; [
-        lutris
-        rusty-path-of-building
-      ]);
-    extraGroups = ["gamemode"];
-  };
+  environment.systemPackages =
+    (with pkgs; [
+      adwsteamgtk
+      ecwolf
+      furmark
+      gzdoom
+      limo
+      protonup-qt
+      scummvm
+      sdlpop
+      winetricks
+      wineWowPackages.staging
+    ])
+    ++ (with pkgs-unstable; [
+      lutris
+      rusty-path-of-building
+    ]);
 
-  environment.systemPackages = with pkgs; [
-    wineWowPackages.staging
-    winetricks
-  ];
+  users.users.${vars.user}.extraGroups = ["gamemode"];
 
   programs = {
     steam = {

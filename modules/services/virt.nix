@@ -3,13 +3,13 @@
   vars,
   ...
 }: {
-  users.users.${vars.user} = {
-    packages = with pkgs; [
-      gnome-boxes
-      virt-manager
-    ];
-    extraGroups = ["libvirtd"];
-  };
+  environment.systemPackages = with pkgs; [
+    gnome-boxes
+    swtpm
+    virt-manager
+  ];
+
+  users.users.${vars.user}.extraGroups = ["libvirtd"];
 
   virtualisation.libvirtd = {
     enable = true;
@@ -19,8 +19,4 @@
       swtpm.enable = true;
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    swtpm
-  ];
 }

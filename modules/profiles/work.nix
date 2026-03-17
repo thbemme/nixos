@@ -4,14 +4,12 @@
   vars,
   ...
 }: {
-  users.users.${vars.user} = {
-    packages =
-      (with pkgs; [
-        #citrix_workspace
-      ])
-      ++ (with pkgs-unstable; [
-        #citrix_workspace
-        #alpaca-proxy
-      ]);
-  };
+  environment.systemPackages =
+    (with pkgs; [
+      #citrix_workspace
+    ])
+    ++ (with pkgs-unstable; [
+      #citrix_workspace
+      #alpaca-proxy
+    ]);
 }
