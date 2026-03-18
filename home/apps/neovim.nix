@@ -34,5 +34,6 @@
   };
   home.sessionVariables = {
     EDITOR = "nvim";
+    MANPAGER = "nvim -c 'Man!'";
   };
 }

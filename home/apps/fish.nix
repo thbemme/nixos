@@ -15,10 +15,6 @@
         inherit (grc) src;
       }
     ];
-    interactiveShellInit = ''
-      set -gx NH_FLAKE /home/${vars.user}/git/nixos/
-      set -gx MANPAGER "nvim -c 'Man!'"
-    '';
     # Prompt customization (simple example)
     functions = {
       fish_greeting = ''

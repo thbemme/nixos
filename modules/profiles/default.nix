@@ -11,10 +11,6 @@ in {
       auto-optimise-store = true;
       trusted-users = ["@wheel"];
     };
-    gc = {
-      automatic = true;
-      options = "--delete-older-than 7d";
-    };
   };
 
   environment.systemPackages = defaultPackages;
@@ -49,7 +45,12 @@ in {
     command-not-found.enable = false;
     fish.enable = true;
     nano.enable = false;
-    nh.enable = true;
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 7d";
+      flake = "/home/${vars.user}/git/nixos/";
+    };
   };
 
   security.sudo.wheelNeedsPassword = true;
