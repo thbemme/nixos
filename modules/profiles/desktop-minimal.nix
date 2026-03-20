@@ -1,9 +1,4 @@
-{
-  pkgs,
-  pkgs-unstable,
-  vars,
-  ...
-}: {
+{vars, ...}: {
   # Configure keymap in Wayland
   services.xserver = {
     enable = true;

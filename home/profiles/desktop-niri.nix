@@ -7,6 +7,7 @@
     #../apps/noctalia.nix
     ../apps/swayidle.nix
     #../apps/vicinae.nix
+    ../apps/yazi.nix
   ];
 
   home.packages = with pkgs; [

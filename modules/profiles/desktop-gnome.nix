@@ -9,13 +9,12 @@
     desktopManager.gnome.enable = true;
   };
 
-environment.systemPackages = with pkgs; [
-      alsa-utils
-      gnome-tweaks
-      seahorse
-      soundconverter
-    ];
-  };
+  environment.systemPackages = with pkgs; [
+    alsa-utils
+    gnome-tweaks
+    seahorse
+    soundconverter
+  ];
 
   environment.gnome.excludePackages = with pkgs; [
     epiphany # web browser

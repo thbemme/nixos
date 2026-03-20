@@ -9,6 +9,7 @@
     ../apps/git.nix
     ../apps/neovim.nix
     ../apps/ssh.nix
+    ../apps/yazi.nix
     ../profiles/stylix.nix
     ./base.nix
     ./fish/wsl.nix

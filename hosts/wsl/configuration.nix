@@ -1,8 +1,6 @@
 {
   inputs,
   gpuAcceleration,
-  pkgs,
-  pkgs-unstable,
   useUnstable,
   vars,
   ...
