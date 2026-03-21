@@ -13,6 +13,7 @@
   home.packages = with pkgs; [
     gpu-screen-recorder
     kdePackages.qt6ct
+    libqalculate
     nautilus
     nirius
     pwvucontrol

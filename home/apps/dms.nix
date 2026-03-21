@@ -47,7 +47,12 @@
     enableClipboardPaste = true; # Pasting items from the clipboard (wtype)
 
     plugins = {
-      calculator.enable = true;
+      calculator = {
+        enable = true;
+        settings = {
+          calcEngine = "qalc";
+        };
+      };
       emojiLauncher.enable = true;
       dankActions.enable = true;
       dankBatteryAlerts = {
