@@ -14,7 +14,11 @@
     package = pkgs.niri;
 
     settings = {
-      overview.workspace-shadow.enable = false;
+      overview = {
+        workspace-shadow.enable = true;
+        zoom = 0.2;
+        backdrop-color = config.lib.stylix.colors.withHashtag.base00;
+      };
       debug.honor-xdg-activation-with-invalid-serial = [];
       prefer-no-csd = true;
       screenshot-path = "~/Pictures/screenshots/%Y-%m-%dT%H:%M:%S%:z.png";
@@ -109,6 +113,7 @@
         "Mod+Shift+Ctrl+Up".action = move-column-to-workspace-up;
         "Mod+Shift+Ctrl+Down".action = move-column-to-workspace-down;
 
+        "Mod+Tab".action = toggle-overview;
         "Mod+Home".action = focus-column-first;
         "Mod+End".action = focus-column-last;
         "Mod+Alt+Left".action = consume-or-expel-window-left;
