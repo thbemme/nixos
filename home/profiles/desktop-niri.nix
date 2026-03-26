@@ -19,6 +19,7 @@
     pwvucontrol
     qalculate-gtk
     simple-scan
+    wiremix
     wl-clipboard-rs
     wlsunset
     xwayland-satellite
