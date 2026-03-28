@@ -21,22 +21,29 @@
   environment.systemPackages = with pkgs; [
     amdgpu_top
     blender-hip
-    corectrl
   ];
-  programs.corectrl.enable = true;
 
-  # Corectrl without password
-  security.polkit = {
-    extraConfig = ''
-      polkit.addRule(function(action, subject) {
-          if ((action.id == "org.corectrl.helper.init" ||
-               action.id == "org.corectrl.helperkiller.init") &&
-              subject.local == true &&
-              subject.active == true &&
-              subject.isInGroup("wheel")) {
-                  return polkit.Result.YES;
-          }
-      });
-    '';
+  services.lact = {
+    enable = true;
+    settings = {
+      version = 5;
+      apply_settings_timer = 5;
+      current_profile = null;
+      auto_switch_profiles = false;
+
+      daemon = {
+        log_level = "info";
+        admin_group = "wheel";
+        disable_clocks_cleanup = false;
+      };
+
+      gpus = {
+        "1002:73DF-1849:5209-0000:2b:00.0" = {
+          fan_control_enabled = false;
+          performace_level = "auto";
+          voltage_offset = -77;
+        };
+      };
+    };
   };
 }

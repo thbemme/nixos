@@ -25,7 +25,10 @@
       hotkey-overlay.skip-at-startup = true;
 
       input = {
-        focus-follows-mouse.enable = true;
+        focus-follows-mouse = {
+          enable = true;
+          max-scroll-amount = "90%";
+        };
         warp-mouse-to-focus.enable = false;
         workspace-auto-back-and-forth = true;
         keyboard = {
@@ -73,7 +76,7 @@
         "Mod+b".action = spawn "librewolf";
         "Mod+n".action = spawn "nautilus";
         "Menu".action = spawn "dms" "ipc" "launcher" "toggle";
-        "Mod+Space".action = spawn "dms" "ipc" "launcher" "toggle";
+        #"Mod".release = toggle-overview; # https://github.com/niri-wm/niri/pull/2456
         "Mod+Alt+l".action = spawn "loginctl" "lock-session";
 
         "Mod+WheelScrollDown".action = focus-column-right;
