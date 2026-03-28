@@ -60,7 +60,7 @@
       gestures.hot-corners.enable = false;
 
       spawn-at-startup = [
-        {command = ["ghostty" "-e" "cmus"];}
+        {command = ["ghostty" "-e" "rmpc"];}
         {command = ["ghostty" "-e" "btop"];}
         {command = ["librewolf"];}
         {command = ["codium"];}

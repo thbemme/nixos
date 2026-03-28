@@ -1,12 +1,10 @@
 {pkgs, ...}: {
   imports = [
-    ../apps/cmus.nix
     ../apps/dms.nix
     ../apps/mpv.nix
     ../apps/niri.nix
-    #../apps/noctalia.nix
+    ../apps/rmpc.nix
     ../apps/swayidle.nix
-    #../apps/vicinae.nix
     ../apps/yazi.nix
   ];
 
