@@ -2,8 +2,14 @@
   config,
   gpuAcceleration,
   inputs,
+  pkgs,
   ...
-}: {
+}: let
+  wallpaper = pkgs.fetchurl {
+    url = "https://i.redd.it/pivo53w9nyd51.jpg";
+    hash = "sha256-5QjFGb1wO5qfWimRYIAF6BEesxrsZg1AXC3MhKutcEg=";
+  };
+in {
   imports = [
     inputs.danksearch.homeModules.default
     inputs.dms.homeModules.dank-material-shell
@@ -72,8 +78,43 @@
       ];
       weatherLocation = "Dresden, Germany";
       weatherCoordinates = "51.03784342840871, 13.762874829338783";
+      wallpaperPath = wallpaper;
+      wallpaperPathLight = wallpaper;
+      wallpaperPathDark = wallpaper;
     };
     settings = {
+      # Theming only in 26.05
+      currentThemeName = "custom";
+      customThemeFile = let
+        theme = {
+          name = "custom";
+          background = "#232136";
+          backgroundText = "#e0def4";
+          error = "#eb6f92";
+          info = "#9ccfd8";
+          outline = "#6e6a86";
+          primary = "#c4a7e7";
+          primaryContainer = "#9ccfd8";
+          primaryText = "#232136";
+          secondary = "#f6c177";
+          surface = "#2a273f";
+          surfaceContainer = "#2a273f";
+          surfaceContainerHigh = "#393552";
+          surfaceContainerHighest = "#6e6a86";
+          surfaceText = "#e0def4";
+          surfaceTint = "#c4a7e7";
+          surfaceVariant = "#393552";
+          surfaceVariantText = "#908caa";
+          warning = "#ea9a97";
+        };
+      in
+        pkgs.writeText "custom.json" (
+          builtins.toJSON {
+            dark = theme;
+            light = theme;
+          }
+        );
+
       clockDateFormat = "ddd MMM d";
       groupWorkspaceApps = false;
       innerPadding = 0;

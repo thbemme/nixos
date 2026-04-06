@@ -14,11 +14,11 @@
     };
 
     lanzaboote = {
-      url = "github:nix-community/lanzaboote";
+      url = "github:nix-community/lanzaboote/v1.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:nix-community/stylix";
+    stylix.url = "github:nix-community/stylix/release-25.11";
 
     niri = {
       url = "github:sodiboo/niri-flake";

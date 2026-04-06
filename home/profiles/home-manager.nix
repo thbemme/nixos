@@ -21,7 +21,12 @@ in {
 
   home.packages = myPackages;
 
-  programs.nh.enable = true;
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 7d";
+    flake = "/home/${vars.user}/git/nixos/";
+  };
 
   # Setup fish shell via bash hook
   programs.bash = {

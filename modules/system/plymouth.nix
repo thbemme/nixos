@@ -8,7 +8,7 @@
         dontUnpack = true;
         src = pkgs.fetchurl {
           url = "https://nixos.org/_astro/nixos-logo-25.11-xantusia-lores.CLapGrL7_18iEK3.webp";
-          hash = "sha256-glQBCJDrRsS+J+PnmVr/Vv9oU73ullZb7TwlCIbJDQ8=";
+          hash = "sha256-StJOgJzrZjB5omz98h/EfN5RIIaySCPplqDh2Wi3EXM=";
         };
         nativeBuildInputs = with pkgs; [imagemagick];
         buildPhase = ''
