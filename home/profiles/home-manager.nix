@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  vars,
+  ...
+}: let
   myPackages = import ../../modules/profiles/packages.nix {inherit pkgs;};
 in {
   imports = [

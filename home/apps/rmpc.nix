@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+_: let
   musicDirectory = "~/Music";
 in {
   services.mpd-mpris.enable = true;
