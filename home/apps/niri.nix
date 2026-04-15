@@ -195,6 +195,17 @@
 
       window-rules = [
         {
+          geometry-corner-radius = let
+            radius = 4.0;
+          in {
+            bottom-left = radius;
+            bottom-right = radius;
+            top-left = radius;
+            top-right = radius;
+          };
+          clip-to-geometry = true;
+        }
+        {
           matches = [{app-id = "com.mitchellh.ghostty";}];
           draw-border-with-background = false;
           opacity = 0.95;

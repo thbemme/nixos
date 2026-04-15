@@ -144,6 +144,7 @@ in {
             "all"
           ];
           showOnLastDisplay = true;
+          transparency = 0.5;
           leftWidgets = [
             "launcherButton"
           ];
