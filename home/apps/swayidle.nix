@@ -8,7 +8,7 @@
     lock-cmd = "${pkgs.systemd}/bin/loginctl lock-session";
     monitor-on = "${niri} msg action power-on-monitors";
     monitor-off = "${niri} msg action power-off-monitors";
-    lower-brightness = "${pkgs.brightnessctl}/bin/brightnessctl -s set 10";
+    lower-brightness = "${systemd-ac-power} || ${pkgs.brightnessctl}/bin/brightnessctl -s set 10";
     restore-brightness = "${pkgs.brightnessctl}/bin/brightnessctl -r";
     suspend = "${pkgs.systemd}/bin/systemctl suspend";
     systemd-ac-power = "${pkgs.systemd}/bin/systemd-ac-power";
