@@ -41,7 +41,6 @@
         "1002:73DF-1849:5209-0000:2b:00.0" = {
           fan_control_enabled = false;
           performace_level = "auto";
-          power_cap = 223.0;
           voltage_offset = -77;
         };
       };
