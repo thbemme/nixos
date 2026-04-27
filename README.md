@@ -28,28 +28,29 @@ Niri + Dank Material Shell with [Rose Pine theme](https://rosepinetheme.com/):
    | `packages/`    | Self defined packages                                         |
    | `scripts/`     | Utility scripts for setup and maintenance                     |
    | `secrets/`     | Sensitive data and configuration (encrypted with GitCrypt)    |
+   | `shells/`      | Development shells                                            |
 
 ---
 
 ## 🔧 Modules
 
 ### Hardware
- | Module                                  | Description                                  |
- | --------------------------------------- | -------------------------------------------- |
- | [AMD GPU](modules/hardware/amdgpu.nix)  | CoreCTRL, Vulkan Tools, and GPU undervolting |
- | [LED control](modules/hardware/led.nix) | Control LED colors                           |
+ | Module                                  | Description                              |
+ | --------------------------------------- | ---------------------------------------- |
+ | [AMD GPU](modules/hardware/amdgpu.nix)  | Lact, Vulkan Tools, and GPU undervolting |
+ | [LED control](modules/hardware/led.nix) | Control LED colors                       |
 
 ### Profiles
- | Module                                                          | Description                                   |
- | --------------------------------------------------------------- | --------------------------------------------- |
- | [Development](modules/profiles/dev.nix)                         | Thonny, Android Studio (unstable)             |
- | [Gaming](modules/profiles/gaming.nix)                           | Lutris, Steam, Wine                           |
- | [GNOME](modules/profiles/desktop-gnome.nix)                     | GNOME desktop environment with Dracula theme  |
- | [GUI Extras](modules/profiles/desktop-extras.nix)               | Additional GUI applications                   |
- | [GUI](modules/profiles/desktop-minimal.nix)                     | Minimal GUI applications                      |
- | [Niri + Dank Material Shell](modules/profiles/desktop-niri.nix) | Niri + Dank Material Shell with Dracula theme |
- | [Security](modules/profiles/security.nix)                       | Nmap, Wireshark, and auditing tools           |
- | [Work](modules/profiles/work.nix)                               | Citrix Client, Alpaca Proxy                   |
+ | Module                                                          | Description                                  |
+ | --------------------------------------------------------------- | -------------------------------------------- |
+ | [Development](modules/profiles/dev.nix)                         | Thonny, Android Studio (unstable)            |
+ | [Gaming](modules/profiles/gaming.nix)                           | Lutris, Steam, Wine                          |
+ | [GNOME](modules/profiles/desktop-gnome.nix)                     | GNOME desktop environment with Dracula theme |
+ | [GUI Extras](modules/profiles/desktop-extras.nix)               | Additional GUI configuration                 |
+ | [GUI](modules/profiles/desktop-minimal.nix)                     | Minimal GUI configuration                    |
+ | [Niri + Dank Material Shell](modules/profiles/desktop-niri.nix) | Niri + Dank Material Shell                   |
+ | [Security](modules/profiles/security.nix)                       | Nmap, Wireshark, and auditing tools          |
+ | [Work](modules/profiles/work.nix)                               | Additonal configuration for work environment |
 
 ### Services
  | Module                                        | Description                                     |

@@ -2,6 +2,7 @@
 with pkgs; [
   coreutils
   curl
+  dfc
   dust
   eza
   fd

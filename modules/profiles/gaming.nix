@@ -11,6 +11,7 @@
       furmark
       gzdoom
       limo
+      lutris
       protonup-qt
       scummvm
       sdlpop
@@ -18,7 +19,6 @@
       wineWowPackages.staging
     ])
     ++ (with pkgs-unstable; [
-      lutris
       rusty-path-of-building
     ]);
 
