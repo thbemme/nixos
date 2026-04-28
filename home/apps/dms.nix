@@ -59,7 +59,14 @@ in {
           calcEngine = "qalc";
         };
       };
-      emojiLauncher.enable = true;
+      catWidget.enable = true;
+      emojiLauncher = {
+        enable = true;
+        settings = {
+          noTrigger = false;
+          trigger = ":";
+        };
+      };
       dankActions.enable = true;
       dankBatteryAlerts = {
         enable = true;
@@ -156,6 +163,10 @@ in {
           ];
           rightWidgets =
             [
+              {
+                id = "catWidget";
+                enabled = true;
+              }
               {
                 id = "privacyIndicator";
                 enabled = true;

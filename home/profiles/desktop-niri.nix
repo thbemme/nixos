@@ -17,6 +17,7 @@
     pwvucontrol
     qalculate-gtk
     simple-scan
+    satty
     wiremix
     wl-clipboard-rs
     wlsunset
