@@ -154,36 +154,21 @@ in {
           transparency = 0.5;
           leftWidgets = [
             "launcherButton"
+            {
+              id = "music";
+              enabled = true;
+              mediaSize = 1;
+            }
           ];
           centerWidgets = [
-            {
-              id = "workspaceSwitcher";
-              enabled = true;
-            }
+            "workspaceSwitcher"
           ];
           rightWidgets =
             [
-              {
-                id = "catWidget";
-                enabled = true;
-              }
-              {
-                id = "privacyIndicator";
-                enabled = true;
-              }
-              {
-                id = "music";
-                enabled = true;
-                mediaSize = 1;
-              }
-              {
-                id = "weather";
-                enabled = true;
-              }
-              {
-                id = "systemTray";
-                enabled = true;
-              }
+              "catWidget"
+              "privacyIndicator"
+              "weather"
+              "systemTray"
               {
                 id = "cpuTemp";
                 enabled = true;
@@ -203,30 +188,12 @@ in {
               else []
             )
             ++ [
-              {
-                id = "clipboard";
-                enabled = true;
-              }
-              {
-                id = "notificationButton";
-                enabled = true;
-              }
-              {
-                id = "battery";
-                enabled = true;
-              }
-              {
-                id = "controlCenterButton";
-                enabled = true;
-              }
-              {
-                id = "clock";
-                enabled = true;
-              }
-              {
-                id = "powerMenuButton";
-                enabled = true;
-              }
+              "clipboard"
+              "notificationButton"
+              "battery"
+              "controlCenterButton"
+              "clock"
+              "powerMenuButton"
             ];
         }
       ];

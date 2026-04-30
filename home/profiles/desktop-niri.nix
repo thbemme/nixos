@@ -13,14 +13,11 @@
     kdePackages.qt6ct
     libqalculate
     nautilus
-    nirius
     pwvucontrol
     qalculate-gtk
     simple-scan
-    satty
     wiremix
     wl-clipboard-rs
-    wlsunset
     xwayland-satellite
   ];
 

@@ -180,8 +180,8 @@
           allow-when-locked = true;
         };
         "Print".action.screenshot = {};
-        "Ctrl+Print".action.screenshot-screen = {};
-        "Alt+Print".action.screenshot-window = {};
+        "Mod+Print".action.screenshot-screen = {};
+        "Shift+Print".action.screenshot-window = {};
         "Ctrl+Alt+Delete".action = spawn "dms" "ipc" "powermenu" "toggle";
       };
 
