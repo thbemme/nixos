@@ -78,9 +78,9 @@ in {
     };
     session = {
       hiddenTrayIds = [
-        "steam"
-        "corectrl"
         "blueman::Bluetooth Disabled"
+        "easyeffects::Easy Effects"
+        "steam"
         "udiskie"
       ];
       weatherLocation = "Dresden, Germany";

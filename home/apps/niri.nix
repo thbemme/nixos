@@ -67,8 +67,6 @@
         {command = ["ghostty" "-e" "btop"];}
         {command = ["librewolf"];}
         {command = ["codium"];}
-        #{command = ["nextcloud" "--background"];}
-        {command = ["corectrl" "--minimize-systray"];}
       ];
 
       binds = with config.lib.niri.actions; {

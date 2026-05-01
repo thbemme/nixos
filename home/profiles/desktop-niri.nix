@@ -35,8 +35,8 @@
   };
 
   services = {
+    easyeffects.enable = true;
     gnome-keyring.enable = true;
-
     udiskie = {
       enable = true;
     };

@@ -8,6 +8,7 @@
     (with pkgs; [
       # Development Tools
       delta
+      gh
       glow
       gnumake
       gperf
