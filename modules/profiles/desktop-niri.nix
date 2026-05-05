@@ -44,6 +44,7 @@ in {
   environment.variables.NIXOS_OZONE_WL = "1";
 
   services.displayManager = {
+    defaultSession = "niri";
     enable = true;
     environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
     sddm = {
@@ -51,39 +52,29 @@ in {
       wayland.enable = true;
       theme = "where_is_my_sddm_theme";
     };
-  };
-
-  programs.niri = {
-    enable = true;
+    sessionPackages = [pkgs.niri];
   };
 
   # X server for interfacing X11 apps with the Wayland protocol
   programs.xwayland.enable = true;
 
   services = {
-    # Virtual file systems for Nautilus
-    gvfs.enable = true;
-
-    # D-Bus service for power management
-    upower.enable = true;
-
-    blueman.enable = true;
-
-    power-profiles-daemon.enable = true;
-
     accounts-daemon.enable = true;
+    blueman.enable = true;
+    gnome.gnome-keyring.enable = true;
+    gvfs.enable = true;
+    power-profiles-daemon.enable = true;
+    upower.enable = true;
   };
 
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
-      xdg-desktop-portal-gnome
       xdg-desktop-portal-gtk
       xdg-desktop-portal-wlr
     ];
     config.common.default = [
       "gtk"
-      "gnome"
     ];
   };
 
