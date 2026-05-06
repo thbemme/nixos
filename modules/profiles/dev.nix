@@ -17,7 +17,6 @@
       lzop
       m4
       ncurses5
-      net-tools
       nix-output-monitor
       nixpkgs-review
       nodePackages.prettier

@@ -15,7 +15,6 @@ with pkgs; [
   htop
   jq
   killall
-  net-tools
   openssh
   openssl
   procps
