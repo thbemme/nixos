@@ -14,6 +14,13 @@
     #../../modules/services/llm.nix
   ];
 
+  nix = {
+    settings = {
+      max-jobs = 1;
+      cores = 4;
+    };
+  };
+
   wsl = {
     defaultUser = "${vars.user}";
     enable = true;
