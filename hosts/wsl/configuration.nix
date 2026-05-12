@@ -14,6 +14,13 @@
     #../../modules/services/llm.nix
   ];
 
+  nix = {
+    settings = {
+      max-jobs = 2;
+      cores = 6;
+    };
+  };
+
   wsl = {
     defaultUser = "${vars.user}";
     enable = true;
@@ -33,7 +40,10 @@
 
   environment.enableAllTerminfo = true;
 
-  networking.hostName = "${vars.hostname}";
+  networking = {
+    hostName = "${vars.hostname}";
+    resolvconf.enable = false;
+  };
 
   nixpkgs.hostPlatform = "x86_64-linux";
 
