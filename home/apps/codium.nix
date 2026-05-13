@@ -12,7 +12,7 @@
         "vscodium" = "VSCodium";
       }
       .${
-        config.programs.vscode.package.pname
+        config.programs.vscodium.package.pname
       };
   in {
     after = [];
@@ -31,7 +31,7 @@
         "vscodium" = "VSCodium";
       }
       .${
-        config.programs.vscode.package.pname
+        config.programs.vscodium.package.pname
       };
     configPath = "${config.xdg.configHome}/${configDirName}/User/settings.json";
   in {
@@ -42,9 +42,8 @@
     '';
   };
 
-  programs.vscode = {
+  programs.vscodium = {
     enable = true;
-    package = pkgs.vscodium;
     profiles.default = {
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;

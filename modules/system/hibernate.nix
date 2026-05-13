@@ -12,9 +12,9 @@ _: {
 
   #boot.kernelParams = [];
 
-  systemd.sleep.extraConfig = ''
-    HibernateOnACPower=no
-    HibernateDelaySec=30m
-    SuspendState=mem
-  '';
+  systemd.sleep.settings.Sleep = {
+    HibernateOnACPower = "no";
+    HibernateDelaySec = "30min";
+    SuspendState = "mem";
+  };
 }

@@ -46,7 +46,7 @@ in {
   services.displayManager = {
     defaultSession = "niri";
     enable = true;
-    environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
+    generic.environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
     sddm = {
       enable = true;
       wayland.enable = true;

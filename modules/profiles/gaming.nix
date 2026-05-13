@@ -16,7 +16,7 @@
       scummvm
       sdlpop
       winetricks
-      wineWowPackages.staging
+      wineWow64Packages.staging
     ])
     ++ (with pkgs-unstable; [
       rusty-path-of-building

@@ -5,12 +5,7 @@
   pkgs,
   vars,
   ...
-}: let
-  wallpaper = pkgs.fetchurl {
-    url = "https://i.redd.it/pivo53w9nyd51.jpg";
-    hash = "sha256-5QjFGb1wO5qfWimRYIAF6BEesxrsZg1AXC3MhKutcEg=";
-  };
-in {
+}: {
   imports = [
     inputs.danksearch.homeModules.default
     inputs.dms.homeModules.dank-material-shell
@@ -86,9 +81,6 @@ in {
       ];
       weatherLocation = "${vars.weatherLocation}";
       weatherCoordinates = "${vars.weatherCoordinates}";
-      wallpaperPath = wallpaper;
-      wallpaperPathLight = wallpaper;
-      wallpaperPathDark = wallpaper;
     };
     settings = {
       clockDateFormat = "ddd MMM d";

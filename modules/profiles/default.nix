@@ -58,7 +58,7 @@ in {
   # faster eval time
   documentation = {
     nixos.enable = false;
-    man.generateCaches = false;
+    man.cache.enable = false;
   };
 
   environment.variables = {

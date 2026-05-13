@@ -9,6 +9,8 @@
     };
   };
 
+  nixpkgs.config.rocmSupport = true;
+
   # OpenCL backends - Pocl for CPU, ROCM for iGPU and discrete GPU
   hardware.graphics.extraPackages = with pkgs; [
     rocmPackages.clr.icd
@@ -20,7 +22,6 @@
 
   environment.systemPackages = with pkgs; [
     amdgpu_top
-    blender-hip
   ];
 
   services.lact = {

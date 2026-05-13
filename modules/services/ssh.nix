@@ -2,6 +2,7 @@
   vars,
   config,
   lib,
+  pkgs,
   ...
 }: let
   hostname = config.networking.hostName;
@@ -13,19 +14,21 @@ in {
 
   services.openssh = {
     enable = true;
-    banner = ''
-       ${boxLineTop}
-      < ${message} >
-       ${boxLineBottom}
-              \   ^__^
-               \  (oo)\_______
-                  (__)\       )\/\
-                      ||----w |
-                      ||     ||
-
-    '';
     settings = {
       AllowUsers = [vars.user];
+      Banner = toString (
+        pkgs.writeText "ssh_banner" ''
+           ${boxLineTop}
+          < ${message} >
+           ${boxLineBottom}
+                  \   ^__^
+                   \  (oo)\_______
+                      (__)\       )\/\
+                          ||----w |
+                          ||     ||
+
+        ''
+      );
       PasswordAuthentication = false;
       PermitEmptyPasswords = false;
       PermitTunnel = false;
