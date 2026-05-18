@@ -11,57 +11,46 @@
         inherit (grc) src;
       }
     ];
-    # Prompt customization (simple example)
     functions = {
       fish_greeting = ''
         # Show kernel information
         uname -a
+
         # Show "ghostty +boo" animation if ghostty is installed and conditions are met
         if command -v ghostty >/dev/null 2>&1
-          if not set -q IN_NIX_SHELL
-            and test (random 1 10) -eq 10
-            and test (tput cols) -ge 100
-            and test (tput lines) -ge 41
-              ghostty +boo
-          end
+          and not set -q IN_NIX_SHELL
+          and test (random 1 10) -eq 10
+          and test (tput cols) -ge 100
+          and test (tput lines) -ge 41
+            ghostty +boo
         end
       '';
       fish_prompt = ''
-        if [ $status = 0 ]
+        if test $status -eq 0
           set_color green
-          if test -n "$IN_NIX_SHELL"
-            echo -n "nix-shell"
-          else if git rev-parse 2> /dev/null
-            echo -n (git rev-parse --abbrev-ref HEAD 2> /dev/null)
-          else
-            echo -n (if test (hostname) = localhost; echo nix; else; echo (hostname); end)
-          end
         else
           set_color red
-          if test -n "$IN_NIX_SHELL"
-            echo -n "nix-shell"
-          else if git rev-parse 2> /dev/null
-            echo -n (git rev-parse --abbrev-ref HEAD)
-          else
-            echo -n (if test (hostname) = localhost; echo nix; else; echo (hostname); end)
-          end
         end
+
+        set -l branch (if command -v git >/dev/null 2>&1;git branch --show-current 2>/dev/null; end)
+        set -l host_name (if test (uname -n) = localhost; echo nix; else; echo (uname -n); end)
+        set -l context (if test -n "$IN_NIX_SHELL"; echo "nix-shell"; else if test -n "$branch"; echo $branch; else; echo $host_name; end)
+
+        echo -n $context
         set_color normal
-        echo -n ' ('
-        echo -n (prompt_pwd)
-        echo -n ') '
+        echo -n " ($(prompt_pwd)) "
       '';
       fish_title = ''
         # this one sets the X terminal window title
         # argv[1] has the full command line
-        echo (hostname): (prompt_pwd): $argv[1]
+        echo (uname -n): (prompt_pwd): $argv[1]
 
         switch "$TERM"
         case 'screen*'
 
           # prepend hostname to screen(1) title only if on ssh
           if set -q SSH_CLIENT
-            set maybehost (hostname):
+            set maybehost (uname -n):
           else
             set maybehost ""
           end
