@@ -21,7 +21,6 @@
     ../../modules/services/ssh.nix
     ../../modules/services/virt.nix
     ../../modules/system/btrfs.nix
-    ../../modules/system/hibernate.nix
     ../../modules/system/hosts.nix
     ../../modules/system/kernel-desktop.nix
     ../../modules/system/plymouth.nix
