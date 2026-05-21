@@ -61,6 +61,11 @@ in {
     man.generateCaches = false;
   };
 
+  services.logind.settings.Login = {
+    HandlePowerKey = "suspend";
+    HandlePowerKeyLongPress = "poweroff";
+  };
+
   environment.variables = {
     EDITOR = "vim";
     SYSTEMD_EDITOR = "vim";
