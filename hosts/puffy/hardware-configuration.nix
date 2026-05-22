@@ -62,7 +62,17 @@
   swapDevices = [];
 
   # Networking
-  networking.useDHCP = lib.mkDefault true;
+  networking = {
+    useDHCP = lib.mkDefault true;
+    interfaces = {
+      enp37s0 = {
+        wakeOnLan.enable = true;
+      };
+    };
+    firewall = {
+      allowedUDPPorts = [9];
+    };
+  };
 
   # Platform
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
