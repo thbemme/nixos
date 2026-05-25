@@ -2,7 +2,6 @@
   config,
   gpuAcceleration,
   inputs,
-  pkgs,
   vars,
   ...
 }: {
