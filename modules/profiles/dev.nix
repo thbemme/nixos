@@ -39,7 +39,7 @@
     ++ (with pkgs-unstable; [
       # Unstable packages
       android-studio
-      ladybird
+      #ladybird
     ]);
 
   users.users.${vars.user}.extraGroups = ["kvm" "adbusers" "dialout"];
