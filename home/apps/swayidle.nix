@@ -16,9 +16,9 @@
   in {
     enable = true;
     events = {
-      "before-sleep" = "$lock-cmd";
-      "after-resume" = "$monitor-on";
-      "lock" = "$lock-cmd";
+      "before-sleep" = lock-cmd;
+      "after-resume" = monitor-on;
+      "lock" = lock-cmd;
     };
     timeouts = [
       {
