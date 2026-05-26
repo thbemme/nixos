@@ -36,7 +36,7 @@
     };
 
     danksearch = {
-      url = "github:thbemme/danksearch/updateVendorHash"; # Till https://github.com/AvengeMedia/danksearch/pull/23 is merged
+      url = "github:AvengeMedia/danksearch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
