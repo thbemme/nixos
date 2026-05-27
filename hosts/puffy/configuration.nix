@@ -14,7 +14,7 @@
     ../../modules/profiles/home.nix
     ../../modules/profiles/security.nix
     ../../modules/profiles/work.nix
-    #../../modules/services/llm.nix
+    ../../modules/services/llm.nix
     ../../modules/services/printing.nix
     ../../modules/services/prometheus.nix
     ../../modules/services/smart.nix
