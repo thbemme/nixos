@@ -15,20 +15,11 @@
     suspendOnBatt = "${systemd-ac-power} || ${suspend}";
   in {
     enable = true;
-    events = [
-      {
-        event = "before-sleep";
-        command = lock-cmd;
-      }
-      {
-        event = "after-resume";
-        command = monitor-on;
-      }
-      {
-        event = "lock";
-        command = lock-cmd;
-      }
-    ];
+    events = {
+      "before-sleep" = lock-cmd;
+      "after-resume" = monitor-on;
+      "lock" = lock-cmd;
+    };
     timeouts = [
       {
         timeout = 60;

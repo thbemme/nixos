@@ -40,7 +40,10 @@
 
   environment.enableAllTerminfo = true;
 
-  networking.hostName = "${vars.hostname}";
+  networking = {
+    hostName = "${vars.hostname}";
+    resolvconf.enable = false;
+  };
 
   nixpkgs.hostPlatform = "x86_64-linux";
 

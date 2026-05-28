@@ -2,17 +2,17 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks = {
+    settings = {
       "*" = {
-        forwardAgent = true;
-        setEnv.TERM = "xterm-256color";
-        user = "${vars.sshuser}";
+        ForwardAgent = true;
+        SetEnv.TERM = "xterm-256color";
+        User = "${vars.sshuser}";
       };
       "gitlab.com github.com" = {
-        user = "git";
+        User = "git";
       };
       "test-amd64-vm dev-amd64-vm [127.0.0.1]:2222" = {
-        userKnownHostsFile = "/dev/null";
+        UserKnownHostsFile = "/dev/null";
       };
     };
   };

@@ -11,21 +11,6 @@
   };
 in {
   environment.systemPackages = [
-    (pkgs.where-is-my-sddm-theme.override {
-      themeConfig.General = {
-        background = background-image;
-        backgroundMode = "none";
-        passwordCharacter = "•";
-        passwordInputWidth = "1";
-        passwordMask = true;
-        passwordInputCursorVisible = false;
-        passwordFontSize = 8;
-        sessionsFontSize = 8;
-        usersFontSize = 8;
-        blurRadius = "";
-        helpFontSize = 8;
-      };
-    })
     pkgs.brightnessctl
     pkgs.bluez
     pkgs-unstable.dgop
@@ -46,11 +31,28 @@ in {
   services.displayManager = {
     defaultSession = "niri";
     enable = true;
-    environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
+    generic.environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
     sddm = {
       enable = true;
       wayland.enable = true;
-      theme = "where_is_my_sddm_theme";
+      theme = "${pkgs.where-is-my-sddm-theme}/share/sddm/themes/where_is_my_sddm_theme";
+      extraPackages = [
+        (pkgs.where-is-my-sddm-theme.override {
+          themeConfig.General = {
+            background = background-image;
+            backgroundMode = "none";
+            passwordCharacter = "•";
+            passwordInputWidth = "1";
+            passwordMask = true;
+            passwordInputCursorVisible = false;
+            passwordFontSize = 8;
+            sessionsFontSize = 8;
+            usersFontSize = 8;
+            blurRadius = "";
+            helpFontSize = 8;
+          };
+        })
+      ];
     };
     sessionPackages = [pkgs.niri];
   };

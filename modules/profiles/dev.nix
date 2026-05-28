@@ -7,6 +7,7 @@
   environment.systemPackages =
     (with pkgs; [
       # Development Tools
+      android-tools
       delta
       gh
       glow
@@ -19,7 +20,7 @@
       ncurses5
       nix-output-monitor
       nixpkgs-review
-      nodePackages.prettier
+      prettier
       openssl
       perl
       procps
@@ -43,8 +44,6 @@
     ]);
 
   users.users.${vars.user}.extraGroups = ["kvm" "adbusers" "dialout"];
-
-  programs.adb.enable = true;
 
   zramSwap.memoryPercent = 100;
 }

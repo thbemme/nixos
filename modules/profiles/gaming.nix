@@ -16,24 +16,19 @@
       scummvm
       sdlpop
       winetricks
-      wineWowPackages.staging
+      wineWow64Packages.staging
     ])
     ++ (with pkgs-unstable; [
       rusty-path-of-building
     ]);
-
-  users.users.${vars.user}.extraGroups = ["gamemode"];
 
   programs = {
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
-      gamescopeSession.enable = true;
       localNetworkGameTransfers.openFirewall = true;
     };
-    gamemode.enable = true;
-    gamescope.enable = true;
   };
 
   # Kernel parameters for gaming

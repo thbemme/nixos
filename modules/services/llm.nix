@@ -1,14 +1,12 @@
 {
-  inputs,
   pkgs,
-  pkgs-unstable,
   gpuAcceleration,
   ...
 }: let
   ollamaPkg =
     if gpuAcceleration
-    then pkgs-unstable.ollama-rocm
-    else pkgs-unstable.ollama-cpu;
+    then pkgs.ollama-rocm
+    else pkgs.ollama-cpu;
 
   ollamaEnv =
     if gpuAcceleration
@@ -25,12 +23,12 @@
     then "True"
     else "False";
 in {
-  disabledModules = ["services/misc/ollama.nix" "services/misc/open-webui.nix"];
+  # disabledModules = ["services/misc/ollama.nix" "services/misc/open-webui.nix"];
 
-  imports = [
-    "${inputs.nixpkgs-unstable}/nixos/modules/services/misc/ollama.nix"
-    "${inputs.nixpkgs-unstable}/nixos/modules/services/misc/open-webui.nix"
-  ];
+  # imports = [
+  #   "${inputs.nixpkgs-unstable}/nixos/modules/services/misc/ollama.nix"
+  #   "${inputs.nixpkgs-unstable}/nixos/modules/services/misc/open-webui.nix"
+  # ];
 
   services.ollama = {
     enable = true;
@@ -41,7 +39,7 @@ in {
 
   services.open-webui = {
     enable = true;
-    package = pkgs-unstable.open-webui;
+    package = pkgs.open-webui;
     openFirewall = true;
     host = "0.0.0.0"; # Point reverse proxy to http://<ip>:8080
     environment = {
