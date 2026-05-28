@@ -18,7 +18,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:nix-community/stylix"; #/release-26.05";
+    #stylix.url = "github:nix-community/stylix"; #/release-26.05";
+    stylix.url = "github:thbemme/stylix/vscodiumModule"; # Until https://github.com/nix-community/stylix/pull/2331 is merged
 
     niri = {
       url = "github:sodiboo/niri-flake";

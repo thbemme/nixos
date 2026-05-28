@@ -4,15 +4,6 @@
   vars,
   ...
 }: {
-  nixpkgs.overlays = [
-    # Workaround till https://github.com/NixOS/nixpkgs/issues/514113 is backported to 26.05
-    (_: prev: {
-      openldap = prev.openldap.overrideAttrs {
-        doCheck = false; # False is a bit more honest on x86_64 systems
-      };
-    })
-  ];
-
   environment.systemPackages =
     (with pkgs; [
       adwsteamgtk
@@ -31,18 +22,13 @@
       rusty-path-of-building
     ]);
 
-  users.users.${vars.user}.extraGroups = ["gamemode"];
-
   programs = {
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
-      gamescopeSession.enable = true;
       localNetworkGameTransfers.openFirewall = true;
     };
-    gamemode.enable = true;
-    gamescope.enable = true;
   };
 
   # Kernel parameters for gaming
