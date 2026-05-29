@@ -1,4 +1,4 @@
-{...}: {
+_: {
   imports = [
     ./base.nix
     ./fish/nixos.nix

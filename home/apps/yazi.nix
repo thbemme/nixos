@@ -1,4 +1,9 @@
 {pkgs, ...}: {
+  home.packages = with pkgs; [
+    rich-cli
+    ouch
+  ];
+
   programs.yazi = {
     enable = true;
     enableFishIntegration = true;
@@ -55,7 +60,7 @@
               "o"
             ];
             run = "cd ~/Documents";
-            desc = "Go to documents";
+            desc = "Go to Documents";
           }
           {
             on = [
@@ -63,30 +68,38 @@
               "p"
             ];
             run = "cd ~/Pictures";
-            desc = "Go to kbnetcloud";
+            desc = "Go to Pictures";
           }
           {
             on = "<Enter>";
             run = "plugin smart-enter";
             desc = "Enter the child directory, or open the file";
           }
+          {
+            on = ["C"];
+            run = "plugin ouch zip";
+            desc = "Compress with ouch";
+          }
         ];
       };
     };
 
     plugins = with pkgs.yaziPlugins; {
-      "smart-enter" = smart-enter;
-      "full-border" = full-border;
-      "mount" = mount;
-      "smart-filter" = smart-filter;
-      "chmod" = chmod;
-      "diff" = diff;
-      "git" = git;
-      "jump-to-char" = jump-to-char;
+      chmod = chmod;
+      diff = diff;
+      full-border = full-border;
+      git = git;
+      jump-to-char = jump-to-char;
+      mount = mount;
+      ouch = ouch;
+      rich-preview = rich-preview;
+      smart-enter = smart-enter;
+      smart-filter = smart-filter;
     };
 
     initLua = ''
       require("full-border"):setup()
+      require("git"):setup()
     '';
 
     settings = {
@@ -95,19 +108,34 @@
         sort_by = "natural";
         sort_dir_first = true;
       };
+      extract = [
+        {
+          run = ''${pkgs.ouch}/bin/ouch d -y "$@" '';
+          desc = "Extract here with ouch";
+          for = "unix";
+        }
+      ];
       plugin = {
+        prepend_fetchers = [
+          {
+            url = "*";
+            run = "git";
+            group = "git";
+          }
+          {
+            url = "*/";
+            run = "git";
+            group = "git";
+          }
+        ];
         prepend_previewers = [
           {
-            url = "*.csv";
+            url = "*.{csv,md,json}";
             run = "rich-preview";
           }
           {
-            url = "*.md";
-            run = "rich-preview";
-          }
-          {
-            url = "*.json";
-            run = "rich-preview";
+            mime = "application/{*zip,x-tar*,x-bzip2,x-7z*,x-rar,x-xz,x-zstd}";
+            run = "ouch --archive-icon=''";
           }
         ];
       };
