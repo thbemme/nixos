@@ -3,6 +3,8 @@
   programs.neovim = {
     enable = true;
     vimAlias = true;
+    withRuby = false;
+    withPython3 = false;
     extraConfig = ''
       nmap <silent> <F2> :NERDTreeFind<CR>
       nmap <space>e :NERDTreeToggle %:p:h<CR>

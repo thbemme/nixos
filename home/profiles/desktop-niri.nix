@@ -9,6 +9,7 @@
   ];
 
   home.packages = with pkgs; [
+    dgop
     gpu-screen-recorder
     kdePackages.qt6ct
     libqalculate

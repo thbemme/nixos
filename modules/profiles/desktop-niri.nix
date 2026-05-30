@@ -10,10 +10,9 @@
     sha256 = "sha256-gMeJgiSSA5hFwtW3njZQAd4OHji6kbRCJKVoN6zsRbY=";
   };
 in {
-  environment.systemPackages = [
-    pkgs.brightnessctl
-    pkgs.bluez
-    pkgs-unstable.dgop
+  environment.systemPackages = with pkgs; [
+    brightnessctl
+    bluez
   ];
 
   systemd.user.services.niri-flake-polkit.enable = false;

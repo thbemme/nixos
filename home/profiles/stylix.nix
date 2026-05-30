@@ -15,6 +15,8 @@ in {
     inputs.stylix.homeModules.stylix
   ];
 
+  gtk.gtk4.theme = null;
+
   stylix = {
     enable = true;
     autoEnable = true;

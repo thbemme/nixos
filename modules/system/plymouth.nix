@@ -6,11 +6,10 @@
       logo = pkgs.stdenv.mkDerivation {
         name = "out.png";
         dontUnpack = true;
-        # src = pkgs.fetchurl {
-        #   url = "https://nixos.org/_astro/nixos-logo-25.11-xantusia-lores.CLapGrL7_18iEK3.webp";
-        #   hash = "sha256-StJOgJzrZjB5omz98h/EfN5RIIaySCPplqDh2Wi3EXM=";
-        # };
-        src = ../../assets/pre-26.05.png; # Until @https://github.com/NixOS/branding/issues/35 is completed
+        src = pkgs.fetchurl {
+          url = "https://nixos.org/_astro/nixos-logo-26.05-yarara-lores.xm7Ks20R_2fU286.webp";
+          hash = "sha256-N5z7WRB/tYM9md8Ww2E0SH+hjmn27zSvzTcFkVlcIqc=";
+        };
         nativeBuildInputs = with pkgs; [imagemagick];
         buildPhase = ''
           magick $src -background none -resize 200x200 nix-plymouth-logo.png
