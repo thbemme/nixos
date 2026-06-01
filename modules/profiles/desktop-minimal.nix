@@ -57,27 +57,6 @@
     };
   };
 
-  # Kill applications on OOM... prior to the desktop locking up.
-  services.earlyoom = {
-    enable = true;
-    enableNotifications = true;
-    freeMemThreshold = 20;
-    extraArgs = [
-      # Avoid killing important system and desktop processes
-      "--avoid"
-      "^(systemd|kernel|init|dbus|NetworkManager|pipewire)$"
-      "--avoid"
-      "^(gnome-shell|wayland|niri|dms)$"
-      "--avoid"
-      "^(gdm|sddm|lightdm|greetd)$"
-      # Prefer killing these types of processes first
-      "--prefer"
-      "^(chrome|chromium|firefox|librewolf|electron)$"
-      "--prefer"
-      "^(java|node|python|ruby)$"
-    ];
-  };
-
   # Additional home manager settings
   home-manager = {
     users = {

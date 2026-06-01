@@ -15,6 +15,5 @@
         terminal_output --append serial
       '';
     };
-    kernelPackages = pkgs.linuxPackages_hardened;
   };
 }
