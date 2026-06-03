@@ -13,6 +13,7 @@ in {
   environment.systemPackages = with pkgs; [
     brightnessctl
     bluez
+    kdePackages.qt5compat
   ];
 
   systemd.user.services.niri-flake-polkit.enable = false;
@@ -34,24 +35,22 @@ in {
     sddm = {
       enable = true;
       wayland.enable = true;
-      theme = "${pkgs.where-is-my-sddm-theme}/share/sddm/themes/where_is_my_sddm_theme";
-      extraPackages = [
-        (pkgs.where-is-my-sddm-theme.override {
-          themeConfig.General = {
-            background = background-image;
-            backgroundMode = "none";
-            passwordCharacter = "•";
-            passwordInputWidth = "1";
-            passwordMask = true;
-            passwordInputCursorVisible = false;
-            passwordFontSize = 8;
-            sessionsFontSize = 8;
-            usersFontSize = 8;
-            blurRadius = "";
-            helpFontSize = 8;
-          };
-        })
-      ];
+      theme = "${pkgs.where-is-my-sddm-theme.override {
+        variants = ["qt6"];
+        themeConfig.General = {
+          background = background-image;
+          backgroundMode = "none";
+          passwordCharacter = "•";
+          passwordInputWidth = "1";
+          passwordMask = true;
+          passwordInputCursorVisible = false;
+          passwordFontSize = 8;
+          sessionsFontSize = 8;
+          usersFontSize = 8;
+          blurRadius = "";
+          helpFontSize = 8;
+        };
+      }}/share/sddm/themes/where_is_my_sddm_theme";
     };
     sessionPackages = [pkgs.niri];
   };
@@ -72,10 +71,11 @@ in {
     enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
-      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gnome
     ];
     config.common.default = [
       "gtk"
+      "gnome"
     ];
   };
 
