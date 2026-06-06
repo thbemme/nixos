@@ -92,8 +92,6 @@ with lib.hm.gvariant; # bring mkUint32 etc. into scope
         clock-show-weekday = true;
         enable-animations = true;
         enable-hot-corners = false;
-        # Workaround for https://gitlab.gnome.org/GNOME/gsettings-desktop-schemas/-/merge_requests/119
-        gtk-enable-primary-paste = true;
       };
 
       # Location / timezone / sound / lockscreen settings
