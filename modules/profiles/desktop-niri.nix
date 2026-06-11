@@ -14,14 +14,12 @@ in {
     brightnessctl
     bluez
     kdePackages.qt5compat
-    xwayland-satellite
   ];
 
   systemd.user.services.niri-flake-polkit.enable = false;
 
   # Niri system requirements (compositor configured via home-manager)
   hardware.graphics.enable = true;
-  programs.dconf.enable = true;
   security.polkit.enable = true;
 
   # QT theming
@@ -57,7 +55,13 @@ in {
   };
 
   # X server for interfacing X11 apps with the Wayland protocol
-  programs.xwayland.enable = true;
+  programs = {
+    dconf.enable = true;
+    niri = {
+      enable = true;
+    };
+    xwayland.enable = true;
+  };
 
   services = {
     accounts-daemon.enable = true;
@@ -65,6 +69,7 @@ in {
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
     power-profiles-daemon.enable = true;
+    seatd.enable = true;
     upower.enable = true;
   };
 
