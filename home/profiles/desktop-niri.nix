@@ -23,7 +23,6 @@
   ];
 
   home.sessionVariables = {
-    DISPLAY = ":0";
     GDK_BACKEND = "wayland";
     MOZ_ENABLE_WAYLAND = "1";
     MOZ_WEBRENDER = "1";
@@ -38,8 +37,6 @@
   services = {
     easyeffects.enable = true;
     gnome-keyring.enable = true;
-    udiskie = {
-      enable = true;
-    };
+    udiskie.enable = true;
   };
 }

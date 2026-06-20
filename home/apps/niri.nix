@@ -213,7 +213,7 @@
           matches = [
             {
               app-id = "^librewolf$";
-              title = "^Picture-in-Picture$";
+              title = "^(Picture-in-Picture|Library|About LibreWolf)$";
             }
             {
               app-id = "org.remmina.Remmina";
@@ -222,7 +222,6 @@
             {app-id = ".blueman-manager-wrapped";}
             {app-id = "com.nextcloud.desktopclient.nextcloud";}
             {app-id = "mpv";}
-            {app-id = "org.corectrl.CoreCtrl";}
             {app-id = "qalculate-gtk";}
             {title = "^Open File";}
             {title = "^Open Folder";}
