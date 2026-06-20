@@ -36,7 +36,7 @@
     };
 
     danksearch = {
-      url = "github:thbemme/danksearch/updateVendorHash";
+      url = "github:AvengeMedia/danksearch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
