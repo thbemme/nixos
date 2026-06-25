@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+_: {
   imports = [
     ./kernel-default.nix
     ./kernel-hardening.nix

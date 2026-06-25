@@ -85,16 +85,16 @@
     };
 
     plugins = with pkgs.yaziPlugins; {
-      chmod = chmod;
-      diff = diff;
-      full-border = full-border;
-      git = git;
-      jump-to-char = jump-to-char;
-      mount = mount;
-      ouch = ouch;
-      rich-preview = rich-preview;
-      smart-enter = smart-enter;
-      smart-filter = smart-filter;
+      inherit chmod;
+      inherit diff;
+      inherit full-border;
+      inherit git;
+      inherit jump-to-char;
+      inherit mount;
+      inherit ouch;
+      inherit rich-preview;
+      inherit smart-enter;
+      inherit smart-filter;
     };
 
     initLua = ''

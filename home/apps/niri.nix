@@ -72,6 +72,7 @@
       binds = with config.lib.niri.actions; {
         "Mod+Return".action = spawn "ghostty";
         "Mod+b".action = spawn "librewolf";
+        "Mod+Shift+b".action = spawn "tor-browser";
         "Mod+n".action = spawn "nautilus";
         "Menu".action = spawn "dms" "ipc" "launcher" "toggle";
         #"Mod".release = toggle-overview; # https://github.com/niri-wm/niri/pull/2456
@@ -225,6 +226,8 @@
             {app-id = "qalculate-gtk";}
             {title = "^Open File";}
             {title = "^Open Folder";}
+            {title = "^Rename \"";}
+            {title = "^File Operation Progress";}
           ];
           open-floating = true;
         }
