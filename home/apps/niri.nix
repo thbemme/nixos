@@ -77,6 +77,7 @@
         "Menu".action = spawn "dms" "ipc" "launcher" "toggle";
         #"Mod".release = toggle-overview; # https://github.com/niri-wm/niri/pull/2456
         "Mod+Alt+l".action = spawn "loginctl" "lock-session";
+        "Mod+c".action = spawn "dcal" "toggle";
 
         "Mod+WheelScrollDown".action = focus-column-right;
         "Mod+WheelScrollUp".action = focus-column-left;
@@ -224,6 +225,7 @@
             {app-id = "com.nextcloud.desktopclient.nextcloud";}
             {app-id = "mpv";}
             {app-id = "qalculate-gtk";}
+            {app-id = "com.danklinux.dankcalendar";}
             {title = "^Open File";}
             {title = "^Open Folder";}
             {title = "^Rename \"";}

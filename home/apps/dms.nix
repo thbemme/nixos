@@ -10,6 +10,7 @@
     inputs.dms.homeModules.dank-material-shell
     inputs.dms.homeModules.niri
     inputs.dms-plugin-registry.nixosModules.default
+    inputs.dankcalendar.homeModules.default
   ];
 
   programs.dsearch = {
@@ -27,6 +28,17 @@
           exclude_dirs = ["Android" "Games" ".git" "target" "dist" "bin" "obj" "build"];
         }
       ];
+    };
+  };
+
+  programs.dank-calendar = {
+    enable = true;
+    systemd.enable = true;
+    settings = {
+      firstDayOfWeek = -1;
+      showWeekNumbers = true;
+      timeFormat = "24h";
+      use24HourClock = true;
     };
   };
 
@@ -74,6 +86,7 @@
     session = {
       hiddenTrayIds = [
         "blueman::Bluetooth Disabled"
+        "dank-calendar::Dank Calendar"
         "easyeffects::Easy Effects"
         "steam"
         "udiskie"
@@ -100,6 +113,8 @@
       widgetTransparency = "0.8";
       workspaceColorMode = "sc";
       workspaceUnfocusedColorMode = "sch";
+      showWeekNumber = true;
+      calendarBackend = "dankcal";
 
       barConfigs = [
         {
