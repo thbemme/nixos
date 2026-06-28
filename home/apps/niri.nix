@@ -276,7 +276,7 @@
           open-on-workspace = "office";
         }
         {
-          matches = [{app-id = "codium";} {app-id = "org.gnome.Nautilus";} {app-id = "qalculate-gtk";} {app-id = "VSCodium";}];
+          matches = [{app-id = "codium";} {app-id = "org.gnome.Nautilus";} {app-id = "qalculate-gtk";} {app-id = "VSCodium";} {app-id = "com.danklinux.dankcalendar";}];
           draw-border-with-background = false;
           opacity = 0.95;
         }

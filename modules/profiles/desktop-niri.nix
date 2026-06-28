@@ -9,10 +9,14 @@
     sha256 = "sha256-gMeJgiSSA5hFwtW3njZQAd4OHji6kbRCJKVoN6zsRbY=";
   };
 in {
+  nixpkgs.overlays = [
+    (import ../../overlays/xwayland-satellite.nix)
+  ];
   environment.systemPackages = with pkgs; [
     brightnessctl
     bluez
     kdePackages.qt5compat
+    xwayland-satellite
   ];
 
   systemd.user.services.niri-flake-polkit.enable = false;

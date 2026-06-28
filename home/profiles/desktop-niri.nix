@@ -19,7 +19,6 @@
     simple-scan
     wiremix
     wl-clipboard-rs
-    xwayland-satellite
   ];
 
   home.sessionVariables = {
