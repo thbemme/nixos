@@ -18,8 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #stylix.url = "github:nix-community/stylix/release-26.05";
-    stylix.url = "github:thbemme/stylix/dank-calendar";
+    stylix.url = "github:nix-community/stylix/release-26.05";
 
     niri = {
       url = "github:sodiboo/niri-flake";
