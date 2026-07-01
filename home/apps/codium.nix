@@ -49,6 +49,7 @@
       enableExtensionUpdateCheck = false;
       extensions = with pkgs.vscode-extensions; [
         esbenp.prettier-vscode
+        foxundermoon.shell-format
         jnoortheen.nix-ide
         streetsidesoftware.code-spell-checker
         yzhang.markdown-all-in-one

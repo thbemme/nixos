@@ -41,8 +41,7 @@
     };
 
     dankcalendar = {
-      #url = "github:AvengeMedia/dankcalendar";
-      url = "github:thbemme/dankcalendar/update/dcal-flake-0.2.0";
+      url = "github:AvengeMedia/dankcalendar";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
