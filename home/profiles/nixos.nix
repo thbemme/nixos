@@ -4,6 +4,7 @@ _: {
     ../apps/btop.nix
     ../apps/cava.nix
     ../apps/dconf.nix
+    ../apps/element-desktop.nix
     ../apps/fastfetch.nix
     ../apps/fish.nix
     ../apps/git.nix
