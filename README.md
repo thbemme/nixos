@@ -6,12 +6,12 @@
 
 ## 📌 Overview
 This repository contains my **NixOS** and **Home Manager** configurations for various environments, including:
-- **Native NixOS** (Desktops, Servers)
-- **WSL** (Windows Subsystem for Linux)
-- **Nix-on-Droid** (Android devices)
-- **Home Manager** (Nix on other GNU/Linux distributions)
+- [**Native NixOS**](#native-nixos) (Desktops, Servers)
+- [**WSL**](#wsl) (Windows Subsystem for Linux)
+- [**Nix-on-Droid**](#nix-on-droid) (Android devices)
+- [**Home Manager**](#home-manager-1) (Nix on other GNU/Linux distributions)
 
-The setup is **modular**, **reproducible**, and **secure**, with support for **GitCrypt** for secrets management.
+The setup supports [**GitCrypt**](#gitcrypt) for secrets management.
 
 ## 👀 Screenshot
 Niri + Dank Material Shell with [Rose Pine theme](https://rosepinetheme.com/):
