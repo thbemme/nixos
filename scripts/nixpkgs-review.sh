@@ -16,14 +16,6 @@ EOF
     exit 1
 }
 
-cleanup() {
-    if [[ -f "$SWAP_FILE" ]]; then
-        echo "Cleaning up swapfile..."
-        sudo swapoff "$SWAP_FILE" && sudo rm "$SWAP_FILE"
-    fi
-}
-
-# --- Main ---
 # Validate input
 if [[ $# -ne 1 || ! "$1" =~ ^[0-9]+$ ]]; then
     help

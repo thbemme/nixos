@@ -22,7 +22,8 @@ EOF
 cleanup() {
     if [[ -f "$SWAP_FILE" ]]; then
         echo "Cleaning up swapfile..."
-        sudo swapoff "$SWAP_FILE" && sudo rm "$SWAP_FILE"
+        sudo swapoff "$SWAP_FILE"
+        sudo rm "$SWAP_FILE"
     fi
 }
 
@@ -68,5 +69,5 @@ git checkout "$BRANCH_NAME"
 # Build and run
 echo "Building $PACKAGE..."
 nom build .#"$PACKAGE"
-cleanup
+cleanup || true
 ./result/bin/"$PACKAGE"
