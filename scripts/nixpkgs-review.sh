@@ -22,7 +22,6 @@ if [[ $# -ne 1 || ! "$1" =~ ^[0-9]+$ ]]; then
 fi
 
 PR="$1"
-trap cleanup EXIT # Ensure cleanup runs on script exit
 
 # Setup swap
 if [[ ! -f "$SWAP_FILE" ]]; then

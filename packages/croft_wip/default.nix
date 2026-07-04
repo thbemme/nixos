@@ -5,10 +5,10 @@ pkgs.rustPlatform.buildRustPackage rec {
 
   src = pkgs.fetchFromGitea {
     domain = "codeberg.org";
-    owner = "thbemme";
+    owner = "vitali87";
     repo = "croft";
-    rev = "macosTests";
-    sha256 = "sha256-7jmxtTMuMZh2TcRcb2ZnMY4LguV2OE3W3ZH0c8ikCZQ";
+    rev = "main";
+    sha256 = "sha256-ToG4ooXz//fZIVMjnbGxTuUrj2IAk1yIhpFjvDpJcJY=";
   };
 
   cargoLock = {
@@ -16,6 +16,8 @@ pkgs.rustPlatform.buildRustPackage rec {
   };
   nativeBuildInputs = with pkgs; [
     pkg-config
+    git
+    python3
   ];
   buildInputs = with pkgs; [
   ];

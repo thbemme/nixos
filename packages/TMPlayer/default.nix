@@ -1,13 +1,13 @@
 {pkgs ? import <nixpkgs> {}}:
 pkgs.rustPlatform.buildRustPackage rec {
-  pname = "cli-music-player";
-  version = "0.2.0";
+  pname = "TMPlayer";
+  version = "0.2.4";
 
   src = pkgs.fetchFromGitHub {
     owner = "professor-lee";
-    repo = "cli-music-player";
+    repo = "TMPlayer";
     rev = "v${version}";
-    sha256 = "sha256-wbaOd4LvGRM1FnsQymWdVmpQWtxX7u8JxbEtXtxnezo=";
+    sha256 = "sha256-ofgVrBmyaRR5OMR7WIr5904fSarBuS+xf+sp+da6XwY=";
   };
 
   cargoLock = {
@@ -22,8 +22,8 @@ pkgs.rustPlatform.buildRustPackage rec {
     dbus
   ];
   meta = with pkgs.lib; {
-    description = "A CLI music player";
-    homepage = "https://github.com/professor-lee/cli-music-player";
+    description = "A Rust-based Linux TUI music player with spectrum visualization";
+    homepage = "https://github.com/professor-lee/TMPlayer";
     license = licenses.agpl3Only;
   };
 }
