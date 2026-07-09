@@ -1,9 +1,13 @@
-_: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   programs.fish = {
     shellAliases = {
-      r = "nh os switch --ask $argv";
-      u = "nh os switch --update --ask $argv";
-      c = "nh clean all --keep 5";
+      r = "${lib.getExe pkgs.nh} os switch --ask $argv";
+      u = "${lib.getExe pkgs.nh} os switch --update --ask $argv";
+      c = "${lib.getExe pkgs.nh} clean all --keep 5";
     };
   };
 }

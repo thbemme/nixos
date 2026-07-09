@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   programs.fish = {
     enable = true;
     plugins = with pkgs.fishPlugins; [
@@ -19,7 +23,7 @@
         # Show "ghostty +boo" animation if ghostty is installed and conditions are met
         if command -v ghostty >/dev/null 2>&1
           and not set -q IN_NIX_SHELL
-          and test (random 1 10) -eq 10
+          and test (random 0 10) -eq 10
           and test (tput cols) -ge 100
           and test (tput lines) -ge 41
             ghostty +boo
@@ -75,19 +79,19 @@
       nix-shell = "command nix-shell --command fish $argv";
     };
     shellAliases = {
-      cat = "bat";
-      f = "fd -H --no-ignore";
-      grrrr = "git reset --hard";
-      l = "eza -laF --icons --git --group-directories-first";
-      ls = "eza -F --icons --git --group-directories-first";
+      cat = "${lib.getExe pkgs.bat}";
+      f = "${lib.getExe pkgs.fd} -H --no-ignore";
+      grrrr = "${lib.getExe pkgs.git} reset --hard";
+      l = "${lib.getExe pkgs.eza} -laF --icons --git --group-directories-first";
+      ls = "${lib.getExe pkgs.eza} -F --icons --git --group-directories-first";
       mkdir = "mkdir -p";
-      ngit = "git -C ~/git/nixos";
-      p = "alejandra -q ~/git/nixos/;git -C ~/git/nixos/ diff;read -lP 'Continue?' && git -C ~/git/nixos/ add .&&git -C ~/git/nixos/ commit -m 'Update Flake'&&git -C ~/git/nixos/ commit --amend&&git -C ~/git/nixos/ push";
-      pu = "git -C ~/git/nixos/ pull";
-      pw = "openssl rand -base64 30";
+      ngit = "${lib.getExe pkgs.git} -C ~/git/nixos";
+      p = "${lib.getExe pkgs.alejandra} -q ~/git/nixos/;${lib.getExe pkgs.git} -C ~/git/nixos/ diff;read -lP 'Continue?' && ${lib.getExe pkgs.git} -C ~/git/nixos/ add .&&${lib.getExe pkgs.git} -C ~/git/nixos/ commit -m 'Update Flake'&&git -C ~/git/nixos/ commit --amend&&${lib.getExe pkgs.git} -C ~/git/nixos/ push";
+      pu = "${lib.getExe pkgs.git} -C ~/git/nixos/ pull";
+      pw = "${lib.getExe pkgs.openssl} rand -base64 30";
       sudo = "sudo -E";
-      tree = "eza --tree --icons --git --group-directories-first";
-      watch = "viddy --unfold --disable_auto_save";
+      tree = "${lib.getExe pkgs.eza} --tree --icons --git --group-directories-first";
+      watch = "${lib.getExe pkgs.viddy} --unfold --disable_auto_save";
     };
   };
 }
