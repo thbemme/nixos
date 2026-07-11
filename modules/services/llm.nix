@@ -15,7 +15,7 @@
 
   ollamaRocmGfx =
     if gpuAcceleration
-    then "10.3.1"
+    then "10.3.0"
     else null;
 
   webuiAuth =
