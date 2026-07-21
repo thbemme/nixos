@@ -68,10 +68,10 @@
       '';
       ns = ''
         # Better nix-shell
-        if ! nix-shell --packages "$argv" --run "exit" 2>/dev/null
-            echo "Package not found. Searching Nixpkgs..."
+        if ! nom-shell --packages "$argv" --run "exit"
+            echo "Package could not be fetched."
             nh search "$argv"
-        else if ! nix-shell --packages "$argv" --run "$argv"
+        else if ! nom-shell --packages "$argv" --run "$argv"
             echo "Command not found in shell. Opening normal nix-shell..."
             nix-shell --packages "$argv"
         end
