@@ -5,14 +5,14 @@ final: prev: {
       src = prev.fetchFromGitHub {
         owner = "Supreeeme";
         repo = "xwayland-satellite";
-        rev = "master";
-        sha256 = "sha256-Dl0Gvrig3EpE962hzF3ETPhUztlfuRhcmlpd8ioHN54=";
+        tag = "v${finalAttrs.version}";
+        sha256 = "sha256-Mb7jpqnrcYCfNSItIkkHpuR3YxWFxPuIBfcwNKlRBkk=";
       };
 
       # overrideAttrs works on the mkDerivation, so we cannot override cargoHash.
       cargoDeps = final.rustPlatform.fetchCargoVendor {
         inherit (finalAttrs) src;
-        hash = "sha256-jbEihJYcOwFeDiMYlOtaS8GlunvSze80iWahDj1qDrs=";
+        hash = "sha256-Saa3SRsQuY6u6pfBGezaEExOt/ReblnrG7pAXjA6Dk8=";
       };
     }
   );
