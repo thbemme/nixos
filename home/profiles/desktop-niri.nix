@@ -4,7 +4,6 @@
     ../apps/mpv.nix
     ../apps/niri.nix
     ../apps/rmpc.nix
-    ../apps/swayidle.nix
     ../apps/yazi.nix
   ];
 

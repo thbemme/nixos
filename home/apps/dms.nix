@@ -67,6 +67,7 @@
         };
       };
       catWidget.enable = true;
+      commandRunner.enable = true;
       emojiLauncher = {
         enable = true;
         settings = {
@@ -95,6 +96,21 @@
       weatherCoordinates = "${vars.weatherCoordinates}";
     };
     settings = {
+      acMonitorTimeout = 600;
+      acLockTimeout = 3600;
+      acSuspendTimeout = 3600;
+
+      batteryMonitorTimeout = 300;
+      batterySuspendTimeout = 900;
+      batteryChargeLimit = 100;
+
+      lockBeforeSuspend = true;
+      loginctlLockIntegration = true;
+      fadeToLockEnabled = true;
+      fadeToLockGracePeriod = 5;
+      fadeToDpmsEnabled = true;
+      fadeToDpmsGracePeriod = 5;
+
       clockDateFormat = "ddd MMM d";
       groupWorkspaceApps = false;
       innerPadding = 0;

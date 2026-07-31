@@ -24,7 +24,7 @@ in {
 
     targets = {
       mangohud.enable = false;
-      librewolf.profileNames = ["default"];
+      librewolf.enable = false;
       neovim = {
         transparentBackground = {
           main = true;
