@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   vars,
   ...
@@ -54,15 +55,12 @@ in {
         };
       }}/share/sddm/themes/where_is_my_sddm_theme";
     };
-    sessionPackages = [pkgs.niri];
+    sessionPackages = [config.home-manager.users.${vars.user}.programs.niri.package];
   };
 
   # X server for interfacing X11 apps with the Wayland protocol
   programs = {
     dconf.enable = true;
-    niri = {
-      enable = true;
-    };
     xwayland.enable = true;
   };
 
