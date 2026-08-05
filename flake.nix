@@ -120,6 +120,7 @@
       nixos = nixosConfig {configPath = ./hosts/wsl/configuration.nix;};
       nixos-template = nixosConfig {configPath = ./hosts/nixos-template/configuration.nix;};
       puff = nixosConfig {configPath = ./hosts/puff/configuration.nix;};
+      puffed = nixosConfig {configPath = ./hosts/puffed/configuration.nix;};
       DEN02263 = nixosConfig {configPath = ./hosts/DEN02263/configuration.nix;};
       puffy = nixosConfig {
         configPath = ./hosts/puffy/configuration.nix;
