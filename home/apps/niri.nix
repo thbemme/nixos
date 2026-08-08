@@ -74,7 +74,10 @@
         "Mod+b".action = spawn "librewolf";
         "Mod+Shift+b".action = spawn "tor-browser";
         "Mod+n".action = spawn "nautilus";
+        "Mod+Shift+n".action = spawn "ghostty" "-e" "yazi";
+        "Mod+v".action = spawn "ghostty" "-e" "nvim";
         "Menu".action = spawn "dms" "ipc" "launcher" "toggle";
+        "Mod+Space".action = spawn "dms" "ipc" "launcher" "toggle";
         #"Mod".release = toggle-overview; # https://github.com/niri-wm/niri/pull/2456
         "Mod+Alt+l".action = spawn "loginctl" "lock-session";
         "Mod+c".action = spawn "dcal" "toggle";
@@ -193,6 +196,13 @@
         "5".name = "office";
       };
 
+      blur = {
+        passes = 2;
+        offset = 5;
+        noise = 0.015;
+        saturation = 1.25;
+      };
+
       window-rules = [
         {
           geometry-corner-radius = let
@@ -206,9 +216,15 @@
           clip-to-geometry = true;
         }
         {
+          matches = [{is-active = false;}];
+          opacity = 0.95;
+          background-effect.blur = true;
+        }
+        {
           matches = [{app-id = "com.mitchellh.ghostty";}];
           draw-border-with-background = false;
-          opacity = 0.95;
+          opacity = 0.90;
+          background-effect.blur = true;
           open-on-workspace = "main";
         }
         {
@@ -278,7 +294,8 @@
         {
           matches = [{app-id = "codium";} {app-id = "org.gnome.Nautilus";} {app-id = "qalculate-gtk";} {app-id = "VSCodium";} {app-id = "com.danklinux.dankcalendar";}];
           draw-border-with-background = false;
-          opacity = 0.95;
+          opacity = 0.90;
+          background-effect.blur = true;
         }
       ];
 
@@ -287,7 +304,7 @@
         center-focused-column = "never";
         empty-workspace-above-first = true;
         background-color = "transparent";
-        preset-column-widths = [{proportion = 0.33333;} {proportion = 0.5;} {proportion = 0.66667;}];
+        preset-column-widths = [{proportion = 1.0;} {proportion = 0.5;} {proportion = 0.66667;} {proportion = 0.33333;}];
         default-column-width = {proportion = 0.5;};
         preset-window-heights = [{proportion = 0.33333;} {proportion = 0.5;} {proportion = 1.0;}];
         border = {
