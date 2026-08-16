@@ -24,6 +24,7 @@ _: {
         "ctrl+super+right=goto_split:right"
         "ctrl+super+up=goto_split:up"
         "f11=toggle_fullscreen"
+        "global:super+shift+enter=toggle_quick_terminal"
       ];
     };
   };

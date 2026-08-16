@@ -188,6 +188,22 @@
             ];
         }
       ];
+      controlCenterWidgets = let
+        widget = id: {
+          inherit id;
+          width = 50;
+          enabled = true;
+        };
+      in [
+        (widget "volumeSlider")
+        (widget "brightnessSlider")
+        (widget "wifi")
+        (widget "bluetooth")
+        (widget "audioOutput")
+        (widget "audioInput")
+        (widget "nightMode")
+        (widget "idleInhibitor")
+      ];
     };
   };
 }
