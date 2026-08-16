@@ -3,13 +3,7 @@
   pkgs,
   vars,
   ...
-}: let
-  #background-image = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-  background-image = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/refs/heads/master/logo/nix-snowflake-rainbow.svg";
-    sha256 = "sha256-gMeJgiSSA5hFwtW3njZQAd4OHji6kbRCJKVoN6zsRbY=";
-  };
-in {
+}: {
   nixpkgs.overlays = [
     (import ../../overlays/xwayland-satellite.nix)
   ];
@@ -32,31 +26,32 @@ in {
 
   environment.variables.NIXOS_OZONE_WL = "1";
 
+  # # Disable default display manager
+  # services.xserver.displayManager.lightdm.enable = false;
+
+  # # Start Niri on first login on tty1
+  # environment.loginShellInit = ''
+  #   if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+  #     niri-session -l
+  #   fi
+  # '';
+
   services.displayManager = {
-    defaultSession = "niri";
     enable = true;
     generic.environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
-    sddm = {
-      enable = true;
-      wayland.enable = true;
-      theme = "${pkgs.where-is-my-sddm-theme.override {
-        variants = ["qt6"];
-        themeConfig.General = {
-          background = background-image;
-          backgroundMode = "none";
-          passwordCharacter = "•";
-          passwordInputWidth = "1";
-          passwordMask = true;
-          passwordInputCursorVisible = false;
-          passwordFontSize = 8;
-          sessionsFontSize = 8;
-          usersFontSize = 8;
-          blurRadius = "";
-          helpFontSize = 8;
-        };
-      }}/share/sddm/themes/where_is_my_sddm_theme";
-    };
     sessionPackages = [config.home-manager.users.${vars.user}.programs.niri.package];
+    ly = {
+      enable = true;
+      settings = {
+        animation = "matrix";
+        auth_fails = 3;
+
+        bigclock = "en";
+        clear_password = true;
+        default_input = "password";
+        cmatrix_fg = "0xC11C84";
+      };
+    };
   };
 
   # X server for interfacing X11 apps with the Wayland protocol
@@ -71,7 +66,7 @@ in {
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
     power-profiles-daemon.enable = true;
-    seatd.enable = true;
+    #seatd.enable = true;
     upower.enable = true;
   };
 

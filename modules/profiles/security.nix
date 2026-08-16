@@ -11,12 +11,14 @@
     ssh-audit
     subfinder
     #wapiti
-    wireshark
   ];
 
-  users.users.${vars.user}.extraGroups = ["wireshark"];
+  programs.wireshark = {
+    enable = true;
+    package = pkgs.wireshark;
+  };
 
-  programs.wireshark.enable = true;
+  users.users.${vars.user}.extraGroups = ["wireshark"];
 
   services.udev = {
     extraRules = ''
