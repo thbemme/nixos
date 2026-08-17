@@ -6,18 +6,24 @@
       "markdown"
     ];
     userSettings = {
+      auto_update = false;
+      disable_ai = true;
+      tab_size = 2;
       telemetry = {
         metrics = true;
         diagnostics = false;
       };
+      minimap = {
+        max_width_columns = 80;
+        thumb = "always";
+        show = "always";
+      };
       vim_mode = true;
       format_on_save = "on";
       lsp = {
-        rust-analyzer.binary.path = "${pkgs.rust-analyzer}/bin/rust-analyzer";
         nixd.binary.path = "${pkgs.nixd}/bin/nixd";
       };
       languages = {
-        Rust.format_on_save = "on";
         Nix = {
           language_servers = ["nixd" "!nil"];
           formatter = {

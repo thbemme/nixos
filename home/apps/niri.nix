@@ -66,7 +66,7 @@
         {command = ["ghostty" "-e" "rmpc"];}
         {command = ["ghostty" "-e" "btop"];}
         {command = ["librewolf"];}
-        {command = ["codium"];}
+        {command = ["zeditor"];}
       ];
 
       binds = with config.lib.niri.actions; {
@@ -277,7 +277,7 @@
           };
         }
         {
-          matches = [{app-id = "codium";} {app-id = "VSCodium";} {app-id = "Thonny";} {app-id = "jetbrains-studio";}];
+          matches = [{app-id = "^dev\\.zed\\.Zed$";} {app-id = "codium";} {app-id = "VSCodium";} {app-id = "Thonny";} {app-id = "jetbrains-studio";}];
           open-maximized = true;
           open-on-workspace = "dev";
         }
@@ -292,7 +292,7 @@
           open-on-workspace = "office";
         }
         {
-          matches = [{app-id = "codium";} {app-id = "org.gnome.Nautilus";} {app-id = "qalculate-gtk";} {app-id = "VSCodium";} {app-id = "com.danklinux.dankcalendar";}];
+          matches = [{app-id = "^dev\\.zed\\.Zed$";} {app-id = "codium";} {app-id = "org.gnome.Nautilus";} {app-id = "qalculate-gtk";} {app-id = "VSCodium";} {app-id = "com.danklinux.dankcalendar";}];
           draw-border-with-background = false;
           opacity = 0.90;
           background-effect.blur = true;

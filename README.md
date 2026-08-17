@@ -70,13 +70,13 @@ Niri + Dank Material Shell with [Rose Pine theme](https://rosepinetheme.com/):
  | [Secure Boot](modules/system/secureboot.nix) | Secure Boot configuration                                    |
 
 ### Home Manager
- | Module                               | Description                                |
- | ------------------------------------ | ------------------------------------------ |
- | [Ghostty](home/apps/ghostty.nix)     | Customized Ghostty terminal configuration  |
- | [Librewolf](home/apps/librewolf.nix) | Customized Librewolf browser configuration |
- | [NeoVim](home/apps/neovim.nix)       | Customized NeoVim configuration            |
- | [Stylix](home/profiles/stylix.nix)   | Stylix configuration for Rose Pine theme   |
- | [VSCodium](home/apps/codium.nix)     | Customized VSCodium configuration          |
+ | Module                                 | Description                                |
+ | -------------------------------------- | ------------------------------------------ |
+ | [Ghostty](home/apps/ghostty.nix)       | Customized Ghostty terminal configuration  |
+ | [Librewolf](home/apps/librewolf.nix)   | Customized Librewolf browser configuration |
+ | [NeoVim](home/apps/neovim.nix)         | Customized NeoVim configuration            |
+ | [Stylix](home/profiles/stylix.nix)     | Stylix configuration for Rose Pine theme   |
+ | [Zed Editor](home/apps/zed-editor.nix) | Zed Editor configuration                   |
 
 ---
 

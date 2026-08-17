@@ -1,5 +1,5 @@
 _: {
   imports = [
-    ../apps/codium.nix
+    ../apps/zed-editor.nix
   ];
 }
