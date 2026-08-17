@@ -15,7 +15,6 @@
       gedit
       gimp3-with-plugins
       handbrake
-      hexchat
       hunspell
       hunspellDicts.de_DE
       hunspellDicts.en_US
