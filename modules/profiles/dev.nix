@@ -19,6 +19,7 @@
       m4
       ncurses5
       nix-output-monitor
+      nix-update
       nixpkgs-review
       prettier
       openssl
