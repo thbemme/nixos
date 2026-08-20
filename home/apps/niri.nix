@@ -234,6 +234,10 @@
               title = "^(Picture-in-Picture|Library|About LibreWolf)$";
             }
             {
+              app-id = "^dev\\.zed\\.Zed$";
+              title = "Zed — Settings";
+            }
+            {
               app-id = "org.remmina.Remmina";
               title = "Remmina Remote Desktop Client";
             }

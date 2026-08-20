@@ -9,8 +9,10 @@
     enable = true;
 
     extensions = [
-      "nix"
+      "ansible"
+      "dockerfile"
       "markdown"
+      "nix"
       "rose-pine-theme"
     ];
 
