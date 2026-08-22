@@ -116,6 +116,7 @@
         extraSpecialArgs = makeSpecialArgs {inherit gpuAcceleration useWorkVars;};
       };
   in {
+    # NixOS configurations
     nixosConfigurations = {
       nixos = nixosConfig {configPath = ./hosts/wsl/configuration.nix;};
       nixos-template = nixosConfig {configPath = ./hosts/nixos-template/configuration.nix;};
@@ -136,10 +137,12 @@
       };
     };
 
+    # Home Manager configurations
     homeConfigurations = {
       hm = homeConfig {configPath = ./hosts/hm/home.nix;};
     };
 
+    # Nix on Droid configurations
     nixOnDroidConfigurations = {
       default = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
         pkgs = import nixpkgs {system = "aarch64-linux";};
