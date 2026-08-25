@@ -75,7 +75,8 @@
         "Mod+Shift+b".action = spawn "tor-browser";
         "Mod+n".action = spawn "nautilus";
         "Mod+Shift+n".action = spawn "ghostty" "-e" "yazi";
-        "Mod+v".action = spawn "ghostty" "-e" "nvim";
+        "Mod+v".action = spawn "dms" "ipc" "notepad" "toggle";
+        "Mod+Shift+v".action = spawn "ghostty" "-e" "nvim";
         "Menu".action = spawn "dms" "ipc" "launcher" "toggle";
         "Mod+Space".action = spawn "dms" "ipc" "launcher" "toggle";
         #"Mod".release = toggle-overview; # https://github.com/niri-wm/niri/pull/2456
@@ -182,6 +183,10 @@
           action = spawn "brightnessctl" "--class=backlight" "set" "10%-";
           allow-when-locked = true;
         };
+        "Mod+s".action = set-dynamic-cast-window;
+        "Mod+Ctrl+s".action = set-dynamic-cast-monitor;
+        "Mod+Ctrl+Shift+s".action = clear-dynamic-cast-target;
+
         "Print".action.screenshot = {};
         "Mod+Print".action.screenshot-screen = {};
         "Shift+Print".action.screenshot-window = {};
@@ -214,6 +219,19 @@
             top-right = radius;
           };
           clip-to-geometry = true;
+        }
+        {
+          matches = [{is-window-cast-target = true;}];
+          shadow = {
+            enable = true;
+            color = config.lib.stylix.colors.withHashtag.base08;
+            spread = 2;
+            softness = 0;
+            offset = {
+              x = 0;
+              y = 0;
+            };
+          };
         }
         {
           matches = [{is-active = false;}];
@@ -296,7 +314,7 @@
           open-on-workspace = "office";
         }
         {
-          matches = [{app-id = "^dev\\.zed\\.Zed$";} {app-id = "codium";} {app-id = "org.gnome.Nautilus";} {app-id = "qalculate-gtk";} {app-id = "VSCodium";} {app-id = "com.danklinux.dankcalendar";}];
+          matches = [{app-id = "^dev\\.zed\\.Zed$";} {app-id = "codium";} {app-id = "org.gnome.Nautilus";} {app-id = "qalculate-gtk";} {app-id = "VSCodium";} {app-id = "com.danklinux.dankcalendar";} {app-id = "com.danklinux.dms";}];
           draw-border-with-background = false;
           opacity = 0.90;
           background-effect.blur = true;
@@ -326,7 +344,7 @@
           active.color = "red";
           inactive.color = "gray";
         };
-        insert-hint = {display.color = "#ffc87f80";};
+        insert-hint = {display.color = config.lib.stylix.colors.withHashtag.base08;};
       };
     };
   };
