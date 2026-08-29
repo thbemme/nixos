@@ -21,8 +21,9 @@ _: {
     profiles = {
       default = {
         id = 0;
-        name = "default";
         isDefault = true;
+        extensions.force = true;
+        name = "default";
         search = {
           force = true;
           default = "searx.kbnetcloud.de";
