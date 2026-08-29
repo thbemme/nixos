@@ -4,10 +4,6 @@
   vars,
   ...
 }: {
-  nixpkgs.overlays = [
-    (import ../../overlays/xwayland-satellite.nix)
-  ];
-
   environment.systemPackages = with pkgs; [
     brightnessctl
     bluez

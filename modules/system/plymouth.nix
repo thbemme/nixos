@@ -12,7 +12,7 @@
         };
         nativeBuildInputs = with pkgs; [imagemagick];
         buildPhase = ''
-          magick $src -background none -resize 200x200 nix-plymouth-logo.png
+          magick $src -background none -resize 300x300 nix-plymouth-logo.png
         '';
         installPhase = ''
           install -Dm0644 nix-plymouth-logo.png $out
@@ -21,7 +21,7 @@
     };
 
     # Enable "Silent Boot"
-    consoleLogLevel = 0;
+    consoleLogLevel = 3;
     initrd.verbose = false;
     kernelParams = [
       "quiet"

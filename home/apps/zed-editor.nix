@@ -10,6 +10,7 @@
 
     extensions = [
       "ansible"
+      "color-highlight"
       "dockerfile"
       "markdown"
       "nix"
