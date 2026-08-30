@@ -10,8 +10,8 @@
       ecwolf
       furmark
       gzdoom
+      heroic
       limo
-      lutris
       protonup-qt
       scummvm
       sdlpop

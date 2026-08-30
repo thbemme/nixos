@@ -8,7 +8,7 @@
     hash = "sha256-5QjFGb1wO5qfWimRYIAF6BEesxrsZg1AXC3MhKutcEg=";
   };
 
-  opacity = 0.95;
+  opacity = 0.90;
   fontSize = 10;
 in {
   imports = [

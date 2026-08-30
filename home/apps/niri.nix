@@ -218,7 +218,10 @@
             top-left = radius;
             top-right = radius;
           };
+          opacity = config.stylix.opacity.terminal;
+          background-effect.blur = true;
           clip-to-geometry = true;
+          draw-border-with-background = false;
         }
         {
           matches = [{is-window-cast-target = true;}];
@@ -234,15 +237,7 @@
           };
         }
         {
-          matches = [{is-active = false;}];
-          opacity = 0.95;
-          background-effect.blur = true;
-        }
-        {
           matches = [{app-id = "com.mitchellh.ghostty";}];
-          draw-border-with-background = false;
-          opacity = 0.90;
-          background-effect.blur = true;
           open-on-workspace = "main";
         }
         {
@@ -273,15 +268,17 @@
         }
         {
           matches = [{app-id = "^librewolf$";}];
+          opacity = 1.0;
           open-maximized = true;
           open-on-workspace = "main";
         }
         {
-          matches = [{app-id = "steam";} {app-id = "net.lutris.Lutris";}];
+          matches = [{app-id = "steam";} {app-id = "heroic";}];
           open-on-workspace = "gaming";
         }
         {
           matches = [{app-id = "^steam_app_";} {app-id = "^rusty-path-of-building-";} {app-id = "\.exe$";}];
+          opacity = 1.0;
           open-maximized = true;
           open-on-workspace = "gaming";
         }
@@ -310,14 +307,9 @@
         }
         {
           matches = [{app-id = "^libreoffice-";} {app-id = "^gimp";} {app-id = "lyx";} {app-id = "scribus";} {app-id = "krita";} {app-id = "org.gnome.SimpleScan";}];
+          opacity = 1.0;
           open-maximized = true;
           open-on-workspace = "office";
-        }
-        {
-          matches = [{app-id = "^dev\\.zed\\.Zed$";} {app-id = "codium";} {app-id = "org.gnome.Nautilus";} {app-id = "qalculate-gtk";} {app-id = "VSCodium";} {app-id = "com.danklinux.dankcalendar";} {app-id = "com.danklinux.dms";}];
-          draw-border-with-background = false;
-          opacity = 0.90;
-          background-effect.blur = true;
         }
       ];
 
