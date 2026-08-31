@@ -7,11 +7,11 @@
   environment.systemPackages =
     (with pkgs; [
       adwsteamgtk
+      cabextract
       ecwolf
       furmark
       gzdoom
       heroic
-      limo
       protonup-qt
       scummvm
       sdlpop

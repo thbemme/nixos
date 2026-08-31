@@ -267,25 +267,58 @@
           open-floating = true;
         }
         {
-          matches = [{app-id = "^librewolf$";}];
-          opacity = 1.0;
+          matches = [
+            {app-id = "\.exe$";}
+            {app-id = "^gimp";}
+            {app-id = "^libreoffice-";}
+            {app-id = "^librewolf$";}
+            {app-id = "^org.gnome.Boxes$";}
+            {app-id = "^rusty-path-of-building-";}
+            {app-id = "^krita$";}
+            {app-id = "^lyx$";}
+            {app-id = "^org.gnome.SimpleScan$";}
+            {app-id = "^scribus$";}
+            {app-id = "^telegram-desktop$";}
+            {app-id = "^wasistlos$";}
+          ];
           open-maximized = true;
+          opacity = 1.0;
+        }
+        {
+          matches = [
+            {app-id = "^Thonny$";}
+            {app-id = "^dev\\.zed\\.Zed$";}
+            {app-id = "^element$";}
+            {app-id = "^io.github.tdesktop_x64.TDesktop$";}
+            {app-id = "^telegram-desktop$";}
+            {app-id = "^wasistlos$";}
+          ];
+          open-maximized = true;
+        }
+        {
+          matches = [{app-id = "^librewolf$";}];
           open-on-workspace = "main";
         }
         {
-          matches = [{app-id = "steam";} {app-id = "heroic";}];
+          matches = [{app-id = "^steam$";} {app-id = "^heroic$";} {app-id = "^steam_app_";} {app-id = "^rusty-path-of-building-";} {app-id = "\.exe$";}];
           open-on-workspace = "gaming";
         }
         {
-          matches = [{app-id = "^steam_app_";} {app-id = "^rusty-path-of-building-";} {app-id = "\.exe$";}];
-          opacity = 1.0;
-          open-maximized = true;
-          open-on-workspace = "gaming";
+          matches = [{app-id = "^dev\\.zed\\.Zed$";} {app-id = "^Thonny$";}];
+          open-on-workspace = "dev";
+        }
+        {
+          matches = [{app-id = "^io.github.tdesktop_x64.TDesktop$";} {app-id = "^telegram-desktop$";} {app-id = "^wasistlos$";} {app-id = "^element$";}];
+          open-on-workspace = "comm";
+        }
+        {
+          matches = [{app-id = "^libreoffice-";} {app-id = "^gimp";} {app-id = "^lyx$";} {app-id = "^scribus$";} {app-id = "^krita$";} {app-id = "^org.gnome.SimpleScan$";}];
+          open-on-workspace = "office";
         }
         {
           matches = [
             {
-              app-id = "steam";
+              app-id = "^steam$";
               title = "^notificationtoasts_\\d+_desktop$";
             }
           ];
@@ -294,22 +327,6 @@
             y = 10;
             relative-to = "bottom-right";
           };
-        }
-        {
-          matches = [{app-id = "^dev\\.zed\\.Zed$";} {app-id = "codium";} {app-id = "VSCodium";} {app-id = "Thonny";} {app-id = "jetbrains-studio";}];
-          open-maximized = true;
-          open-on-workspace = "dev";
-        }
-        {
-          matches = [{app-id = "io.github.tdesktop_x64.TDesktop";} {app-id = "telegram-desktop";} {app-id = "wasistlos";} {app-id = "element";}];
-          open-maximized = true;
-          open-on-workspace = "comm";
-        }
-        {
-          matches = [{app-id = "^libreoffice-";} {app-id = "^gimp";} {app-id = "lyx";} {app-id = "scribus";} {app-id = "krita";} {app-id = "org.gnome.SimpleScan";}];
-          opacity = 1.0;
-          open-maximized = true;
-          open-on-workspace = "office";
         }
       ];
 

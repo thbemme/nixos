@@ -29,7 +29,7 @@ with lib.hm.gvariant; # bring mkUint32 etc. into scope
       "firefox-esr.desktop"
       "com.mitchellh.ghostty.desktop"
       "org.gnome.Nautilus.desktop"
-      "zeditor.desktop"
+      "dev.zed.Zed.desktop"
       "steam.desktop"
       "Path of Exile.desktop"
       "Path of Exile 2.desktop"
