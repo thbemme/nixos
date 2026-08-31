@@ -285,6 +285,12 @@
           opacity = 1.0;
         }
         {
+          matches = [{app-id = "^.virt-manager-wrapped$";}];
+          excludes = [{title = "^Virtual Machine Manager$";}];
+          open-maximized = true;
+          opacity = 1.0;
+        }
+        {
           matches = [
             {app-id = "^Thonny$";}
             {app-id = "^dev\\.zed\\.Zed$";}

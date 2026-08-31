@@ -2,6 +2,8 @@
   config,
   gpuAcceleration,
   inputs,
+  lib,
+  pkgs,
   vars,
   ...
 }: {
@@ -44,6 +46,7 @@
 
   programs.dank-material-shell = {
     enable = true;
+    quickshell.package = lib.hiPrio inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
     systemd = {
       enable = true; # Systemd service for auto-start
       restartIfChanged = true; # Auto-restart dms.service when dank-material-shell changes
