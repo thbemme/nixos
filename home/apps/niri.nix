@@ -242,32 +242,6 @@
         }
         {
           matches = [
-            {
-              app-id = "^librewolf$";
-              title = "^(Picture-in-Picture|Library|About LibreWolf)$";
-            }
-            {
-              app-id = "^dev\\.zed\\.Zed$";
-              title = "Zed — Settings";
-            }
-            {
-              app-id = "org.remmina.Remmina";
-              title = "Remmina Remote Desktop Client";
-            }
-            {app-id = ".blueman-manager-wrapped";}
-            {app-id = "com.nextcloud.desktopclient.nextcloud";}
-            {app-id = "mpv";}
-            {app-id = "qalculate-gtk";}
-            {app-id = "com.danklinux.dankcalendar";}
-            {title = "^Open File";}
-            {title = "^Open Folder";}
-            {title = "^Rename \"";}
-            {title = "^File Operation Progress";}
-          ];
-          open-floating = true;
-        }
-        {
-          matches = [
             {app-id = "\.exe$";}
             {app-id = "^gimp";}
             {app-id = "^libreoffice-";}
@@ -300,6 +274,32 @@
             {app-id = "^wasistlos$";}
           ];
           open-maximized = true;
+        }
+        {
+          matches = [
+            {
+              app-id = "^librewolf$";
+              title = "^(Picture-in-Picture|Library|About LibreWolf)$";
+            }
+            {
+              app-id = "^dev\\.zed\\.Zed$";
+              title = "Zed — Settings";
+            }
+            {
+              app-id = "org.remmina.Remmina";
+              title = "Remmina Remote Desktop Client";
+            }
+            {app-id = ".blueman-manager-wrapped";}
+            {app-id = "com.nextcloud.desktopclient.nextcloud";}
+            {app-id = "mpv";}
+            {app-id = "qalculate-gtk";}
+            {app-id = "com.danklinux.dankcalendar";}
+            {title = "^Open File";}
+            {title = "^Open Folder";}
+            {title = "^Rename \"";}
+            {title = "^File Operation Progress";}
+          ];
+          open-floating = true;
         }
         {
           matches = [{app-id = "^librewolf$";}];
