@@ -85,10 +85,10 @@
 
         "Mod+WheelScrollDown".action = focus-column-right;
         "Mod+WheelScrollUp".action = focus-column-left;
-        "Mod+Ctrl+WheelScrollDown".action = move-column-right;
-        "Mod+Ctrl+WheelScrollUp".action = move-column-left;
-        "Mod+Shift+WheelScrollDown".action = focus-workspace-down;
-        "Mod+Shift+WheelScrollUp".action = focus-workspace-up;
+        "Mod+Shift+WheelScrollDown".action = move-column-right;
+        "Mod+Shift+WheelScrollUp".action = move-column-left;
+        "Mod+Ctrl+WheelScrollDown".action = focus-workspace-down;
+        "Mod+Ctrl+WheelScrollUp".action = focus-workspace-up;
 
         "Mod+Minus".action = switch-preset-window-width;
         "Mod+Shift+Minus".action = switch-preset-window-height;
@@ -119,6 +119,8 @@
         "Mod+Shift+Ctrl+Right".action = move-column-to-monitor-right;
         "Mod+Shift+Ctrl+Up".action = move-column-to-workspace-up;
         "Mod+Shift+Ctrl+Down".action = move-column-to-workspace-down;
+
+        "Mod+Shift+Tab".action = move-workspace-to-monitor-next;
 
         "Mod+Tab".action = toggle-overview;
         "Mod+Home".action = focus-column-first;
