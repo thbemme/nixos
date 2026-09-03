@@ -26,7 +26,7 @@
     kernelModules = ["kvm-amd"];
     extraModulePackages = [];
     resumeDevice = "/dev/disk/by-label/rootfs";
-    kernelParams = ["resume_offset=5099642"]; # btrfs inspect-internal map-swapfile -r /var/lib/swapfile
+    kernelParams = ["resume_offset=4809977"]; # btrfs inspect-internal map-swapfile -r /var/lib/swapfile
   };
 
   # Filesystem configuration

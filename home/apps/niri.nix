@@ -227,15 +227,11 @@
         }
         {
           matches = [{is-window-cast-target = true;}];
-          shadow = {
+          focus-ring = {
             enable = true;
-            color = config.lib.stylix.colors.withHashtag.base08;
-            spread = 2;
-            softness = 0;
-            offset = {
-              x = 0;
-              y = 0;
-            };
+            width = 2;
+            active.color = config.lib.stylix.colors.withHashtag.base08;
+            inactive.color = config.lib.stylix.colors.withHashtag.base0A;
           };
         }
         {
@@ -254,8 +250,6 @@
             {app-id = "^lyx$";}
             {app-id = "^org.gnome.SimpleScan$";}
             {app-id = "^scribus$";}
-            {app-id = "^telegram-desktop$";}
-            {app-id = "^wasistlos$";}
           ];
           open-maximized = true;
           opacity = 1.0;
@@ -358,8 +352,8 @@
           position = "right";
           gaps-between-tabs = 2;
           corner-radius = 8;
-          active.color = "red";
-          inactive.color = "gray";
+          active.color = config.lib.stylix.colors.withHashtag.base08;
+          inactive.color = config.lib.stylix.colors.withHashtag.base06;
         };
         insert-hint = {display.color = config.lib.stylix.colors.withHashtag.base08;};
       };

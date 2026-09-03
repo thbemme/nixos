@@ -5,8 +5,6 @@ set -euo pipefail
 # Default parameters
 ROOT_PARTITION_LABEL="root"
 BOOT_PARTITION_LABEL="boot"
-EFI_PARTITION="$DISK"1
-ROOT_PARTITION="$DISK"2
 ENCRYPT=true
 
 # EFI partition size for all disk types
@@ -21,9 +19,13 @@ if ls /dev/nvme0n1 >/dev/null 2>&1; then
 elif ls /dev/sda >/dev/null 2>&1; then
 	DISK="/dev/sda"
 	MAPPER_NAME="rootfs-sda"
+	EFI_PARTITION="$DISK"1
+	ROOT_PARTITION="$DISK"2
 elif ls /dev/vda >/dev/null 2>&1; then
 	DISK="/dev/vda"
 	ENCRYPT=false
+	EFI_PARTITION="$DISK"1
+	ROOT_PARTITION="$DISK"2
 else
 	echo "No supported disk found (NVMe, SATA, or virtual)." >&2
 	exit 1
