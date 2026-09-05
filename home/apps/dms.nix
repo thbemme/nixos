@@ -55,7 +55,7 @@
     niri.includes.enable = false;
 
     # Core features
-    enableSystemMonitoring = false; # System monitoring widgets (dgop)
+    enableSystemMonitoring = true; # system monitoring widgets (dgop)
     enableVPN = false; # VPN management widget
     enableDynamicTheming = false; # Wallpaper-based theming (matugen)
     enableAudioWavelength = true; # Audio visualizer (cava)

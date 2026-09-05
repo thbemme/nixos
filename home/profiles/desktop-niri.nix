@@ -8,8 +8,6 @@
   ];
 
   home.packages = with pkgs; [
-    dgop
-    gpu-screen-recorder
     kdePackages.qt6ct
     libqalculate
     nautilus
@@ -17,7 +15,6 @@
     qalculate-gtk
     simple-scan
     wiremix
-    wl-clipboard-rs
   ];
 
   home.sessionVariables = {
