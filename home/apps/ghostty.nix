@@ -11,8 +11,12 @@ _: {
       focus-follows-mouse = true;
       mouse-hide-while-typing = true;
       quit-after-last-window-closed = true;
+      split-inherit-working-directory = false;
+      tab-inherit-working-directory = false;
       term = "xterm-256color";
       window-decoration = false;
+      window-inherit-working-directory = false;
+      working-directory = "home";
       keybind = [
         "ctrl+shift+down=resize_split:down,10"
         "ctrl+shift+enter=new_split:auto"
