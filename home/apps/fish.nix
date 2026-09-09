@@ -18,7 +18,7 @@
     functions = {
       fish_greeting = ''
         # Show kernel information
-        uname -a
+        command -v pfetch >/dev/null && pfetch || uname -a
 
         # Show "ghostty +boo" animation if ghostty is installed and conditions are met
         if command -v ghostty >/dev/null 2>&1
@@ -68,13 +68,17 @@
       '';
       ns = ''
         # Better nix-shell
+        if test (count $argv) -eq 0
+            echo "Usage: ns <package> [command arguments...]"
+            return 1
+        end
         set -l nixshell_cmd (command -v nom-shell || echo nix-shell)
-        if ! $nixshell_cmd --packages "$argv" --run "exit"
+        if ! $nixshell_cmd --packages "$argv[1]" --run "exit"
             echo "Package could not be fetched."
             nh search "$argv"
-        else if ! $nixshell_cmd --packages "$argv" --run "$argv"
-            echo "Command not found in shell. Opening normal nix-shell..."
-            nix-shell --packages "$argv"
+        else if ! $nixshell_cmd --packages "$argv[1]" --run "$argv"
+            echo "Command not found or error while executing \"$argv\". Opening normal nix-shell..."
+            nix-shell --packages "$argv[1]"
         end
       '';
       nix-shell = "command nix-shell --command fish $argv";

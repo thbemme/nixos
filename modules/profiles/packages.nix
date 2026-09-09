@@ -17,6 +17,7 @@ with pkgs; [
   killall
   openssh
   openssl
+  pfetch-rs
   procps
   pv
   q
