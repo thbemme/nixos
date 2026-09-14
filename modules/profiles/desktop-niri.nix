@@ -41,7 +41,6 @@
       settings = {
         animation = "matrix";
         auth_fails = 3;
-
         bigclock = "en";
         clear_password = true;
         default_input = "password";
