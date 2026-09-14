@@ -17,13 +17,15 @@
       libxml2
       lzop
       m4
+      moreutils
       ncurses5
       nix-output-monitor
+      nix-prefetch-git
       nix-update
       nixpkgs-review
-      prettier
       openssl
       perl
+      prettier
       procps
       rustfmt
       schedtool
