@@ -45,7 +45,7 @@ Niri + Dank Material Shell with [Rose Pine theme](https://rosepinetheme.com/):
  | --------------------------------------------------------------- | -------------------------------------------- |
  | [Development](modules/profiles/dev.nix)                         | Thonny, Android Studio (unstable)            |
  | [Gaming](modules/profiles/gaming.nix)                           | Lutris, Steam, Wine                          |
- | [GNOME](modules/profiles/desktop-gnome.nix)                     | GNOME desktop environment with Dracula theme |
+ | [GNOME](modules/profiles/desktop-gnome.nix)                     | Fallback GNOME desktop environment           |
  | [GUI Extras](modules/profiles/desktop-extras.nix)               | Additional GUI configuration                 |
  | [GUI](modules/profiles/desktop-minimal.nix)                     | Minimal GUI configuration                    |
  | [Niri + Dank Material Shell](modules/profiles/desktop-niri.nix) | Niri + Dank Material Shell                   |
