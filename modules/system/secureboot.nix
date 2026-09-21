@@ -33,6 +33,6 @@ in {
 
   boot.lanzaboote = {
     enable = enableSecrueboot;
-    pkiBundle = "/etc/secureboot";
+    pkiBundle = "/var/lib/sbctl";
   };
 }
