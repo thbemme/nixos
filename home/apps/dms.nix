@@ -79,12 +79,7 @@
         };
       };
       dankActions.enable = true;
-      dankBatteryAlerts = {
-        enable = true;
-        settings = {
-          criticalThreshold = 10;
-        };
-      };
+      dankNotepadModule.enable = true;
       niriWindows.enable = true;
     };
     session = {
