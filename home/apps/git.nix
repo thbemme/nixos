@@ -7,6 +7,14 @@
       log.date = "iso";
       pull.rebase = true;
       push.autoSetupRemote = true;
+      rebase = {
+        autoSquash = true;
+        autoStash = true;
+      };
+      rerere = {
+        autoupdate = true;
+        enabled = true;
+      };
       user = {
         name = "${vars.gitName}";
         email = "${vars.gitEmail}";
