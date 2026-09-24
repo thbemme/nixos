@@ -105,15 +105,15 @@
         "Mod+Up".action = focus-window-or-workspace-up;
         "Mod+Down".action = focus-window-or-workspace-down;
 
-        "Mod+Shift+Left".action = move-column-left;
-        "Mod+Shift+Right".action = move-column-right;
-        "Mod+Shift+Up".action = move-window-up;
-        "Mod+Shift+Down".action = move-window-down;
+        "Mod+Ctrl+Left".action = move-column-left;
+        "Mod+Ctrl+Right".action = move-column-right;
+        "Mod+Ctrl+Up".action = move-window-up;
+        "Mod+Ctrl+Down".action = move-window-down;
 
-        "Mod+Ctrl+Left".action = focus-monitor-left;
-        "Mod+Ctrl+Right".action = focus-monitor-right;
-        "Mod+Ctrl+Up".action = focus-monitor-up;
-        "Mod+Ctrl+Down".action = focus-monitor-down;
+        "Mod+Shift+Left".action = focus-monitor-left;
+        "Mod+Shift+Right".action = focus-monitor-right;
+        "Mod+Shift+Up".action = focus-monitor-up;
+        "Mod+Shift+Down".action = focus-monitor-down;
 
         "Mod+Shift+Ctrl+Left".action = move-column-to-monitor-left;
         "Mod+Shift+Ctrl+Right".action = move-column-to-monitor-right;
@@ -205,9 +205,9 @@
 
       blur = {
         passes = 2;
-        offset = 5;
-        noise = 0.015;
-        saturation = 1.25;
+        offset = 3.0;
+        noise = 0.03;
+        saturation = 1.0;
       };
 
       window-rules = [
@@ -221,7 +221,10 @@
             top-right = radius;
           };
           opacity = config.stylix.opacity.terminal;
-          background-effect.blur = true;
+          background-effect = {
+            blur = true;
+            xray = false;
+          };
           clip-to-geometry = true;
           draw-border-with-background = false;
         }
