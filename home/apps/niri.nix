@@ -244,6 +244,7 @@
         {
           matches = [
             {app-id = "\.exe$";}
+            {app-id = "^app.organicmaps.desktop$";}
             {app-id = "^gimp";}
             {app-id = "^libreoffice-";}
             {app-id = "^librewolf$";}

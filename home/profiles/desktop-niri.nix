@@ -10,6 +10,7 @@
   home.packages = with pkgs; [
     kdePackages.qt6ct
     libqalculate
+    organicmaps
     nautilus
     pwvucontrol
     qalculate-gtk

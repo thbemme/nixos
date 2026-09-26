@@ -38,6 +38,7 @@
       disable_ai = true;
 
       # UI
+      buffer_font_size = 12;
       buffer_font_weight = 300;
       buffer_line_height = "standard";
       current_line_highlight = "all";
