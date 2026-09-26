@@ -140,7 +140,8 @@
             "all"
           ];
           showOnLastDisplay = true;
-          transparency = 0.5;
+          transparency = 1;
+          innerPadding = 0;
           leftWidgets = [
             "launcherButton"
             {

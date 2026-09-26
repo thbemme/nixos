@@ -4,7 +4,7 @@ _: {
     "org/gnome/desktop/interface" = {
       font-hinting = "full";
       font-antialiasing = "rgba";
-      gtk-enable-primary-paste = true; # Why would you disable that? It makes no sense at all.
+      gtk-enable-primary-paste = true;
       text-scaling-factor = 1;
     };
   };
