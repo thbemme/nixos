@@ -61,6 +61,11 @@
     }
   ];
 
+  systemd.sleep.settings.Sleep = {
+    # deep sleep is not supported sadly
+    MemorySleepMode = "s2idle";
+  };
+
   # Networking
   networking.useDHCP = lib.mkDefault true;
 
