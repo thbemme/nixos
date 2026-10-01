@@ -186,11 +186,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790740834,
-        "narHash": "sha256-jC7XGgmeHvQOnBXi/xWjkb05LSJYBKiiMrHKTOhJ2tw=",
+        "lastModified": 1790819708,
+        "narHash": "sha256-yfgKUo0Qy5ynAw29kC8vLlnjuHwppgrou/7VBt55yUw=",
         "owner": "AvengeMedia",
         "repo": "dms-plugin-registry",
-        "rev": "c1ce48059a82aa4211f289dac58f06f563828c17",
+        "rev": "9e0916af3e8bc55c1e3acb492ce617a2dcd74eb9",
         "type": "github"
       },
       "original": {
@@ -374,11 +374,11 @@
         "xwayland-satellite-unstable": "xwayland-satellite-unstable"
       },
       "locked": {
-        "lastModified": 1790696430,
-        "narHash": "sha256-GJ9uX8djhpxTTB33WepXlJjxZf39GcAufhBhnflnuaQ=",
+        "lastModified": 1790811525,
+        "narHash": "sha256-J8gxjf6czG0J/PfPiM2TH0swJIh8gJ23GJzggNfR7/Y=",
         "owner": "epireyn",
         "repo": "niri-flake",
-        "rev": "a528ad42707780ba1b46d27ec3f7c7db59989343",
+        "rev": "dd2f7954fbc2eecbc926c8dfb1d055e23151c2fb",
         "type": "github"
       },
       "original": {
@@ -559,11 +559,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1790635395,
-        "narHash": "sha256-bNyvoIyOCu7lzoCpWKWGIsHpTtERUWzqYWFPlN++WTw=",
+        "lastModified": 1790750587,
+        "narHash": "sha256-VfjaoJ1Uyb7JZTrBgE5Jf2nhjtQPmD9KOd19HJwmZwM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "7fc6f2c20af09cdcaf48b92ec3121860139ec668",
+        "rev": "78e9c786dc08cd4f3420c2395cd977206a9b1da2",
         "type": "github"
       },
       "original": {
@@ -588,11 +588,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1790635395,
-        "narHash": "sha256-6AXgcEB8kiYLV1aewneIGmpljLLQcd2Xo/gmDYxvKYc=",
-        "rev": "7fc6f2c20af09cdcaf48b92ec3121860139ec668",
+        "lastModified": 1790750587,
+        "narHash": "sha256-neiwVQVB0ONcopw7wbiinq1vYtMOTjTLuEueGF9Ex1Y=",
+        "rev": "78e9c786dc08cd4f3420c2395cd977206a9b1da2",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.10882.7fc6f2c20af0/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.10927.78e9c786dc08/nixexprs.tar.zst"
       },
       "original": {
         "type": "tarball",
@@ -906,11 +906,11 @@
     "xwayland-satellite-unstable": {
       "flake": false,
       "locked": {
-        "lastModified": 1790341322,
-        "narHash": "sha256-FBRBINpTMhkhVm9irSqeWKmI8/QMyXcTRxHeCMVvxdc=",
+        "lastModified": 1790770493,
+        "narHash": "sha256-sNWVkfOVelr60lWHvEgCWx7Mr/2PcoAN8oOrOk7Yp/g=",
         "owner": "Supreeeme",
         "repo": "xwayland-satellite",
-        "rev": "63cdf17f17b4ee231ef862690048549f218e8e0e",
+        "rev": "b5690b56d749526a05db9b9268d58bf8f700957f",
         "type": "github"
       },
       "original": {
