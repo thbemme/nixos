@@ -136,6 +136,7 @@
           name = "Main Bar";
           enabled = true;
           position = 0;
+          attachToScreenEdge = true;
           screenPreferences = [
             "all"
           ];
