@@ -3,6 +3,7 @@ _: {
     enable = true;
     languagePacks = ["en-US" "de"];
     settings = {
+      "browser.nova.enabled" = false;
       "cookiebanners.service.mode.privateBrowsing" = 2; # Block cookie banners in private browsing
       "cookiebanners.service.mode" = 2; # Block cookie banners
       "identity.fxaccounts.enabled" = true;
