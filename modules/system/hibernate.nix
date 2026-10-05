@@ -13,6 +13,7 @@
 
   systemd.sleep.settings.Sleep = {
     HibernateOnACPower = "no";
+    HibernateDelaySec = "360min";
     SuspendState = "mem";
   };
 }
