@@ -2,6 +2,7 @@ _: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/hardware/amdgpu.nix
+    ../../modules/hardware/fix-nic-speed.nix
     ../../modules/hardware/led.nix
     ../../modules/hardware/msib450mpro.nix
     ../../modules/profiles/default.nix

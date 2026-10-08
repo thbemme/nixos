@@ -3,18 +3,20 @@
   pkgs,
   ...
 }: {
-  programs.fish = {
+  programs.fish = let
+    fishPlugin = pkg: {
+      name = pkg.pname;
+      inherit (pkg) src;
+    };
+  in {
     enable = true;
-    plugins = with pkgs.fishPlugins; [
-      {
-        name = "fzf-fish";
-        inherit (fzf-fish) src;
-      }
-      {
-        name = "grc";
-        inherit (grc) src;
-      }
-    ];
+    plugins = map fishPlugin (with pkgs.fishPlugins; [
+      autopair
+      fzf-fish
+      grc
+      puffer
+    ]);
+
     functions = {
       fish_greeting = ''
         # Show kernel information
