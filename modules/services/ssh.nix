@@ -16,7 +16,6 @@ in {
     enable = true;
     settings = {
       AllowAgentForwarding = false;
-      AllowTcpForwarding = false;
       AllowUsers = [vars.user];
       Banner = toString (
         pkgs.writeText "ssh_banner" ''

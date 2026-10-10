@@ -94,11 +94,11 @@
       weatherCoordinates = "${vars.weatherCoordinates}";
     };
     settings = {
-      acMonitorTimeout = 600;
+      acMonitorTimeout = 180;
       acLockTimeout = 3600;
       acSuspendTimeout = 3600;
 
-      batteryMonitorTimeout = 300;
+      batteryMonitorTimeout = 60;
       batterySuspendTimeout = 900;
       batteryChargeLimit = 100;
 

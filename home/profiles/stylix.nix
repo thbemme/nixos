@@ -20,7 +20,7 @@ in {
     autoEnable = true;
     polarity = "dark";
     enableReleaseChecks = false;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
 
     targets = {
       mangohud.enable = false;

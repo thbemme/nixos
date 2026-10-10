@@ -22,7 +22,7 @@
       format_on_save = "on";
       vim_mode = true;
       tab_size = 2;
-      theme = "Rosé Pine Moon";
+      theme = "Rosé Pine";
 
       # Autosave
       autosave = {
