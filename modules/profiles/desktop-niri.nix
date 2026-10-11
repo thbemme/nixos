@@ -7,8 +7,6 @@
   environment.systemPackages = with pkgs; [
     brightnessctl
     bluez
-    kdePackages.qt5compat
-    xwayland-satellite
   ];
 
   systemd.user.services.niri-flake-polkit.enable = false;

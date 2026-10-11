@@ -80,10 +80,11 @@
             nh search "$argv"
         else if ! $nixshell_cmd --packages "$argv[1]" --run "$argv"
             echo "Command not found or error while executing \"$argv\". Opening normal nix-shell..."
-            nix-shell --packages "$argv[1]"
+            $nixshell_cmd --packages "$argv[1]"
         end
       '';
       nix-shell = "command nix-shell --command fish $argv";
+      nom-shell = "command nom-shell --command fish $argv";
     };
     shellAliases = {
       cat = "${lib.getExe pkgs.bat}";

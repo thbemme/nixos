@@ -14,7 +14,6 @@
       heroic
       protonup-qt
       scummvm
-      sdlpop
       winetricks
       wineWow64Packages.staging
     ])

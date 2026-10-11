@@ -20,9 +20,9 @@
     extraConfig.pipewire = {
       "98-crackling-fix" = {
         "context.properties" = {
-          "default.clock.quantum" = 1024;
-          "default.clock.min-quantum" = 1024;
-          "default.clock.max-quantum" = 8192;
+          "default.clock.quantum" = 32;
+          "default.clock.min-quantum" = 32;
+          "default.clock.max-quantum" = 1024;
         };
       };
     };

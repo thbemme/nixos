@@ -5,9 +5,6 @@
 }: {
   environment.systemPackages = with pkgs; [
     _64gram
-    amberol
-    btrfs-assistant
-    cozy
     cryptomator
     ffmpeg-full
     gedit
@@ -25,11 +22,9 @@
     papers
     pika-backup
     remmina
-    scribus
     stellarium
     tenacity
     texlive.combined.scheme-small
-    timg
     tor-browser
     transmission_4-gtk
   ];
