@@ -159,7 +159,11 @@
               "catWidget"
               "privacyIndicator"
               "weather"
-              "systemTray"
+              {
+                id = "systemTray";
+                enabled = true;
+                trayUseInlineExpansion = true;
+              }
               {
                 id = "cpuTemp";
                 enabled = true;

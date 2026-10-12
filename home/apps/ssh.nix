@@ -11,8 +11,10 @@
       "gitlab.com github.com" = {
         User = "git";
       };
-      "test-amd64-vm dev-amd64-vm [127.0.0.1]:2222" = {
+      "test-amd64-vm dev-amd64-vm [127.0.0.1]:2222 [localhost]:2222" = {
         UserKnownHostsFile = "/dev/null";
+        StrictHostKeyChecking = false;
+        LogLevel = "ERROR";
       };
     };
   };

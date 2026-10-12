@@ -14,6 +14,7 @@
     pwvucontrol
     qalculate-gtk
     simple-scan
+    xwayland-satellite
   ];
 
   home.sessionVariables = {

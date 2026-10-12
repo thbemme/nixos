@@ -14,6 +14,7 @@ _: {
     ../../modules/profiles/home.nix
     ../../modules/profiles/security.nix
     ../../modules/profiles/work.nix
+    ../../modules/services/docker.nix
     ../../modules/services/llm.nix
     ../../modules/services/printing.nix
     ../../modules/services/prometheus.nix
