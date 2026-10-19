@@ -35,6 +35,7 @@ in {
     package = ollamaPkg;
     environmentVariables = ollamaEnv;
     rocmOverrideGfx = ollamaRocmGfx;
+    host = "0.0.0.0";
   };
 
   services.open-webui = {
