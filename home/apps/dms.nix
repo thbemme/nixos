@@ -8,11 +8,12 @@
   ...
 }: {
   imports = [
-    inputs.danksearch.homeModules.default
-    inputs.dms.homeModules.dank-material-shell
-    inputs.dms.homeModules.niri
-    inputs.dms-plugin-registry.nixosModules.default
-    inputs.dankcalendar.homeModules.default
+    inputs.dux-calendar.homeModules.default
+    #inputs.dux-files.homeModules.default
+    inputs.dux-plugin-registry.nixosModules.default
+    inputs.dux-search.homeModules.default
+    inputs.dux-shell.homeModules.dank-material-shell
+    inputs.dux-shell.homeModules.niri
   ];
 
   programs.dsearch = {
@@ -43,6 +44,10 @@
       use24HourClock = true;
     };
   };
+
+  #programs.dux-files = {
+  #  enable = true;
+  #};
 
   programs.dank-material-shell = {
     enable = true;
@@ -118,8 +123,10 @@
       };
       maxWorkspaceIcons = "10";
       powerMenuDefaultAction = "suspend";
+      radiusStrength = 20;
       scrollTitleEnabled = false;
       showOccupiedWorkspacesOnly = true;
+      terminalsAlwaysDark = true;
       showWorkspaceApps = true;
       transparency = "0.8";
       widgetBackgroundColor = "sch";
@@ -129,6 +136,119 @@
       workspaceUnfocusedColorMode = "sch";
       showWeekNumber = true;
       calendarBackend = "dankcal";
+
+      dashCards = [
+        {
+          id = "clock";
+          w = 2;
+          h = 1;
+          col = 0;
+          row = 0;
+        }
+        {
+          id = "weather";
+          w = 1;
+          h = 1;
+          col = 2;
+          row = 0;
+        }
+        {
+          id = "notifications";
+          w = 3;
+          h = 5;
+          col = 3;
+          row = 0;
+        }
+        {
+          id = "calendar";
+          w = 3;
+          h = 3;
+          col = 0;
+          row = 1;
+        }
+        {
+          id = "sysmon";
+          w = 3;
+          h = 1;
+          col = 0;
+          row = 4;
+        }
+      ];
+
+      dashOptions = {
+        media.lyrics = false;
+        clock.tone = "";
+        weather.widgets = [
+          {
+            id = "conditions";
+            w = 2;
+            h = 2;
+            tone = "";
+            city = true;
+            col = 0;
+            row = 0;
+          }
+          {
+            id = "hourly";
+            w = 2;
+            h = 2;
+            forecast = "chart";
+            col = 2;
+            row = 0;
+          }
+          {
+            id = "sun";
+            w = 1;
+            h = 2;
+            tone = "";
+            col = 0;
+            row = 2;
+          }
+          {
+            id = "moon";
+            w = 1;
+            h = 2;
+            tone = "";
+            col = 1;
+            row = 2;
+          }
+          {
+            id = "humidity";
+            w = 1;
+            h = 2;
+            graphics = true;
+            tone = "";
+            col = 2;
+            row = 2;
+          }
+          {
+            id = "wind";
+            w = 1;
+            h = 2;
+            graphics = true;
+            tone = "";
+            col = 3;
+            row = 2;
+          }
+          {
+            id = "daily";
+            w = 3;
+            h = 2;
+            forecast = "chart";
+            col = 1;
+            row = 4;
+          }
+          {
+            id = "precipitation";
+            w = 1;
+            h = 2;
+            graphics = true;
+            tone = "";
+            col = 0;
+            row = 4;
+          }
+        ];
+      };
 
       barConfigs = [
         {
@@ -184,29 +304,12 @@
             )
             ++ [
               "clipboard"
-              "notificationButton"
               "battery"
               "controlCenterButton"
               "clock"
               "powerMenuButton"
             ];
         }
-      ];
-      controlCenterWidgets = let
-        widget = id: {
-          inherit id;
-          width = 50;
-          enabled = true;
-        };
-      in [
-        (widget "volumeSlider")
-        (widget "brightnessSlider")
-        (widget "wifi")
-        (widget "bluetooth")
-        (widget "audioOutput")
-        (widget "audioInput")
-        (widget "nightMode")
-        (widget "idleInhibitor")
       ];
     };
   };

@@ -30,23 +30,23 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    dms = {
-      url = "github:AvengeMedia/DankMaterialShell/stable";
+    dux-shell = {
+      url = "github:duxlabs-dev/dux-shell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    dms-plugin-registry = {
-      url = "github:AvengeMedia/dms-plugin-registry";
+    dux-plugin-registry = {
+      url = "github:duxlabs-dev/dux-plugin-registry";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    danksearch = {
-      url = "github:AvengeMedia/danksearch";
+    dux-search = {
+      url = "github:duxlabs-dev/dux-search";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    dankcalendar = {
-      url = "github:AvengeMedia/dankcalendar";
+    dux-calendar = {
+      url = "github:duxlabs-dev/dux-calendar";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

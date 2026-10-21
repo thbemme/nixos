@@ -43,6 +43,7 @@
       buffer_line_height = "standard";
       current_line_highlight = "all";
       selection_highlight = true;
+      title_bar.show_sign_in = false;
 
       # Panels
       project_panel = {

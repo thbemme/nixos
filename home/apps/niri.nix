@@ -293,7 +293,7 @@
             {app-id = "com.nextcloud.desktopclient.nextcloud";}
             {app-id = "mpv";}
             {app-id = "qalculate-gtk";}
-            {app-id = "com.danklinux.dankcalendar";}
+            {app-id = "dev.duxlabs.calendar";}
             {title = "^Open File";}
             {title = "^Open Folder";}
             {title = "^Rename \"";}

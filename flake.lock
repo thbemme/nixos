@@ -86,11 +86,11 @@
     "dank-qml-common": {
       "flake": false,
       "locked": {
-        "lastModified": 1792513666,
-        "narHash": "sha256-RDqPdPrM5lnwRrfFGLz3IwgTjCV2Ie+nrTD3ldj1t/s=",
+        "lastModified": 1792597131,
+        "narHash": "sha256-2t9btOQ2owoRv/fgeonlr8cHVt2NUvUu9iXdZd9+QFc=",
         "owner": "duxlabs-dev",
         "repo": "dux-qml-common",
-        "rev": "ebf5e6c002da1bdaa4aaa2f319fea7b8507abc42",
+        "rev": "5715e8ea868f3a131a0f54c7a5875e9a95f2f253",
         "type": "github"
       },
       "original": {
@@ -115,7 +115,7 @@
         "type": "github"
       }
     },
-    "dankcalendar": {
+    "dux-calendar": {
       "inputs": {
         "dank-qml-common": "dank-qml-common",
         "nixpkgs": [
@@ -123,20 +123,40 @@
         ]
       },
       "locked": {
-        "lastModified": 1792544049,
-        "narHash": "sha256-gEJU03lX5rNNjo8rsmIgrrJfrT8Jgi3GdUnLGlAZKRs=",
-        "owner": "AvengeMedia",
-        "repo": "dankcalendar",
-        "rev": "734d20af76c9f2cdf751086456ad43535777c3f8",
+        "lastModified": 1792600895,
+        "narHash": "sha256-RIZbpPusOeTULGRD74cE0Oz8xV+ERcvPeeNaLdvyh94=",
+        "owner": "duxlabs-dev",
+        "repo": "dux-calendar",
+        "rev": "258a7d690ee65fba8dbf7255bda4905ba6141ef6",
         "type": "github"
       },
       "original": {
-        "owner": "AvengeMedia",
-        "repo": "dankcalendar",
+        "owner": "duxlabs-dev",
+        "repo": "dux-calendar",
         "type": "github"
       }
     },
-    "danksearch": {
+    "dux-plugin-registry": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792592128,
+        "narHash": "sha256-5Vr/ERCEl46/S2/khSDjz+RQ9xCxv3I4wjeOrmSlh4A=",
+        "owner": "duxlabs-dev",
+        "repo": "dux-plugin-registry",
+        "rev": "6f700ee45bd30f606190ea3b555332e58695a7bd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "duxlabs-dev",
+        "repo": "dux-plugin-registry",
+        "type": "github"
+      }
+    },
+    "dux-search": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
@@ -145,18 +165,18 @@
       "locked": {
         "lastModified": 1792524211,
         "narHash": "sha256-GOnNob/tex//NBchfVXAjzk9Gw4K+GxyVmZBZqx0nLA=",
-        "owner": "AvengeMedia",
-        "repo": "danksearch",
+        "owner": "duxlabs-dev",
+        "repo": "dux-search",
         "rev": "9f706cad94f23dd2fd8642a2c06796fa0786e60d",
         "type": "github"
       },
       "original": {
-        "owner": "AvengeMedia",
-        "repo": "danksearch",
+        "owner": "duxlabs-dev",
+        "repo": "dux-search",
         "type": "github"
       }
     },
-    "dms": {
+    "dux-shell": {
       "inputs": {
         "dank-qml-common": "dank-qml-common_2",
         "flake-compat": "flake-compat",
@@ -167,35 +187,15 @@
       "locked": {
         "lastModified": 1792523829,
         "narHash": "sha256-hyWdbsyOGXsJxvXG4Tqg0uRI1s3JwPi8DKyWips3Ta8=",
-        "owner": "AvengeMedia",
-        "repo": "DankMaterialShell",
+        "owner": "duxlabs-dev",
+        "repo": "dux-shell",
         "rev": "9b413296b16721f7679fb62e624cb1ed2433fa58",
         "type": "github"
       },
       "original": {
-        "owner": "AvengeMedia",
+        "owner": "duxlabs-dev",
         "ref": "stable",
-        "repo": "DankMaterialShell",
-        "type": "github"
-      }
-    },
-    "dms-plugin-registry": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1792559905,
-        "narHash": "sha256-CZcBZFFQf8i/qSzioLK/DbtcR4/mwwGQTNnYnFz8KBg=",
-        "owner": "AvengeMedia",
-        "repo": "dms-plugin-registry",
-        "rev": "52cca00de4f18854e2438f114a5f53ec627f5860",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AvengeMedia",
-        "repo": "dms-plugin-registry",
+        "repo": "dux-shell",
         "type": "github"
       }
     },
@@ -724,10 +724,10 @@
     },
     "root": {
       "inputs": {
-        "dankcalendar": "dankcalendar",
-        "danksearch": "danksearch",
-        "dms": "dms",
-        "dms-plugin-registry": "dms-plugin-registry",
+        "dux-calendar": "dux-calendar",
+        "dux-plugin-registry": "dux-plugin-registry",
+        "dux-search": "dux-search",
+        "dux-shell": "dux-shell",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
         "niri": "niri",
