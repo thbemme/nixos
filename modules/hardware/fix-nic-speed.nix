@@ -1,8 +1,8 @@
 {pkgs, ...}: {
   systemd.services.fix-nic-speed = {
     description = "Force 1Gbps on enp37s0";
-    after = ["network-pre.target"];
-    before = ["network.target"];
+    wants = ["sys-subsystem-net-devices-enp37s0.device"];
+    after = ["sys-subsystem-net-devices-enp37s0.device"];
     wantedBy = ["multi-user.target"];
     serviceConfig = {
       Type = "oneshot";
