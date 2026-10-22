@@ -143,11 +143,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792592128,
-        "narHash": "sha256-5Vr/ERCEl46/S2/khSDjz+RQ9xCxv3I4wjeOrmSlh4A=",
+        "lastModified": 1792636507,
+        "narHash": "sha256-yUmAWzcW0BBDTjWQ5B1o3ma7TKLjGZJ75H1SiYxpW6E=",
         "owner": "duxlabs-dev",
         "repo": "dux-plugin-registry",
-        "rev": "6f700ee45bd30f606190ea3b555332e58695a7bd",
+        "rev": "3aad7656500a9121e63a6b0f216bca0316fdfd15",
         "type": "github"
       },
       "original": {
@@ -588,11 +588,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1792503283,
-        "narHash": "sha256-OtQ9jaQ9aXZDm61TqykPLZdXJa2NMykYG3d0tbT683U=",
-        "rev": "cd4ea8d57de16f4810bc5f14207bac45fbf19f67",
+        "lastModified": 1792615934,
+        "narHash": "sha256-q1ku4ygV7tdmv5Q9QYwhVDsNMZRJcRYjVczoX5+XWBo=",
+        "rev": "da6dc0e7b26060f2f71ce3ef7088fb56ee44fa36",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.12297.cd4ea8d57de1/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.12400.da6dc0e7b260/nixexprs.tar.zst"
       },
       "original": {
         "type": "tarball",
