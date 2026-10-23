@@ -143,11 +143,19 @@
         ]
       },
       "locked": {
+<<<<<<< Updated upstream
         "lastModified": 1792741108,
         "narHash": "sha256-VR/Z3+FJAIqZtJIP/+8pUC1Aeuh8GViCErqga686puo=",
         "owner": "duxlabs-dev",
         "repo": "dux-plugin-registry",
         "rev": "4452eb21cc4b66aa779d10840b5f6ef63eb003a2",
+=======
+        "lastModified": 1792649357,
+        "narHash": "sha256-rs7tJ0CXejdadqy7LmcsFtsocx1qORmXMYfu1/z2AJM=",
+        "owner": "duxlabs-dev",
+        "repo": "dux-plugin-registry",
+        "rev": "39085a4579bb4b030492291d615542afc5a55a29",
+>>>>>>> Stashed changes
         "type": "github"
       },
       "original": {
@@ -374,11 +382,19 @@
         "xwayland-satellite-unstable": "xwayland-satellite-unstable"
       },
       "locked": {
+<<<<<<< Updated upstream
         "lastModified": 1792729099,
         "narHash": "sha256-3HsI9W2HQsbMvOwY6imP6PPfJKRCu/qJmWaSGA1qMQw=",
         "owner": "epireyn",
         "repo": "niri-flake",
         "rev": "3e52b9d7110630f2b32e607a5a0c9bd17216bbfc",
+=======
+        "lastModified": 1792663168,
+        "narHash": "sha256-StBjfhHThwxdbOh5gHbKSpqTAOlJGhbXzpZpFQ9dB0M=",
+        "owner": "epireyn",
+        "repo": "niri-flake",
+        "rev": "954872c5959beb90fbecdcfc890c12589adb2226",
+>>>>>>> Stashed changes
         "type": "github"
       },
       "original": {

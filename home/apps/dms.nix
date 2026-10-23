@@ -123,7 +123,9 @@
       };
       maxWorkspaceIcons = "10";
       powerMenuDefaultAction = "suspend";
-      radiusStrength = 20;
+      radiusStrength = 30;
+      radiusMode = "scale";
+      fixedRadius = 0;
       scrollTitleEnabled = false;
       showOccupiedWorkspacesOnly = true;
       terminalsAlwaysDark = true;
@@ -132,6 +134,7 @@
       widgetBackgroundColor = "sch";
       widgetColorMode = "default";
       widgetTransparency = "0.8";
+      chipSurfaceNestedColor = "sch";
       workspaceColorMode = "sc";
       workspaceUnfocusedColorMode = "sch";
       showWeekNumber = true;
