@@ -89,9 +89,9 @@
     };
     session = {
       hiddenTrayIds = [
-        "blueman::Bluetooth Disabled"
-        "dank-calendar::Dank Calendar"
-        "easyeffects::Easy Effects"
+        "blueman"
+        "dank-calendar"
+        "easyeffects"
         "steam"
         "udiskie"
       ];
@@ -139,6 +139,86 @@
       workspaceUnfocusedColorMode = "sch";
       showWeekNumber = true;
       calendarBackend = "dankcal";
+
+      barConfigs = [
+        {
+          id = "default";
+          name = "Main Bar";
+          enabled = true;
+          position = 0;
+          attachToScreenEdge = true;
+          screenPreferences = [
+            "all"
+          ];
+          showOnLastDisplay = true;
+          transparency = 1;
+          innerPadding = 0;
+          leftWidgets = [
+            "launcherButton"
+            {
+              id = "music";
+              enabled = true;
+              mediaSize = 1;
+            }
+          ];
+          centerWidgets = [
+            "workspaceSwitcher"
+          ];
+          rightWidgets =
+            [
+              "catWidget"
+              "privacyIndicator"
+              "weather"
+              {
+                id = "systemTray";
+                enabled = true;
+                trayUseInlineExpansion = true;
+              }
+              {
+                id = "cpuTemp";
+                enabled = true;
+                minimumWidth = true;
+              }
+            ]
+            ++ (
+              if gpuAcceleration
+              then [
+                {
+                  id = "gpuTemp";
+                  enabled = true;
+                  selectedGpuIndex = 0;
+                  pciId = "1002:73df";
+                }
+              ]
+              else []
+            )
+            ++ [
+              "clipboard"
+              "battery"
+              "controlCenterButton"
+              "clock"
+              "powerMenuButton"
+            ];
+        }
+      ];
+
+      #      controlCenterWidgets = [
+      #        { id = "user"; enabled = true; w = 4; h = 1; col = 0; row = 0; }
+      #        { id = "settings"; enabled = true; w = 1; h = 1; small = true; col = 4; row = 0; }
+      #        { id = "lock"; enabled = true; w = 1; h = 1; small = true; col = 5; row = 0; }
+      #        { id = "power"; enabled = true; w = 1; h = 1; small = true; col = 7; row = 0; }
+      #        { id = "brightnessSlider"; enabled = true; w = 4; h = 1; col = 0; row = 1; }
+      #        { id = "volumeSlider"; enabled = true; w = 4; h = 1; col = 4; row = 1; }
+      #        { id = "wifi"; enabled = true; w = 4; h = 1; col = 0; row = 2; }
+      #        { id = "bluetooth"; enabled = true; w = 4; h = 1; col = 4; row = 2; }
+      #        { id = "audioOutput"; enabled = true; w = 4; h = 1; col = 0; row = 3; }
+      #        { id = "audioInput"; enabled = true; w = 4; h = 1; col = 4; row = 3; }
+      #        { id = "darkMode"; enabled = true; w = 2; h = 1; col = 0; row = 4; }
+      #        { id = "nightMode"; enabled = true; w = 2; h = 1; col = 2; row = 4; }
+      #        { id = "doNotDisturb"; enabled = true; w = 2; h = 1; col = 4; row = 4; }
+      #        { id = "idleInhibitor"; enabled = true; w = 2; h = 1; col = 6; row = 4; }
+      #        { id = "edit"; enabled = true; w = 1; h = 1; small = true; col = 6; row = 0; }
+      #      ];
 
       dashCards = [
         {
@@ -253,65 +333,31 @@
         ];
       };
 
-      barConfigs = [
+      lockScreenWidgetInstances = [
         {
-          id = "default";
-          name = "Main Bar";
+          id = "lock_clock";
+          widgetType = "desktopClock";
           enabled = true;
-          position = 0;
-          attachToScreenEdge = true;
-          screenPreferences = [
-            "all"
-          ];
-          showOnLastDisplay = true;
-          transparency = 1;
-          innerPadding = 0;
-          leftWidgets = [
-            "launcherButton"
-            {
-              id = "music";
-              enabled = true;
-              mediaSize = 1;
-            }
-          ];
-          centerWidgets = [
-            "workspaceSwitcher"
-          ];
-          rightWidgets =
-            [
-              "catWidget"
-              "privacyIndicator"
-              "weather"
-              {
-                id = "systemTray";
-                enabled = true;
-                trayUseInlineExpansion = true;
-              }
-              {
-                id = "cpuTemp";
-                enabled = true;
-                minimumWidth = true;
-              }
-            ]
-            ++ (
-              if gpuAcceleration
-              then [
-                {
-                  id = "gpuTemp";
-                  enabled = true;
-                  selectedGpuIndex = 0;
-                  pciId = "1002:73df";
-                }
-              ]
-              else []
-            )
-            ++ [
-              "clipboard"
-              "battery"
-              "controlCenterButton"
-              "clock"
-              "powerMenuButton"
-            ];
+        }
+        {
+          id = "lock_date";
+          widgetType = "lockDate";
+          enabled = true;
+        }
+        {
+          id = "lock_auth";
+          widgetType = "lockAuth";
+          enabled = true;
+        }
+        {
+          id = "lock_notifications";
+          widgetType = "lockNotifications";
+          enabled = true;
+        }
+        {
+          id = "lock_status";
+          widgetType = "lockStatus";
+          enabled = true;
         }
       ];
     };

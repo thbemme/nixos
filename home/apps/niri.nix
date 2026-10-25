@@ -80,7 +80,7 @@
         "Menu".action = spawn "dms" "ipc" "launcher" "toggle";
         "Mod+Space".action = spawn "dms" "ipc" "launcher" "toggle";
         #"Mod".release = toggle-overview; # https://github.com/niri-wm/niri/pull/2456
-        "Mod+Alt+l".action = spawn "loginctl" "lock-session";
+        "Mod+Shift+l".action = spawn "loginctl" "lock-session";
         "Mod+c".action = spawn "dcal" "toggle";
 
         "Mod+WheelScrollDown".action = focus-column-right;
