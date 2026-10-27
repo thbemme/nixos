@@ -99,71 +99,367 @@
       weatherCoordinates = "${vars.weatherCoordinates}";
     };
     settings = {
+      lockScreenWidgetInstances = [
+        {
+          enabled = true;
+          id = "lock_clock";
+          widgetType = "desktopClock";
+        }
+        {
+          enabled = true;
+          id = "lock_date";
+          widgetType = "lockDate";
+        }
+        {
+          enabled = true;
+          id = "lock_auth";
+          widgetType = "lockAuth";
+        }
+        {
+          enabled = true;
+          id = "lock_notifications";
+          widgetType = "lockNotifications";
+        }
+        {
+          enabled = true;
+          id = "lock_status";
+          widgetType = "lockStatus";
+        }
+      ];
+
+      greeterWidgetInstances = [
+        {
+          enabled = true;
+          id = "lock_clock";
+          widgetType = "desktopClock";
+        }
+        {
+          enabled = true;
+          id = "lock_date";
+          widgetType = "lockDate";
+        }
+        {
+          enabled = true;
+          id = "lock_auth";
+          widgetType = "lockAuth";
+        }
+        {
+          enabled = true;
+          id = "lock_status";
+          widgetType = "lockStatus";
+        }
+        {
+          enabled = true;
+          id = "greeter_session";
+          widgetType = "greeterSession";
+          config = {
+            displayPreferences = ["all"];
+            syncPositionAcrossScreens = true;
+          };
+        }
+      ];
+
+      radiusStrength = 30;
+      radiusMode = "scale";
+      fixedRadius = 0;
+      powerMenuDefaultAction = "suspend";
+      dmsWindowsFloatingSeeded = ["niri"];
+      chipSurfaceNestedColor = "sch";
+      widgetBackgroundColor = "sch";
+      widgetColorMode = "default";
+      showWeekNumber = true;
+      calendarBackend = "dankcal";
+      systemTrayIconTintMode = "monochrome";
+
+      controlCenterWidgets = [
+        {
+          col = 0;
+          enabled = true;
+          h = 1;
+          id = "user";
+          row = 0;
+          w = 4;
+        }
+        {
+          col = 4;
+          enabled = true;
+          h = 1;
+          id = "settings";
+          row = 0;
+          small = true;
+          w = 1;
+        }
+        {
+          col = 5;
+          enabled = true;
+          h = 1;
+          id = "lock";
+          row = 0;
+          small = true;
+          w = 1;
+        }
+        {
+          col = 7;
+          enabled = true;
+          h = 1;
+          id = "power";
+          row = 0;
+          small = true;
+          w = 1;
+        }
+        {
+          col = 0;
+          enabled = true;
+          h = 1;
+          id = "brightnessSlider";
+          row = 1;
+          w = 4;
+        }
+        {
+          col = 4;
+          enabled = true;
+          h = 1;
+          id = "volumeSlider";
+          row = 1;
+          w = 4;
+        }
+        {
+          col = 0;
+          enabled = true;
+          h = 1;
+          id = "wifi";
+          row = 2;
+          w = 4;
+        }
+        {
+          col = 4;
+          enabled = true;
+          h = 1;
+          id = "bluetooth";
+          row = 2;
+          w = 4;
+        }
+        {
+          col = 0;
+          enabled = true;
+          h = 1;
+          id = "audioOutput";
+          row = 3;
+          w = 4;
+        }
+        {
+          col = 4;
+          enabled = true;
+          h = 1;
+          id = "audioInput";
+          row = 3;
+          w = 4;
+        }
+        {
+          col = 0;
+          enabled = true;
+          h = 1;
+          id = "darkMode";
+          row = 4;
+          w = 2;
+        }
+        {
+          col = 2;
+          enabled = true;
+          h = 1;
+          id = "nightMode";
+          row = 4;
+          w = 2;
+        }
+        {
+          col = 4;
+          enabled = true;
+          h = 1;
+          id = "doNotDisturb";
+          row = 4;
+          w = 2;
+        }
+        {
+          col = 6;
+          enabled = true;
+          h = 1;
+          id = "idleInhibitor";
+          row = 4;
+          w = 2;
+        }
+        {
+          col = 6;
+          enabled = true;
+          h = 1;
+          id = "edit";
+          row = 0;
+          small = true;
+          w = 1;
+        }
+      ];
+
+      scrollTitleEnabled = false;
+      clockDateFormat = "ddd MMM d";
+
+      dashCards = [
+        {
+          col = 0;
+          h = 1;
+          id = "clock";
+          row = 0;
+          w = 2;
+        }
+        {
+          col = 2;
+          h = 1;
+          id = "weather";
+          row = 0;
+          w = 1;
+        }
+        {
+          col = 3;
+          h = 5;
+          id = "notifications";
+          row = 0;
+          w = 3;
+        }
+        {
+          col = 0;
+          h = 3;
+          id = "calendar";
+          row = 1;
+          w = 3;
+        }
+        {
+          col = 0;
+          h = 1;
+          id = "sysmon";
+          row = 4;
+          w = 3;
+        }
+      ];
+
+      dashOptions = {
+        clock.tone = "";
+        media.lyrics = false;
+        weather.widgets = [
+          {
+            city = true;
+            col = 0;
+            h = 2;
+            id = "conditions";
+            row = 0;
+            tone = "";
+            w = 2;
+          }
+          {
+            col = 2;
+            forecast = "chart";
+            h = 2;
+            id = "hourly";
+            row = 0;
+            w = 2;
+          }
+          {
+            col = 0;
+            h = 2;
+            id = "sun";
+            row = 2;
+            tone = "";
+            w = 1;
+          }
+          {
+            col = 1;
+            h = 2;
+            id = "moon";
+            row = 2;
+            tone = "";
+            w = 1;
+          }
+          {
+            col = 2;
+            graphics = true;
+            h = 2;
+            id = "humidity";
+            row = 2;
+            tone = "";
+            w = 1;
+          }
+          {
+            col = 3;
+            graphics = true;
+            h = 2;
+            id = "wind";
+            row = 2;
+            tone = "";
+            w = 1;
+          }
+          {
+            col = 1;
+            forecast = "chart";
+            h = 2;
+            id = "daily";
+            row = 4;
+            w = 3;
+          }
+          {
+            col = 0;
+            graphics = true;
+            h = 2;
+            id = "precipitation";
+            row = 4;
+            tone = "";
+            w = 1;
+          }
+        ];
+      };
+
       acMonitorTimeout = 180;
       acLockTimeout = 3600;
       acSuspendTimeout = 3600;
-
       batteryMonitorTimeout = 60;
       batterySuspendTimeout = 900;
       batteryChargeLimit = 100;
-
       lockBeforeSuspend = true;
       loginctlLockIntegration = true;
       fadeToLockEnabled = true;
       fadeToLockGracePeriod = 5;
       fadeToDpmsEnabled = true;
       fadeToDpmsGracePeriod = 5;
-
-      clockDateFormat = "ddd MMM d";
-      groupWorkspaceApps = false;
-      innerPadding = 0;
-      launcherLogoMode = "os";
-      launcherPluginVisibility = {
-        dms_settings_search.allowWithoutTrigger = false;
-      };
-      maxWorkspaceIcons = "10";
-      powerMenuDefaultAction = "suspend";
-      radiusStrength = 30;
-      radiusMode = "scale";
-      fixedRadius = 0;
-      scrollTitleEnabled = false;
-      showOccupiedWorkspacesOnly = true;
       terminalsAlwaysDark = true;
-      showWorkspaceApps = true;
-      transparency = "0.8";
-      widgetBackgroundColor = "sch";
-      widgetColorMode = "default";
-      widgetTransparency = "0.8";
-      chipSurfaceNestedColor = "sch";
-      workspaceColorMode = "sc";
-      workspaceUnfocusedColorMode = "sch";
-      showWeekNumber = true;
-      calendarBackend = "dankcal";
 
       barConfigs = [
         {
-          id = "default";
-          name = "Main Bar";
-          enabled = true;
-          position = 0;
           attachToScreenEdge = true;
-          screenPreferences = [
-            "all"
+          centerWidgets = [
+            {
+              groupWorkspaceApps = false;
+              id = "workspaceSwitcher";
+              maxWorkspaceIcons = "10";
+              showOccupiedWorkspacesOnly = true;
+              showWorkspaceApps = true;
+              workspaceColorMode = "sc";
+              workspaceIndicatorCompact = true;
+              workspaceUnfocusedColorMode = "sch";
+            }
           ];
-          showOnLastDisplay = true;
-          transparency = 1;
+          enabled = true;
+          id = "default";
           innerPadding = 0;
           leftWidgets = [
-            "launcherButton"
+            {
+              id = "launcherButton";
+              launcherLogoMode = "os";
+            }
             {
               id = "music";
-              enabled = true;
+              mediaShowCoverArt = false;
+              mediaShowLyrics = false;
               mediaSize = 1;
             }
           ];
-          centerWidgets = [
-            "workspaceSwitcher"
-          ];
+          name = "Main Bar";
+          position = 0;
           rightWidgets =
             [
               "catWidget"
@@ -171,12 +467,10 @@
               "weather"
               {
                 id = "systemTray";
-                enabled = true;
                 trayUseInlineExpansion = true;
               }
               {
                 id = "cpuTemp";
-                enabled = true;
                 minimumWidth = true;
               }
             ]
@@ -185,7 +479,6 @@
               then [
                 {
                   id = "gpuTemp";
-                  enabled = true;
                   selectedGpuIndex = 0;
                   pciId = "1002:73df";
                 }
@@ -199,167 +492,16 @@
               "clock"
               "powerMenuButton"
             ];
+          screenPreferences = ["all"];
+          showOnLastDisplay = true;
         }
       ];
 
-      #      controlCenterWidgets = [
-      #        { id = "user"; enabled = true; w = 4; h = 1; col = 0; row = 0; }
-      #        { id = "settings"; enabled = true; w = 1; h = 1; small = true; col = 4; row = 0; }
-      #        { id = "lock"; enabled = true; w = 1; h = 1; small = true; col = 5; row = 0; }
-      #        { id = "power"; enabled = true; w = 1; h = 1; small = true; col = 7; row = 0; }
-      #        { id = "brightnessSlider"; enabled = true; w = 4; h = 1; col = 0; row = 1; }
-      #        { id = "volumeSlider"; enabled = true; w = 4; h = 1; col = 4; row = 1; }
-      #        { id = "wifi"; enabled = true; w = 4; h = 1; col = 0; row = 2; }
-      #        { id = "bluetooth"; enabled = true; w = 4; h = 1; col = 4; row = 2; }
-      #        { id = "audioOutput"; enabled = true; w = 4; h = 1; col = 0; row = 3; }
-      #        { id = "audioInput"; enabled = true; w = 4; h = 1; col = 4; row = 3; }
-      #        { id = "darkMode"; enabled = true; w = 2; h = 1; col = 0; row = 4; }
-      #        { id = "nightMode"; enabled = true; w = 2; h = 1; col = 2; row = 4; }
-      #        { id = "doNotDisturb"; enabled = true; w = 2; h = 1; col = 4; row = 4; }
-      #        { id = "idleInhibitor"; enabled = true; w = 2; h = 1; col = 6; row = 4; }
-      #        { id = "edit"; enabled = true; w = 1; h = 1; small = true; col = 6; row = 0; }
-      #      ];
-
-      dashCards = [
-        {
-          id = "clock";
-          w = 2;
-          h = 1;
-          col = 0;
-          row = 0;
-        }
-        {
-          id = "weather";
-          w = 1;
-          h = 1;
-          col = 2;
-          row = 0;
-        }
-        {
-          id = "notifications";
-          w = 3;
-          h = 5;
-          col = 3;
-          row = 0;
-        }
-        {
-          id = "calendar";
-          w = 3;
-          h = 3;
-          col = 0;
-          row = 1;
-        }
-        {
-          id = "sysmon";
-          w = 3;
-          h = 1;
-          col = 0;
-          row = 4;
-        }
-      ];
-
-      dashOptions = {
-        media.lyrics = false;
-        clock.tone = "";
-        weather.widgets = [
-          {
-            id = "conditions";
-            w = 2;
-            h = 2;
-            tone = "";
-            city = true;
-            col = 0;
-            row = 0;
-          }
-          {
-            id = "hourly";
-            w = 2;
-            h = 2;
-            forecast = "chart";
-            col = 2;
-            row = 0;
-          }
-          {
-            id = "sun";
-            w = 1;
-            h = 2;
-            tone = "";
-            col = 0;
-            row = 2;
-          }
-          {
-            id = "moon";
-            w = 1;
-            h = 2;
-            tone = "";
-            col = 1;
-            row = 2;
-          }
-          {
-            id = "humidity";
-            w = 1;
-            h = 2;
-            graphics = true;
-            tone = "";
-            col = 2;
-            row = 2;
-          }
-          {
-            id = "wind";
-            w = 1;
-            h = 2;
-            graphics = true;
-            tone = "";
-            col = 3;
-            row = 2;
-          }
-          {
-            id = "daily";
-            w = 3;
-            h = 2;
-            forecast = "chart";
-            col = 1;
-            row = 4;
-          }
-          {
-            id = "precipitation";
-            w = 1;
-            h = 2;
-            graphics = true;
-            tone = "";
-            col = 0;
-            row = 4;
-          }
-        ];
+      launcherPluginVisibility = {
+        dms_settings_search.allowWithoutTrigger = false;
       };
 
-      lockScreenWidgetInstances = [
-        {
-          id = "lock_clock";
-          widgetType = "desktopClock";
-          enabled = true;
-        }
-        {
-          id = "lock_date";
-          widgetType = "lockDate";
-          enabled = true;
-        }
-        {
-          id = "lock_auth";
-          widgetType = "lockAuth";
-          enabled = true;
-        }
-        {
-          id = "lock_notifications";
-          widgetType = "lockNotifications";
-          enabled = true;
-        }
-        {
-          id = "lock_status";
-          widgetType = "lockStatus";
-          enabled = true;
-        }
-      ];
+      configVersion = 42;
     };
   };
 }
