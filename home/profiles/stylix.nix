@@ -3,9 +3,21 @@
   pkgs,
   ...
 }: let
-  stylix-background = pkgs.fetchurl {
-    url = "https://i.redd.it/pivo53w9nyd51.jpg";
-    hash = "sha256-5QjFGb1wO5qfWimRYIAF6BEesxrsZg1AXC3MhKutcEg=";
+  #  stylix-background = pkgs.fetchurl {
+  #    url = "https://i.redd.it/pivo53w9nyd51.jpg";
+  #    hash = "sha256-5QjFGb1wO5qfWimRYIAF6BEesxrsZg1AXC3MhKutcEg=";
+  #  };
+  stylix-background = pkgs.stdenv.mkDerivation {
+    name = "wallhaven-3zmr6y-cropped";
+
+    src = pkgs.fetchurl {
+      url = "https://w.wallhaven.cc/full/3z/wallhaven-3zmr6y.jpg";
+      hash = "sha256-hLGDkni4BdC+9etcrBhQkE8efay31JFsW1gRHP2RYO0=";
+    };
+    nativeBuildInputs = with pkgs; [imagemagick];
+    buildCommand = ''
+      magick $src -gravity South -crop 2560x1440+0+70 +repage $out
+    '';
   };
 
   opacity = 0.90;
