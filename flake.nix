@@ -18,20 +18,23 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:nix-community/stylix/release-26.05";
+    stylix = {
+      url = "github:nix-community/stylix/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     niri = {
       url = "github:epireyn/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Quickshell 0.3.2
+
     quickshell = {
-      url = "git+https://git.outfoxxed.me/quickshell/quickshell/?ref=master&rev=4f508be500dea6e5732cc3d50382a0048b17e7b1";
+      url = "https://git.outfoxxed.me/quickshell/quickshell/archive/v0.3.2.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     dux-shell = {
-      url = "github:duxlabs-dev/dux-shell"; #/stable";
+      url = "github:duxlabs-dev/dux-shell/stable-2.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -41,12 +44,12 @@
     };
 
     dux-search = {
-      url = "github:duxlabs-dev/dux-search";
+      url = "github:duxlabs-dev/dux-search/stable-2.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     dux-calendar = {
-      url = "github:duxlabs-dev/dux-calendar";
+      url = "github:duxlabs-dev/dux-calendar/stable-2.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

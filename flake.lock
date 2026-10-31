@@ -86,11 +86,11 @@
     "dank-qml-common": {
       "flake": false,
       "locked": {
-        "lastModified": 1793399959,
-        "narHash": "sha256-Hvhzll0FJ+2dYv4L1FGCuiY9RbbNjvLoi7lm3wcfAXI=",
+        "lastModified": 1793444058,
+        "narHash": "sha256-YL9pm7n++0r6uXMQDg4CmB0++JGUezXIlgmp87KiUxM=",
         "owner": "duxlabs-dev",
         "repo": "dux-qml-common",
-        "rev": "9a5e9a21c06f2b29718d8e6304ddcd672d419e07",
+        "rev": "934de22f3e246dff16ab06368582c5ae8cbdc304",
         "type": "github"
       },
       "original": {
@@ -102,11 +102,11 @@
     "dank-qml-common_2": {
       "flake": false,
       "locked": {
-        "lastModified": 1793399959,
-        "narHash": "sha256-Hvhzll0FJ+2dYv4L1FGCuiY9RbbNjvLoi7lm3wcfAXI=",
+        "lastModified": 1793444058,
+        "narHash": "sha256-YL9pm7n++0r6uXMQDg4CmB0++JGUezXIlgmp87KiUxM=",
         "owner": "duxlabs-dev",
         "repo": "dux-qml-common",
-        "rev": "9a5e9a21c06f2b29718d8e6304ddcd672d419e07",
+        "rev": "934de22f3e246dff16ab06368582c5ae8cbdc304",
         "type": "github"
       },
       "original": {
@@ -123,15 +123,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1793400056,
-        "narHash": "sha256-Yjrz8mdVMvotqaIppRDta/jEt2H5x6gHsl9UHUPG6t8=",
+        "lastModified": 1793444238,
+        "narHash": "sha256-1mI4wmATjtywsVCrdrlg5XdW8M2GpPwr6LysqDF48TI=",
         "owner": "duxlabs-dev",
         "repo": "dux-calendar",
-        "rev": "723d56ed5d97548e5d1bcbf94d8a334e009bb6e9",
+        "rev": "9465336c4f8f3f661494c57be76e6c9869700886",
         "type": "github"
       },
       "original": {
         "owner": "duxlabs-dev",
+        "ref": "stable-2.0",
         "repo": "dux-calendar",
         "type": "github"
       }
@@ -143,11 +144,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793422891,
-        "narHash": "sha256-8oBvDXaHARvWL9KE+sVkKM1uz5bHPPlVbDiybf/ILoo=",
+        "lastModified": 1793450044,
+        "narHash": "sha256-+rxT3LdDzVqzgfAiAtqGJNmTm0Z6pEKnf+GXf+G8X+U=",
         "owner": "duxlabs-dev",
         "repo": "dux-plugin-registry",
-        "rev": "3c65216153782490dd85dd8a5826826d7c003391",
+        "rev": "4f032c8733b64b081272e1b16723ff6ad65f0476",
         "type": "github"
       },
       "original": {
@@ -163,15 +164,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1793318943,
-        "narHash": "sha256-BvLpLs8cBzSzLLEoQDgyMilL56J6u5vQRE2Ro3YO/TQ=",
+        "lastModified": 1793318963,
+        "narHash": "sha256-BVCNpRaROyERkYk5VtyXSFsI+d8B321QZWfPw+/BdLM=",
         "owner": "duxlabs-dev",
         "repo": "dux-search",
-        "rev": "458f987b0587c9ed8db2dafdb0326fb3f3a713a2",
+        "rev": "7ba5f82942bede05c273ff02fc08639af5a84226",
         "type": "github"
       },
       "original": {
         "owner": "duxlabs-dev",
+        "ref": "stable-2.0",
         "repo": "dux-search",
         "type": "github"
       }
@@ -185,15 +187,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1793437361,
-        "narHash": "sha256-K1oCmSVHdA6Hpvz/DHv4symhwng5B2vIyKdI90C1zLg=",
+        "lastModified": 1793445313,
+        "narHash": "sha256-jiC+xUsGnLsMhc8GyMt2bJ3M21HKsITeLz5Jy+ow7L8=",
         "owner": "duxlabs-dev",
         "repo": "dux-shell",
-        "rev": "fe3827f2ab186f139ff6fd55e0cf06e50fbbefc6",
+        "rev": "0aa213f17fc5c5394a3998a8d1c71fb4077f2820",
         "type": "github"
       },
       "original": {
         "owner": "duxlabs-dev",
+        "ref": "stable-2.0",
         "repo": "dux-shell",
         "type": "github"
       }
@@ -373,11 +376,11 @@
         "xwayland-satellite-unstable": "xwayland-satellite-unstable"
       },
       "locked": {
-        "lastModified": 1793401013,
-        "narHash": "sha256-EV2ImNIprXf+L6E33fvJqJy8H5ZUW+6QnZI46WcfYNY=",
+        "lastModified": 1793439035,
+        "narHash": "sha256-3ecL4J4Ffgv4fhBUV9LHGcU8YvEddoMRxj3kNei8/Vw=",
         "owner": "epireyn",
         "repo": "niri-flake",
-        "rev": "e85b7c252dd81fc826598af8ff8aa8b6f33bf26e",
+        "rev": "f46f7f993d6ec1668c62e79932f618ff1a331348",
         "type": "github"
       },
       "original": {
@@ -406,11 +409,11 @@
     "niri-unstable": {
       "flake": false,
       "locked": {
-        "lastModified": 1793340996,
-        "narHash": "sha256-Vf+Ea6sgZ2fn+NU1m0wtIl6MJIOyXZ2BBlwd/HDYKio=",
+        "lastModified": 1793433282,
+        "narHash": "sha256-Hb9YM87WXxh9K4KIZ0U5e4M+6POT5hK2mGI5xj/kBXo=",
         "owner": "niri-wm",
         "repo": "niri",
-        "rev": "b22eb842ca9506d4e2ff997b116031cdb3f650f8",
+        "rev": "8e7b5745407294ed37b4b4d8ff4cf4574d45686b",
         "type": "github"
       },
       "original": {
@@ -598,22 +601,6 @@
         "url": "https://channels.nixos.org/nixos-26.05/nixexprs.tar.zst"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1790750587,
-        "narHash": "sha256-VfjaoJ1Uyb7JZTrBgE5Jf2nhjtQPmD9KOd19HJwmZwM=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "78e9c786dc08cd4f3420c2395cd977206a9b1da2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-26.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nmd": {
       "inputs": {
         "nixpkgs": [
@@ -708,17 +695,13 @@
       "locked": {
         "lastModified": 1791448974,
         "narHash": "sha256-lPbqsyAD5ZoGFMZ1eqAlTULfeP5Nwhy+XvOowF7BE+E=",
-        "ref": "master",
-        "rev": "4f508be500dea6e5732cc3d50382a0048b17e7b1",
-        "revCount": 868,
-        "type": "git",
-        "url": "https://git.outfoxxed.me/quickshell/quickshell/"
+        "rev": "8e2bb761d3e994fc04359c55dec269b747654b6a",
+        "type": "tarball",
+        "url": "https://git.outfoxxed.me/api/v1/repos/quickshell/quickshell/archive/8e2bb761d3e994fc04359c55dec269b747654b6a.tar.gz"
       },
       "original": {
-        "ref": "master",
-        "rev": "4f508be500dea6e5732cc3d50382a0048b17e7b1",
-        "type": "git",
-        "url": "https://git.outfoxxed.me/quickshell/quickshell/"
+        "type": "tarball",
+        "url": "https://git.outfoxxed.me/quickshell/quickshell/archive/v0.3.2.tar.gz"
       }
     },
     "root": {
@@ -785,7 +768,9 @@
         "firefox-gnome-theme": "firefox-gnome-theme",
         "flake-parts": "flake-parts",
         "gnome-shell": "gnome-shell",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "nur": "nur",
         "systems": "systems",
         "tinted-kitty": "tinted-kitty",
