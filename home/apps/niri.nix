@@ -255,6 +255,7 @@
             {app-id = "^librewolf$";}
             {app-id = "^org.gnome.Boxes$";}
             {app-id = "^rusty-path-of-building-";}
+            {app-id = "^steam_app_default";}
             {app-id = "^krita$";}
             {app-id = "^lyx$";}
             {app-id = "^org.gnome.SimpleScan$";}
