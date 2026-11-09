@@ -34,7 +34,7 @@
     };
 
     dux-shell = {
-      url = "github:duxlabs-dev/dux-shell/stable-2.0";
+      url = "github:duxlabs-dev/dux-shell/stable-2.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -44,12 +44,12 @@
     };
 
     dux-search = {
-      url = "github:duxlabs-dev/dux-search/stable-2.0";
+      url = "github:duxlabs-dev/dux-search/stable-2.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     dux-calendar = {
-      url = "github:duxlabs-dev/dux-calendar/stable-2.0";
+      url = "github:duxlabs-dev/dux-calendar/stable-2.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

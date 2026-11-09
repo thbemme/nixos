@@ -13,13 +13,13 @@
       gzdoom
       heroic
       protonup-qt
+      rusty-path-of-building
       scummvm
       winetricks
       wineWow64Packages.staging
     ])
     ++ (with pkgs-unstable; [
-      rusty-path-of-building
-    ]);
+      ]);
 
   programs = {
     steam = {

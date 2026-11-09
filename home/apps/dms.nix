@@ -169,6 +169,7 @@
       widgetColorMode = "default";
       showWeekNumber = true;
       calendarBackend = "dankcal";
+      density = "compact";
       systemTrayIconTintMode = "monochrome";
 
       controlCenterWidgets = [
