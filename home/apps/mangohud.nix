@@ -25,7 +25,7 @@
     fps_color_change
     fps_color=cc0000,ffaa7f,92e79a
     fps_value=30,60
-    fps_limit=100,0
+    fps_limit=83
     fps_limit_method=late
     frame_timing
     frametime_color=00ff00

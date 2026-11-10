@@ -9,9 +9,11 @@
     inputs.niri.homeModules.stylix
   ];
 
+  nixpkgs.overlays = [inputs.niri.overlays.niri];
+
   programs.niri = {
     enable = true;
-    package = pkgs.niri;
+    package = pkgs.niri-unstable;
 
     settings = {
       overview = {
@@ -82,9 +84,14 @@
         "Mod+Shift+n".action = spawn "ghostty" "-e" "yazi";
         "Mod+v".action = spawn "dms" "ipc" "notepad" "toggle";
         "Mod+Shift+v".action = spawn "ghostty" "-e" "nvim";
-        "Menu".action = spawn "dms" "ipc" "launcher" "toggle";
-        "Mod+Space".action = spawn "dms" "ipc" "launcher" "toggle";
-        #"Mod".release = toggle-overview; # https://github.com/niri-wm/niri/pull/2456
+        "Menu" = {
+          action = spawn "dms" "ipc" "launcher" "toggle";
+          repeat = false;
+        };
+        "Mod" = {
+          release = spawn "dms" "ipc" "launcher" "toggle";
+          repeat = false;
+        };
         "Mod+Shift+l".action = spawn "loginctl" "lock-session";
         "Mod+c".action = spawn "dcal" "toggle";
 
