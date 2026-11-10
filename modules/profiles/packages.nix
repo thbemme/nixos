@@ -1,31 +1,52 @@
 {pkgs}:
 with pkgs; [
+  # core system
   coreutils
-  curl
-  dfc
-  dust
-  eza
-  fd
   findutils
-  fzf
-  git
-  git-crypt
-  gnupg
-  grc
-  htop
-  jq
+  procps
   killall
   openssh
   openssl
-  pfetch-rs
-  procps
-  pv
-  q
+
+  # shell / navigation
+  fzf
+  fd
+  eza
+
+  # text / search
   ripgrep
-  spectre-meltdown-checker
-  stress-ng
+  jq
+  q
+
+  # git
+  git
+  git-crypt
+  lazygit
+
+  # files / disk
+  dfc
+  dust
+  pv
+
+  # system monitoring
+  htop
+  pfetch-rs
   viddy
+
+  # network
+  curl
   wget
+
+  # security / crypto
+  gnupg
+  spectre-meltdown-checker
+
+  # stress testing
+  stress-ng
+
+  # colorizers
+  grc
+
   # formatters and linters
   alejandra # nix
   deadnix # nix
