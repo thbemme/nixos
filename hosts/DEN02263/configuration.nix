@@ -4,7 +4,6 @@ _: {
     ./hardware-configuration.nix
     ../../modules/profiles/default.nix
     ../../modules/profiles/desktop-extras.nix
-    #../../modules/profiles/desktop-gnome.nix
     ../../modules/profiles/desktop-minimal.nix
     ../../modules/profiles/desktop-niri.nix
     ../../modules/profiles/gaming.nix
@@ -19,7 +18,7 @@ _: {
     ../../modules/system/hosts.nix
     ../../modules/system/kernel-desktop.nix
     ../../modules/system/plymouth.nix
-    #../../modules/system/secureboot.nix
+    ../../modules/system/secureboot.nix
   ];
 
   networking.hostName = "DEN02263"; # Define your hostname.
