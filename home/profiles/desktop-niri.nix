@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ../apps/dms.nix
+    ../apps/dms
     ../apps/mpv.nix
     ../apps/niri
     ../apps/rmpc.nix

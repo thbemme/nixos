@@ -16,6 +16,7 @@
     "^rusty-path-of-building-"
     "^scribus$"
     "^steam_app_default"
+    "^Tor Browser$"
   ];
 
   gameApps = ["^steam$" "^heroic$" "^steam_app_" "^rusty-path-of-building-" "\\.exe$"];
