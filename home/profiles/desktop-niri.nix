@@ -2,7 +2,7 @@
   imports = [
     ../apps/dms.nix
     ../apps/mpv.nix
-    ../apps/niri.nix
+    ../apps/niri
     ../apps/rmpc.nix
     ../apps/yazi.nix
   ];
