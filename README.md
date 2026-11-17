@@ -5,7 +5,9 @@
 ---
 
 ## 📌 Overview
+
 This repository contains my **NixOS** and **Home Manager** configurations for various environments, including:
+
 - [**Native NixOS**](#native-nixos) (Desktops, Servers)
 - [**WSL**](#wsl) (Windows Subsystem for Linux)
 - [**Nix-on-Droid**](#nix-on-droid) (Android devices)
@@ -14,75 +16,85 @@ This repository contains my **NixOS** and **Home Manager** configurations for va
 The setup supports [**GitCrypt**](#gitcrypt) for secrets management.
 
 ## 👀 Screenshot
+
 Niri + Dank Material Shell with [Rose Pine theme](https://rosepinetheme.com/):
 
 ![niri-dms-rosepine](assets/niri-dms-rosepine.jpg)
 ---
 
 ## 📂 Structure
-   | Directory/File | Description                                                   |
-   | -------------- | ------------------------------------------------------------- |
-   | `home/`        | Home Manager configurations and user-specific settings        |
-   | `hosts/`       | Host-specific configurations (e.g., `mikrobi/`, `puffy/`)     |
-   | `modules/`     | Reusable NixOS modules (hardware, profiles, services, system) |
-   | `packages/`    | Self defined packages                                         |
-   | `scripts/`     | Utility scripts for setup and maintenance                     |
-   | `secrets/`     | Sensitive data and configuration (encrypted with GitCrypt)    |
-   | `shells/`      | Development shells                                            |
+
+| Directory/File | Description                                                   |
+| -------------- | ------------------------------------------------------------- |
+| `home/`        | Home Manager configurations and user-specific settings        |
+| `hosts/`       | Host-specific configurations (e.g., `mikrobi`, `puffy`)     |
+| `modules/`     | Reusable NixOS modules (hardware, profiles, services, system) |
+| `packages/`    | Self defined packages                                         |
+| `scripts/`     | Utility scripts for setup and maintenance                     |
+| `secrets/`     | Sensitive data and configuration (encrypted with GitCrypt)    |
+| `shells/`      | Development shells                                            |
 
 ---
 
 ## 🔧 Modules
 
 ### Hardware
- | Module                                  | Description                              |
- | --------------------------------------- | ---------------------------------------- |
- | [AMD GPU](modules/hardware/amdgpu.nix)  | Lact, Vulkan Tools, and GPU undervolting |
- | [LED control](modules/hardware/led.nix) | Control LED colors                       |
+
+| Module                                  | Description                              |
+| --------------------------------------- | ---------------------------------------- |
+| [AMD GPU](modules/hardware/amdgpu.nix)  | Lact, Vulkan Tools, and GPU undervolting |
+| [LED control](modules/hardware/led.nix) | Control LED colors                       |
 
 ### Profiles
- | Module                                                          | Description                                  |
- | --------------------------------------------------------------- | -------------------------------------------- |
- | [Development](modules/profiles/dev.nix)                         | Thonny, Android Studio (unstable)            |
- | [Gaming](modules/profiles/gaming.nix)                           | Lutris, Steam, Wine                          |
- | [GNOME](modules/profiles/desktop-gnome.nix)                     | Fallback GNOME desktop environment           |
- | [GUI Extras](modules/profiles/desktop-extras.nix)               | Additional GUI configuration                 |
- | [GUI](modules/profiles/desktop-minimal.nix)                     | Minimal GUI configuration                    |
- | [Niri + Dank Material Shell](modules/profiles/desktop-niri.nix) | Niri + Dank Material Shell                   |
- | [Security](modules/profiles/security.nix)                       | Nmap, Wireshark, and auditing tools          |
- | [Work](modules/profiles/work.nix)                               | Additonal configuration for work environment |
+
+| Module                                                        | Description                                       |
+| ------------------------------------------------------------- | ------------------------------------------------- |
+| [Development](modules/profiles/dev.nix)                       | Thonny, Android Studio (unstable)                 |
+| [Gaming](modules/profiles/gaming.nix)                         | Heroic, Steam, Wine                               |
+| [GNOME](modules/profiles/desktop-gnome.nix)                   | Fallback GNOME desktop environment                |
+| [GUI Extras](modules/profiles/desktop-extras.nix)             | Additional GUI configuration                      |
+| [GUI](modules/profiles/desktop-minimal.nix)                   | Minimal GUI configuration                         |
+| [Niri + Dux Modular Shell](modules/profiles/desktop-niri.nix) | Wayland desktop using Niri with Dux Modular Shell |
+| [Security](modules/profiles/security.nix)                     | Nmap, Wireshark, and auditing tools               |
+| [Work](modules/profiles/work.nix)                             | Additonal configuration for work environment      |
 
 ### Services
- | Module                                        | Description                                     |
- | --------------------------------------------- | ----------------------------------------------- |
- | [Generative AI/LLM](modules/services/llm.nix) | ComfyUI, Mimic (TTS), Ollama, Open-WebUI, oterm |
- | [Printing](modules/services/printing.nix)     | Printer and scanner setup                       |
- | [Prometheus](modules/services/prometheus.nix) | Prometheus exporter for Grafana monitoring      |
- | [SSH](modules/services/ssh.nix)               | SSH remote login configuration                  |
- | [Virtualization](modules/services/virt.nix)   | GNOME Boxes, UEFI fix, QEMU                     |
+
+| Module                                        | Description                                     |
+| --------------------------------------------- | ----------------------------------------------- |
+| [Generative AI/LLM](modules/services/llm.nix) | ComfyUI, Mimic (TTS), Ollama, Open-WebUI, oterm |
+| [Printing](modules/services/printing.nix)     | Printer and scanner setup                       |
+| [Prometheus](modules/services/prometheus.nix) | Prometheus exporter for Grafana monitoring      |
+| [SSH](modules/services/ssh.nix)               | SSH remote login configuration                  |
+| [Virtualization](modules/services/virt.nix)   | GNOME Boxes, UEFI fix, QEMU                     |
 
 ### System
- | Module                                       | Description                                                  |
- | -------------------------------------------- | ------------------------------------------------------------ |
- | [Hibernation](modules/system/hibernate.nix)  | Hibernate on power button, sleep then hibernate on lid close |
- | [Kernels](modules/system/kernel-default.nix) | Default, desktop, and server kernel settings                 |
- | [Plymouth](modules/system/plymouth.nix)      | Plymouth graphical boot process settings                     |
- | [Secure Boot](modules/system/secureboot.nix) | Secure Boot configuration                                    |
+
+| Module                                       | Description                                                  |
+| -------------------------------------------- | ------------------------------------------------------------ |
+| [Hibernation](modules/system/hibernate.nix)  | Hibernate on power button, sleep then hibernate on lid close |
+| [Kernels](modules/system/kernel-default.nix) | Default, desktop, and server kernel settings                 |
+| [Plymouth](modules/system/plymouth.nix)      | Plymouth graphical boot process settings                     |
+| [Secure Boot](modules/system/secureboot.nix) | Secure Boot configuration                                    |
 
 ### Home Manager
- | Module                                 | Description                                |
- | -------------------------------------- | ------------------------------------------ |
- | [Ghostty](home/apps/ghostty.nix)       | Customized Ghostty terminal configuration  |
- | [Librewolf](home/apps/librewolf.nix)   | Customized Librewolf browser configuration |
- | [NeoVim](home/apps/neovim.nix)         | Customized NeoVim configuration            |
- | [Stylix](home/profiles/stylix.nix)     | Stylix configuration for Rose Pine theme   |
- | [Zed Editor](home/apps/zed-editor.nix) | Zed Editor configuration                   |
+
+| Module                                 | Description                                |
+| -------------------------------------- | ------------------------------------------ |
+| [Ghostty](home/apps/ghostty.nix)       | Customized Ghostty terminal configuration  |
+| [Librewolf](home/apps/librewolf.nix)   | Customized Librewolf browser configuration |
+| [NeoVim](home/apps/neovim.nix)         | Customized NeoVim configuration            |
+| [Stylix](home/profiles/stylix.nix)     | Stylix configuration for Rose Pine theme   |
+| [Zed Editor](home/apps/zed-editor.nix) | Zed Editor configuration                   |
 
 ---
 
 ## 🔐 Gitcrypt
+
 **GitCrypt** is used to encrypt sensitive files (e.g., `secrets/variables.json`).
+
 ### Setup
+
 - [Setup steps](https://lgug2z.com/articles/handling-secrets-in-nixos-an-overview/#managing-your-own-physical-machines)
 
 - Make sure `git` and `git-crypt` is installed:
@@ -98,6 +110,7 @@ git-crypt export-key -|base64 -w0
 ```
 
 - Save key
+
 ### Unlock the repository
 
 ```shell
@@ -128,7 +141,7 @@ cd ~/git/nixos
 
 ```shell
 scripts/disksetup_gpt.sh
-# Or  
+# Or
 scripts/disksetup_mbr.sh
 ```
 
@@ -266,4 +279,5 @@ home-manager switch --flake ~/git/nixos/#hm
 - Pull from git with `pu`
 
 ## 📜 License
+
 This project is licensed under the **MIT License**.
