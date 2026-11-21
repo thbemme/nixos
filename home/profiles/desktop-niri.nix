@@ -8,9 +8,11 @@
   ];
 
   home.packages = with pkgs; [
+    brightnessctl
     kdePackages.qt6ct
     libqalculate
     nautilus
+    playerctl
     pwvucontrol
     qalculate-gtk
     simple-scan
