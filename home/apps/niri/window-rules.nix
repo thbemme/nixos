@@ -4,6 +4,7 @@
 
   maximizedOpaqueApps = [
     "\\.exe$"
+    "^Tor Browser$"
     "^app.organicmaps.desktop$"
     "^gimp"
     "^krita$"
@@ -12,13 +13,14 @@
     "^lyx$"
     "^org.gnome.Boxes$"
     "^org.gnome.SimpleScan$"
+    "^org.ladybird.Ladybird$"
     "^org.remmina.Remmina$"
     "^rusty-path-of-building-"
     "^scribus$"
     "^steam_app_default"
-    "^Tor Browser$"
   ];
 
+  mainApps = ["com.mitchellh.ghostty" "^librewolf$" "^org.ladybird.Ladybird$"];
   gameApps = ["^steam$" "^heroic$" "^steam_app_" "^rusty-path-of-building-" "\\.exe$"];
   devApps = ["^dev\\.zed\\.Zed$" "^Thonny$"];
   commApps = ["^io.github.tdesktop_x64.TDesktop$" "^telegram-desktop$" "^wasistlos$" "^element$"];
@@ -58,12 +60,6 @@ in {
         active.color = colors.base08;
         inactive.color = colors.base0A;
       };
-    }
-
-    # Ghostty on main
-    {
-      matches = [{app-id = "com.mitchellh.ghostty";}];
-      open-on-workspace = "main";
     }
 
     # Big apps: maximized, fully opaque (Remmina menu excluded via its own rule)
@@ -116,7 +112,7 @@ in {
 
     ### Workspace assignment
     {
-      matches = [{app-id = "^librewolf$";}];
+      matches = map (app-id: {inherit app-id;}) mainApps;
       open-on-workspace = "main";
     }
     {
